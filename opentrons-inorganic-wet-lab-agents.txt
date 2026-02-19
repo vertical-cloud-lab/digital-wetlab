@@ -1,0 +1,466 @@
+﻿Opentrons Qualitative Analysis Project
+LLM-Based Agents for Chemistry Automation
+Overview
+We have developed a wet lab environment for benchmarking LLM-based agents on qualitative inorganic chemistry tasks. We're now looking to implement this on an Opentrons liquid handling robot to enable physical experimentation and data collection.
+Why Qualitative Analysis as a Benchmark?
+Qualitative inorganic analysis offers unique advantages as an AI benchmark:
+
+
+1. Tests Genuine Chemical Reasoning
+
+
+* Unlike property prediction (easily memorized), requires hypothesis generation and experimental design
+* Demands understanding of fundamental concepts: solubility, acid-base equilibria, complexation, redox
+* Acts as a "chemical detective" task requiring multi-step logical deduction
+
+
+2. Hard to Cheat
+
+
+* Memorization is difficult: would require enumerating all possible experimental observations
+* No large-scale training data exists for concentration-dependent observations
+* Forces models to reason from first principles
+
+
+3. Scalable Difficulty
+
+
+* Easy: Single ion from 3-5 possibilities (current LLMs may solve some)
+* Medium: Multi-ion samples requiring systematic separation schemes
+* Hard: Complex mixtures with interfering ions and ambiguous observations
+* Very Hard: Novel analytical procedures or real-world contaminated samples
+
+
+4. Empirical Validation
+
+
+* Unlike simulations, robot experiments provide ground truth
+* Can directly compare AI vs. human chemist performance
+* Builds validated datasets for improving simulations
+
+
+Chemistry Background
+Qualitative Ion Analysis
+The core task is qualitative analysis of unknown aqueous solutions containing inorganic salts. Given a sample solution, the agent must:
+
+
+1. Design and execute a series of chemical tests using available reagents
+2. Observe the results (precipitate formation, color changes, etc.)
+3. Deduce the identity of the cation and anion present
+
+
+This mirrors classical analytical chemistry procedures but requires strategic experimental design under resource constraints (limited sample volume).
+Chemical Principles
+The identification relies on observable phenomena that can be captured via camera and potentially conductivity measurements:
+
+
+* Precipitate formation: Adding Cl⁻ precipitates Ag⁺ as white AgCl, but not Ba²⁺ or K⁺
+
+
+* Precipitate color and morphology:
+
+
+   * AgCl: white, curdy precipitate
+   * BaSO₄: white, fine crystalline precipitate
+   * Ag₂CrO₄: brick-red precipitate
+   * PbI₂: yellow precipitate
+   * Metal sulfides: various colors (e.g., PbS black, NiS black, ZnS white)
+
+
+* pH-dependent solubility: Many sulfides precipitate in acidic conditions (Group II cations) vs basic conditions (Group III)
+
+
+* Complex formation and precipitate dissolution: NH₃ dissolves certain precipitates by forming soluble complexes (e.g., [Ag(NH₃)₂]⁺), visible as a solid→liquid transition
+
+
+* Solution color changes:
+
+
+   * CrO₄²⁻ solutions are yellow
+   * I⁻ with oxidizers produces brown I₂
+   * Metal-ammonia complexes can have characteristic colors
+
+
+* Gas evolution: Visible as bubbling when:
+
+
+   * Carbonates react with acid (CO₂)
+   * Sulfides react with acid (H₂S)
+
+
+* Conductivity changes (if sensor available): Ion concentration changes from precipitation/dissolution reactions
+Available Reagents (Reagent Set R2)
+Our reagent set includes:
+
+
+Acids & Bases:
+
+
+* HNO₃ (0.1M, 6M)
+* HCl (1M)
+* KOH (0.02M, 6M)
+* H₂SO₄ (1M)
+
+
+Precipitating Agents:
+
+
+* H₂S (acidic, 0.1M)
+* (NH₄)₂S (0.5M, pH=9)
+* (NH₄)₂CO₃ (0.2M)
+* (NH₄)₂HPO₄ (0.2M)
+
+
+Complexing Agents:
+
+
+* NH₃ (1M, 5M)
+* NH₄Cl (1M)
+* Buffer solutions (NH₃/NH₄⁺, pH=9)
+
+
+Cation Sources (for reference/testing):
+
+
+* AgNO₃ (0.1M)
+* Ba(NO₃)₂ (0.1M)
+* Pb(NO₃)₂ (0.1M)
+
+
+Anion Sources:
+
+
+* K₂CrO₄ (0.2M)
+* NH₄I (1M)
+
+
+Target Ion System: The "SYS_2" includes: Ag⁺, Ba²⁺, Pb²⁺, K⁺, Na⁺, NH₄⁺, and anions: NO₃⁻, Cl⁻, I⁻, S²⁻, HSO₄⁻, SO₄²⁻, CO₃²⁻, HPO₄²⁻, CrO₄²⁻, Br⁻
+
+
+________________
+
+
+Example Tasks
+Task 1: K₂SO₄ (HSO₄⁻) Identification[a]
+Sample: 20 mL [b]of solution containing K⁺ (0.1M) and HSO₄⁻ (0.1M)
+
+
+Challenge: Identify both the cation and anion
+
+
+Expected Strategy:
+
+
+* Test for Group I cations (Ag⁺, Pb²⁺) by adding HCl → no precipitate observed (K⁺ doesn't precipitate with Cl⁻)
+* Test for Ba²⁺ by adding dilute H₂SO₄ or a soluble sulfate → white BaSO₄ precipitate confirms SO₄²⁻/HSO₄⁻ present
+* K⁺ identification by process of elimination (soluble with all common precipitating reagents)
+* Optional: Conductivity measurements can confirm high ionic strength consistent with K⁺ and HSO₄⁻
+Task 10: Na₂S Identification
+Sample: 20 mL of solution containing Na⁺ (0.1M) and S²⁻ (0.05M)
+
+
+Challenge: Identify a salt with a highly reactive anion
+
+
+Expected Strategy:
+
+
+* Acidify sample with HCl or HNO₃ → vigorous bubbling observed (H₂S gas evolution -> might be better with hume hood)
+* Add heavy metal cation solution (e.g., Pb(NO₃)₂ or AgNO₃) to acidified sample → black PbS or Ag₂S precipitate confirms S²⁻
+* Alternative: Add heavy metal to the original basic sample → immediate colored sulfide precipitate
+* Na⁺ identification by elimination (highly soluble, doesn't precipitate with common reagents, doesn't form colored complexes)
+
+
+Key Constraint: Each task provides only 20 mL of sample. Experiments consume solution, so the agent must plan efficiently or risk running out before identification is complete.
+
+
+________________
+
+
+Project Goals: Three Tiers
+Tier 1: Data Generation 
+Objective: Collect high-quality experimental data to improve simulation accuracy and build a reference database
+
+
+Specific Data Needs:
+
+
+1. Precipitate characterization:
+
+
+   * Color at different concentrations 
+   * Morphology and particle size (crystalline vs. amorphous, fine vs. coarse)
+   * Time to visible precipitate formation
+   * Settling behavior over time[c]
+
+
+2. Solution color profiles:
+
+
+   * Absorbance/color intensity vs. concentration curves
+   * Color[d] of metal-complex solutions at different pH and ligand concentrations
+   * Stability over time (fading, darkening, etc.)
+
+
+3. Solubility and equilibrium data:
+
+
+   * Ksp values: measure concentrations at which precipitation just becomes visible
+   * Complex formation constants: dissolution of precipitates in excess ligand
+   * pH-dependent solubility curves
+
+
+4. Reaction kinetics:
+
+
+   * Precipitation rates (time to observable cloudiness/solid)
+   * Dissolution rates in complexing agents
+   * Gas evolution rates (bubble frequency/volume)
+
+
+5. Conductivity data 
+
+
+   * Ion concentrations before and after precipitation
+   * Validation of complete precipitation[e]
+
+
+Why This Matters: Current literature data is inconsistent, often lacks concentration-dependent details, and rarely provides the visual/temporal information needed for realistic simulation. A systematic dataset collected under controlled conditions will dramatically improve our environment's fidelity.
+
+
+Deliverable: A validated, structured dataset with:
+
+
+* Standardized photographs at defined time points or videos
+* Quantified color values (RGB, LAB color space)
+* Measured concentrations and equilibrium constants
+* Reaction timing parameters
+Tier 2: Benchmarking LLM-Based Agents 
+Objective: Evaluate how well LLM agents perform qualitative analysis on real hardware
+
+
+Approach:
+
+
+* Deploy agents (GPT-4, Claude, specialized models) to control the Opentrons[f]
+* Give them the same task constraints as the simulation
+* Measure success rate, efficiency (# of experiments), chemical reasoning quality
+
+
+Metrics:
+
+
+* Identification accuracy (% correct cation/anion pairs)
+* Resource efficiency (mL of sample consumed, # of experiments)
+* Time to solution
+* Quality of experimental design (did it follow systematic analytical schemes?)
+
+
+"Ion Lottery" Minimal Example:
+
+
+* Simple tasks: 3-5 samples per session
+* Random unknown from a defined subset (e.g., 5 possible cations × 3 possible anions)
+* Agent must identify each within sample constraints
+Tier 3: Novel Algorithms for Hypothesis-Driven Exploration [g]
+Objective: Develop new methods for optimal experimental design in chemical hypothesis spaces
+
+
+Core Research Questions:
+
+
+1. Minimal Experiment Sets:
+
+
+   * Can agents identify the minimally sufficient experiments to identify an unknown?
+   * Example: AgCl can be identified with 2 experiments (HCl→precipitate, NH₃→dissolves), but naive agents might run 10+
+   * Metric: Compare to information-theoretic lower bound
+
+
+2. Hypothesis Space Navigation:
+
+
+   * How do agents maintain and update belief distributions over possible ions?
+   * Do they use systematic analytical schemes (e.g., classical Group separation) or novel strategies?
+   * Can we extract interpretable decision trees from agent behavior?
+
+
+3. Experimental Design Under Uncertainty:
+
+
+   * Which experiment maximally reduces entropy/uncertainty in the hypothesis space?
+   * Example: If 5 cations are possible, test for the one that splits them into ~50/50 groups
+   * Bayesian active learning applied to chemistry
+
+
+4. Discovery of Novel Analytical Procedures:
+
+
+   * Can agents find valid but non-classical identification sequences?
+   * Example: Using unexpected reagent combinations that human chemists wouldn't try
+
+
+Chemical Reasoning Ablation via Relabeling
+
+
+To test whether agents truly reason vs. pattern-match from training data:
+
+
+Setup: Relabel all chemicals to remove semantic information
+
+
+* Original: "Add HCl to the sample. Observe white precipitate."
+* Relabeled: "Add Reagent-7 to the sample. Observe Event-Type-3."
+
+
+Provide:
+
+
+* Table of reagent compositions (Reagent-7 = {Ion-A: 1.0 M, Ion-B: 1.0 M})
+* Observation library (Event-Type-3 = solid formation)
+
+
+Hypothesis: True reasoning should work even without names, by:
+
+
+* Tracking ion concentrations through reactions
+* Applying solubility rules abstractly
+* Deducing identities from experimental logic alone
+
+
+Expected Outcome:
+
+
+* Pattern-matchers (memorized "AgCl is white") will fail completely
+* True reasoners will be slowed but still functional
+* This isolates chemical reasoning from chemistry knowledge retrieval
+
+
+Algorithmic Challenges:
+
+
+* Active learning: which experiment maximally reduces uncertainty?
+* Multi-step planning with uncertainty (10+ step experiments with branching)
+* Handling noisy/ambiguous camera observations
+* Resource optimization under sample volume constraints
+* Transfer learning: simple ions → complex mixtures
+
+
+Potential Novel Algorithms:
+
+
+* Entropy-based experiment selection: Choose next experiment to maximize expected information gain
+* Bayesian ion identification: Maintain posterior probability distribution over ion space
+* Reinforcement learning: Reward efficient, correct identification
+* Neuro-symbolic hybrid: Combine LLM reasoning with logical constraint solvers over a domain-specific language (DSL) 
+
+
+Safety & Practical Constraints
+* All reagents are dilute (≤6M) and standard lab chemicals
+* H₂S requires proper ventilation (fume hood or gas detection)
+* Heavy metal waste (Ag⁺, Pb²⁺, Ba²⁺) needs appropriate disposal
+* Room temperature operation (no heating/cooling required for basic tasks)
+Minimal Viable Experiment (Tier 1 Data Generation)
+Phase 1: Precipitation Reactions (Camera Validation)
+
+
+Select 8-10 well-characterized precipitation reactions with distinct visual signatures:
+
+
+1. AgCl formation: AgNO₃ + HCl → white precipitate
+2. AgBr formation: AgNO₃ + KBr → pale yellow precipitate
+3. AgI formation: AgNO₃ + KI → yellow precipitate
+4. Ag₂CrO₄ formation: AgNO₃ + K₂CrO₄ → brick-red precipitate
+5. BaSO₄ formation: Ba(NO₃)₂ + H₂SO₄ → white precipitate
+6. PbI₂ formation: Pb(NO₃)₂ + KI → yellow precipitate (distinctive from AgI)
+7. PbS formation: Pb(NO₃)₂ + (NH₄)₂S → black precipitate
+8. AgCl dissolution in NH₃: AgCl(s) + excess NH₃ → clear solution
+
+
+For each reaction, collect:
+
+
+* Time-lapse images (0s, 10s, 30s, 2min, 10min)
+* Systematic variation of concentrations (0.01M, 0.05M, 0.1M reactants)
+* RGB values extracted from standardized regions of images
+* Visual observation scores (0=no visible change, 1=faint, 2=moderate, 3=strong precipitate)
+
+
+Phase 2: Ion Lottery Pilot (Simple Benchmark)
+
+
+Create 5 unknown samples from a limited set:
+
+
+* Cations: Ag⁺, Pb²⁺, Ba²⁺ (3 options)
+* Anions: Cl⁻, I⁻, SO₄²⁻, CrO₄²⁻ (4 options)
+* Total possible salts: 12 (though some like BaCl₂ are less distinctive)
+
+
+Test procedure:
+
+
+* Provide 20 mL of unknown sample
+* Allow access to full reagent set R2
+* Track: experiments performed, volume consumed, time to answer, correctness
+
+
+Success criteria for pilot:
+
+
+* Camera reliably distinguishes all precipitate types
+* Timing parameters established for observation windows
+* Baseline LLM agent completes at least 1/5 simple unknowns correctly
+Scoring and Performance Metrics
+Primary Metric: Correctness (Binary)
+Format: Agent must return JSON specifying cation and anion
+
+
+{"cation": "Ag+", "anion": "Cl-"}
+
+
+Scoring:
+
+
+* Correct ion pair: 1 point
+* Incorrect cation OR anion: 0 points (partial credit not given)
+
+
+Rationale: Matches scientific reality—a wrong structural/compositional model is not useful, even if "close"
+Secondary Metrics
+1. Resource Efficiency:
+
+
+   * Track volume of sample consumed (max: 20 mL)
+   * Count number of experiments performed
+   * Assign costs to reagents (mimics real lab economics)
+   * Score: efficiency = correctness / (experiments_used / optimal_experiments)
+
+
+2. Time to Solution:
+
+
+   * Wall-clock time from task start to answer submission
+   * Includes LLM inference time + robot execution time
+   * Useful for comparing agent architectures
+
+
+3. Structural Similarity (for multi-ion tasks in future):
+
+
+   * For tasks with multiple ions present: score partial correctness
+   * Example: Identified 2/3 cations correctly = 0.67 on this metric
+   * Does not replace binary correctness metric
+Benchmark Coverage Metrics
+* Task difficulty distribution: % of tasks solvable by current models (target: <20% initially)
+* Discrimination: Can benchmark distinguish between GPT-4, Claude, and open models?
+* Ceiling: Do we have unsolvable tasks for future superhuman performance?
+
+
+[a]This might not be the scientifically most "sexy" starting point, but it would certainly test the system and we could check if we see anything  and how diluted we can go in small volumes on a well plate (and what contrast problems we might have with vision (depending on the background and the color of the precipitate)
+[b]20 mL is something that - I think - we have now in our virtual wet lab. We would need to figure out we low we can go in the real lab
+[c]The more fine-grained we can measure those things, the more de-risked we have the dataset
+[d]This will need some sort of color calibration to work. At least a color calibration card recorded at the same time. Officially, one also needs to know something about the light source for the color calibration to really work
+[e]This might be a good opportunity to also link to the conductivity measurements you want to do in the long term and might also be a nice way to have a clean dataset here
+[f]Practically, here we would need to figure out how to best run things. Perhaps it would be convenient at some point to have something like TeamViewer access for us that we could also control stuff
+[g]I am thinking of stuff in the direction of https://arxiv.org/pdf/2507.00310
