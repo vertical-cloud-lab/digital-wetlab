@@ -15,25 +15,28 @@
 
 | Reagent | Concentration | Quantity Needed | Notes |
 |---------|--------------|-----------------|-------|
-| AgNO₃ (silver nitrate) | 0.1 M | ~50 mL | Light-sensitive; store in amber/dark container |
-| HCl (hydrochloric acid) | 1 M | ~50 mL | Fuming; use in fume hood |
+| AgNO₃ (silver nitrate) | 0.1 M | ~10 mL | Light-sensitive; store in amber/dark container |
+| HCl (hydrochloric acid) | 1 M | ~10 mL | Fuming; use in fume hood |
 
-These should be procured through **BYU Chem Stores** in the smallest available amounts (see [Procurement](#procurement) below).
+These should be procured through **BYU Chem Stores** in the smallest available amounts (see [Procurement](#procurement) below). With 10 µL of each reagent per well (20 µL total) in a 384-well plate, even 10 mL of each reagent provides enough for hundreds of wells plus waste.
 
 ## Equipment
 
 ### Minimum Required
-- **OT-2 liquid handling robot** with single-channel pipette (P300 or P1000)
-- **Standard polypropylene tips** (Opentrons OT-2 compatible, 200 µL or 1000 µL)
-- **Filter tips** (recommended — prevents vapor intrusion into pipette shaft)
-- **96-well plate or similar vessel** (polypropylene, clear/transparent for imaging)
-- **Camera** (positioned above the well plate for top-down imaging)
+- **OT-2 liquid handling robot** with **P20 single-channel pipette** (1–20 µL range)
+- **Opentrons 20 µL tips** (standard or filter; filter tips recommended for HCl vapor protection)
+- **384-well plate** — custom-printed from Formlabs clear resin v4 (based on [GBO 781209](https://shop.gbo.com/en/usa/products/bioscience/microplates/384-well-microplates/384-well-polypropylene-microplates/781209.html) dimensions, ~120 µL well capacity; see [byu-vcl#5](https://github.com/vertical-cloud-lab/byu-vcl/issues/5) for the Fusion 360 model and print details — confirm actual printed well capacity matches)
+- **Camera** (positioned above the well plate for top-down imaging; see [Camera Considerations](#camera-considerations-384-well-format) below)
 - **Fume hood** (OT-2 should be placed inside, or at minimum connected to exhaust)
+
+### Alternative Configuration
+- **P300 single-channel pipette** with **96-well plate** (polypropylene, clear) — use if larger per-well volumes are needed for visibility or evaporation management (see [P20 + 384-Well Feasibility](#p20--384-well-feasibility) below)
 
 ### Optional / Recommended
 - **Ocean Optics USB spectrometer** (e.g., USB2000+ UV-Vis, 200–850 nm range) for quantitative absorbance measurements and color profiling of precipitates
 - **Light sensor** for consistent illumination characterization
 - **Color calibration card** (recorded alongside each image for color correction)
+- **Well plate covers/seals** for evaporation mitigation (see [Evaporation Management](#evaporation-management))
 
 ## Safety Considerations
 
@@ -94,7 +97,7 @@ Follow BYU Environmental Health & Safety (EH&S) guidelines for all waste disposa
 
 ### Summary
 
-Opentrons OT-2 pipette tips are made from **100% virgin polypropylene (PP)**, which has broad chemical resistance.
+Opentrons OT-2 pipette tips are made from **100% virgin polypropylene (PP)**, which has broad chemical resistance. The 20 µL tips used with the P20 pipette have the same PP construction as larger tips.
 
 | Reagent | PP Compatibility | Risk Level | Notes |
 |---------|-----------------|------------|-------|
@@ -110,7 +113,7 @@ Opentrons OT-2 pipette tips are made from **100% virgin polypropylene (PP)**, wh
 
 3. **Pre-wet tips** before aspirating HCl — aspirate and dispense 2–3 times to saturate the air gap with vapor and reduce dripping.
 
-4. **Trailing air gap** — after aspirating HCl, draw a small air gap (~10 µL) to prevent dripping during transport.
+4. **Trailing air gap** — after aspirating HCl, draw a small air gap (~2 µL for P20; ~10 µL for P300) to prevent dripping during transport.
 
 ### Workarounds for More Aggressive Reagents (Future Experiments)
 
@@ -121,41 +124,97 @@ For future experiments involving more corrosive reagents (e.g., concentrated HNO
 - **PTFE (Teflon) tips** are not available from Opentrons but can be sourced from specialty suppliers and used with custom adapters. PTFE offers near-universal chemical resistance.
 - For the current experiment (0.1 M AgNO₃ + 1 M HCl), **standard PP tips are fully adequate** — no custom tips are needed.
 
+## P20 + 384-Well Feasibility
+
+Using the **P20 single-channel pipette** with a **384-well plate** is the preferred configuration, dispensing 10 µL + 10 µL = 20 µL total per well. This approach dramatically reduces reagent consumption (10× less per well vs. 100 + 100 µL in a 96-well plate) and allows many more conditions per plate (up to 384 wells).
+
+### Advantages
+
+| Aspect | 384-well + P20 | 96-well + P300 |
+|--------|---------------|----------------|
+| Volume per well | 20 µL (10 + 10) | 200 µL (100 + 100) |
+| Wells per plate | 384 | 96 |
+| Total reagent for full plate | ~7.7 mL | ~19.2 mL |
+| Reagent per experiment (8 wells) | ~0.16 mL | ~1.6 mL |
+| Chemical compatibility | Clear resin v4 (verified for dilute acids) | Polypropylene (excellent) |
+| Evaporation risk | **High** (critical concern) | Moderate |
+
+### Dispensing Accuracy
+
+The P20 has ±3–5% accuracy at 10–20 µL, which is sufficient for qualitative analysis where the goal is precipitate detection rather than quantitative yield. At volumes below 5 µL, accuracy degrades and is not recommended for this protocol.
+
+**Recommended dispense volumes:** 10 µL per reagent (20 µL total per well). This stays in the P20's accurate mid-range while leaving headroom in the well capacity (~120 µL for the GBO 781209 reference design; verify actual printed well capacity via the Fusion 360 model's "Internal Volume" body in [byu-vcl#5](https://github.com/vertical-cloud-lab/byu-vcl/issues/5)).
+
+### Camera Considerations (384-Well Format)
+
+Individual 384-well plate wells are smaller (~3.7 mm square or ~3.6 mm diameter) than 96-well plate wells (~6.9 mm diameter), which affects imaging:
+
+- **Resolution requirement:** A camera with sufficient resolution to distinguish individual wells (≥10 pixels across each well at minimum; ≥30 pixels preferred for color analysis). A standard 12 MP camera at ~15–20 cm working distance should suffice for full-plate imaging.
+- **White precipitate visibility:** AgCl is an opaque white solid, and even a small amount (from ~1 µmol Ag⁺ in 10 µL of 0.1 M) produces visible turbidity. Against the clear resin background, this should be detectable.
+- **Clear resin plate advantage:** The Formlabs clear resin v4 plate allows potential bottom-up or transillumination imaging, which could improve contrast for detecting white precipitates in small wells.
+- **Recommendation:** Start with top-down imaging and verify detection. If precipitate is hard to distinguish in small wells, consider transillumination (light source below, camera above) or switching to the alternative 96-well configuration.
+
+### Evaporation Management
+
+Evaporation is the **primary challenge** for 20 µL volumes in open wells. Aqueous solutions in 384-well plates can lose ~0.5–2 µL/hour under typical lab conditions, and significantly faster in a fume hood with active airflow. For 1 M HCl, volatile HCl fumes further accelerate apparent volume loss.
+
+**Mitigation strategies (ranked by practicality):**
+
+1. **Adhesive plate seals (clear film):** Apply an optically clear adhesive seal over the plate immediately after dispensing. Peel back or puncture individual wells as needed. This is the simplest and most effective approach.
+
+2. **Press-fit transparent covers:** A custom glass or clear acrylic cover that sits over the plate or individual wells. This could be designed as a press-fit "cap mat" in Fusion 360. If using a rigid cover, ensure it does not contact the liquid surface.
+
+3. **Mineral oil overlay:** Dispense ~5–10 µL of mineral oil on top of each aqueous well after adding reagents. The oil layer suppresses evaporation effectively, but may interfere with camera-based precipitate detection (refraction, meniscus effects). Worth testing but not ideal for imaging.
+
+4. **Work fast / batch processing:** Minimize time between dispensing and imaging. Dispense all AgNO₃ first, then add HCl to all wells in quick succession, then image immediately. With 8 wells, the OT-2 can complete dispensing in an estimated ~2–5 minutes (verify with actual P20 timing during dry run).
+
+5. **Reduce fume hood airflow during imaging:** Lower the sash to the minimum safe working height during the observation window to reduce convective evaporation (while maintaining safe ventilation).
+
+6. **Humidified enclosure:** Place a damp sponge or small water reservoir on the OT-2 deck near the plate to raise local humidity. Simple but helps at the margins.
+
+**Recommendation for this experiment:** Use strategy **#1 (adhesive plate seal)** as the primary evaporation control. After dispensing and mixing, apply a clear seal and image through it. If precipitate detection through the seal is insufficient, try **#4 (work fast)** with immediate imaging and accept that 10-minute time-lapse observations may show some volume loss.
+
 ## Protocol
 
 ### A. Manual Execution (Benchtop Reference)
 
-1. Prepare labeled well plate (or test tubes) in a fume hood
-2. Pipette 100 µL of 0.1 M AgNO₃ into each target well using a calibrated micropipette
-3. Add 100 µL of 1 M HCl to each well; observe immediately
-4. Record observations: precipitate color (white), morphology (curdy), time to visible formation
-5. Photograph wells at time points: 0 s, 10 s, 30 s, 2 min, 10 min
-6. Repeat at varying concentrations (0.01 M, 0.05 M, 0.1 M AgNO₃) to characterize detection limits
+1. Prepare labeled 384-well plate in a fume hood
+2. Pipette 10 µL of 0.1 M AgNO₃ into each target well using a calibrated P20 micropipette
+3. Add 10 µL of 1 M HCl to each well; observe immediately
+4. (Optional) Apply clear adhesive seal to prevent evaporation during observation
+5. Record observations: precipitate color (white), morphology (curdy), time to visible formation
+6. Photograph wells at time points: 0 s, 10 s, 30 s, 2 min, 10 min
+7. Repeat at varying concentrations (0.01 M, 0.05 M, 0.1 M AgNO₃) to characterize detection limits
 
 ### B. OT-2 Automated Execution
 
 1. Place OT-2 inside fume hood (or connect exhaust duct)
-2. Load tip rack (filter tips recommended), reagent reservoirs, and well plate on the OT-2 deck
+2. Load 20 µL filter tip rack, reagent reservoirs (Eppendorf tubes or small trough), and 384-well plate on the OT-2 deck
 3. Position camera above well plate for time-lapse capture
 4. Run OT-2 protocol:
-   - Aspirate AgNO₃ with fresh tip → dispense into target wells
+   - Aspirate 10 µL AgNO₃ with fresh tip → dispense into target wells
    - Change tip
-   - Aspirate HCl with fresh tip (pre-wet 2–3×) → dispense into wells containing AgNO₃
-5. Trigger camera capture at defined intervals (0 s, 10 s, 30 s, 2 min, 10 min)
-6. (Optional) Position Ocean Optics fiber probe for absorbance readings
+   - Aspirate 10 µL HCl with fresh tip (pre-wet 2–3×) → dispense into wells containing AgNO₃
+5. (Optional) Apply clear seal or cover after dispensing
+6. Trigger camera capture at defined intervals (0 s, 10 s, 30 s, 2 min, 10 min)
+7. (Optional) Position Ocean Optics fiber probe for absorbance readings
 
 ### C. Concentration Series
 
-| Well | AgNO₃ (M) | HCl (M) | Expected Result |
-|------|-----------|---------|-----------------|
-| A1 | 0.01 | 1.0 | Faint white precipitate |
-| A2 | 0.05 | 1.0 | Moderate white precipitate |
-| A3 | 0.1 | 1.0 | Strong white precipitate |
-| B1 | 0.1 | 0.1 | White precipitate (HCl limiting) |
-| B2 | 0.1 | 0.5 | White precipitate |
-| B3 | 0.1 | 1.0 | White precipitate (excess HCl) |
-| C1 | 0.0 (blank) | 1.0 | No change (negative control) |
-| C2 | 0.1 | 0.0 (DI water) | No change (negative control) |
+All wells receive 10 µL of each reagent (20 µL total per well) using the P20 pipette.
+
+| Well | AgNO₃ (M) | HCl (M) | Total Vol (µL) | Expected Result |
+|------|-----------|---------|-----------------|-----------------|
+| A1 | 0.01 | 1.0 | 20 | Faint white precipitate |
+| A2 | 0.05 | 1.0 | 20 | Moderate white precipitate |
+| A3 | 0.1 | 1.0 | 20 | Strong white precipitate |
+| B1 | 0.1 | 0.1 | 20 | White precipitate (HCl limiting) |
+| B2 | 0.1 | 0.5 | 20 | White precipitate |
+| B3 | 0.1 | 1.0 | 20 | White precipitate (excess HCl) |
+| C1 | 0.0 (blank) | 1.0 | 20 | No change (negative control) |
+| C2 | 0.1 | 0.0 (DI water) | 20 | No change (negative control) |
+
+> **Note:** With 384 wells available, this series can be run in triplicate (24 wells) with ample room for additional conditions or future experiments on the same plate.
 
 ### D. Data Collection
 
@@ -236,8 +295,11 @@ An **Ocean Optics USB spectrometer** (e.g., USB2000+ UV-Vis) would provide signi
 - [ ] Contact BYU Chem Stores to procure AgNO₃ (0.1 M) and HCl (1 M) in small quantities
 - [ ] Reach out to Dr. Roger G. Harrison or other gen chem faculty
 - [ ] Consult BYU EH&S on waste disposal procedures
-- [ ] Set up camera positioning and test image capture on blank well plate
-- [ ] Write and test OT-2 protocol script (Python, Opentrons API)
+- [ ] Verify 384-well plate fit in OT-2 deck slot (see [byu-vcl#5](https://github.com/vertical-cloud-lab/byu-vcl/issues/5))
+- [ ] Test P20 dispensing accuracy at 10 µL with DI water on the 384-well plate
+- [ ] Set up camera positioning and test image capture on blank 384-well plate
+- [ ] Evaluate evaporation mitigation (adhesive seals, press-fit covers, etc.)
+- [ ] Write and test OT-2 protocol script (Python, Opentrons API) for P20 + 384-well plate
 - [ ] Run manual benchtop experiment first as a reference
 - [ ] Run OT-2 automated experiment and compare results
 - [ ] Evaluate whether Ocean Optics spectrometer purchase is justified based on initial results
