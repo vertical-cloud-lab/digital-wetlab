@@ -1,8 +1,19 @@
 # Experiment 001: AgCl Formation (Silver Chloride Precipitation)
 
-> **Reaction:** AgNO₃ (aq) + HCl (aq) → AgCl (s) ↓ + HNO₃ (aq)
+> **Reaction:** AgNO₃ (aq) + NaCl (aq) → AgCl (s) ↓ + NaNO₃ (aq)
 >
 > **Observable:** White, curdy precipitate
+
+## Reagent Variants
+
+This experiment can be run with two different chloride sources. **Variant A (NaCl) is recommended as the starting point** because it eliminates the need for a fume hood.
+
+| Variant | Reaction | Fume Hood? | Notes |
+|---------|----------|-----------|-------|
+| **A (NaCl) — recommended first** | AgNO₃ + NaCl → AgCl ↓ + NaNO₃ | **No** | NaCl is non-volatile and non-toxic; same AgCl precipitate; benign NaNO₃ byproduct |
+| B (HCl) — original plan | AgNO₃ + HCl → AgCl ↓ + HNO₃ | **Yes** | HCl produces corrosive fumes; needed for consistency with the full R2 reagent set |
+
+Both variants produce **identical AgCl precipitate** (same color, morphology, Ksp). The only differences are the byproduct (NaNO₃ vs. HNO₃) and whether the chloride source is volatile. Running Variant A first lets you validate the full OT-2 + camera + 384-well plate workflow without waiting for fume hood access.
 
 ## Objectives
 
@@ -13,10 +24,21 @@
 
 ## Reagents
 
+### Variant A — No Fume Hood Required (Recommended First)
+
 | Reagent | Concentration | Quantity Needed | Notes |
 |---------|--------------|-----------------|-------|
 | AgNO₃ (silver nitrate) | 0.1 M | ~10 mL | Light-sensitive; store in amber/dark container |
-| HCl (hydrochloric acid) | 1 M | ~10 mL | Fuming; use in fume hood |
+| NaCl (sodium chloride) | 1 M | ~10 mL | Non-hazardous; can be prepared from table salt (58.44 g/mol → 5.8 g in 100 mL DI water) |
+
+**Why this works without a fume hood:** NaCl is non-volatile and non-toxic. AgNO₃ at 0.1 M in 10 µL volumes poses minimal inhalation risk — it is a skin/eye irritant but does not produce fumes. Standard PPE (gloves, goggles, lab coat) is sufficient. The byproduct NaNO₃ is a benign, soluble salt.
+
+### Variant B — Fume Hood Required (Original Plan)
+
+| Reagent | Concentration | Quantity Needed | Notes |
+|---------|--------------|-----------------|-------|
+| AgNO₃ (silver nitrate) | 0.1 M | ~10 mL | Light-sensitive; store in amber/dark container |
+| HCl (hydrochloric acid) | 1 M | ~10 mL | Fuming; **use in fume hood** |
 
 These should be procured through **BYU Chem Stores** in the smallest available amounts (see [Procurement](#procurement) below). With 10 µL of each reagent per well (20 µL total) in a 384-well plate, even 10 mL of each reagent provides enough for hundreds of wells plus waste.
 
@@ -24,10 +46,10 @@ These should be procured through **BYU Chem Stores** in the smallest available a
 
 ### Minimum Required
 - **OT-2 liquid handling robot** with **P20 single-channel pipette** (1–20 µL range)
-- **Opentrons 20 µL tips** (standard or filter; filter tips recommended for HCl vapor protection)
+- **Opentrons 20 µL tips** (standard or filter; filter tips recommended for Variant B with HCl)
 - **384-well plate** — custom-printed from Formlabs clear resin v4 (based on [GBO 781209](https://shop.gbo.com/en/usa/products/bioscience/microplates/384-well-microplates/384-well-polypropylene-microplates/781209.html) dimensions, ~120 µL well capacity; see [byu-vcl#5](https://github.com/vertical-cloud-lab/byu-vcl/issues/5) for the Fusion 360 model and print details — confirm actual printed well capacity matches)
 - **Camera** (positioned above the well plate for top-down imaging; see [Camera Considerations](#camera-considerations-384-well-format) below)
-- **Fume hood** (OT-2 should be placed inside, or at minimum connected to exhaust)
+- **Fume hood** — **only required for Variant B (HCl)**; Variant A (NaCl) can be run on an open benchtop with standard PPE
 
 ### Alternative Configuration
 - **P300 single-channel pipette** with **96-well plate** (polypropylene, clear) — use if larger per-well volumes are needed for visibility or evaporation management (see [P20 + 384-Well Feasibility](#p20--384-well-feasibility) below)
@@ -40,7 +62,7 @@ These should be procured through **BYU Chem Stores** in the smallest available a
 
 ## Safety Considerations
 
-### Silver Nitrate (AgNO₃)
+### Silver Nitrate (AgNO₃) — Both Variants
 
 | Hazard | Detail |
 |--------|--------|
@@ -50,9 +72,22 @@ These should be procured through **BYU Chem Stores** in the smallest available a
 | Environmental | Very toxic to aquatic life |
 | Incompatibilities | Combustible materials, ammonia (in concentrated form), acetylene |
 
-**Handling:** Wear nitrile gloves, lab coat, and splash goggles. Work in a fume hood or well-ventilated area. Use spatulas/tongs for solid handling. Store in a tightly closed, light-protected container.
+**Handling:** Wear nitrile gloves, lab coat, and splash goggles. Work in a well-ventilated area. Use spatulas/tongs for solid handling. Store in a tightly closed, light-protected container.
 
-### Hydrochloric Acid (HCl)
+> **Note for this experiment:** At 0.1 M in 10 µL volumes, AgNO₃ does not produce fumes and can be handled on an open benchtop with standard PPE.
+
+### Sodium Chloride (NaCl) — Variant A Only
+
+| Hazard | Detail |
+|--------|--------|
+| GHS classifications | Not classified as hazardous |
+| Skin/eye contact | Mild irritant at high concentrations |
+| Inhalation | Not a concern in solution |
+| Incompatibilities | None at these concentrations |
+
+**Handling:** No special precautions beyond standard lab PPE. NaCl is non-toxic, non-volatile, and non-flammable.
+
+### Hydrochloric Acid (HCl) — Variant B Only
 
 | Hazard | Detail |
 |--------|--------|
@@ -63,10 +98,11 @@ These should be procured through **BYU Chem Stores** in the smallest available a
 
 **Handling:** Wear nitrile or neoprene gloves, lab coat, splash goggles, and face shield for pouring. **Always use inside a chemical fume hood.** Store in a corrosion-resistant cabinet with secondary containment.
 
-### Reaction Product — AgCl Precipitate and HNO₃ Byproduct
+### Reaction Products
 
-- The AgCl precipitate is an insoluble solid; relatively low acute toxicity but should still be collected as **heavy metal waste**.
-- The supernatant contains dilute HNO₃ (nitric acid); mildly acidic at these concentrations but must not be poured down the drain.
+- **AgCl precipitate** (both variants): Insoluble solid; relatively low acute toxicity but should still be collected as **heavy metal waste**.
+- **NaNO₃ byproduct** (Variant A): Benign, soluble salt. Low toxicity. Can be collected with the AgCl waste stream.
+- **HNO₃ byproduct** (Variant B): Dilute nitric acid; mildly acidic at these concentrations but must not be poured down the drain.
 
 ### PPE Summary
 
@@ -102,12 +138,13 @@ Opentrons OT-2 pipette tips are made from **100% virgin polypropylene (PP)**, wh
 | Reagent | PP Compatibility | Risk Level | Notes |
 |---------|-----------------|------------|-------|
 | AgNO₃ (0.1 M) | ✅ Excellent | Low | May stain tips; no structural degradation |
+| NaCl (1 M) | ✅ Excellent | Low | No chemical concerns whatsoever |
 | HCl (1 M) | ✅ Excellent | Low | PP is resistant to HCl at all concentrations |
 | HNO₃ (dilute, byproduct) | ✅ Good | Low | Brief contact at dilute concentrations is fine; avoid prolonged hot/concentrated exposure |
 
 ### Recommendations
 
-1. **Use filter tips** (Opentrons OT-2 filter tips with polyethylene filter mesh) to prevent acid vapor from reaching the pipette shaft internals. The OT-2 pipette body contains PC-ABS plastic components that could be damaged by prolonged acid vapor exposure.
+1. **Use filter tips** for Variant B (HCl) to prevent acid vapor from reaching the pipette shaft internals. The OT-2 pipette body contains PC-ABS plastic components that could be damaged by prolonged acid vapor exposure. For Variant A (NaCl), standard tips are fine — filter tips are optional but still a good practice.
 
 2. **Use fresh tips for each aspiration** (no tip reuse) to prevent cross-contamination and avoid AgCl buildup on tip surfaces.
 
@@ -156,7 +193,7 @@ Individual 384-well plate wells are smaller (~3.7 mm square or ~3.6 mm diameter)
 
 ### Evaporation Management
 
-Evaporation is the **primary challenge** for 20 µL volumes in open wells. Aqueous solutions in 384-well plates can lose ~0.5–2 µL/hour under typical lab conditions, and significantly faster in a fume hood with active airflow. For 1 M HCl, volatile HCl fumes further accelerate apparent volume loss.
+Evaporation is the **primary challenge** for 20 µL volumes in open wells. Aqueous solutions in 384-well plates can lose ~0.5–2 µL/hour under typical lab conditions, and significantly faster in a fume hood with active airflow. **Variant A (NaCl) has a significant advantage here**: NaCl is non-volatile, so only water evaporates (no additional reagent loss). Variant B (HCl) adds volatile HCl fumes that further accelerate apparent volume loss.
 
 **Mitigation strategies (ranked by practicality):**
 
@@ -178,9 +215,9 @@ Evaporation is the **primary challenge** for 20 µL volumes in open wells. Aqueo
 
 ### A. Manual Execution (Benchtop Reference)
 
-1. Prepare labeled 384-well plate in a fume hood
+1. Prepare labeled 384-well plate (**Variant A:** open benchtop is fine; **Variant B:** use fume hood)
 2. Pipette 10 µL of 0.1 M AgNO₃ into each target well using a calibrated P20 micropipette
-3. Add 10 µL of 1 M HCl to each well; observe immediately
+3. Add 10 µL of 1 M NaCl (Variant A) or 1 M HCl (Variant B) to each well; observe immediately
 4. (Optional) Apply clear adhesive seal to prevent evaporation during observation
 5. Record observations: precipitate color (white), morphology (curdy), time to visible formation
 6. Photograph wells at time points: 0 s, 10 s, 30 s, 2 min, 10 min
@@ -188,29 +225,29 @@ Evaporation is the **primary challenge** for 20 µL volumes in open wells. Aqueo
 
 ### B. OT-2 Automated Execution
 
-1. Place OT-2 inside fume hood (or connect exhaust duct)
+1. Set up OT-2 (**Variant A:** open benchtop; **Variant B:** inside fume hood or connected to exhaust)
 2. Load 20 µL filter tip rack, reagent reservoirs (Eppendorf tubes or small trough), and 384-well plate on the OT-2 deck
 3. Position camera above well plate for time-lapse capture
 4. Run OT-2 protocol:
    - Aspirate 10 µL AgNO₃ with fresh tip → dispense into target wells
    - Change tip
-   - Aspirate 10 µL HCl with fresh tip (pre-wet 2–3×) → dispense into wells containing AgNO₃
+   - Aspirate 10 µL NaCl or HCl with fresh tip (pre-wet 2–3×) → dispense into wells containing AgNO₃
 5. (Optional) Apply clear seal or cover after dispensing
 6. Trigger camera capture at defined intervals (0 s, 10 s, 30 s, 2 min, 10 min)
 7. (Optional) Position Ocean Optics fiber probe for absorbance readings
 
 ### C. Concentration Series
 
-All wells receive 10 µL of each reagent (20 µL total per well) using the P20 pipette.
+All wells receive 10 µL of each reagent (20 µL total per well) using the P20 pipette. The chloride source is NaCl (Variant A) or HCl (Variant B) — the AgCl precipitate is identical.
 
-| Well | AgNO₃ (M) | HCl (M) | Total Vol (µL) | Expected Result |
-|------|-----------|---------|-----------------|-----------------|
+| Well | AgNO₃ (M) | NaCl/HCl (M) | Total Vol (µL) | Expected Result |
+|------|-----------|--------------|-----------------|-----------------|
 | A1 | 0.01 | 1.0 | 20 | Faint white precipitate |
 | A2 | 0.05 | 1.0 | 20 | Moderate white precipitate |
 | A3 | 0.1 | 1.0 | 20 | Strong white precipitate |
-| B1 | 0.1 | 0.1 | 20 | White precipitate (HCl limiting) |
+| B1 | 0.1 | 0.1 | 20 | White precipitate (1:1 stoichiometry) |
 | B2 | 0.1 | 0.5 | 20 | White precipitate |
-| B3 | 0.1 | 1.0 | 20 | White precipitate (excess HCl) |
+| B3 | 0.1 | 1.0 | 20 | White precipitate (excess Cl⁻) |
 | C1 | 0.0 (blank) | 1.0 | 20 | No change (negative control) |
 | C2 | 0.1 | 0.0 (DI water) | 20 | No change (negative control) |
 
@@ -241,7 +278,8 @@ For each well, record:
 
 **Order:**
 - AgNO₃ — smallest available quantity (e.g., 5–25 g solid to prepare 0.1 M solution, or request pre-made 0.1 M)
-- HCl — smallest available quantity (e.g., 100 mL of 1 M, or dilute from concentrated stock in Chem Stores)
+- NaCl (Variant A) — can be prepared from lab-grade NaCl or even table salt (5.8 g in 100 mL DI water for 1 M); check Chem Stores for pre-made solutions
+- HCl (Variant B) — smallest available quantity (e.g., 100 mL of 1 M, or dilute from concentrated stock in Chem Stores)
 
 ### Centralized Chemical Inventory
 
@@ -291,15 +329,16 @@ An **Ocean Optics USB spectrometer** (e.g., USB2000+ UV-Vis) would provide signi
 
 ## Next Steps
 
-- [ ] Confirm fume hood access and OT-2 placement location
-- [ ] Contact BYU Chem Stores to procure AgNO₃ (0.1 M) and HCl (1 M) in small quantities
-- [ ] Reach out to Dr. Roger G. Harrison or other gen chem faculty
-- [ ] Consult BYU EH&S on waste disposal procedures
+- [ ] Procure or prepare NaCl solution (1 M) for Variant A (no fume hood needed)
+- [ ] Contact BYU Chem Stores to procure AgNO₃ (0.1 M) in small quantities
 - [ ] Verify 384-well plate fit in OT-2 deck slot (see [byu-vcl#5](https://github.com/vertical-cloud-lab/byu-vcl/issues/5))
 - [ ] Test P20 dispensing accuracy at 10 µL with DI water on the 384-well plate
 - [ ] Set up camera positioning and test image capture on blank 384-well plate
 - [ ] Evaluate evaporation mitigation (adhesive seals, press-fit covers, etc.)
 - [ ] Write and test OT-2 protocol script (Python, Opentrons API) for P20 + 384-well plate
-- [ ] Run manual benchtop experiment first as a reference
-- [ ] Run OT-2 automated experiment and compare results
+- [ ] **Run Variant A (NaCl) on open benchtop** — manual first, then OT-2 automated
+- [ ] Confirm fume hood access for Variant B (HCl) when ready to scale
+- [ ] Procure HCl (1 M) for Variant B
+- [ ] Reach out to Dr. Roger G. Harrison or other gen chem faculty
+- [ ] Consult BYU EH&S on waste disposal procedures for silver-containing waste
 - [ ] Evaluate whether Ocean Optics spectrometer purchase is justified based on initial results
