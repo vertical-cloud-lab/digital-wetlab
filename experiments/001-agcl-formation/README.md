@@ -62,6 +62,8 @@ These should be procured through **BYU Chem Stores** in the smallest available a
 
 ## Safety Considerations
 
+> **Full SDS summaries** for all chemicals are in the [sds/](sds/) directory, with links to official manufacturer SDS documents.
+
 ### Silver Nitrate (AgNO₃) — Both Variants
 
 | Hazard | Detail |
@@ -74,7 +76,7 @@ These should be procured through **BYU Chem Stores** in the smallest available a
 
 **Handling:** Wear nitrile gloves, lab coat, and splash goggles. Work in a well-ventilated area. Use spatulas/tongs for solid handling. Store in a tightly closed, light-protected container.
 
-> **Note for this experiment:** At 0.1 M in 10 µL volumes, AgNO₃ does not produce fumes and can be handled on an open benchtop with standard PPE.
+> **Note for this experiment:** At 0.1 M in 10 µL volumes, AgNO₃ does not produce fumes and can be handled on an open benchtop with standard PPE. This is supported by multiple manufacturer SDS documents (Section 9: Physical and Chemical Properties) which report the vapor pressure of 0.1 M AgNO₃ solution as "negligible" at room temperature, with no fumes generated under normal handling conditions ([Chemos GmbH SDS](https://www.chemos.de/import/data/msds/GB_en/7761-88-8-A0287385-GB-en.pdf); [Carl Roth SDS](https://www.carlroth.com/medias/SDB-6838-GB-EN.pdf); [CDH Fine Chemical SDS](https://www.cdhfinechemical.com/images/product/msds/14_1779855659_SilverNitrate0.1M(0.1N)Solution-MSDS.pdf)).
 
 ### Sodium Chloride (NaCl) — Variant A Only
 
