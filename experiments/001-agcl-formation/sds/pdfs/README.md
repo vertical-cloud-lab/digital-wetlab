@@ -1,20 +1,17 @@
 # SDS PDF Files
 
-This directory should contain the original PDF Safety Data Sheets for all
+This directory contains the original PDF Safety Data Sheets for all
 chemicals used in Experiment 001. See the [parent README](../README.md)
-for download URLs and a quick download script.
+for additional SDS source links.
 
-## Expected files
+## Files
 
-- `AgNO3_Chemos_0.1M.pdf` — Silver nitrate 0.1 M solution (Chemos GmbH)
-- `AgNO3_CDH_0.1M.pdf` — Silver nitrate 0.1 M solution (CDH Fine Chemical)
-- `NaCl_SigmaAldrich.pdf` — Sodium chloride (Sigma-Aldrich S7653)
-- `HCl_SigmaAldrich_1M.pdf` — Hydrochloric acid 1 M solution (Sigma-Aldrich)
-- `AgCl_SigmaAldrich.pdf` — Silver chloride (Sigma-Aldrich 227927)
-- `NaNO3_SigmaAldrich.pdf` — Sodium nitrate (Sigma-Aldrich S5506)
-- `HNO3_SigmaAldrich.pdf` — Nitric acid, dilute (Sigma-Aldrich 438073)
-
-## How to download
-
-Run the download script from the parent README, or download each file
-manually from the URLs listed there.
+| File | Chemical | Source |
+|------|----------|--------|
+| `AgNO3_Chemos_0.1M.pdf` | Silver nitrate 0.1 M solution | Chemos GmbH |
+| `AgNO3_CDH_0.1M.pdf` | Silver nitrate 0.1 M solution | CDH Fine Chemical |
+| `NaCl_FisherSci.pdf` | Sodium chloride | Fisher Scientific (Thermo Fisher) |
+| `HCl_SigmaAldrich_1M.pdf` | Hydrochloric acid 1 M solution | Sigma-Aldrich (via Delta College) |
+| `AgCl_SigmaAldrich.pdf` | Silver chloride | Sigma-Aldrich (via Cochise College) |
+| `NaNO3_FisherSci.pdf` | Sodium nitrate | Fisher Scientific (Thermo Fisher) |
+| `HNO3_FisherSci.pdf` | Nitric acid | Fisher Scientific (Thermo Fisher) |
