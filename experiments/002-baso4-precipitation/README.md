@@ -57,27 +57,50 @@ conditions = qmc.scale(sample, l_bounds, u_bounds)
 
 > **Note:** A 96-well plate is preferred over a 384-well plate for this experiment because the larger well volume (~200–300 µL) better accommodates the wide concentration ranges and provides clearer imaging of white crystalline BaSO₄ precipitate against background.
 
+### Well Plate Material
+
+**Polypropylene (PP)** is recommended:
+
+| Property | Polypropylene (PP) | Polystyrene (PS) |
+|----------|-------------------|------------------|
+| Chemical resistance | Excellent — inert to all reagents (BaCl₂, Na₂SO₄, NaCl, BaSO₄) | Good — compatible with aqueous salt solutions at these concentrations |
+| Optical clarity | Translucent to clear (clear PP available) | Excellent — naturally transparent |
+| Temperature range | –20°C to 121°C | –20°C to 70°C |
+| Solvent resistance | Resistant to most organic solvents | Attacked by organic solvents (not relevant here) |
+| Cost | Moderate | Low |
+| BaSO₄ adhesion | Low — precipitate stays suspended or settles loosely | Low |
+
+**Either PP or PS works** for this experiment since all reagents are aqueous inorganic salts at moderate concentrations. The key consideration is:
+
+- **For imaging (recommended):** Clear **PS** flat-bottom plates (e.g., Corning 3596, Greiner 655101) provide the best optical clarity for camera-based detection of white BaSO₄ precipitate. PS is fully compatible with BaCl₂, Na₂SO₄, and NaCl aqueous solutions.
+- **For maximum chemical versatility:** **PP** plates (e.g., Greiner 781209-style) are the safer default if you plan to reuse plate designs across experiments that may involve organic solvents or more aggressive reagents later.
+- **For the custom Formlabs clear resin v4 plate:** Compatible with all reagents in this experiment (see [Formlabs chemical compatibility chart](https://formlabs.com/materials/standard/#clear-resin) for clear resin v4). The resin's optical clarity is comparable to PS.
+
+> **Bottom line:** If using a commercial plate, choose clear PS for best imaging. If using the custom 3D-printed plate from Experiment 001, it works here too (just note the well volume differences between 384- and 96-well formats).
+
 ## Reagents
 
 ### Stock Solutions
 
 | Reagent | Target Stocks | Quantity Needed | Notes |
 |---------|--------------|-----------------|-------|
-| BaCl₂ (barium chloride) | 100 mM stock → dilute to 0.1–50 mM | ~50 mL | **Toxic** — handle with care |
-| Na₂SO₄ (sodium sulfate) | 100 mM stock → dilute to 0.1–50 mM | ~50 mL | Low hazard |
+| BaCl₂ (barium chloride) | 1.0 M stock → dilute to 0.1–50 mM | ~50 mL | **Toxic** — handle with care |
+| Na₂SO₄ (sodium sulfate) | 1.0 M stock → dilute to 0.1–50 mM | ~50 mL | Low hazard |
 | NaCl (sodium chloride) | 5 M stock → dilute to 0–3 molal | ~100 mL | Low hazard |
 | DI water | For dilutions and blanks | ~200 mL | — |
 
+> **Why 1.0 M stocks?** At 200 µL/well, reaching 50 mM Ba²⁺ from a 100 mM stock would require 100 µL, leaving insufficient volume for SO₄²⁻ and NaCl. With 1.0 M stocks, 50 mM needs only 10 µL, leaving ample room for other components. Worst case: 10 µL BaCl₂ + 10 µL Na₂SO₄ + 120 µL NaCl + 60 µL water = 200 µL.
+
 ### Preparation
 
-**BaCl₂ stock (100 mM):**
+**BaCl₂ stock (1.0 M):**
 - MW of BaCl₂·2H₂O = 244.26 g/mol
-- Dissolve 2.443 g in 100 mL DI water
+- Dissolve 24.426 g in 100 mL DI water
 - **Caution:** BaCl₂ is toxic — wear gloves, goggles, and work in a well-ventilated area
 
-**Na₂SO₄ stock (100 mM):**
+**Na₂SO₄ stock (1.0 M):**
 - MW of Na₂SO₄ = 142.04 g/mol
-- Dissolve 1.420 g in 100 mL DI water
+- Dissolve 14.204 g in 100 mL DI water
 
 **NaCl stock (5 M):**
 - MW of NaCl = 58.44 g/mol
@@ -167,7 +190,7 @@ Follow BYU Environmental Health & Safety (EH&S) guidelines for all waste disposa
 
 1. Generate the 80-condition LHS design matrix using the Python script above
 2. Calculate required volumes of each stock solution per well to achieve target concentrations in 200 µL total
-3. Prepare stock solutions (BaCl₂ 100 mM, Na₂SO₄ 100 mM, NaCl 5 M)
+3. Prepare stock solutions (BaCl₂ 1.0 M, Na₂SO₄ 1.0 M, NaCl 5 M)
 4. Set up OT-2 with P300 pipette, tip rack, reagent reservoirs, and 96-well plate
 5. Position camera for time-lapse imaging
 

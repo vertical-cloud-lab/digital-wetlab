@@ -33,7 +33,7 @@
 
 - **Oxidizer** — may intensify fire if in contact with combustible materials
 - Eye irritant
-- At the dilute concentrations produced in this experiment (micromolar in 20 µL wells), hazards are minimal
+- At the dilute concentrations produced in this experiment (approximately 5–50 mM NaNO₃ in 20 µL wells, depending on the AgNO₃ condition), hazards are minimal but standard oxidizer precautions still apply
 
 ## First Aid
 
