@@ -118,12 +118,11 @@ _NA2SO4_STOCK_MM = 1000.0   # 1.0 M Na₂SO₄ stock (14.204 g Na₂SO₄ / 100 
 _NACL_STOCK_M    =    5.0   # 5.0 M NaCl stock   (29.22 g NaCl / 100 mL)
 _TOTAL_UL        =  200.0   # total volume per well (µL)
 
-# Minimum reliable dispensing volumes for each pipette.
-# Volumes below the threshold are skipped; the shortfall is made up with DI water.
-#   p20 GEN2 reliable minimum: 1 µL  → BaCl₂ / Na₂SO₄ ≥ 5 mM achievable
-#   p300 GEN2 reliable minimum: 20 µL → NaCl ≥ 0.5 molal achievable
-_P20_MIN_UL  =  1.0
-_P300_MIN_UL = 20.0
+# Minimum reliable dispensing volume for the p20 GEN2.
+# Volumes below this threshold are skipped; the shortfall is added to DI water
+# so every well still totals _TOTAL_UL.  For large-volume reagents (DI water,
+# NaCl) the p20 simply makes multiple 20 µL aspirations per well.
+_P20_MIN_UL = 1.0
 
 
 def _calc_volumes(ba_mm, so4_mm, nacl_mol):
@@ -146,7 +145,7 @@ def _calc_volumes(ba_mm, so4_mm, nacl_mol):
     v_n = round((nacl_mol / _NACL_STOCK_M)   * _TOTAL_UL, 4)
     if v_b < _P20_MIN_UL:  v_b = 0.0
     if v_s < _P20_MIN_UL:  v_s = 0.0
-    if v_n < _P300_MIN_UL: v_n = 0.0
+    if v_n < _P20_MIN_UL:  v_n = 0.0
     v_w = round(_TOTAL_UL - v_b - v_s - v_n, 4)
     return v_b, v_s, v_n, v_w
 
@@ -156,14 +155,7 @@ def run(protocol: protocol_api.ProtocolContext) -> None:
     temperature_module_1 = protocol.load_module("temperatureModuleV2", "9")
 
     # ---------- Labware ----------
-    # Slot 1: 300 µL tip rack  — used by the p300 (DI water and NaCl)
-    tip_rack_300 = protocol.load_labware(
-        "opentrons_96_tiprack_300ul",
-        location="1",
-        namespace="opentrons",
-        version=1,
-    )
-    # Slot 2: 20 µL filter tip rack — used by the p20 (BaCl₂ and Na₂SO₄)
+    # Slot 2: 20 µL filter tip rack — used by the p20 for all four reagents
     tip_rack_20 = protocol.load_labware(
         "opentrons_96_filtertiprack_20ul",
         location="2",
@@ -185,13 +177,12 @@ def run(protocol: protocol_api.ProtocolContext) -> None:
     )
 
     # ---------- Pipettes ----------
-    # p20 (left):  BaCl₂ and Na₂SO₄  — small volumes (1–10 µL)
-    # p300 (right): DI water and NaCl  — large volumes (20–200 µL)
-    pipette_left  = protocol.load_instrument(
-        "p20_single_gen2", "left",  tip_racks=[tip_rack_20]
-    )
-    pipette_right = protocol.load_instrument(
-        "p300_single_gen2", "right", tip_racks=[tip_rack_300]
+    # p20 single-channel GEN2 on the left mount handles all four reagents.
+    # For DI water and NaCl (which can be up to 200 µL and 120 µL per well),
+    # the OT-2 API automatically loops through multiple 20 µL aspirations with
+    # the same tip, so no tip changes are needed.
+    pipette_left = protocol.load_instrument(
+        "p20_single_gen2", "left", tip_racks=[tip_rack_20]
     )
 
     # ---------- Define and load liquids ----------
@@ -283,30 +274,32 @@ def run(protocol: protocol_api.ProtocolContext) -> None:
     # BaSO₄ precipitation simultaneously across all relevant wells.
     # ==========================================================================
 
-    # ---------- Step 1: DI Water (p300, Tip 1) --------------------------------
+    # ---------- Step 1: DI Water (p20, Tip 1) ---------------------------------
     # All 96 wells receive DI water to bring the total volume to 200 µL.
+    # The p20 makes multiple 20 µL aspirations per well as needed.
     water_wells, water_vols = _nonzero(v_water_all)
-    pipette_right.pick_up_tip()
-    pipette_right.transfer(
+    pipette_left.pick_up_tip()
+    pipette_left.transfer(
         volume=water_vols,
         source=[tube_rack_1["A1"]] * len(water_wells),
         dest=[well_plate_1[w] for w in water_wells],
         new_tip="never",
     )
-    pipette_right.drop_tip()
+    pipette_left.drop_tip()
 
-    # ---------- Step 2: NaCl (p300, Tip 2) ------------------------------------
-    # Wells that need NaCl as an ionic-strength modifier (≥ 0.5 molal).
+    # ---------- Step 2: NaCl (p20, Tip 2) ------------------------------------
+    # Wells that need NaCl as an ionic-strength modifier (≥ 1 µL from 5 M stock).
+    # The p20 makes multiple 20 µL aspirations per well as needed.
     nacl_wells, nacl_vols = _nonzero(v_nacl_all)
-    pipette_right.pick_up_tip()
+    pipette_left.pick_up_tip()
     if nacl_wells:
-        pipette_right.transfer(
+        pipette_left.transfer(
             volume=nacl_vols,
             source=[tube_rack_1["B2"]] * len(nacl_wells),
             dest=[well_plate_1[w] for w in nacl_wells],
             new_tip="never",
         )
-    pipette_right.drop_tip()
+    pipette_left.drop_tip()
 
     # ---------- Step 3: BaCl₂ (p20, Tip 3) -----------------------------------
     # Wells that receive Ba²⁺: LHS wells 1–80, Ba-only controls (81–84),
