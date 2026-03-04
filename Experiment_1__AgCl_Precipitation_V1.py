@@ -122,6 +122,12 @@ _TOTAL_UL        =  200.0   # total volume per well (µL)
 # Volumes below this threshold are skipped; the shortfall is added to DI water
 # so every well still totals _TOTAL_UL.  For large-volume reagents (DI water,
 # NaCl) the p20 simply makes multiple 20 µL aspirations per well.
+#
+# NaCl coverage note: With a 5 M stock and 200 µL total, 1 µL corresponds to
+# an NaCl concentration of 25 mM (0.025 molal) in the well.  All 80 LHS
+# conditions with NaCl ≥ 0.025 molal receive their intended NaCl volume.
+# One LHS well (F5, 0.0158 molal → 0.63 µL needed) falls below this minimum
+# and is treated as zero NaCl; its water volume is increased by 0.63 µL.
 _P20_MIN_UL = 1.0
 
 
@@ -129,9 +135,30 @@ def _calc_volumes(ba_mm, so4_mm, nacl_mol):
     """Return (v_bacl2, v_na2so4, v_nacl, v_water) in µL for one well.
 
     Ideal volumes are derived from target concentrations and stock strengths.
-    Any volume below the pipette's reliable minimum is rounded down to zero;
-    the freed volume is added back to the DI-water allotment so the total
-    always sums to _TOTAL_UL.
+    Any volume below _P20_MIN_UL (1 µL — the p20 GEN2 reliable minimum) is
+    rounded down to zero; the freed volume is added back to the DI-water
+    allotment so the total always sums to _TOTAL_UL.
+
+    NaCl threshold and LHS coverage
+    --------------------------------
+    With a 5 M NaCl stock and 200 µL total well volume the minimum achievable
+    NaCl concentration with the p20 is:
+
+        1 µL / 200 µL × 5000 mM = 25 mM  (≈ 0.025 molal)
+
+    The LHS spans NaCl from 0 to 3 molal.  Of the 80 LHS conditions:
+      • 79 have nacl_mol ≥ 0.025 molal → the required volume is ≥ 1 µL and
+        is dispensed correctly using the p20.
+      • 1 condition (Well F5, 0.0158 molal → 0.63 µL required) falls below
+        the p20 minimum and is treated as 0 molal NaCl; its water volume is
+        increased by 0.63 µL.  This is within the LHS design tolerance because
+        the well was already placed very near the lower bound (0 molal).
+
+    Ba²⁺ and SO₄²⁻ minimum
+    -----------------------
+    With 1 M stocks: 1 µL / 200 µL × 1000 mM = 5 mM.
+    All LHS conditions with Ba²⁺ or SO₄²⁻ ≥ 5 mM are dispensed as designed;
+    those below 5 mM are rounded to zero (treated as trace / absent).
 
     Note: NaCl target concentrations are given in molal (mol/kg solvent), but
     the stock is expressed as molar (mol/L solution).  For dilute-to-moderate
