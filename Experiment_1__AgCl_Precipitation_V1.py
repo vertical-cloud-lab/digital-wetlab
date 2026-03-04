@@ -178,9 +178,6 @@ def _calc_volumes(ba_mm, so4_mm, nacl_mol):
 
 
 def run(protocol: protocol_api.ProtocolContext) -> None:
-    # ---------- Modules ----------
-    temperature_module_1 = protocol.load_module("temperatureModuleV2", "9")
-
     # ---------- Labware ----------
     # Slot 2: 20 µL filter tip rack — used by the p20 for all four reagents
     tip_rack_20 = protocol.load_labware(
