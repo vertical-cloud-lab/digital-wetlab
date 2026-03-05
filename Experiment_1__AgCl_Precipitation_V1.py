@@ -194,10 +194,10 @@ def run(protocol: protocol_api.ProtocolContext) -> None:
     )
     # Slot 4: 96-well plate (position unchanged)
     well_plate_1 = protocol.load_labware(
-        "corning_96_wellplate_360ul_flat",
+        "nest_96_wellplate_200ul_flat",
         location="4",
         namespace="opentrons",
-        version=5,
+        version=2,
     )
 
     # ---------- Pipettes ----------
