@@ -82,29 +82,55 @@ conditions = qmc.scale(sample, l_bounds, u_bounds)
 
 ### Stock Solutions
 
-| Reagent | Target Stocks | Quantity Needed | Notes |
-|---------|--------------|-----------------|-------|
-| BaCl₂ (barium chloride) | 1.0 M stock → dilute to 0.1–50 mM | ~50 mL | **Toxic** — handle with care |
-| Na₂SO₄ (sodium sulfate) | 1.0 M stock → dilute to 0.1–50 mM | ~50 mL | Low hazard |
-| NaCl (sodium chloride) | 5 M stock → dilute to 0–3 molal | ~100 mL | Low hazard |
-| DI water | For dilutions and blanks | ~200 mL | — |
+| Reagent | Target Stocks | Volume | Notes |
+|---------|--------------|--------|-------|
+| BaCl₂ (barium chloride) | 1.0 M stock → dilute to 0.1–50 mM | 15 mL | **Toxic** — handle with care |
+| Na₂SO₄ (sodium sulfate) | 1.0 M stock → dilute to 0.1–50 mM | 15 mL | Low hazard |
+| NaCl (sodium chloride) | 5 M stock → dilute to 0–3 molal | 15 mL | Low hazard |
+| DI water | For dilutions and blanks | 15 mL | — |
 
 > **Why 1.0 M stocks?** At 200 µL/well, reaching 50 mM Ba²⁺ from a 100 mM stock would require 100 µL, leaving insufficient volume for SO₄²⁻ and NaCl. With 1.0 M stocks, 50 mM needs only 10 µL, leaving ample room for other components. Worst case: 10 µL BaCl₂ + 10 µL Na₂SO₄ + 120 µL NaCl + 60 µL water = 200 µL.
+>
+> **Volume note:** All stocks are prepared in 15 mL to match the custom AC 6-tube rack (15 mL tubes) used on the OT-2 deck (slot 5). 15 mL is sufficient for a full 96-well plate at 200 µL/well (max ~2 mL of any single stock across all wells, worst case).
 
 ### Preparation
 
-**BaCl₂ stock (1.0 M):**
+All stock solutions should be prepared in **15 mL volumes** (matching the 15 mL tube rack on the OT-2).
+
+**BaCl₂ stock (1.0 M) — 15 mL:**
 - MW of BaCl₂·2H₂O = 244.26 g/mol
-- Dissolve 24.426 g in 100 mL DI water
+- Dissolve **3.664 g** BaCl₂·2H₂O in 15 mL DI water
+- Concentration: 24.426 g / 100 mL (equivalent)
 - **Caution:** BaCl₂ is toxic — wear gloves, goggles, and work in a well-ventilated area
 
-**Na₂SO₄ stock (1.0 M):**
+**Na₂SO₄ stock (1.0 M) — 15 mL:**
 - MW of Na₂SO₄ = 142.04 g/mol
-- Dissolve 14.204 g in 100 mL DI water
+- Dissolve **2.131 g** Na₂SO₄ in 15 mL DI water
+- Concentration: 14.204 g / 100 mL (equivalent)
 
-**NaCl stock (5 M):**
+**NaCl stock (5 M) — 15 mL:**
 - MW of NaCl = 58.44 g/mol
-- Dissolve 29.22 g in 100 mL DI water
+- Dissolve **4.383 g** NaCl in 15 mL DI water
+- Concentration: 29.22 g / 100 mL (equivalent)
+
+### Solid Particulates
+
+**All stock solutions must be fully dissolved before loading into the OT-2 tube rack.** Undissolved solids would:
+1. Make the actual dissolved concentration lower than intended
+2. Risk clogging pipette tips during dispensing
+3. Add noise to camera-based precipitate detection
+
+All four compounds are well within their solubility limits at 15 mL volumes and room temperature (~20–25°C):
+
+| Stock Solution | Amount in 15 mL | Solubility at 20°C | Margin |
+|---------------|-----------------|-------------------|--------|
+| BaCl₂·2H₂O (1.0 M) | 3.664 g / 15 mL | ~5.6 g / 15 mL | 1.5× below limit |
+| Na₂SO₄ (1.0 M) | 2.131 g / 15 mL | ~2.9 g / 15 mL | 1.4× below limit |
+| NaCl (5 M) | 4.383 g / 15 mL | ~5.4 g / 15 mL | 1.2× below limit |
+
+If any solid remains after mixing, stir or gently warm to ~30°C until fully dissolved, then cool to room temperature before use. **Do not load solutions with visible particulates into the OT-2.**
+
+> **Na₂SO₄ note:** Anhydrous Na₂SO₄ can be slow to dissolve. Stir for 2–3 minutes. If using Na₂SO₄·10H₂O (Glauber's salt) instead, use 4.831 g in 15 mL (MW = 322.20 g/mol).
 
 **Working solutions:** Prepare each well's working concentrations by serial dilution from stock solutions using the OT-2. The OT-2 protocol should calculate and dispense the appropriate volumes of each stock + DI water to achieve the LHS-specified concentrations in each well.
 
@@ -238,12 +264,12 @@ For each well at each time point, record:
 
 All reagents should be procured through **BYU Chem Stores** (see [Experiment 001](../001-agcl-formation/README.md#procurement) for contact details).
 
-| Reagent | What to Request | Approx. Quantity |
-|---------|----------------|------------------|
-| BaCl₂·2H₂O (solid) | Lab-grade barium chloride dihydrate | 5–10 g |
-| Na₂SO₄ (solid) | Lab-grade anhydrous sodium sulfate | 5–10 g |
-| NaCl (solid) | Lab-grade sodium chloride | 50 g |
-| DI water | From Chem Stores DI tap/carboy | ~500 mL |
+| Reagent | What to Request | Amount for 15 mL Stock |
+|---------|----------------|----------------------|
+| BaCl₂·2H₂O (solid) | Lab-grade barium chloride dihydrate | 3.664 g (→ 1.0 M in 15 mL) |
+| Na₂SO₄ (solid) | Lab-grade anhydrous sodium sulfate | 2.131 g (→ 1.0 M in 15 mL) |
+| NaCl (solid) | Lab-grade sodium chloride | 4.383 g (→ 5 M in 15 mL) |
+| DI water | From Chem Stores DI tap/carboy | ~100 mL (stocks + rinse) |
 
 ## Relationship to Project Goals
 

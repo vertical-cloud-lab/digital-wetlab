@@ -48,19 +48,26 @@ These are small-scale vial tests (not a full well-plate experiment). Run in glas
 
 ### Stock Solution Preparation
 
-**Pb(NO₃)₂ stock (10 mM):**
+All stock solutions prepared in **15 mL volumes** (matching the 15 mL tube rack on the OT-2, and for consistency with Experiment 002 stocks).
+
+**Pb(NO₃)₂ stock (10 mM) — 15 mL:**
 - MW of Pb(NO₃)₂ = 331.2 g/mol
-- Dissolve 0.0331 g in 10 mL DI water
+- Dissolve **0.0497 g** in 15 mL DI water
 - **Caution:** Toxic — weigh in fume hood, wear gloves
 
-**Na₂S·9H₂O stock (10 mM):**
+**Na₂S·9H₂O stock (10 mM) — 15 mL:**
 - MW of Na₂S·9H₂O = 240.18 g/mol
-- Dissolve 0.0240 g in 10 mL DI water
+- Dissolve **0.0360 g** in 15 mL DI water
 - **⚠️ Must prepare in fume hood** — Na₂S releases H₂S gas on contact with water/acid
 - Prepare fresh (Na₂S solutions oxidize over time)
 
-**NaCl stock (5 M):**
-- MW = 58.44 g/mol; dissolve 2.922 g in 10 mL DI water
+**NaCl stock (5 M) — 15 mL:**
+- MW = 58.44 g/mol; dissolve **4.383 g** in 15 mL DI water
+- (Same stock as Experiment 002 — can share if running both experiments)
+
+### Solid Particulates
+
+All three compounds dissolve readily at these concentrations (Pb(NO₃)₂ and Na₂S·9H₂O are extremely dilute at 10 mM). **Solutions must be fully dissolved before use.** If any particulates remain, stir until clear. Do not use solutions with visible undissolved solids.
 
 ### Per-Vial Preparation (5 mL Total)
 
@@ -202,11 +209,11 @@ For each vial, record:
 
 All reagents should be procured through **BYU Chem Stores** (see [Experiment 001](../001-agcl-formation/README.md#procurement) for contact details).
 
-| Reagent | What to Request | Approx. Quantity | Special Notes |
-|---------|----------------|------------------|---------------|
-| Pb(NO₃)₂ (solid) | Lab-grade lead nitrate | 1–5 g | Toxic, carcinogen — request smallest amount |
-| Na₂S·9H₂O (solid) | Lab-grade sodium sulfide nonahydrate | 5–10 g | Corrosive, H₂S hazard — store sealed |
-| NaCl (solid) | Lab-grade sodium chloride | 10 g | May already have from Experiment 001 |
+| Reagent | What to Request | Amount for 15 mL Stock | Special Notes |
+|---------|----------------|----------------------|---------------|
+| Pb(NO₃)₂ (solid) | Lab-grade lead nitrate | 0.050 g (→ 10 mM in 15 mL) | Toxic, carcinogen — request smallest amount |
+| Na₂S·9H₂O (solid) | Lab-grade sodium sulfide nonahydrate | 0.036 g (→ 10 mM in 15 mL) | Corrosive, H₂S hazard — store sealed |
+| NaCl (solid) | Lab-grade sodium chloride | 4.383 g (→ 5 M in 15 mL) | May share stock with Experiment 002 |
 | DI water | From Chem Stores DI tap/carboy | ~100 mL | — |
 | Glass vials | Scintillation vials with screw caps, ~20 mL | 6+ | For sealed observation after mixing |
 
