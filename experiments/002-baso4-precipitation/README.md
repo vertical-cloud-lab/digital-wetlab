@@ -6,11 +6,13 @@
 
 ## Objective
 
-Map the precipitation boundary for barium sulfate (BaSO₄) across a three-dimensional parameter space — Ba²⁺ concentration, SO₄²⁻ concentration, and NaCl ionic strength — using a 96-well plate with 80 Latin hypercube-sampled conditions. Time-lapse imaging at 5, 15, 60, and 240 minutes will support subsequent computer-vision analysis and validate measurement windows for the full platform.
+Map **precipitation intensity** for barium sulfate (BaSO₄) across a three-dimensional parameter space — Ba²⁺ concentration, SO₄²⁻ concentration, and NaCl ionic strength — using a 96-well plate with 80 Latin hypercube-sampled conditions. Time-lapse imaging at 5, 15, 60, and 240 minutes will support subsequent computer-vision analysis and validate measurement windows for the full platform.
+
+> **Note:** PHREEQC Pitzer modeling confirms that **all 80 LHS wells are supersaturated** (SI 2.6–5.8) at the current parameter ranges (0.1–50 mM). BaSO₄'s extremely low Ksp (~1.1 × 10⁻¹⁰) means the undersaturation boundary lies near 10–140 µM (depending on NaCl), well below the minimum achievable with 1.0 M stocks and a P20 pipette. This design therefore maps **precipitation intensity and kinetics** across the supersaturated regime rather than locating a binary precipitation boundary. See [Alternative: Boundary-Crossing Design](#alternative-boundary-crossing-design) below for a modified design using 1 mM intermediate stocks that can span the actual boundary.
 
 ## Expected Results
 
-All supersaturated wells should display **visible white crystalline precipitate by 240 minutes**. The Latin hypercube sampling design is expected to reveal a clear precipitation boundary separating clear (undersaturated) wells from precipitated (supersaturated) wells, consistent with the BaSO₄ Ksp (~1.1 × 10⁻¹⁰ at 25°C).
+All 80 LHS wells are predicted to be supersaturated and should display **visible white crystalline precipitate by 240 minutes**, with precipitate mass varying across wells depending on the limiting reagent concentration. Wells with low Ba²⁺ or SO₄²⁻ (~0.1 mM) may show faint or delayed precipitation despite being thermodynamically supersaturated. Time-lapse imaging should reveal a gradient of precipitation intensity and nucleation kinetics across the parameter space.
 
 ## Experimental Design
 
@@ -48,7 +50,7 @@ conditions = qmc.scale(sample, l_bounds, u_bounds)
 
 ### Plate Layout
 
-- **Format:** 96-well plate (polypropylene, clear)
+- **Format:** 96-well plate (clear flat-bottom — PS recommended for imaging, PP also compatible; see [Well Plate Material](#well-plate-material))
 - **Wells 1–80:** LHS-sampled conditions (one condition per well)
 - **Wells 81–84:** Negative controls (Ba²⁺ only, no SO₄²⁻)
 - **Wells 85–88:** Negative controls (SO₄²⁻ only, no Ba²⁺)
@@ -278,6 +280,44 @@ This experiment maps directly to **Tier 1: Data Generation** in [opentrons-inorg
 - Provides systematic precipitation data across concentration and ionic strength space
 - Time-lapse images feed the computer-vision analysis pipeline
 - The ionic strength (NaCl) dimension connects to activity coefficient effects relevant to Tier 3 thermodynamic modeling
+
+## Alternative: Boundary-Crossing Design
+
+The primary LHS design above uses 1.0 M stocks, which limits the minimum achievable well concentration to ~10 mM — far above the BaSO₄ undersaturation boundary (~12–140 µM depending on NaCl). To **actually locate the precipitation boundary**, use diluted intermediate stocks:
+
+### PHREEQC-Predicted Boundary (SI = 0, equal [Ba²⁺] = [SO₄²⁻])
+
+| NaCl (m) | Boundary Concentration |
+|----------|----------------------|
+| 0 | 12 µM (0.012 mM) |
+| 1 | 102 µM (0.10 mM) |
+| 3 | 140 µM (0.14 mM) |
+
+NaCl raises the effective Ksp ~10× via activity coefficients (Pitzer model).
+
+### 1 mM Intermediate Stocks
+
+Dilute the 1.0 M primary stocks 1000× to create 1 mM intermediates:
+
+| Tube | Stock | Prep (15 mL) |
+|------|-------|-------------|
+| A | BaCl₂ 1 mM | 15 µL of 1.0 M stock + 14.985 mL DI water |
+| B | Na₂SO₄ 1 mM | 15 µL of 1.0 M stock + 14.985 mL DI water |
+| C | NaCl 5 M | 4.383 g NaCl in 15 mL (same as primary design) |
+| D | DI water | — |
+
+### P20 Dispense Range with 1 mM Stocks (200 µL wells)
+
+| P20 Dispense | Well Concentration | SI at NaCl = 0 m | SI at NaCl = 3 m |
+|-------------|-------------------|-----------------|-----------------|
+| 2 µL | **0.01 mM (10 µM)** | **−0.18** (undersaturated ✓) | −2.29 |
+| 5 µL | 0.025 mM (25 µM) | +0.60 | −1.50 |
+| 10 µL | 0.05 mM (50 µM) | +1.18 | −0.89 |
+| 20 µL | **0.1 mM (100 µM)** | +1.75 | **−0.29** (undersaturated ✓) |
+
+A 1 mM stock with P20 dispenses of 2–20 µL in 200 µL wells spans the **entire precipitation boundary** across all NaCl levels. The remaining ~180 µL is filled with NaCl stock and DI water via multiple P20 dispenses (10 × 20 µL = 200 µL total).
+
+> **Two spare tube positions** remain in the AC 6-tube rack for higher-concentration stocks if you want to include both boundary-crossing and heavily-supersaturated conditions in the same plate.
 
 ## Next Steps
 

@@ -116,18 +116,25 @@ for idx in range(96):
     so4 = so4_mM[idx]
     na_cl = nacl_m[idx] * 1000  # molal → mmol/kgw
 
-    # Build PHREEQC solution
+    # Build PHREEQC solution  (all concentrations in mmol/kgw)
     soln_dict = {}
+    na_total = 0.0
+    cl_total = 0.0
+
     if ba > 0:
         soln_dict["Ba"] = ba
+        cl_total += 2 * ba          # Cl⁻ from BaCl₂
     if so4 > 0:
         soln_dict["S(6)"] = so4
+        na_total += 2 * so4         # Na⁺ from Na₂SO₄
     if na_cl > 0:
-        soln_dict["Na"] = na_cl
-        soln_dict["Cl"] = na_cl
-    # Also include small Cl⁻ from BaCl₂  (2× Ba²⁺ in mM)
-    if ba > 0:
-        soln_dict["Cl"] = soln_dict.get("Cl", 0) + 2 * ba
+        na_total += na_cl           # Na⁺ from NaCl
+        cl_total += na_cl           # Cl⁻ from NaCl
+
+    if na_total > 0:
+        soln_dict["Na"] = na_total
+    if cl_total > 0:
+        soln_dict["Cl"] = cl_total
 
     if ba > 0 and so4 > 0:
         sol = pp.add_solution(soln_dict)
