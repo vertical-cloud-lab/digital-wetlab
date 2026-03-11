@@ -40,8 +40,8 @@ Reduce scheduling complexity by limiting temperature variation.
 
 Decouple Ax fitting from experiment execution to avoid blocking.
 
-- **Fire-and-forget trials**: start experiments, submit partial results to Ax as readings come in.
-- Use `ax_client.complete_trial()` with intermediate metrics at each time point rather than waiting for the full 240-minute result.
+- **Fire-and-forget trials**: start experiments, and as readings come in, log intermediate data to Ax for running trials (e.g., via `ax_client.log_trial_data(...)` or updating trial data without completing it).
+- Call `ax_client.complete_trial()` only once per trial when the final (e.g., 240-minute) measurements are available, optionally submitting all timepoint metrics together at that point, or model each timepoint as a separate metric and report them on completion.
 - Pre-generate a batch of Ax trials (e.g., `max_parallelism=10` in the SOBOL phase) so the robot always has work queued while Ax fits in the background.
 
 ## Strategy 5: Mix-Then-Heat Workflow
@@ -80,13 +80,15 @@ import heapq, time
 # Each entry: (next_action_time, sample_id, action)
 schedule = []
 
+# `start_time` should be obtained from `time.monotonic()` so it
+# uses the same clock domain as the scheduler loop below.
 def add_sample(sample_id, start_time):
     for offset in [60, 300, 900, 3600, 14400]:  # 1, 5, 15, 60, 240 min in seconds
         heapq.heappush(schedule, (start_time + offset, sample_id, "read_absorbance"))
 
 while schedule:
     next_time, sample_id, action = heapq.heappop(schedule)
-    wait = next_time - time.time()
+    wait = next_time - time.monotonic()
     if wait > 0:
         # Use idle time: start new samples, change temperature, or run Ax
         handle_idle(wait)
