@@ -52,6 +52,18 @@ Address the mixing question directly: mix solutions on the well plate at room te
 - Place the plate on the heater—all wells start heating simultaneously.
 - This avoids per-well timing drift and simplifies the absorbance schedule since all wells in a batch share the same t=0.
 
+## Consideration: When to Apply Heat
+
+The timing of heating relative to mixing matters and depends on what is being measured:
+
+- **Early heating (mix on the heater)**: The reaction starts at the target temperature from t=0. This is important when the goal is to measure temperature-dependent kinetics (e.g., nucleation rate, initial precipitation speed) since those early moments are the most temperature-sensitive. However, it requires the plate to already be at temperature before pipetting, which means one-at-a-time well filling and per-well timing drift.
+
+- **Late heating (mix at room temp, then heat)**: The reaction begins at ambient temperature during mixing and ramp-up. Early kinetics (1 and 5 min reads) reflect room-temperature behavior, not the target temperature. This is acceptable when temperature primarily affects equilibrium (e.g., final solubility, precipitate morphology at steady state) rather than initial rates. It also simplifies scheduling since all wells in a batch share the same t=0.
+
+- **Practical middle ground**: Pre-heat the plate to the target temperature *before* pipetting, then pipette directly onto the hot plate. The thermal mass of a 200 µL well is small enough that it equilibrates within seconds. This captures temperature-dependent early kinetics while still allowing batch starts. The trade-off is that reagent stocks are at room temperature, so there is a brief thermal transient on contact.
+
+Which approach to choose depends on whether the 1-minute and 5-minute absorbance reads are meant to capture temperature-dependent kinetics or simply early-stage precipitation at whatever conditions. If temperature effects on early kinetics are a key variable in the 19-dim search space, pre-heating the plate before pipetting is the recommended path.
+
 ## Recommended Approach
 
 Combine **Strategy 1 + 2 + 4**:
