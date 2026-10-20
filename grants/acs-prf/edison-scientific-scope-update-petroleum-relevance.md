@@ -1,4 +1,4 @@
-[Edison Scientific trajectory link redacted]
+https://platform.edisonscientific.com/trajectories/2cb7cf22-0e32-4d9a-92b5-59cbbb19df19
 
 Addressing ACS PRF Petroleum Relevance Concerns: Analysis and Recommendations
 Executive Summary

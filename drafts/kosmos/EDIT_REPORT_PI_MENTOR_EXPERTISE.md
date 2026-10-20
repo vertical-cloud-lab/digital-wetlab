@@ -68,8 +68,7 @@ activity-coefficient calculations in multi-component brines. \textbf{Prof. Milad
 Abolhasani} (North Carolina State University Chemical and Biomolecular Engineering) 
 brings deep expertise in automated chemical reaction analysis and data-rich 
 experimentation workflows, and will advise on the high-throughput experimental 
-design and robotic platform optimization. Both mentors have committed to quarterly 
-consultations and manuscript co-authorship. To further integrate with the target 
+design and robotic platform optimization. To further integrate with the target 
 scientific community, the PI will join the Geochemical Society and plans to present 
 initial findings at a relevant forum such as the Goldschmidt Conference, ensuring 
 both technical rigor and disciplinary legitimacy.
@@ -79,9 +78,8 @@ both technical rigor and disciplinary legitimacy.
 1. ✓ **Domain-specific language:** "thermodynamic modeling of concentrated electrolyte solutions" (NOT generic "thermodynamic modeling")
 2. ✓ **Explicit connection:** chemical engineering → Pitzer theory → activity coefficients
 3. ✓ **Abolhasani framing:** "automated chemical reaction analysis" → data-rich goals
-4. ✓ **Commitment structure:** quarterly consultations + manuscript co-authorship (shows meaningful engagement)
-5. ✓ **Proactive integration:** Geochemical Society + Goldschmidt Conference
-6. ✓ **Addresses gap:** "No geochemistry expert" → Wheeler (electrolyte thermodynamics) + community engagement
+4. ✓ **Proactive integration:** Geochemical Society + Goldschmidt Conference
+5. ✓ **Addresses gap:** "No geochemistry expert" → Wheeler (electrolyte thermodynamics) + community engagement
 
 ---
 
