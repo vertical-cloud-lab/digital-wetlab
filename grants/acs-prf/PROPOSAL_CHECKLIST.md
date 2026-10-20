@@ -53,3 +53,23 @@
 - [ ] Petroleum relevance is specific and connected to PRF Trust definition
 - [ ] Institutional authorization obtained
 - [ ] Submitted before 5:00 PM EST on March 6, 2026
+
+## Project-Specific Remaining Tasks (This Proposal)
+
+### Testing Setup Action List
+
+- [ ] Confirm OT-2, GEN2 8-channel pipette, plate-reader access, fume hood, and N₂ glovebox availability for planned experiments
+- [ ] Procure minimum reagents for setup runs: AgNO₃ + NaCl (AgCl demo), BaCl₂ + Na₂SO₄ + NaCl (BaSO₄ validation), Pb(NO₃)₂ + (NH₄)₂S (PbS experiment)
+- [ ] Prepare consumables: 96-well plates, OT-2 tips, adhesive seals, DI water, and PPE
+- [ ] Run a no-hazard dry run (food-coloring gradient or AgCl workflow) to verify deck layout, dispensing, and imaging pipeline
+- [ ] Run `preliminary_results/baso4_nacl_gradient_protocol.py` and save plate image output as `preliminary_results/baso4_results.png`
+- [ ] Run `preliminary_results/baso4_experimental_overlay.py` to generate BaSO₄ experimental-vs-model overlay figure for the proposal
+- [ ] Run PbS (or FeS) precipitation imaging test and save output as `preliminary_results/pbs_photo.png` (or matching FeS filename used in LaTeX)
+
+### Proposal Integration + Final Verification
+
+- [ ] Insert preliminary-result figures into `drafts/draft.tex` with captions and labels
+- [ ] Replace the Aim 2 placeholder box in `drafts/draft.tex` with a real workflow figure
+- [ ] Compile the proposal PDF and verify all figures render correctly
+- [ ] Confirm proposal body word count is ≤ 4,000 words
+- [ ] Confirm bibliography compiles cleanly with no missing references
