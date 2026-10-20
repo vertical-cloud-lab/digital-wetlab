@@ -134,6 +134,10 @@ These parameters govern how crude-oil-derived organic acids (acetate, propionate
 | 47  | θ(HS⁻–OAc⁻)  | HS⁻/acetate like-charge mixing    | **Unmeasured** | Governs competitive effects between sulfide and organic acid |
 | 48  | θ(HS⁻–Prop⁻) | HS⁻/propionate like-charge mixing | **Unmeasured** |                                                              |
 
+### Why organic–organic mixing parameters are excluded
+
+Organic–organic anion mixing parameters (e.g., θ(OAc⁻–Prop⁻), ψ(OAc⁻–Prop⁻–Na⁺)) are **not** included in the target parameter set. In the Pitzer equations, like-charge mixing terms enter as the product of both anion molalities (m\_OAc × m\_Prop). In produced waters, organic acid concentrations are typically 2–4 orders of magnitude below the dominant inorganic anions: acetate is ~0.001–0.05 m while Cl⁻ is 1–5 m (Lundegard & Kharaka 1994; Bostick 2002). The organic–organic product (≲10⁻⁴) is therefore orders of magnitude smaller than the metal–organic acid cross terms (~10⁻² to 10⁻³) that govern activity-coefficient corrections. Pitzer & Kim (1974) noted that like-charge mixing parameters are "always small," and Mizera et al. (1999) explicitly set all organic–organic and ternary Pitzer parameters to zero when modeling carboxylic acid dissociation in NaCl brines. This is also standard practice in oilfield scale prediction codes such as ScaleSoftPitzer (Kan et al. 2019). An Edison Scientific literature search confirmed that no measurements of θ(acetate–propionate) exist in the published literature (see `ORGANIC_ORGANIC_EVALUATION.md`).
+
 ---
 
 ## Hierarchical Fitting Strategy
