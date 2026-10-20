@@ -9,7 +9,7 @@
 ## Summary of Matt Allen's Comments
 
 ### Comment 1 — Abstract tense/voice (Page 1, Sticky Note)
-> *(Paraphrased)* Use proposal language ("we propose to") so the work does not read as already completed.
+> "Make it clear - we propose to... Otherwise it sounds like it is already done??"
 
 **Context:** The abstract's second paragraph opens with "This project determines these parameters through systematic high-throughput experiments" and "we map FeS and PbS precipitation boundaries." These present-tense constructions read as if the work is already complete rather than proposed.
 
@@ -20,18 +20,18 @@
 ---
 
 ### Comment 2 — Basic vs. applied science framing (Page 1, Sticky Note)
-> *(Paraphrased)* Asked whether the framing suits a basic-science program or reads as more application-oriented.
+> "So, this proposal probably won't do so well in a basic science program, but is targeted more for an application-based industry program?"
 
 **Context:** The abstract and introduction emphasize petroleum-industry applications (scale prediction tools, produced-water brines, equipment fouling). The proposal was submitted to ACS PRF Panel 2 (Geochemistry and Biogeochemical Cycling), not a purely basic science panel, but ACS PRF program managers are strict about fundamental science content (per Milad's feedback, #24).
 
-**Assessment:** Important observation. While the proposal targets Panel 2 (which accepts petroleum-relevant research), the framing should still foreground the fundamental science contribution. Milad's prior feedback (#24) stressed clearly stating the fundamental science aspect, since program managers are strict about it.
+**Assessment:** Important observation. While the proposal targets Panel 2 (which accepts petroleum-relevant research), the framing should still foreground the fundamental science contribution. Milad's prior feedback (#24) specifically warned: "The most important thing is to clearly state the 'fundamental' science aspect... program managers are very strict on the fundamental science."
 
 **Action:** Strengthened the fundamental science framing in the introduction's closing paragraph. The fundamental contribution is determining unmeasured thermodynamic interaction parameters—this is basic physical chemistry. The petroleum context provides motivation, not the research question itself.
 
 ---
 
 ### Comment 3 — Novelty and timeliness (Page 2, Sticky Note)
-> *(Paraphrased)* Asked how new this type of model is, and whether it has only recently become feasible with ML and automated labs.
+> "How new is this type of model? It seems that it would only recently be feasible; couldn't be done previously without ML, automated labs, and other advances??"
 
 **Context:** Refers to the Pitzer ion-interaction model description in the introduction. The Pitzer model itself dates to 1973, but systematic parameterization for sulfide systems has never been done.
 
@@ -42,7 +42,7 @@
 ---
 
 ### Comment 4 — Why are parameters missing? (Page 2, Sticky Note)
-> *(Paraphrased)* Asked why the parameters are missing: were they infeasible to measure, or not considered important?
+> "Why not? Were these not feasible to find previously? Or were they not important enough to seek?"
 
 **Context:** Follows the statement that Fe²⁺–HS⁻ and Pb²⁺–HS⁻ binary parameters are "absent from all standard databases." The reader wants to know the underlying reason for this gap.
 
@@ -53,7 +53,7 @@
 ---
 
 ### Comment 5 — Novelty preview in introduction (Page 3, Sticky Note)
-> *(Paraphrased)* Suggested previewing the novelty in the introduction.
+> "Mention in introduction? Novel?"
 
 **Context:** Refers to content in the Objectives section. The novel elements (first systematic Pitzer parameterization for sulfide-mineral systems, combined metal–sulfide and metal–organic acid framework) should be previewed in the introduction.
 
@@ -73,7 +73,7 @@ Several highlights without accompanying sticky notes appear on pages 5–6 of th
 ## Cross-Referenced Feedback
 
 ### Barry Bickmore (#51)
-> *(Paraphrased)* Noted that the draft does not justify leaving out organic-organic interaction parameters.
+> "The only flag that popped up in my head is that I don't remember reading any justification for leaving out organic-organic interaction parameters."
 
 **Assessment:** Valid concern. Organic-organic mixing parameters (e.g., θ(OAc⁻–Prop⁻)) were excluded from the ~48 target parameters because organic acid concentrations in produced waters are 2–4 orders of magnitude below inorganic anion concentrations (Cl⁻, SO₄²⁻), making their mutual mixing contributions negligible compared to metal–organic cross terms. This follows from Pitzer & Kim (1974): mixing parameter contributions scale with the product of the interacting ion concentrations, so trace-species pairs contribute negligibly.
 
