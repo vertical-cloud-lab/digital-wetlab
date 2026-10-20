@@ -14,8 +14,8 @@ in October 2026.
   commit-by-commit history stay in the private repo.
 - **Closed pull requests** have a closed placeholder issue at their number, so every link still
   lands on the right item.
-- **Files that stay private** were left out: CVs and biosketches, ACS guideline PDFs, colleagues'
-  annotated feedback on the drafts, and a few figures with third-party photos.
+- **Files that stay private** were left out: CVs and biosketches. ACS documents and figures with
+  third-party photos are listed in [`THIRD_PARTY_ASSETS.md`](THIRD_PARTY_ASSETS.md).
 
 Proposals, papers, etc.
 
