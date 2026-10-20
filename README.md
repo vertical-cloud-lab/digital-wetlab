@@ -48,6 +48,10 @@ General inquiries: (202) 872-4481 · [PRFsupport@acs.org](mailto:PRFsupport@acs.
 - [**Petroleum Relevance**](drafts/petroleum_relevance.md) — 100-word placeholder (for portal text entry)
 - [**Suggested Reviewers**](drafts/suggested_reviewers.md) — Template for 6 peer reviewers (for portal entry)
 
+## Conferences
+
+- [**Utah AI Convergence 2026 — Abstract**](conferences/utah-ai-convergence-2026/abstract.md) — 500-word Student Poster Competition abstract on the self-driving wet lab (BaSO₄ benchtesting) for the [Utah AI Convergence](https://www.price.utah.edu/ai/convergence-2026) (June 23–24)
+
 ## Related
 
 - Public repo: [vertical-cloud-lab/digital-wetlab](https://github.com/vertical-cloud-lab/digital-wetlab)
