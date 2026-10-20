@@ -1,0 +1,49 @@
+number,parameter,ion_pair_or_interaction,category,status,notes
+1,"β⁰(Fe²⁺–HS⁻)",Fe²⁺–HS⁻,Binary,Prior estimate (Wang 2024),"Wang fit to 154 data points, 0–5 mol/kg, 23–125 °C"
+2,"β¹(Fe²⁺–HS⁻)",Fe²⁺–HS⁻,Binary,Prior estimate (Wang 2024),Will be used as initial values and benchmarked
+3,"Cᶲ(Fe²⁺–HS⁻)",Fe²⁺–HS⁻,Binary,Prior estimate (Wang 2024),Mean SI error ±0.015 in Wang's framework
+4,"β⁰(Pb²⁺–HS⁻)",Pb²⁺–HS⁻,Binary,Unmeasured,No Pb²⁺ parameters of any kind in PHREEQC pitzer.dat
+5,"β¹(Pb²⁺–HS⁻)",Pb²⁺–HS⁻,Binary,Unmeasured,Most critical gap — Pb²⁺ system entirely absent
+6,"Cᶲ(Pb²⁺–HS⁻)",Pb²⁺–HS⁻,Binary,Unmeasured,
+7,"θ(Fe²⁺–Na⁺)",Fe²⁺/Na⁺,Cation mixing,Unmeasured,Important above I ~ 2 molal
+8,"θ(Fe²⁺–Ca²⁺)",Fe²⁺/Ca²⁺,Cation mixing,Unmeasured,Relevant for CaCl₂-bearing brines
+9,"θ(Pb²⁺–Na⁺)",Pb²⁺/Na⁺,Cation mixing,Unmeasured,
+10,"θ(Pb²⁺–Ca²⁺)",Pb²⁺/Ca²⁺,Cation mixing,Unmeasured,
+11,"ψ(Fe²⁺–Na⁺–Cl⁻)",Fe²⁺/Na⁺/Cl⁻,Ternary mixing,Unmeasured,
+12,"ψ(Fe²⁺–Ca²⁺–Cl⁻)",Fe²⁺/Ca²⁺/Cl⁻,Ternary mixing,Unmeasured,
+13,"ψ(Pb²⁺–Na⁺–Cl⁻)",Pb²⁺/Na⁺/Cl⁻,Ternary mixing,Unmeasured,
+14,"ψ(Pb²⁺–Ca²⁺–Cl⁻)",Pb²⁺/Ca²⁺/Cl⁻,Ternary mixing,Unmeasured,
+15,"λ(FeS⁰ₐq, Na⁺)",FeS⁰ₐq–Na⁺,Neutral-species,Unmeasured,
+16,"λ(FeS⁰ₐq, Cl⁻)",FeS⁰ₐq–Cl⁻,Neutral-species,Unmeasured,
+17,"ζ(FeS⁰ₐq, Na⁺, Cl⁻)",FeS⁰ₐq ternary,Neutral-species,Unmeasured,
+18,"ζ(FeS⁰ₐq, Ca²⁺, Cl⁻)",FeS⁰ₐq ternary,Neutral-species,Unmeasured,
+19,"λ(PbS⁰ₐq, Na⁺)",PbS⁰ₐq–Na⁺,Neutral-species,Unmeasured,
+20,"λ(PbS⁰ₐq, Cl⁻)",PbS⁰ₐq–Cl⁻,Neutral-species,Unmeasured,
+21,"ζ(PbS⁰ₐq, Na⁺, Cl⁻)",PbS⁰ₐq ternary,Neutral-species,Unmeasured,
+22,"ζ(PbS⁰ₐq, Ca²⁺, Cl⁻)",PbS⁰ₐq ternary,Neutral-species,Unmeasured,
+23,"β⁰(Pb²⁺–Cl⁻, T)",Pb²⁺–Cl⁻,Binary (T-dependent),Prior estimate (Woosley & Millero 2013),Will refine with new data
+24,"β¹(Pb²⁺–Cl⁻, T)",Pb²⁺–Cl⁻,Binary (T-dependent),Prior estimate (Woosley & Millero 2013),
+25,"Cᶲ(Pb²⁺–Cl⁻, T)",Pb²⁺–Cl⁻,Binary (T-dependent),Prior estimate (Woosley & Millero 2013),
+26,"β⁰(Fe²⁺–OH⁻)",Fe²⁺–OH⁻,Metal–hydroxide,Unmeasured,Important at pH > 7 where OH⁻ activity rises
+27,"β⁰(Pb²⁺–OH⁻)",Pb²⁺–OH⁻,Metal–hydroxide,Unmeasured,
+28,"β⁰(Pb²⁺–SO₄²⁻)",Pb²⁺–SO₄²⁻,Binary,Unmeasured,Mgaidi et al. (1991) partial; Felmy et al. (2000)
+29,"β¹(Pb²⁺–SO₄²⁻)",Pb²⁺–SO₄²⁻,Binary,Unmeasured,
+30,"Cᶲ(Pb²⁺–SO₄²⁻)",Pb²⁺–SO₄²⁻,Binary,Unmeasured,
+31,"λ(PbCl₂⁰, Na⁺)",PbCl₂⁰–Na⁺,Neutral-species,Unmeasured,PbCl₂⁰ is a significant species in Cl⁻-rich brines
+32,"λ(PbCl₂⁰, Cl⁻)",PbCl₂⁰–Cl⁻,Neutral-species,Unmeasured,
+33,"ζ(PbCl₂⁰, Na⁺, Cl⁻)",PbCl₂⁰ ternary,Neutral-species,Unmeasured,
+34,"ζ(PbCl₂⁰, Ca²⁺, Cl⁻)",PbCl₂⁰ ternary,Neutral-species,Unmeasured,
+35,"β⁰(Fe²⁺–OAc⁻)",Fe²⁺–acetate,Organic binary,Unmeasured,"Acetate: dominant organic acid in produced waters (100–10,000 mg/L)"
+36,"β¹(Fe²⁺–OAc⁻)",Fe²⁺–acetate,Organic binary,Unmeasured,
+37,"Cᶲ(Fe²⁺–OAc⁻)",Fe²⁺–acetate,Organic binary,Unmeasured,
+38,"β⁰(Pb²⁺–OAc⁻)",Pb²⁺–acetate,Organic binary,Unmeasured,
+39,"β¹(Pb²⁺–OAc⁻)",Pb²⁺–acetate,Organic binary,Unmeasured,
+40,"Cᶲ(Pb²⁺–OAc⁻)",Pb²⁺–acetate,Organic binary,Unmeasured,
+41,"β⁰(Fe²⁺–Prop⁻)",Fe²⁺–propionate,Organic binary,Unmeasured,"Propionate: second most abundant (10–1,000 mg/L)"
+42,"β¹(Fe²⁺–Prop⁻)",Fe²⁺–propionate,Organic binary,Unmeasured,
+43,"Cᶲ(Fe²⁺–Prop⁻)",Fe²⁺–propionate,Organic binary,Unmeasured,
+44,"β⁰(Pb²⁺–Prop⁻)",Pb²⁺–propionate,Organic binary,Unmeasured,
+45,"β¹(Pb²⁺–Prop⁻)",Pb²⁺–propionate,Organic binary,Unmeasured,
+46,"Cᶲ(Pb²⁺–Prop⁻)",Pb²⁺–propionate,Organic binary,Unmeasured,
+47,"θ(HS⁻–OAc⁻)",HS⁻/acetate,Anion mixing,Unmeasured,Governs competitive effects between sulfide and organic acid
+48,"θ(HS⁻–Prop⁻)",HS⁻/propionate,Anion mixing,Unmeasured,

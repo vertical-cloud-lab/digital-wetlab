@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320">
+  <style>
+    text { font-family: 'Times New Roman', Georgia, serif; }
+    .eq { font-size: 16px; fill: #333; }
+    .label { font-size: 13px; fill: #666; font-style: italic; }
+    .title { font-size: 18px; fill: #222; font-weight: bold; }
+    .var { font-style: italic; }
+    .heading { font-size: 15px; fill: #444; font-weight: bold; }
+  </style>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title">Pitzer Ion-Interaction Model — Key Equations</text>
+  
+  <!-- Activity coefficient equation -->
+  <text x="30" y="70" class="heading">Single-ion activity coefficient:</text>
+  <text x="30" y="100" class="eq">
+    ln γ_M = z²_M · f^γ + Σ_a (2B_Ma + ZC_Ma) m_a + Σ_c (2Φ_Mc + Σ_a ψ_Mca · m_a) m_c
+  </text>
+  
+  <!-- Debye-Hückel term -->
+  <text x="30" y="140" class="heading">Debye–Hückel long-range term:</text>
+  <text x="30" y="170" class="eq">
+    f^γ = −A_φ [ √I / (1 + 1.2√I) + (2/1.2) ln(1 + 1.2√I) ]
+  </text>
+  
+  <!-- Binary interaction parameters -->
+  <text x="30" y="210" class="heading">Binary interaction parameters (B terms):</text>
+  <text x="30" y="240" class="eq">
+    B_MX(I) = β⁰_MX + β¹_MX · g(α₁√I) + β²_MX · g(α₂√I)
+  </text>
+  <text x="30" y="265" class="label">
+    where g(x) = 2[1 − (1+x)e^(−x)] / x²; α₁ = 2.0 for most electrolytes
+  </text>
+  
+  <!-- Higher-order mixing -->
+  <text x="30" y="305" class="heading">Higher-order mixing parameters (θ, ψ) — GAP: 14 target params (6 binary + 8 mixing) for Fe²⁺, Pb²⁺</text>
+
+  <!-- Highlight box around gap -->
+  <rect x="25" y="285" width="750" height="30" rx="5" ry="5" 
+        fill="none" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="5,3"/>
+</svg>

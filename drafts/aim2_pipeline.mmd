@@ -1,0 +1,19 @@
+flowchart TD
+    A["<b>Aim 1 Experimental Data</b><br/>Precipitation boundary measurements<br/>across 19D composition–temperature space"]
+    B["<b>PHREEQC Forward Prediction</b><br/>Predict saturation indices<br/>using existing Pitzer parameters"]
+    C{"<b>Deviation Analysis</b><br/>|Measured − Predicted| > threshold?"}
+    D["<b>Parameter Regression</b><br/>Fit unmeasured Pitzer parameters<br/>(β⁰, β¹, Cᶲ, θ, ψ)<br/>to minimize residuals"]
+    E["<b>Cross-Validation</b><br/>Leave-one-out on held-out<br/>compositions & temperatures"]
+    F["<b>Output</b><br/>Updated Pitzer parameter database<br/>+ uncertainty estimates"]
+
+    A --> B --> C
+    C -- Yes --> D --> E --> F
+    C -- No --> F
+    E -. "Feedback: refine<br/>sampling via Aim 1" .-> A
+
+    style A fill:#4a90d9,stroke:#2c5f8a,color:#fff
+    style B fill:#7ab648,stroke:#4a7a2e,color:#fff
+    style C fill:#f5a623,stroke:#c4841c,color:#fff
+    style D fill:#d0021b,stroke:#9e0114,color:#fff
+    style E fill:#9b59b6,stroke:#6c3483,color:#fff
+    style F fill:#1abc9c,stroke:#148f77,color:#fff

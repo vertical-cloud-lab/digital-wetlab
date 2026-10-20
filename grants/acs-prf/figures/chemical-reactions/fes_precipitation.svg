@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200">
+  <style>
+    text { font-family: 'Times New Roman', Georgia, serif; }
+    .reaction { font-size: 22px; fill: #333; }
+    .label { font-size: 14px; fill: #666; font-style: italic; }
+    .title { font-size: 18px; fill: #222; font-weight: bold; }
+    .subscript { font-size: 16px; baseline-shift: sub; }
+    .superscript { font-size: 16px; baseline-shift: super; }
+  </style>
+  
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" class="title">Iron Sulfide (Mackinawite) Precipitation</text>
+  
+  <!-- Main reaction -->
+  <text x="350" y="80" text-anchor="middle" class="reaction">
+    Fe²⁺(aq) + HS⁻(aq) → FeS(s) + H⁺(aq)
+  </text>
+  
+  <!-- Ksp info -->
+  <text x="350" y="115" text-anchor="middle" class="label">
+    K_sp (mackinawite) ≈ 10⁻³·⁶ (amorphous) to 10⁻⁴·⁶⁵ (crystalline)
+  </text>
+  
+  <!-- Competing complexation -->
+  <text x="350" y="150" text-anchor="middle" class="reaction" style="font-size: 18px; fill: #666;">
+    Fe²⁺ + HS⁻ ⇌ FeHS⁺    (competing complex)
+  </text>
+  
+  <!-- pH note -->
+  <text x="350" y="185" text-anchor="middle" class="label">
+    Practical pH threshold ≈ 6.5; strongly composition-dependent in brines
+  </text>
+</svg>

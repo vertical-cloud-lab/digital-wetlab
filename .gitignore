@@ -205,3 +205,25 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# From digital-wetlab-private
+# LaTeX auxiliary files
+*.aux
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.wordcount
+*.bcf
+*.run.xml
+*-boldnames.bib
+drafts/main_proposal_final.synctex(busy)
+drafts/budget.tex
+
+# Per-proposal private files (cloned from <slug>-private repos)
+private/

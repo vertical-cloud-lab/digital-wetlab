@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200">
+  <style>
+    text { font-family: 'Times New Roman', Georgia, serif; }
+    .reaction { font-size: 22px; fill: #333; }
+    .label { font-size: 14px; fill: #666; font-style: italic; }
+    .title { font-size: 18px; fill: #222; font-weight: bold; }
+  </style>
+  
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" class="title">Lead Sulfide (Galena) Precipitation</text>
+  
+  <!-- Main reaction -->
+  <text x="350" y="80" text-anchor="middle" class="reaction">
+    Pb²⁺(aq) + HS⁻(aq) → PbS(s) + H⁺(aq)
+  </text>
+  
+  <!-- Ksp info -->
+  <text x="350" y="115" text-anchor="middle" class="label">
+    K_sp (galena) ≈ 10⁻²⁹ — extremely insoluble
+  </text>
+  
+  <!-- Competing reactions -->
+  <text x="350" y="150" text-anchor="middle" class="reaction" style="font-size: 18px; fill: #666;">
+    Pb²⁺ + nCl⁻ ⇌ PbCl_n^(2-n)    (chloro-complexation in brines)
+  </text>
+  
+  <!-- Notes -->
+  <text x="350" y="185" text-anchor="middle" class="label">
+    Solubility increases with T and salinity; stoichiometric until Pb:S ≈ 1; >15% model error in CaCl₂ (Duan 2007)
+  </text>
+</svg>

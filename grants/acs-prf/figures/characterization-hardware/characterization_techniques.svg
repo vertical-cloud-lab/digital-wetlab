@@ -1,0 +1,88 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .title { font-size: 20px; fill: #222; font-weight: bold; }
+    .label { font-size: 14px; fill: #333; font-weight: bold; }
+    .sublabel { font-size: 11px; fill: #666; }
+  </style>
+  
+  <text x="400" y="30" text-anchor="middle" class="title">Ex-Situ Characterization Techniques for Precipitate Analysis</text>
+  
+  <!-- XRD Box -->
+  <rect x="20" y="60" width="170" height="160" rx="10" fill="#E8F4FD" stroke="#45B7D1" stroke-width="2"/>
+  <text x="105" y="90" text-anchor="middle" class="label">XRD</text>
+  <text x="105" y="110" text-anchor="middle" class="sublabel">X-Ray Diffraction</text>
+  <!-- Simplified XRD icon: sample + beam -->
+  <line x1="50" y1="150" x2="105" y2="130" stroke="#45B7D1" stroke-width="2"/>
+  <line x1="105" y1="130" x2="160" y2="150" stroke="#45B7D1" stroke-width="2"/>
+  <rect x="85" y="160" width="40" height="10" fill="#45B7D1" rx="2"/>
+  <text x="105" y="200" text-anchor="middle" class="sublabel">Phase ID: mackinawite,</text>
+  <text x="105" y="215" text-anchor="middle" class="sublabel">galena, amorphous FeS</text>
+
+  <!-- SEM-EDS Box -->
+  <rect x="210" y="60" width="170" height="160" rx="10" fill="#FFF3E0" stroke="#FF9800" stroke-width="2"/>
+  <text x="295" y="90" text-anchor="middle" class="label">SEM-EDS</text>
+  <text x="295" y="110" text-anchor="middle" class="sublabel">Scanning Electron</text>
+  <text x="295" y="125" text-anchor="middle" class="sublabel">Microscopy + EDS</text>
+  <!-- Simplified electron beam icon -->
+  <line x1="295" y1="135" x2="295" y2="170" stroke="#FF9800" stroke-width="3"/>
+  <polygon points="285,170 295,185 305,170" fill="#FF9800"/>
+  <rect x="275" y="185" width="40" height="8" fill="#FF9800" rx="2"/>
+  <text x="295" y="210" text-anchor="middle" class="sublabel">Morphology + elemental</text>
+  <text x="295" y="225" text-anchor="middle" class="sublabel">composition (Fe:S ratio)</text>
+
+  <!-- Raman Box -->
+  <rect x="400" y="60" width="170" height="160" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+  <text x="485" y="90" text-anchor="middle" class="label">Raman</text>
+  <text x="485" y="110" text-anchor="middle" class="sublabel">Raman Spectroscopy</text>
+  <!-- Laser icon -->
+  <line x1="440" y1="140" x2="485" y2="170" stroke="#4CAF50" stroke-width="2" stroke-dasharray="4,2"/>
+  <line x1="485" y1="170" x2="530" y2="140" stroke="#4CAF50" stroke-width="2"/>
+  <circle cx="485" cy="175" r="8" fill="#4CAF50" opacity="0.3"/>
+  <text x="485" y="205" text-anchor="middle" class="sublabel">Molecular fingerprint:</text>
+  <text x="485" y="220" text-anchor="middle" class="sublabel">FeS polymorph ID</text>
+
+  <!-- ICP-OES Box -->
+  <rect x="590" y="60" width="170" height="160" rx="10" fill="#F3E5F5" stroke="#9C27B0" stroke-width="2"/>
+  <text x="675" y="90" text-anchor="middle" class="label">ICP-OES</text>
+  <text x="675" y="110" text-anchor="middle" class="sublabel">Inductively Coupled</text>
+  <text x="675" y="125" text-anchor="middle" class="sublabel">Plasma Emission</text>
+  <!-- Flame icon -->
+  <ellipse cx="675" cy="165" rx="15" ry="25" fill="#9C27B0" opacity="0.3"/>
+  <ellipse cx="675" cy="165" rx="8" ry="15" fill="#9C27B0" opacity="0.5"/>
+  <text x="675" y="205" text-anchor="middle" class="sublabel">Dissolved metal conc.</text>
+  <text x="675" y="220" text-anchor="middle" class="sublabel">in supernatant (ppb)</text>
+
+  <!-- Workflow arrow at bottom -->
+  <text x="400" y="270" text-anchor="middle" style="font-size: 13px; fill: #888; font-style: italic;">
+    Precipitate filtered â†’ dried â†’ analyzed by XRD/SEM/Raman; supernatant â†’ ICP-OES
+  </text>
+  
+  <!-- Tier 1: Visual Scoring Box -->
+  <rect x="20" y="300" width="230" height="130" rx="10" fill="#FFF8E1" stroke="#FFC107" stroke-width="2"/>
+  <text x="135" y="330" text-anchor="middle" class="label">Tier 1: Visual Binary Scoring</text>
+  <text x="135" y="350" text-anchor="middle" class="sublabel">(Off-line precipitation detection)</text>
+  <text x="135" y="380" text-anchor="middle" class="sublabel">â€¢ Black FeS/PbS visible by eye</text>
+  <text x="135" y="400" text-anchor="middle" class="sublabel">â€¢ Binary classification (0/1)</text>
+  <text x="135" y="420" text-anchor="middle" class="sublabel">â€¢ Cost: ~$0 | Fast</text>
+
+  <!-- Tier 2: Camera + Python Box -->
+  <rect x="280" y="300" width="230" height="130" rx="10" fill="#E0F7FA" stroke="#00BCD4" stroke-width="2"/>
+  <text x="395" y="330" text-anchor="middle" class="label">Tier 2: Camera + Python</text>
+  <text x="395" y="350" text-anchor="middle" class="sublabel">(Semi-automated detection)</text>
+  <text x="395" y="380" text-anchor="middle" class="sublabel">â€¢ Overhead Camera photography</text>
+  <text x="395" y="400" text-anchor="middle" class="sublabel">â€¢ OpenCV grayscale analysis</text>
+  <text x="395" y="420" text-anchor="middle" class="sublabel">â€¢ Cost: &lt;$100</text>
+  
+  <!-- Tier 3: Plate Reader Box -->
+  <rect x="540" y="300" width="230" height="130" rx="10" fill="#FCE4EC" stroke="#E91E63" stroke-width="2"/>
+  <text x="655" y="330" text-anchor="middle" class="label">Tier 3: Microplate Reader</text>
+  <text x="655" y="350" text-anchor="middle" class="sublabel">(Quantitative absorbance)</text>
+  <text x="655" y="380" text-anchor="middle" class="sublabel">â€¢ 600 nm absorbance readout</text>
+  <text x="655" y="400" text-anchor="middle" class="sublabel">â€¢ BYU shared facility</text>
+  <text x="655" y="420" text-anchor="middle" class="sublabel">â€¢ BioTek / SpectraMax</text>
+
+  <!-- Section labels -->
+  <text x="20" y="55" style="font-size: 13px; fill: #888; font-weight: bold;">EX-SITU (post-experiment)</text>
+  <text x="20" y="295" style="font-size: 13px; fill: #888; font-weight: bold;">TIERED OFF-LINE DETECTION (during experiment)</text>
+</svg>
