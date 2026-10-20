@@ -1,7 +1,7 @@
 # Edison mock review, round 2 — organizer-persona panel + full flyer + talk-vs-poster
 
 Round-2 Edison ANALYSIS task for the TMS 2027 abstract (v3), requested in
-[digital-wetlab-private PR 60](https://github.com/vertical-cloud-lab/digital-wetlab-private/pull/60).
+[#73](https://github.com/vertical-cloud-lab/digital-wetlab/issues/73).
 Differences from round 1 (`../tms-mock-review/`):
 
 - Reviewer personas are modeled on the **four actual symposium organizers** (Moats, Reddy, Free, Anderson),

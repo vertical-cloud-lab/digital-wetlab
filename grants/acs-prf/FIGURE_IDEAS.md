@@ -1,7 +1,7 @@
 ﻿# Figure Brainstorming â€” ACS PRF DNI Proposal
 
-> Updated to match the merged draft from [PR #18](https://github.com/vertical-cloud-lab/digital-wetlab-private/pull/18) (now on main).
-> Based on [PR #13](https://github.com/vertical-cloud-lab/digital-wetlab-private/pull/13) (Research Question & Hypothesis) and the [Edison Precedent Search](EDISON_PRECEDENT_SEARCH.md).
+> Updated to match the merged draft from [#31](https://github.com/vertical-cloud-lab/digital-wetlab/issues/31) (now on main).
+> Based on [#26](https://github.com/vertical-cloud-lab/digital-wetlab/issues/26) (Research Question & Hypothesis) and the [Edison Precedent Search](EDISON_PRECEDENT_SEARCH.md).
 > Assets generated programmatically as drafts; intended as starting points for final figure design.
 
 ---

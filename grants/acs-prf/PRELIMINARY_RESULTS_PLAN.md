@@ -4,7 +4,7 @@
 >
 > Note: The [DNI guide](ACS_PRF_DNI_GUIDE.md#3-research-scope-requirements) states that "limited or no preliminary results are expected" since this is seed funding. However, concrete preliminary data â€” even a single figure â€” significantly strengthens scientific credibility.
 >
-> Updated to align with the populated proposal draft in [PR #18](https://github.com/vertical-cloud-lab/digital-wetlab-private/pull/18).
+> Updated to align with the populated proposal draft in [#31](https://github.com/vertical-cloud-lab/digital-wetlab/issues/31).
 
 ---
 
@@ -234,7 +234,7 @@ This figure should be created in a vector graphics tool (Inkscape, Illustrator, 
 | 8 | Overlay BaSOâ‚„ experimental precipitation boundary on Pitzer SI prediction | 2 h | âœ… Analysis script exists (`preliminary_results/baso4_experimental_overlay.py`); depends on #7 | **Yes** |
 | 9 | Run PbS + NaCl gradient (directly proposal-relevant sulfide chemistry) | 3â€“4 h | Needs Pb(NOâ‚ƒ)â‚‚ + (NHâ‚„)â‚‚S + fume hood | **Yes** |
 | 10 | Extend Pitzer computation to include CaClâ‚‚ and temperature effects | 1 h | Script extensible | No |
-| 11 | Add computational result to draft LaTeX template (see [PR #18](https://github.com/vertical-cloud-lab/digital-wetlab-private/pull/18)) | 1 h | Depends on #1 | No |
+| 11 | Add computational result to draft LaTeX template (see [#31](https://github.com/vertical-cloud-lab/digital-wetlab/issues/31)) | 1 h | Depends on #1 | No |
 
 ---
 
@@ -357,4 +357,4 @@ Two Edison searches have been conducted to support preliminary results:
 - Research question & hypothesis: [RESEARCH_QUESTION_AND_HYPOTHESIS.md](RESEARCH_QUESTION_AND_HYPOTHESIS.md)
 - Edison precedent search: [EDISON_PRECEDENT_SEARCH.md](EDISON_PRECEDENT_SEARCH.md)
 - Edison Pitzer parameter search: [EDISON_PITZER_PARAMETER_SEARCH.md](EDISON_PITZER_PARAMETER_SEARCH.md)
-- Proposal draft: [PR #18](https://github.com/vertical-cloud-lab/digital-wetlab-private/pull/18)
+- Proposal draft: [#31](https://github.com/vertical-cloud-lab/digital-wetlab/issues/31)
