@@ -21,7 +21,7 @@ byu-vcl issues cited below.
 | [`BATCH_TEMPERATURE_AND_TIMING.md`][batch-temp] (branch for [issue 62](https://github.com/vertical-cloud-lab/digital-wetlab/issues/62)) | how the heated runs would be done |
 | plans [`002`][plan-002] and [`003`][plan-003] and the [protocol that ran on 03-05][march-protocol] (PRs [3](https://github.com/vertical-cloud-lab/digital-wetlab/pull/3) and [8](https://github.com/vertical-cloud-lab/digital-wetlab/pull/8)) | the BaSO₄ plate and the PbS vial tests |
 | byu-vcl [15][vcl-15-bought], [29][vcl-29], [30][vcl-30], [34][vcl-34], [68][vcl-68], [81][vcl-81], [195][vcl-195], [197][vcl-197] and the [calibration notes][calib] | what the lab has: chemicals, fume hood, glovebox, camera, plate reader, heater-shaker, pipettes |
-| PHREEQC runs for this revision (step 2) | competing precipitates and impossible corners of the design |
+| [PHREEQC runs](phreeqc-checks/) for this revision (step 2) | competing precipitates and impossible corners of the design |
 
 ## What the proposal plans
 
@@ -66,8 +66,8 @@ what to buy or how the robot is set up.
 - [ ] **pH of the sulfide wells: 4–9, or 8 and above?** The design varies pH from 4 to 9, but
   the proposal's safety paragraph and the [safety plan][s-ph] both say all experiments run at
   pH ≥ 8 "where HS⁻ dominates", so that H₂S stays negligible. In 0.5 molal NaCl, PHREEQC puts
-  30–40% of the dissolved sulfide in the H₂S form at pH 7, 82–87% at pH 6 and over 99.8% at
-  pH 4, against 2–6% at pH 8 (step 2). Either keep sulfide wells at pH 8 and above and drop the
+  32–40% of the dissolved sulfide in the H₂S form at pH 7, 83–87% at pH 6 and over 99.8% at
+  pH 4, against 3–6% at pH 8 (step 2). Either keep sulfide wells at pH 8 and above and drop the
   acid half of the design, or tell EHS that the plan includes acidic sulfide and agree controls
   for it. Most of step 1 depends on this.
 - [ ] **How the 60 and 90 °C runs are done.** The proposal has the heater-shaker covering
@@ -81,10 +81,12 @@ what to buy or how the robot is set up.
   - Ammonium is a buffer (pKa 9.25) and one more ion for the model to carry, so (NH₄)₂S
     works against the pH axis. Buy NaHS, or the Na₂S·9H₂O the shopping list gives as the
     alternative.
-  - PbCl₂ dissolves only to about 36 mM at 20 °C ([shopping list, note 2][shop-n2]), too little
-    for the 100 mM top of the metal range. Pb(NO₃)₂ reaches it, but puts nitrate in every lead
-    well. Lead chloride also caps the lead-only blanks: in 0.5 molal NaCl, PbCl₂ saturates at
-    about 5 mM lead (step 2).
+  - PbCl₂ dissolves only to about 36 mM at 20 °C ([shopping list, note 2][shop-n2]), so the
+    shopping list turns to Pb(NO₃)₂ above 35 mM. That doesn't get past the limit in a chloride
+    brine: whatever the source, PbCl₂ precipitates above about 5 mM lead in 0.5–1 molal NaCl,
+    8 mM at 2 molal and 31 mM at 5 molal (step 2). Lower the top of the lead range to what stays
+    dissolved. Pb(NO₃)₂ still helps with the volume budget, since a concentrated stock takes
+    little room in the well, at the cost of nitrate in every lead well.
 - [ ] **FeCl₂ rather than FeSO₄.** With 0.5 molal CaCl₂ in the matrix, the sulfate from FeSO₄
   saturates gypsum at 7–10 mM iron, a tenth of the top of the iron range (step 2). The shopping
   list already carries FeCl₂ as the sulfate-free option.
@@ -102,7 +104,7 @@ what to buy or how the robot is set up.
 - [ ] **Buffers for each pH band.** MES (pH 5.5–6.7) and HEPES (6.8–8.2) leave pH 4–5.5 covered
   only by acetate, which is a design variable. Bicarbonate, listed for pH 8–9, gives off CO₂
   when acidified. At 10 mM and pH 7–8 it also leaves 1–10 mM lead supersaturated with
-  cerussite (PbCO₃) by 2.5–4.4 SI units, and iron with siderite (FeCO₃) by up to 3.5 (step 2).
+  cerussite (PbCO₃) by 3.3–4.4 SI units, and iron with siderite (FeCO₃) by up to 3.5 (step 2).
   A Good's buffer such as TAPS or CHES covers pH 8–9 without carbonate; check its metal binding
   first. Also decide how pH is checked, for example with a micro pH electrode on a few wells per
   plate. Readings in concentrated NaCl carry a junction-potential error.
@@ -195,20 +197,22 @@ what to buy or how the robot is set up.
 - [ ] **Keep a stock log:** lot, mass, volume, time made and standardisation result. The proposal
   records "solution ages" for every run.
 - [ ] **Run a saturation check on the final stock list and ranges** for phases other than FeS
-  and PbS. For this revision PHREEQC was run at 25 °C on the planned stocks and ranges:
-  pitzer.dat for gypsum and halite; llnl.dat, minteq.v4.dat and wateq4f.dat for lead, which
-  pitzer.dat lacks; phreeqc.dat for iron sulfide and siderite. Outside pitzer.dat the activity
-  models are Davies or B-dot, so anything above about 1 molal is rough.
+  and PbS. For this revision PHREEQC was run at 25 °C on the planned stocks and ranges
+  ([script and output](phreeqc-checks/)): pitzer.dat for gypsum and halite; llnl.dat for lead
+  and for H₂S/HS⁻, which pitzer.dat lacks, with wateq4f.dat as a check; phreeqc.dat for iron
+  sulfide and siderite. Outside pitzer.dat the activity models are Davies or B-dot, so anything
+  above about 1 molal is rough. The output also has minteq.v4.dat columns; they aren't used
+  here, because that database fails above about 1 molal.
 
   | check | result | what it means for setup |
   | --- | --- | --- |
   | Gypsum: FeSO₄ with 0.5 molal CaCl₂ | Saturates at 7–10 mM FeSO₄ in 0.5–5 molal NaCl; SI ≈ +1 at 100 mM. With 0.05 molal CaCl₂, at 30–65 mM. | Use FeCl₂. |
   | Halite: 5 molal NaCl with CaCl₂ | Saturates at 6.1 molal NaCl alone, 5.7 with 0.25 molal CaCl₂, 5.3 with 0.5. | A 5 molal + 0.5 molal CaCl₂ well grows salt crystals after losing 5% of its water. Seal plates and check evaporation by weight. |
-  | PbCl₂ in lead-only blanks | Dissolves to 34 mM in water (literature: about 36). In 0.5 molal NaCl, about 5 mM (5–9 mM across the three databases). Above 1 molal the databases disagree by orders of magnitude. | White PbCl₂ in high-lead blanks at low salt. |
-  | Carbonates: 10 mM NaHCO₃ at pH 7–8, 0.5 molal NaCl | Cerussite SI +2.5 to +4.4 at 1–10 mM Pb; siderite SI +0.2 to +3.5 at 1–10 mM Fe. | Don't buffer with bicarbonate. |
-  | Hydroxides: pH 9, 0.5 molal NaCl, no CO₂ | Lead hydroxychloride SI about +2.5 at 1–10 mM Pb; Fe(OH)₂ SI +0.4 to +1.4 at 1–10 mM Fe (llnl.dat). | Metal-only blanks at pH 9 can precipitate without any sulfide. |
-  | Share of dissolved sulfide present as H₂S, 0.5 molal NaCl | 99.8% at pH 4; 82–87% at pH 6; 30–40% at pH 7; 2–6% at pH 8; under 1% at pH 9 | Step 0, the pH range. |
-  | Where the boundaries fall, for equal metal and sulfide | FeS (mackinawite to fresh FeS): saturates at about 2–7 mM at pH 4, 0.03–0.07 mM at pH 6 and about 0.001 mM at pH 9. PbS at 0.5 molal NaCl: supersaturated across the whole design in both databases checked, by 3 or more SI units even at 0.01 mM and pH 4. PbS at 5 molal NaCl: llnl.dat still says supersaturated everywhere; minteq.v4.dat puts the boundary at 0.1–6 mM. | The FeS boundary crosses the design at pH 4–7. Low-salt PbS plates measure how fast PbS forms, not where. Where the high-salt PbS boundary lies can't be predicted to within orders of magnitude, which is the gap the proposal is about. |
+  | PbCl₂, whatever the lead source | Dissolves to 34 mM in water (literature: 36–39). Total lead stays dissolved only up to about 5 mM in 0.5–1 molal NaCl, 8 mM at 2 molal and 31 mM at 5 molal. | 100 mM lead is out of reach at every salt level, so the top of the lead range has to come down. High-lead blanks grow white PbCl₂. |
+  | Carbonates: 10 mM NaHCO₃ at pH 7–8, 0.5 molal NaCl | Cerussite SI +3.3 to +4.4 at 1–10 mM Pb; siderite SI +1.0 to +3.5 at 1–10 mM Fe. | Don't buffer with bicarbonate. |
+  | Hydroxides: pH 9, 0.5 molal NaCl, no CO₂ | Lead hydroxychloride (PbOHCl) SI about +2.5 at 1–10 mM Pb; Fe(OH)₂ SI +0.4 to +1.4 at 1–10 mM Fe (llnl.dat). | Metal-only blanks at pH 9 can precipitate without any sulfide. |
+  | Share of dissolved sulfide present as H₂S, 0.5 molal NaCl | Over 99.8% at pH 4; 83–87% at pH 6; 32–40% at pH 7; 3–6% at pH 8; under 1% at pH 9 | Step 0, the pH range. |
+  | Where the boundaries fall, for equal metal and sulfide | FeS (mackinawite to fresh FeS): saturates at about 2–7 mM at pH 4, 0.03–0.07 mM at pH 6 and about 0.001 mM at pH 9. PbS (llnl.dat): supersaturated across the whole design, by at least 1.7 SI units. The low point is 5 molal NaCl, pH 4 and 0.01 mM, where chloro-complexes hold all but 0.05% of the lead. The databases differ by 2.1 log units on galena's constant; with wateq4f.dat's value that corner is just undersaturated (SI −0.3). | The FeS boundary crosses the design at pH 4–7. Nearly every PbS well will precipitate, so PbS plates measure how fast and how much, not where; only the salty, acidic, dilute corner might cross the boundary. |
 
 ### 3. The robot
 
@@ -322,9 +326,9 @@ Start from [`preliminary_results/baso4_nacl_gradient_protocol.py`][baso4-protoco
 - Reads are at 1, 5, 15, 60 and 240 min, not 5, 15, 60 and 240.
 - New items: the lead and sulfide salts on the shelf aren't the ones the proposal names; the
   5 molal and solubility limits; gypsum from FeSO₄; buffers; plate type; the 8-channel; ICP-OES.
-- Corrected: the first version said any PbS mix the robot can pipette will precipitate. That
-  holds at 0.5 molal NaCl, but at 5 molal the databases disagree by orders of magnitude on where
-  the PbS boundary lies (step 2).
+- Checked: the first version said any PbS mix the robot can pipette will precipitate. PHREEQC
+  agrees for nearly all of the design; only the 5 molal, pH 4, 0.01 mM corner comes close to the
+  boundary. FeS, by contrast, has its boundary inside the design (step 2).
 
 [safety]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/2f91cfb/drafts/safety_explanation.md
 [s-ph]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/2f91cfb/drafts/safety_explanation.md#L15
