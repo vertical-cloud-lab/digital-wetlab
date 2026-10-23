@@ -45,23 +45,51 @@ Whichever hood it is:
 | Face shield | have | One ([byu-vcl 15][vcl-15-shield]). |
 | Half-face respirators | have, but no use here | Their P100 filters stop dust, not H₂S or ammonia. The hood is the protection. |
 | Eyewash, safety shower, spill kit that handles heavy metals | **check** | In the hood's room. |
-| SDS binder | **check** | The Pb(NO₃)₂ and (NH₄)₂S SDSs are on [byu-vcl 15][vcl-15-sds]. Print them, and add BaCl₂ and anything new. |
+| SDS binder | **check** | The SDSs for the lead(II) nitrate, ammonium sulfide, sodium chloride and sodium sulfate are on [byu-vcl 15][vcl-15-sds]. Print them, and add barium chloride's and anything new. |
 | Written SOP and job hazard analysis, plus training records | **get** | Use the BYU Engineering [SOP template][sop-template]. The lead nitrate SDS lists it as a carcinogen (Cat. 1B) and a reproductive toxin (Cat. 1A). For those, the OSHA lab standard calls for a designated area, containment, and waste and decontamination procedures ([29 CFR 1910.1450(e)(3)(viii)][osha-lab]). |
 | Absorbent bench liner, a tray for the hood, a lidded tub for carrying stocks between rooms, a "lead: designated area" sign | **get** | |
-| Flammables storage for the (NH₄)₂S | **check** | Flash point 32 °C ([SDS][vcl-15-sds]). Keep it away from acids, and from the lead nitrate, which is an oxidiser. |
+| Flammables storage for the ammonium sulfide | **check** | Flash point 32 °C ([SDS][vcl-15-sds]). Keep it away from acids, and from the lead nitrate, which is an oxidiser. |
 
 ### Chemicals
 
-| item | status | amount | notes |
-| --- | --- | --- | --- |
-| Lead(II) nitrate, Pb(NO₃)₂, 500 g | have | 49.7 mg makes 15 mL of 10 mM | Bought 03-03 ([byu-vcl 15][vcl-15-list]). The proposal names PbCl₂; Pb(NO₃)₂ dissolves far better. |
-| Ammonium sulfide solution, (NH₄)₂S, 500 mL | have, **check** | about 51 µL makes 15 mL of 10 mM | Sigma-Aldrich A1952, bought 03-03. It is sold as 20 wt% (the SDS gives 10–30%), about 2.9 M if its density is near 1 g/mL; check the label. Open it in the hood. If it has turned yellow (polysulfide), it still works for the vial tests but not for quantitative plates. |
-| Sodium hydrosulfide (NaHS·xH₂O) or sodium sulfide (Na₂S·9H₂O) | **get**, for the campaign | | The proposal uses NaHS. (NH₄)₂S adds ammonium to every well, which buffers near pH 9.25. Make sulfide stocks fresh each day, whichever is used. |
-| Sodium chloride, NaCl, 500 g | have | 4.383 g makes 15 mL of 5 M | |
-| Barium chloride (BaCl₂) and sodium sulfate (Na₂SO₄) | have | | For the BaSO₄ positive controls on every plate. Both were used on 03-05. |
-| DI water | have, refill | about 1 L per session | Free from the Chem Stores breakroom, kept in HDPE ([byu-vcl 15][vcl-15-di]). The jug dates from March. |
-| pH strips or a pH meter, with pH 4/7/10 buffers | **get** | | The safety plan keeps sulfide at pH 8 or above. Check the stocks and a few wells. |
-| For the full design later: CaCl₂·2H₂O, sodium acetate trihydrate, sodium propionate, buffers, HCl, NaOH | **get** | | Not needed for the vial tests or the first plate. Quantities and grades are in the [shopping list][shop]. |
+The names and CAS numbers of the bottles on hand come from their SDSs on
+[byu-vcl 15][vcl-15-sds]. Barium chloride's SDS isn't there, so its form comes from the stock
+masses in the [protocol that ran on 03-05][baso4-stocks].
+
+| chemical | formula | CAS no. | status | amount | notes |
+| --- | --- | --- | --- | --- | --- |
+| Lead(II) nitrate, 500 g | Pb(NO₃)₂ | 10099-74-8 | have | 49.7 mg makes 15 mL of 10 mM | Bought 03-03 ([byu-vcl 15][vcl-15-list]). The proposal names lead(II) chloride (PbCl₂); lead(II) nitrate dissolves far better. |
+| Ammonium sulfide solution, about 20 wt% in water, 500 mL | (NH₄)₂S | 12135-76-1 | have, **check** | about 51 µL makes 15 mL of 10 mM | Sigma-Aldrich A1952, bought 03-03. It is sold as 20 wt% (the SDS gives 10–30%), about 2.9 M if its density is near 1 g/mL; check the label. Open it in the hood. If it has turned yellow (ammonium polysulfide), it still works for the vial tests but not for quantitative plates. |
+| Sodium chloride, 500 g | NaCl | 7647-14-5 | have | 4.383 g makes 15 mL of 5 M | |
+| Barium chloride dihydrate | BaCl₂·2H₂O | 10326-27-9 | have, **check** | 366.4 mg makes 15 mL of 0.1 M | For the barium sulfate positive controls on every plate: 20 µL of the 0.1 M stock in a 200 µL well gives 10 mM. The 03-05 stock was 1.0 M, made from the dihydrate. Check the label: anhydrous barium chloride (BaCl₂, CAS 10361-37-2) needs 15% less mass. |
+| Sodium sulfate, anhydrous, 500 g | Na₂SO₄ | 7757-82-6 | have | 213.1 mg makes 15 mL of 0.1 M | The other half of the barium sulfate controls, used the same way. Also used on 03-05. |
+| Deionized (DI) water | H₂O | 7732-18-5 | have, refill | about 1 L per session | Free from the Chem Stores breakroom, kept in HDPE ([byu-vcl 15][vcl-15-di]). The jug dates from March. |
+| pH 4, 7 and 10 buffer solutions, with pH strips or a pH meter | | | **get** | | The safety plan keeps sulfide at pH 8 or above. Check the stocks and a few wells. |
+
+For the full design later. None of these are needed for the vial tests or the first plate, and
+quantities and grades are in the [shopping list][shop].
+
+| chemical | formula | CAS no. | status | notes |
+| --- | --- | --- | --- | --- |
+| Sodium hydrosulfide hydrate | NaHS·xH₂O | 207683-19-0 | **get** | The proposal's sulfide source. Ammonium sulfide adds ammonium to every well, which buffers near pH 9.25. Make sulfide stocks fresh each day, whichever is used. |
+| or sodium sulfide nonahydrate | Na₂S·9H₂O | 1313-84-4 | **get** | The alternative to sodium hydrosulfide. |
+| Calcium chloride dihydrate | CaCl₂·2H₂O | 10035-04-8 | **get** | |
+| Sodium acetate trihydrate | CH₃COONa·3H₂O | 6131-90-4 | **get** | |
+| Sodium propionate | CH₃CH₂COONa | 137-40-6 | **get** | |
+| A buffer for pH 8–9: TAPS, N-[tris(hydroxymethyl)methyl]-3-aminopropanesulfonic acid, or CHES, 2-(cyclohexylamino)ethanesulfonic acid | | 29915-38-6 (TAPS), 103-47-9 (CHES) | **get**, once chosen | Instead of the shopping list's sodium bicarbonate, which would precipitate lead carbonate. Check its metal binding first ([earlier checklist][prev-step0]). |
+| Hydrochloric acid | HCl | 7647-01-0 | **get** | For adjusting pH |
+| Sodium hydroxide | NaOH | 1310-73-2 | **get** | For adjusting pH |
+
+### Names for the other formulas used here
+
+| formula | name | what it is here |
+| --- | --- | --- |
+| PbS | lead(II) sulfide | the black precipitate being measured |
+| BaSO₄ | barium sulfate | the white precipitate in the positive controls |
+| H₂S | hydrogen sulfide | the toxic gas sulfide solutions give off, more of it the more acidic they are |
+| PbCl₂ | lead(II) chloride | precipitates when there's too much lead in the brine |
+| Pb²⁺ | lead(II) ion | |
+| FeS | iron(II) sulfide | the precipitate in the iron experiments, after the glovebox arrives |
 
 ### Stocks and vial tests, by hand in the hood
 
@@ -136,8 +164,9 @@ None of this needs the camera.
 
 These follow [plan 003][plan-003], the vial test that the proposal's preliminary results
 describe, with two changes. The sulfide comes from the ammonium sulfide on the shelf, not
-Na₂S·9H₂O. Vial 3 drops from 5 to 3 mM: at 5 mM its volumes add up to 6 mL, and PHREEQC has
-PbCl₂ precipitating above 3.4–4.7 mM lead in 1 molal NaCl ([output][phreeqc]).
+sodium sulfide nonahydrate (Na₂S·9H₂O). Vial 3 drops from 5 to 3 mM: at 5 mM its volumes add
+up to 6 mL, and PHREEQC has lead(II) chloride (PbCl₂) precipitating above 3.4–4.7 mM lead in
+1 molal NaCl ([output][phreeqc]).
 
 6. **Set up the hood**: liner and tray, waste containers, the H₂S detector on, and the sash as
    low as you can work.
@@ -145,9 +174,9 @@ PbCl₂ precipitating above 3.4–4.7 mM lead in 1 molal NaCl ([output][phreeqc]
 
    | stock | recipe |
    | --- | --- |
-   | 10 mM Pb(NO₃)₂, 15 mL | 49.7 mg, made up to 15 mL with DI water. If the balance is outside the hood, weigh by difference in a capped vial so lead dust stays in the hood. |
-   | 10 mM sulfide, 15 mL | About 51 µL of the (NH₄)₂S, made up to 15 mL with DI water. Fill the tube nearly full and cap it. Check that its pH is above 8. |
-   | 5 M NaCl, 15 mL | 4.383 g, made up to 15 mL with DI water |
+   | 10 mM lead(II) nitrate, Pb(NO₃)₂, 15 mL | 49.7 mg, made up to 15 mL with DI water. If the balance is outside the hood, weigh by difference in a capped vial so lead dust stays in the hood. |
+   | 10 mM sulfide, 15 mL | About 51 µL of the ammonium sulfide solution, (NH₄)₂S, made up to 15 mL with DI water. Fill the tube nearly full and cap it. Check that its pH is above 8. |
+   | 5 M sodium chloride, NaCl, 15 mL | 4.383 g, made up to 15 mL with DI water |
 
    Log the lot, mass, volume and time for each.
 8. **Mix the vials**, 5 mL each, in this order: water, NaCl, lead, then sulfide last. Cap each
@@ -186,7 +215,8 @@ PbCl₂ precipitating above 3.4–4.7 mM lead in 1 molal NaCl ([output][phreeqc]
     - Four levels of each, 0.01, 0.1, 1 and 3 mM, in triplicate: 48 wells.
     - Lead-only and sulfide-only blanks at each level, plus water and NaCl blanks. The 3 mM
       lead-only blanks also show whether PbCl₂ comes out.
-    - BaSO₄ positive controls, for example 10 mM BaCl₂ and 10 mM Na₂SO₄ in the well.
+    - Barium sulfate (BaSO₄) positive controls, for example 10 mM barium chloride and 10 mM
+      sodium sulfate in the well, from 20 µL each of the 0.1 M stocks.
 
     With only the P300 (20 µL minimum), make lead and sulfide stocks at 0.1, 1 and 10 mM. Then
     20 µL of one of them gives 0.01, 0.1 or 1 mM, and 60 µL of the 10 mM stock gives 3 mM. The
@@ -214,7 +244,8 @@ PbCl₂ precipitating above 3.4–4.7 mM lead in 1 molal NaCl ([output][phreeqc]
       salt ([output][phreeqc]). The proposal's range goes to 100 mM.
     - **pH**: the safety plan keeps sulfide at pH 8 and above, while the design runs from 4 to
       9. At pH 6 most of the dissolved sulfide is H₂S.
-    - **The sulfide source**: NaHS, as in the proposal, or the (NH₄)₂S on the shelf.
+    - **The sulfide source**: sodium hydrosulfide (NaHS), as in the proposal, or the ammonium
+      sulfide on the shelf.
     - **Buffers**: not bicarbonate, which would precipitate lead carbonate.
     - **5 molal NaCl** leaves little room in a well for anything else.
 19. **Latin hypercube plates**, with a volume check in the design generator, blanks and BaSO₄
@@ -235,12 +266,14 @@ The FeS work follows, once the glovebox is in.
 - waste containers (through Risk Management), bench liner, trays and a sign
 - a temperature and humidity logger
 
-Later: NaHS or Na₂S·9H₂O, and the salts and buffers for the full design.
+Later: sodium hydrosulfide hydrate or sodium sulfide nonahydrate, and the salts and buffers for
+the full design.
 
 [prev]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/5b29ece/docs/ot2-sulfide-scaling-setup.md
 [prev-step0]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/5b29ece/docs/ot2-sulfide-scaling-setup.md#0-decisions-for-sterling-before-buying-anything
 [prev-protocol]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/5b29ece/docs/ot2-sulfide-scaling-setup.md#4-the-protocol
 [phreeqc]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/5b29ece/docs/phreeqc-checks/results.txt
+[baso4-stocks]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/cded249/Experiment_1__AgCl_Precipitation_V1.py#L116-L118
 [plan-003]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/1c0f422/experiments/003-pbs-vial-tests/README.md
 [shop]: ../SHOPPING_LIST.md
 [shop-plates]: ../SHOPPING_LIST.md#3a-well-plates
