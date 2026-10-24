@@ -12,15 +12,15 @@
 | **Nov 9, 2026** | LOI to the [RCSA Team Science Accelerator](https://rescorp.org/team-science-accelerator/). Needs a team of 3–5 PIs, each within 10 years of their first independent job, at US or Canadian institutions, in basic physical science | up to $1M total over 2 yr; 3–4 teams | verified |
 | **Nov 13, 2026, 5 pm** | Utah [Great Salt Lake Research Grant](https://ffsl.utah.gov/funding/gsl-research-grant/) (FY2028–29 call). Needs a lake-specific aim, e.g. predicting halite, gypsum and mirabilite precipitation and Li/Mg behaviour in lake brine | 1–2 yr projects | verified |
 | **Nov 30, 2026** | [DOE BES Geosciences](https://science.osti.gov/bes/csgb/Research-Areas/Geosciences): send a white paper now. A full application before Nov 30 gets a decision by June. Pitch the missing Fe/Pb–HS⁻ and carboxylate terms as the thermodynamics behind critical-element transport and scale in subsurface brines | standard BES grant | verified |
-| **December** | Email the PRF Panel 2 officer, the Rice Brine Chemistry Consortium, OLI Systems and Sandia's WIPP geochemistry group ([drafts](outreach-drafts.md)) | — | — |
+| **Nov–Dec** | Email the PRF Panel 2 officer, the Rice Brine Chemistry Consortium, OLI Systems and Sandia's WIPP geochemistry group ([drafts](outreach-drafts.md)) | — | — |
 | **Feb 15 – Mar 12, 2027** | Resubmit the PRF DNI, probably to Panel 2 ([section 1](#1-resubmitting-to-acs-prf)) | $110K / 2 yr | verified |
 | **Mar 15, 2027** | Apply to be a Fellow in [Scialog: Sustainable Minerals, Metals & Materials](https://rescorp.org/scialog/sustainable-minerals-metals-and-materials/) (the 2027 cohort is the last in this series) | seed team awards | verified |
 | **Any time** | NSF [Chemical Systems and Solutions](https://www.nsf.gov/funding/opportunities/css-chemical-systems-solutions) (NSF 26-519; covers critical minerals, the hydrosphere and lithosphere, and AI; 2–4 PIs encouraged). The alternative is NSF [CBET](https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport/nsf26-518/solicitation) Chemical Process Systems. Send to one, not both | standard NSF grant | CSS verified |
 | **Jul 28, 2027** | [NSF CAREER](https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program) | ≥ $400K / 5 yr (≥ $500K in Engineering) | date = fourth Wednesday of July |
 
-That ordering puts the biggest early-career award you are eligible for (RCSA) and the most direct
-science match (DOE BES Geosciences) ahead of the PRF resubmission. It also leaves the PRF draft
-untouched until the reviews and a measured boundary are in hand.
+The two calls with near deadlines (the RCSA LOI and the Utah GSL grant) and the closest science match
+(DOE BES Geosciences) come before the PRF resubmission. That leaves time to get the reviews and a
+measured boundary before the PRF draft is revised.
 
 ## The organization you remembered
 
@@ -34,7 +34,7 @@ Foundation in Calgary.
   carbonate and sulphide scale-prediction modelling.
 - Its Heriot-Watt team reportedly hosted Tony Appelo's five-day PHREEQC course in November 2025.
   That comes from the search agent; the page refused connections from here.
-- It funds by invited chairs (about CAD 540K over 3 years for one Heriot-Watt chair), including US
+- It funds by invited chairs ([about CAD 540K over 3 years](https://www.hw.ac.uk/news/2022/renowned-expert-appointed-energi-simulation-chair-in-drive-towards-energy-transition) for one Heriot-Watt chair), including US
   chairs at USC and UT Austin. There is no open call. A new assistant professor would get in by
   collaborating with an existing chair, most naturally Mackay's, rather than by asking for a chair.
 
@@ -52,7 +52,6 @@ Foundation in Calgary.
 Both are worth an email. Rice is the stronger scientific partner and the faster route to
 industry sponsors. Energi Simulation fits better if what you want is a foundation that already pays
 for PHREEQC-style physics-based modelling.
-
 
 ## 1. Resubmitting to ACS PRF
 
