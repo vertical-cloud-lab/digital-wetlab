@@ -1,0 +1,30 @@
+Part 1. Pure water equilibrated with air (phreeqc.dat)
+
+| where | T (C) | CO2 (ppm) | pH | DIC (umol/kg) | conductance (uS/cm) | resistivity (MOhm-cm) | O2 (mg/L) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| sea level | 20 | 425 | 5.59 | 18.9 | 0.91 | 1.10 | 9.16 |
+| sea level | 20 | 1000 | 5.40 | 42.3 | 1.40 | 0.72 | 9.16 |
+| sea level | 20 | 2000 | 5.25 | 82.2 | 1.98 | 0.51 | 9.16 |
+| sea level | 25 | 425 | 5.60 | 16.5 | 0.99 | 1.01 | 8.32 |
+| sea level | 25 | 1000 | 5.42 | 36.8 | 1.51 | 0.66 | 8.32 |
+| sea level | 25 | 2000 | 5.27 | 71.4 | 2.14 | 0.47 | 8.32 |
+| BYU, ~1,400 m | 20 | 425 | 5.62 | 16.1 | 0.84 | 1.20 | 7.70 |
+| BYU, ~1,400 m | 20 | 1000 | 5.44 | 35.9 | 1.28 | 0.78 | 7.70 |
+| BYU, ~1,400 m | 20 | 2000 | 5.29 | 69.6 | 1.81 | 0.55 | 7.70 |
+| BYU, ~1,400 m | 25 | 425 | 5.64 | 14.1 | 0.90 | 1.11 | 6.99 |
+| BYU, ~1,400 m | 25 | 1000 | 5.45 | 31.2 | 1.38 | 0.72 | 6.99 |
+| BYU, ~1,400 m | 25 | 2000 | 5.30 | 60.4 | 1.96 | 0.51 | 6.99 |
+
+Pure water with no CO2 at 25 C: pH 7.00, 0.055 uS/cm (18.1 MOhm-cm)
+
+Part 2. 10 mM lead(II) nitrate made up in that water, 25 C, BYU (wateq4f.dat)
+
+wateq4f.dat sha256 93547b0343d9f151e73fb48e7927aa9e9c777399fedcb8c7497d00371af4d0ae
+
+| water's CO2 (ppm) | DIC (umol/kg) | pH | SI cerussite PbCO3 | SI hydrocerussite | SI Pb(OH)2 |
+| --- | --- | --- | --- | --- | --- |
+| 425 | 14.1 | 4.91 | -1.01 | -3.33 | -0.67 |
+| 1000 | 31.2 | 4.86 | -0.74 | -2.89 | -0.76 |
+| 2000 | 60.4 | 4.80 | -0.56 | -2.65 | -0.88 |
+
+SI < 0 means undersaturated: that solid cannot form.
