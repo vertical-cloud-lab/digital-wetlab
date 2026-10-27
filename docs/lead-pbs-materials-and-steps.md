@@ -64,7 +64,7 @@ masses in the [protocol that ran on 03-05][baso4-stocks].
 | Barium chloride dihydrate | BaCl₂·2H₂O | 10326-27-9 | have, **check** | 366.4 mg makes 15 mL of 0.1 M | For the barium sulfate positive controls on every plate: 20 µL of the 0.1 M stock in a 200 µL well gives 10 mM. The 03-05 stock was 1.0 M, made from the dihydrate. Check the label: anhydrous barium chloride (BaCl₂, CAS 10361-37-2) needs 15% less mass. |
 | Sodium sulfate, anhydrous, 500 g | Na₂SO₄ | 7757-82-6 | have | 213.1 mg makes 15 mL of 0.1 M | The other half of the barium sulfate controls, used the same way. Also used on 03-05. |
 | Deionized (DI) water | H₂O | 7732-18-5 | have, refill | about 1 L per session | Free from the Chem Stores breakroom, kept in HDPE ([byu-vcl 15][vcl-15-di]). The jug dates from March. |
-| pH 4, 7 and 10 buffer solutions, with pH strips or a pH meter | | | **get** | | The safety plan keeps sulfide at pH 8 or above. Check the stocks and a few wells. |
+| pH 4.00, 7.00 and 10.00 calibration buffers (usually colour-coded red, yellow and blue) | | | **get** | a few tens of mL of each per calibration | For calibrating a pH meter. The safety plan keeps sulfide at pH 8 or above, so check the stocks and a few wells. Unopened they keep 1–2 years. Once opened, pH 4 and 7 keep 1–3 months and pH 10 only 1–4 weeks, because it absorbs CO₂ from the air ([details][ph-buffers]). Buy small bottles or single-use vials. I couldn't confirm that Chem Stores stocks them. |
 
 For the full design later. None of these are needed for the vial tests or the first plate, and
 quantities and grades are in the [shopping list][shop].
@@ -104,6 +104,7 @@ quantities and grades are in the [shopping list][shop].
 | Screw-cap glass vials, about 20 mL | **check** | Six per set of vial tests. Ten were bought 03-04. |
 | Transfer pipettes, funnels, labels, tape, Kimwipes, squirt bottles | have | [byu-vcl 15][vcl-15-labware], [05-14][vcl-15-squirt] |
 | White card, a colour reference card, a phone or camera | **check** | For the vial photos. Black PbS shows best on white. |
+| pH meter with a double-junction electrode, or pH strips | **get** | None on record. Sulfide and lead foul the reference of a single-junction electrode ([details][ph-buffers]). Strips need no calibration buffers. |
 
 ### OT-2 plates
 
@@ -134,6 +135,61 @@ quantities and grades are in the [shopping list][shop].
 | Liquid waste container labelled "lead and sulfide, basic, never acidify" | **get** | Register it with Risk Management ([byu-vcl 15][vcl-15-waste], [punch list][punch]). Rinses go in here too. |
 | Bagged, labelled solid waste for lead-contaminated tips, plates, wipes and gloves | **get** | |
 | Container for leftover BaCl₂ stock | **get** | Or ask EHS whether it can go in with the lead waste. |
+
+### pH buffers: how long they keep, and where to get them
+
+Asked on [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/80) on 2026-10-27.
+
+| source | unopened | opened: pH 4 and 7 | opened: pH 10 |
+| --- | --- | --- | --- |
+| Oakton (Cole-Parmer) 500 mL bottles and One-Shot vials ([bottles][oakton-shelf], [vials][oakton-oneshot]) | 2 years | within 90 days | within 30 days |
+| Yokogawa ([FAQ][yokogawa-life]) | 12 months from shipment | up to 1 month | up to 1 month |
+| Hanna Instruments ([knowledge base][hanna-open]) | not given | 4–8 weeks | 1–2 weeks, for "a more basic buffer" |
+| NIST's guide to pH standards, for buffers made from its salts ([SP 260-53, 1988][nbs-260-53], pp. 15 and 33) | not given | replace about once a month, sooner if mould or particles appear | the carbonate (pH 10.01) buffer "after a few weeks", sooner if it has been exposed repeatedly to air |
+
+The expiry date on the label covers the unopened bottle. Write the opening date on each bottle.
+
+**Why pH 10 goes first.** Alkaline buffers absorb CO₂ from the air, which forms carbonic acid and
+lowers their pH ([Yokogawa][yokogawa-life]). Nakamura, Fudagawa and Kawase measured how much
+([Bunseki Kagaku 1979][nakamura-1979], Table 5; the PDF is free, in Japanese with an English
+abstract):
+
+- The phthalate (pH 4.00) and phosphate (pH 6.86) standards stayed within 0.03 of their starting
+  pH for three months in polyethylene bottles.
+- In 500 mL polyethylene bottles in lab air, the borax (pH 9.18) and carbonate (pH 10.01)
+  standards dropped 0.03–0.06 in the first month. The borax was 0.08–0.09 down after four months.
+- Each of those readings came from a bottle opened for the first time, so the drop happened in
+  closed bottles. Borax filled to the brim in 25 mL bottles held for three months. Of the
+  carbonate bottles, only the one kept over soda lime, a CO₂ absorber, held. The authors expected
+  bottles opened at each use to drop faster.
+
+The buffers sold for meter calibration are usually the same chemistry: phthalate, phosphate, and
+borate or carbonate.
+
+**What this means here.** For the lead work, the meter mostly has to show that a stock is above
+pH 8, and a drift of 0.05 doesn't change that.
+
+- Buy small bottles (100–250 mL), or single-use vials or sachets. A calibration takes a few tens
+  of mL of each buffer, so most of a 500 mL bottle of pH 10 would be thrown out at 30 days. The
+  [Oakton One-Shot kit][oakton-oneshot], two 100 mL vials each of pH 4, 7 and 10, was listed at
+  $22.79–28.60 on 2026-10-27.
+- Pour what you need into a clean beaker or vial, use it once and throw it out. Don't pour it back
+  or put the electrode in the bottle ([Hanna][hanna-open]).
+- Keep the caps tight, and store the bottles at room temperature out of the sun.
+
+**Where to get them.** I couldn't tell whether BYU Chem Stores stocks them. [Its page][chem-stores]
+has no catalog, and I found nothing public that lists what it carries. In March, Sterling phoned
+them to check what they had in stock ([byu-vcl 15][vcl-15-list]). Ask at 126 NICB (weekdays 8–5),
+call 801-422-2678 or email chemstores@chem.byu.edu. Chem Stores special-orders items it doesn't
+stock, for $20 per order. Or order them through ME Orders, as with the respirators
+([byu-vcl 15][vcl-15-meorder]).
+
+**The meter.** None is on record, and the buffers are only for calibrating one. byu-vcl
+[148][vcl-148] compared meters for the CubXL, and on 10-10 Sterling wrote that Atlas pH and other
+probes could be bought once new funding comes in ([digital-alloy-lab 148][dal-148-probes]). For the
+sulfide stocks and the lead solutions, get a double-junction electrode. Sulfide forms silver
+sulfide in the silver/silver chloride reference, and lead forms chloride salts that clog the
+junction ([Sensorex][sensorex-poison]). pH strips need no buffers.
 
 ## Steps
 
@@ -261,7 +317,8 @@ The FeS work follows, once the glovebox is in.
 - H₂S detector
 - splash goggles
 - hand pipettes (about 20–200 µL and 100–1000 µL) and tips, if the lab has none
-- pH strips and calibration buffers
+- a pH meter with a double-junction electrode, or pH strips, and pH 4, 7 and 10 calibration
+  buffers in small bottles or single-use vials ([how long they keep][ph-buffers])
 - 200 µL filter tips, clear plate seals, clear flat-bottom 96-well plates
 - waste containers (through Risk Management), bench liner, trays and a sign
 - a temperature and humidity logger
@@ -305,3 +362,15 @@ the full design.
 [sop-template]: https://github.com/vertical-cloud-lab/byu-vcl/blob/d12504c/byu-engineering-sop-template.md
 [ot2-specs]: https://docs.opentrons.com/ot-2/system-description/specs/
 [osha-lab]: https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1450
+[ph-buffers]: #ph-buffers-how-long-they-keep-and-where-to-get-them
+[oakton-shelf]: https://www.globaltestsupply.com/product/oakton-wd-05942-11-4-01
+[oakton-oneshot]: https://www.testequipmentdepot.com/oakton-wd-98767-80-one-shot-buffer-solution-kit-with-nist-traceable-calibration-assorted-colors-ph-4005-7000-10012-6-x-100-ml-vials.html
+[yokogawa-life]: https://yokogawa.com/ca/library/resources/faqs/what-is-the-typical-life-time-of-a-buffer-solution-and-after-the-bottle-is-open
+[hanna-open]: https://knowledge.hannainst.com/en/knowledge/how-long-will-my-ph-buffer-last-once-i-open-it
+[nbs-260-53]: https://doi.org/10.6028/NBS.SP.260-53e1988
+[nakamura-1979]: https://doi.org/10.2116/bunsekikagaku.28.7_T39
+[chem-stores]: https://chem.byu.edu/fs-dashboard/chem-stores/
+[vcl-15-meorder]: https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3923351840
+[vcl-148]: https://github.com/vertical-cloud-lab/byu-vcl/issues/148
+[dal-148-probes]: https://github.com/vertical-cloud-lab/digital-alloy-lab/issues/148#issuecomment-6353382004
+[sensorex-poison]: https://sensorex.com/prevent-ph-reference-poisoning/
