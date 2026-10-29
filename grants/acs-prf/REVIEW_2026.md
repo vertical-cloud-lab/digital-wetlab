@@ -20,8 +20,9 @@
 
 ## Short version
 
-The review has no complaint about the robot or the writing. Its objection is that the experiment
-cannot produce the parameters it promises, because most of them should not exist. Fe²⁺ and HS⁻ (and
+The review doesn't fault the robot; it says the platform could run better experiments. Its
+objection is that the experiment cannot produce the parameters it promises, because most of them
+should not exist. Fe²⁺ and HS⁻ (and
 Pb²⁺ and HS⁻) never coexist at concentrations high enough for a Pitzer term between them to be
 distinguished from the Debye–Hückel limiting law. It adds that a precipitate appearing within four
 hours does not mark solubility, and that nothing in the plan identifies the solid that forms.
@@ -71,7 +72,7 @@ by about 4 log units at pH 4 and 12 at pH 9, assuming ideal activities and no co
 complexing in 5 mol/kg NaCl lowers that by roughly 4 units at most. The PbS boundary therefore lies
 at the most acidic, most dilute, most saline corner of the design, and nearly every Pb well would have
 precipitated whatever the Pitzer terms were. Mackinawite (log K −4.65) behaves differently: it crosses
-SI = 0 inside the design, around pH 5–7.
+SI = 0 inside the design, between about pH 4 and 7 depending on concentration.
 
 ## The other points
 
