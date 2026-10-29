@@ -3,6 +3,11 @@
 > Generated via [Edison Scientific](https://edisonscientific.com/platform) `LITERATURE` search on 2026-02-28.
 > Query: *"What Pitzer activity-coefficient interaction parameters (binary β⁰, β¹, Cᶲ and higher-order mixing θ, ψ) have been published for Fe²⁺-HS⁻, Fe²⁺-S²⁻, Pb²⁺-HS⁻, and Pb²⁺-S²⁻ ion pairs in aqueous electrolyte solutions?"*
 
+> **Note (2026-10-29):** the 2026 review argues that Fe²⁺–HS⁻ and Pb²⁺–HS⁻ terms are missing
+> because they cannot be measured, not because no one tried. The Pb²⁺–Cl⁻ row below matches the
+> ZnCl₂ values that Millero and Byrne (1984) used in place of PbCl₂, except that Woosley (2012)
+> gives Cφ as −0.08798. See [`REVIEW_2026_LITERATURE_CHECK.md`](REVIEW_2026_LITERATURE_CHECK.md).
+
 ---
 
 ## Key Finding

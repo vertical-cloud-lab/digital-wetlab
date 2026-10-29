@@ -120,6 +120,9 @@ That is far below what ICP-OES can detect after a brine is diluted.
 
 ## Why the pre-submission checks missed this
 
+Each claim in the review has since been checked with its own Edison query and compared with
+our earlier searches: see [`REVIEW_2026_LITERATURE_CHECK.md`](REVIEW_2026_LITERATURE_CHECK.md).
+
 - The AI mock review ([`MOCK_REVIEWER_FEEDBACK.md`](MOCK_REVIEWER_FEEDBACK.md)) raised several of the
   same practical points:
   - precipitation onset versus equilibrium;

@@ -12,10 +12,11 @@ This directory contains information and materials for preparing an ACS PRF DNI g
 ## Contents
 
 - [**REVIEW_2026.md**](REVIEW_2026.md) — Paraphrased digest of the 2026 decline and Reviewer B's review, mapped line by line to the submitted proposal
+- [**REVIEW_2026_LITERATURE_CHECK.md**](REVIEW_2026_LITERATURE_CHECK.md) — Each of Reviewer B's 48 claims checked with an Edison literature query, and compared with what our earlier searches said
 - [**ACS_PRF_DNI_GUIDE.md**](ACS_PRF_DNI_GUIDE.md) — Comprehensive guide covering eligibility, budget, format, review criteria, research scope, and tips
 - [**PROPOSAL_CHECKLIST.md**](PROPOSAL_CHECKLIST.md) — Quick-reference submission checklist
 - [**EDISON_PRECEDENT_SEARCH.md**](EDISON_PRECEDENT_SEARCH.md) — Edison Scientific precedent search results supporting the recommended alignment angle
-- [**EDISON_PITZER_PARAMETER_SEARCH.md**](EDISON_PITZER_PARAMETER_SEARCH.md) — Edison Scientific literature search confirming the Pitzer parameter gap for Fe²⁺/Pb²⁺ sulfide systems
+- [**EDISON_PITZER_PARAMETER_SEARCH.md**](EDISON_PITZER_PARAMETER_SEARCH.md) — Edison Scientific literature search (February 2026) that found no published Fe²⁺/Pb²⁺–sulfide Pitzer parameters; the 2026 review argues these terms should not exist (see the literature check)
 - [**PRELIMINARY_RESULTS_PLAN.md**](PRELIMINARY_RESULTS_PLAN.md) — Recommended preliminary results (experimental + computational) achievable by March 6
 - [**`preliminary_results/`**](../../preliminary_results/) — Pitzer-model gap analysis, precipitation boundary map, BaSO₄ OT-2 experiment protocol, and experimental overlay analysis script
 
