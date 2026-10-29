@@ -22,6 +22,7 @@ Proposals, papers, etc.
 ## Grants
 
 - [**ACS Petroleum Research Fund — DNI Grant**](grants/acs-prf/) — Doctoral New Investigator grant ($110K/2yr). Spring 2026 deadline: **March 6, 2026**.
+- [**Funding after the PRF decline**](grants/alternative-funding/) — the 2026 DNI was declined and not recommended for resubmission ([review digest](grants/acs-prf/REVIEW_2026.md)). Covers what to do with the two remaining DNI tries, the PHREEQC/Pitzer community (Sandia WIPP, Rice Brine Chemistry Consortium, OLI, Energi Simulation), and federal, foundation and Utah options, with [outreach drafts](grants/alternative-funding/outreach-drafts.md)
 
 ## Key Contacts — ACS PRF
 
