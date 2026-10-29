@@ -35,6 +35,10 @@ For **Panel 3: Inorganic Chemistry** (best fit for this project):
 General inquiries: (202) 872-4481 · [PRFsupport@acs.org](mailto:PRFsupport@acs.org)
 
 > **Tip:** Contact Dr. Liberman-Martin *before* writing the proposal to confirm the project fits Panel 3 and to get scope advice. See the [PRF Program Manager as a Resource](https://vimeo.com/172902103) video.
+## Research directions
+
+- [**New directions for the OT-2**](grants/ot2-new-directions/) — six uses beyond petroleum (electrocatalyst films, Great Salt Lake brines, oxide libraries, nucleation statistics, corrosion support, remote teaching), ranked and matched to funding due by April 2027
+
 ## Planning
 
 - [**Shopping List**](SHOPPING_LIST.md) — Itemized reagents, labware, tips, and equipment for the full study (~30,000 experiments), with quantities and cost estimates
