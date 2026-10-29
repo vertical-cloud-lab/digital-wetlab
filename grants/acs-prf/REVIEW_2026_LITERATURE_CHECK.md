@@ -51,7 +51,7 @@
 1. **The gap was assumed, never tested.**
    - The 2026-02-28 query ([`EDISON_PITZER_PARAMETER_SEARCH.md`](EDISON_PITZER_PARAMETER_SEARCH.md))
      asked which Fe²⁺/Pb²⁺–HS⁻ parameters had been published. It found none and labeled that "the
-     gap this proposal fills" (line 25).
+     gap this proposal fills" (line 30).
    - The high-effort hypothesis check ([`HYPOTHESIS_EVALUATION.md`](HYPOTHESIS_EVALUATION.md),
      line 28) recommended growing the set to 40–50 parameters.
    - The scope update ([`edison-scientific-scope-update-petroleum-relevance.md`](edison-scientific-scope-update-petroleum-relevance.md),
@@ -59,13 +59,13 @@
    - The review argues the opposite (F3, P1, P6), and today's neutral queries support the review.
 2. **A number in our earlier table belongs to a different salt.** That search listed
    Pb²⁺–Cl⁻ = 0.26, 1.64, 0.088 and credited it to Felmy et al. 2000
-   ([line 20](EDISON_PITZER_PARAMETER_SEARCH.md)). Woosley (2012) identifies 0.26018, 1.64250 and
+   ([line 25](EDISON_PITZER_PARAMETER_SEARCH.md)). Woosley (2012) identifies 0.26018, 1.64250 and
    −0.08798 as the ZnCl₂ parameters that Millero and Byrne (1984) substituted for PbCl₂ (P4a). This
    is the stand-in the reviewer objected to. The Cφ signs differ, so check Felmy's own table.
 3. **The key compilations were missed or dismissed.**
    - Turner and Clegg's 2023 sources of Pitzer parameters for the GEOTRACES elements, which covers
      Fe(II) and Pb, came up in six of today's answers. In February we examined only their 2024
-     Fe(III) paper and concluded the work did not bear on ours (line 37).
+     Fe(III) paper and concluded the work did not bear on ours (line 42).
    - Moog's 2022 THEREDA Pb data selection is an evaluated Pb Pitzer model for 25 °C.
    - Clever and Johnston (1980, [10.1063/1.555628](https://doi.org/10.1063/1.555628)) critically
      evaluated the solubility of Pb salts.
@@ -185,7 +185,7 @@ The last column is how our earlier searches and reviews related to the claim:
 | [P2a](../../edison-trajectories/review-b-claims/P2a.md) | This resembles the constant-ionic-medium method | S | Heindl and Gamsjäger 1977 (pyrrhotite, 1 m NaClO₄, fixed pH₂S); PbS in 3 m NaCl reproduced from constants. No FeS or PbS + acetate study found | Silent |
 | [P2b](../../edison-trajectories/review-b-claims/P2b.md) | The complex constants are the quantities to fit | S | Pb–OAc log β₁ = 2.4, log β₂ = 3.4 at 25 °C, measured to 85 °C (Giordano 1989, [10.1016/0016-7037(89)90387-6](https://doi.org/10.1016/0016-7037(89)90387-6)). Fe–OAc known to 300 °C | Contradicted (constants noted, but Pitzer binaries were fitted instead) |
 | [P3a](../../edison-trajectories/review-b-claims/P3a.md) | One salt's terms and the mixing terms must be known first | S | Fix the background binary terms. Some mixing terms can then come from ternary solubilities. Correlated parameters: van Gaans 1991 ([10.1007/bf00650718](https://doi.org/10.1007/bf00650718)) | Anticipated in part |
-| [P3b](../../edison-trajectories/review-b-claims/P3b.md) | θ(Cl,OAc) and ψ(Na,Cl,OAc) need NaCl–NaOAc data | S | Already fitted (Dorn 2003). Isopiestic data: Jones and Prue 1974 ([10.1007/bf00650402](https://doi.org/10.1007/bf00650402)) | Data noted, never used |
+| [P3b](../../edison-trajectories/review-b-claims/P3b.md) | θ(Cl,OAc) and ψ(Na,Cl,OAc) need NaCl–NaOAc data | S | Already fitted (Dorn 2003). Isopiestic data: Jones and Prue 1974 ([10.1007/bf00650402](https://doi.org/10.1007/bf00650402)) | Anticipated (data noted, never used) |
 | [P3c](../../edison-trajectories/review-b-claims/P3c.md) | No Pitzer or isopiestic data for Pb(OAc)₂ or Fe(OAc)₂ | S | None located | Anticipated (fitted from boundaries anyway) |
 | [P3d](../../edison-trajectories/review-b-claims/P3d.md) | Freezing points would work on an adapted platform | P | Valid route. Multi-well accuracy not yet shown | Silent |
 
@@ -206,7 +206,7 @@ The last column is how our earlier searches and reviews related to the claim:
 | [P5a](../../edison-trajectories/review-b-claims/P5a.md) | Mixing terms come from two salts that share an ion | S | Pitzer and Kim (NaCl–KCl to I = 4.8). For a single trace cation, see above | Contradicted (the hypothesis rested on Fe/Pb mixing with Na/Ca) |
 | [P5b](../../edison-trajectories/review-b-claims/P5b.md) | θ(Pb,Fe) cannot come from sulfide or sulfate data | S | No θ(Pb,Fe) anywhere. Turner and Clegg treat PbSO₄ with an ion-pair constant (log K = 2.72) because the salt is too insoluble for Pitzer terms | Silent |
 | [P6a](../../edison-trajectories/review-b-claims/P6a.md) | Pitzer and Mayorga used no C below about 2 m | S | Cφ was omitted when the data stopped short of 2 m | Contradicted (a Cφ planned for every trace pair) |
-| [P6b](../../edison-trajectories/review-b-claims/P6b.md) | PbSO₄ is below 1 mmol/kg and barely rises in other salts | P | 0.146 mmol/L in water. It rises 2–19× (see above) | Known, but β⁽⁰⁾, β⁽¹⁾ and Cφ planned anyway |
+| [P6b](../../edison-trajectories/review-b-claims/P6b.md) | PbSO₄ is below 1 mmol/kg and barely rises in other salts | P | 0.146 mmol/L in water. It rises 2–19× (see above) | Contradicted (the low solubility was known, but β⁽⁰⁾, β⁽¹⁾ and Cφ were planned anyway) |
 | [P6c](../../edison-trajectories/review-b-claims/P6c.md) | Paige used β⁽²⁾ to mimic the PbSO₄ pair | P | β⁽²⁾ used, with β⁽⁰⁾ = Cφ = 0 (as tabulated by Charykova et al. 2010). Whether an explicit PbSO₄° constant was left out is unverified | Silent |
 | [P6d](../../edison-trajectories/review-b-claims/P6d.md) | β⁽²⁾ was a convenience; ion pairs do as well | P | See above | Silent |
 | [P6e](../../edison-trajectories/review-b-claims/P6e.md) | Rice fit barite with β⁽²⁾ alone | U | Shi et al. 2012 table not reached ([10.1021/ie2020558](https://doi.org/10.1021/ie2020558)). An explicit BaSO₄° pair has worked elsewhere (Vicum 2005) | Silent (Rice's barite model held up as the example) |
