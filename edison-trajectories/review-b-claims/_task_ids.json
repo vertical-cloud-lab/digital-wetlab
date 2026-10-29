@@ -1,0 +1,122 @@
+{
+  "F1a": {
+    "task_id": "30482470-e407-4776-93fa-d56a4d94ae7f",
+    "point": "decisive flaw 1",
+    "claim": "The proposal assumes it knows which Fe solid precipitates.",
+    "query": "What solid phases form when dissolved Fe(II) and sulfide are mixed in NaCl solutions at pH 4-9 and 25-90 C (for example nanocrystalline or disordered mackinawite, crystalline mackinawite, greigite, pyrrhotite, Fe(OH)2, or siderite when bicarbonate is present)? How does the identity of the first-formed solid depend on time, temperature and supersaturation, and how have studies identified the phase (XRD, Raman, Mossbauer)?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:23Z"
+  },
+  "F1b": {
+    "task_id": "2a65c565-7949-46bd-a3c0-eaaa3a84664b",
+    "point": "decisive flaw 1",
+    "claim": "The proposal assumes it knows which Pb solid precipitates.",
+    "query": "Which lead solids can precipitate in aqueous Pb(II)-NaCl-sulfide-carbonate-sulfate systems at pH 4-9 and 25-90 C (galena, cotunnite PbCl2, laurionite PbOHCl, phosgenite, cerussite, hydrocerussite, anglesite)? Under what Pb, chloride, carbonate and pH conditions do chloride or carbonate lead phases form instead of, or alongside, PbS?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:24Z"
+  },
+  "F2a": {
+    "task_id": "e8793a6a-cac5-45a6-9f93-f155bdc2247b",
+    "point": "decisive flaw 2",
+    "claim": "Precipitation onset within hours does not mark equilibrium solubility.",
+    "query": "Does the onset of FeS or PbS precipitation detected within minutes to hours of mixing correspond to equilibrium solubility? What do studies report on nucleation supersaturation thresholds, induction times, and the time needed to reach solubility equilibrium for iron and lead sulfides, and how have sulfide solubility studies shown equilibrium, for example by approaching it from both undersaturation and supersaturation?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:25Z"
+  },
+  "F2b": {
+    "task_id": "e8ea593f-3192-4abc-b501-d61dbf25942c",
+    "point": "decisive flaw 2",
+    "claim": "FeS ages, so its apparent solubility drifts with time.",
+    "query": "How does the apparent solubility of freshly precipitated FeS change as disordered or nanocrystalline mackinawite ages or transforms, and what solubility constants have been reported for amorphous FeS versus crystalline mackinawite, troilite and pyrrhotite?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:26Z"
+  },
+  "F3": {
+    "task_id": "9a235f56-2b0b-402c-b657-109e43553132",
+    "point": "decisive flaw 3",
+    "claim": "Pitzer's design aims at a minimal parameter set; not every parameter needs fitting.",
+    "query": "What was the original rationale for how Pitzer ion-interaction model parameters should be obtained: binary parameters (beta0, beta1, Cphi) from single-salt solution data and mixing parameters (theta, psi) from two-salt common-ion mixtures, using as few adjustable parameters as possible? Which papers by Pitzer and coworkers set this out, and when are mixing terms omitted?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:27Z"
+  },
+  "P0": {
+    "task_id": "5d5c0a60-bce2-4dba-b1a2-20ebe46c7c84",
+    "point": "opening",
+    "claim": "Organic acids shift FeS/PbS solubility mostly through complexation, not activity coefficients.",
+    "query": "In NaCl brines, how much do acetate and other short-chain carboxylates change Fe(II) and Pb(II) speciation and the solubility of FeS and PbS? Is this effect usually modeled with aqueous complex-formation constants (for example FeOAc+, PbOAc+, Pb(OAc)2 aq) rather than with ion-interaction activity coefficients?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:28Z"
+  },
+  "P1a": {
+    "task_id": "c4772866-e8fe-4064-8156-abc863aaf806",
+    "point": "point 1",
+    "claim": "The Debye-Hueckel limiting law holds to about I 0.1 for dissociated salts and below 0.01 for associating salts such as PbCl2.",
+    "query": "Up to what ionic strength does the Debye-Hueckel limiting law reproduce measured activity or osmotic coefficients within experimental accuracy, for fully dissociated 1:1 salts and for salts that hydrolyze or form ion pairs, such as PbCl2 or 2:1 transition-metal chlorides?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:30Z"
+  },
+  "P1b": {
+    "task_id": "f6d4b27b-d6c0-45f6-8923-2f52fd6f25fc",
+    "point": "point 1",
+    "claim": "FeS and PbS solubilities between pH 4 and 9 are millimolal or lower.",
+    "query": "What total dissolved Fe and Pb concentrations have been measured in equilibrium with mackinawite FeS and with galena PbS between pH 4 and 9 at 25 C, in water and in NaCl solutions? Are they millimolal or lower?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:31Z"
+  },
+  "P1c": {
+    "task_id": "cc1f9d06-2246-4120-981a-f508c6324825",
+    "point": "point 1",
+    "claim": "FeS/PbS solubility can be reproduced with Ksp, complex constants, the limiting law and background-salt Pitzer terms alone.",
+    "query": "Have FeS or PbS solubilities in NaCl or other chloride brines been modeled successfully using only solubility products, aqueous complex constants (for example FeHS+, Pb(HS)2 aq, PbCl_n complexes) and activity coefficients of the background electrolyte, without any Fe-HS or Pb-HS ion-interaction (Pitzer) parameters?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:32Z"
+  },
+  "P1d": {
+    "task_id": "3cbafdb5-d250-4f65-a19c-32dbe5edccdc",
+    "point": "point 1",
+    "claim": "Na+-HS- interactions can be measured in NaHS solutions.",
+    "query": "What Pitzer parameters have been published for Na+-HS- and other major cation-bisulfide interactions, and from what data were they derived (NaHS solutions, H2S dissociation constants in ionic media, H2S solubility in salt solutions)?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:33Z"
+  },
+  "P1e": {
+    "task_id": "ebb0b0b8-1b1b-4433-9a31-e33086793df3",
+    "point": "point 1",
+    "claim": "Others have published unjustified metal-bisulfide Pitzer terms; that does not justify repeating them.",
+    "query": "Have any researchers published Pitzer ion-interaction parameters (beta0, beta1, Cphi, theta, psi) for Fe2+-HS-, Pb2+-HS- or Zn2+-HS- interactions, for example in oilfield scale-prediction models? If so, what data were they fitted to, and have they been criticized?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:35Z"
+  },
+  "P2a": {
+    "task_id": "b7afe013-3187-453f-967a-f52bee6de4ee",
+    "point": "point 2",
+    "claim": "The design resembles the constant-ionic-medium method, which fits solubility and complex constants with no Pitzer terms.",
+    "query": "How has the constant ionic medium (swamping electrolyte) method been used to determine solubility products and complex formation constants of sparingly soluble metal sulfides, or of Fe(II) and Pb(II) with acetate? Which studies measured FeS or PbS solubility in NaCl or NaClO4 media with or without added acetate?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:35Z"
+  },
+  "P2b": {
+    "task_id": "8b3ccb93-0bc2-47a7-922a-c23ba6300cb8",
+    "point": "point 2",
+    "claim": "Metal-acetate complex constants are the adjustable quantities in such a design.",
+    "query": "What stability constants, and what temperature dependence, have been reported for Pb(II)-acetate and Fe(II)-acetate complexes in aqueous solution, including at elevated temperature and in NaCl media?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:37Z"
+  },
+  "P3a": {
+    "task_id": "fb342b92-041a-4730-83f9-b2ac036e0bae",
+    "point": "point 3",
+    "claim": "In a two-salt solubility experiment, one salt's parameters and the mixing terms must be known in advance.",
+    "query": "When Pitzer parameters are fitted to solubility data for a ternary system (for example a sparingly soluble salt in NaCl solutions), can the binary and mixing parameters be resolved separately, or must the background-salt and mixing parameters be fixed from independent data? Are there published discussions of parameter correlation in such fits?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:38Z"
+  },
+  "P3b": {
+    "task_id": "4ba541af-270c-4c7f-8e5f-86b170d6a6d5",
+    "point": "point 3",
+    "claim": "theta(Cl,OAc) and psi(Na,Cl,OAc) need NaCl-NaOAc-H2O data.",
+    "query": "Have the Pitzer mixing parameters theta(Cl-, acetate) and psi(Na+, Cl-, acetate) been determined from isopiestic, EMF, solubility or other data on NaCl-sodium acetate-water mixtures?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:24:39Z"
+  }
+}
