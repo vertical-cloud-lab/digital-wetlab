@@ -13,6 +13,7 @@ Usage (EDISON_PLATFORM_API_KEY must be set):
 """
 from __future__ import annotations
 
+import gzip
 import json
 import os
 import sys
@@ -335,15 +336,45 @@ def wait() -> None:
         time.sleep(POLL_S)
 
 
-def _answer(dump: dict) -> str:
-    for key in ("formatted_answer", "answer"):
-        if dump.get(key):
-            return dump[key]
+def _answer(dump: dict) -> tuple[str, dict]:
+    """Return the formatted answer (with references) and any table artifacts."""
     try:
-        state = dump["environment_frame"]["state"]["state"]
-        return state.get("formatted_answer") or state.get("answer") or ""
-    except (KeyError, TypeError, AttributeError):
-        return ""
+        ans = dump["environment_frame"]["state"]["state"]["response"]["answer"]
+    except (KeyError, TypeError):
+        return "", {}
+    return ans.get("formatted_answer") or ans.get("answer") or "", ans.get("artifacts") or {}
+
+
+def _redact(dump: dict) -> int:
+    """Blank out raw paper text and page images that the agent read.
+
+    This repo is public, and those tool outputs are verbatim publisher text and page scans.
+    Everything else stays: the answer, references, contexts (Edison's own summaries), tables,
+    tool history and the agent's own messages. The full trajectory remains on Edison by task id.
+    """
+    n = 0
+    for step in dump.get("agent_state") or []:
+        transition = (step.get("state") or {}).get("transition") or {}
+        messages = [m for key in ("agent_state", "next_agent_state")
+                    for m in (transition.get(key) or {}).get("messages") or []]
+        messages += [m for key in ("observation", "next_observation") for m in transition.get(key) or []]
+        for msg in messages:
+            content = msg.get("content")
+            if msg.get("role") not in ("assistant", "system") and isinstance(content, str) and len(content) > 3000:
+                msg["content"] = f"[redacted: {len(content)} chars of retrieved paper text]"
+                n += 1
+            elif isinstance(content, list):
+                for part in content:
+                    if not isinstance(part, dict):
+                        continue
+                    url = (part.get("image_url") or {}).get("url", "")
+                    if url.startswith("data:"):
+                        part["image_url"]["url"] = f"[redacted: {len(url)}-char page image]"
+                        n += 1
+                    elif len(part.get("text") or "") > 3000:
+                        part["text"] = f"[redacted: {len(part['text'])} chars of retrieved paper text]"
+                        n += 1
+    return n
 
 
 def fetch() -> None:
@@ -353,14 +384,17 @@ def fetch() -> None:
         task = client.get_task(v["task_id"], verbose=True)
         dump = task.model_dump(mode="json")
         status = str(dump.get("status", "")).lower()
-        (OUT / f"{cid}.json").write_text(json.dumps(dump, indent=2, default=str))
-        answer = _answer(dump)
+        _redact(dump)
+        with gzip.open(OUT / f"{cid}.json.gz", "wt", encoding="utf-8") as f:
+            json.dump(dump, f, default=str)
+        answer, artifacts = _answer(dump)
         header = (f"# {cid} ({v['point']})\n\n"
                   f"**Claim (paraphrased):** {v['claim']}\n\n"
                   f"**Query** (Edison `{v['job']}`, task `{v['task_id']}`, status `{status}`):\n\n"
                   f"> {v['query']}\n\n---\n\n")
-        (OUT / f"{cid}.md").write_text(header + (answer or "_No answer returned._") + "\n")
-        print(cid, status, len(answer), "chars", flush=True)
+        tables = "".join(f"\n\n### {k}\n\n{t}" for k, t in artifacts.items())
+        (OUT / f"{cid}.md").write_text(header + (answer or "_No answer returned._") + tables + "\n")
+        print(cid, status, len(answer), "chars,", len(artifacts), "artifacts", flush=True)
 
 
 if __name__ == "__main__":
