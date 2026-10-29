@@ -4,23 +4,35 @@
 > Deadlines and award sizes were checked against the funders' own pages on that date where marked
 > **verified**; anything marked **unverified** still needs a look before planning around it.
 > Federal programs changed a lot in 2025–2026, so check the live solicitation before writing.
+>
+> **Updated 2026-10-29, after the decline letter.** The PRF panel rated the proposal not competitive
+> and does not recommend resubmission. The one review it sent (Reviewer B) argues that most of the
+> Pitzer terms the proposal set out to fit, Fe²⁺–HS⁻ and Pb²⁺–HS⁻ among them, cannot be measured and
+> are not needed. That changes the pitch to every funder below. The point-by-point digest is in
+> [`../acs-prf/REVIEW_2026.md`](../acs-prf/REVIEW_2026.md).
 
 ## Short answer
 
 | By | Do this | Size | Status |
 |---|---|---|---|
-| **Nov 9, 2026** | LOI to the [RCSA Team Science Accelerator](https://rescorp.org/team-science-accelerator/). Needs a team of 3–5 PIs, each within 10 years of their first independent job, at US or Canadian institutions, in basic physical science | up to $1M total over 2 yr; 3–4 teams | verified |
-| **Nov 13, 2026, 5 pm** | Utah [Great Salt Lake Research Grant](https://ffsl.utah.gov/funding/gsl-research-grant/) (FY2028–29 call). Needs a lake-specific aim, e.g. predicting halite, gypsum and mirabilite precipitation and Li/Mg behaviour in lake brine | 1–2 yr projects | verified |
-| **Nov 30, 2026** | [DOE BES Geosciences](https://science.osti.gov/bes/csgb/Research-Areas/Geosciences): send a white paper now. A full application before Nov 30 gets a decision by June. Pitch the missing Fe/Pb–HS⁻ and carboxylate terms as the thermodynamics behind critical-element transport and scale in subsurface brines | standard BES grant | verified |
-| **Nov–Dec** | Email the PRF Panel 2 officer, the Rice Brine Chemistry Consortium, OLI Systems and Sandia's WIPP geochemistry group ([drafts](outreach-drafts.md)) | — | — |
-| **Feb 15 – Mar 12, 2027** | Resubmit the PRF DNI, probably to Panel 2 ([section 1](#1-resubmitting-to-acs-prf)) | $110K / 2 yr | verified |
+| **Now** | Read the [review digest](../acs-prf/REVIEW_2026.md). Stop pitching new Fe²⁺–HS⁻ or Pb²⁺–HS⁻ Pitzer terms anywhere; use the corrected framing in [section 2](#2-one-dataset-several-missions) | — | — |
+| **Nov 9, 2026** | LOI to the [RCSA Team Science Accelerator](https://rescorp.org/team-science-accelerator/). Needs a team of 3–5 PIs, each within 10 years of their first independent job, at US or Canadian institutions, in basic physical science. A solution thermodynamicist on the team would answer the review directly | up to $1M total over 2 yr; 3–4 teams | verified |
+| **Nov 13, 2026, 5 pm** | Utah [Great Salt Lake Research Grant](https://ffsl.utah.gov/funding/gsl-research-grant/) (FY2028–29 call). Needs a lake-specific aim, e.g. predicting halite, gypsum and mirabilite precipitation and Li/Mg behaviour in lake brine. These major-ion systems already have well-tested Pitzer parameters, so test them with equilibrium measurements and identified solids rather than fit new ones | 1–2 yr projects | verified |
+| **Nov 30, 2026** | [DOE BES Geosciences](https://science.osti.gov/bes/csgb/Research-Areas/Geosciences): a white paper only, with the corrected pitch: solubility products and complex-formation constants for Fe(II) and Pb(II) with bisulfide, chloride and acetate in NaCl–CaCl₂ brines, plus the missing binary data for the metal acetates. Skip the Nov 30 full application, because BES reviewers come from the same community as Reviewer B | standard BES grant | verified |
+| **Nov–Dec** | Email the PRF program officer, a solution-thermodynamics collaborator, Sandia's WIPP geochemistry group, the Rice Brine Chemistry Consortium and OLI Systems ([drafts](outreach-drafts.md)) | — | — |
 | **Mar 15, 2027** | Apply to be a Fellow in [Scialog: Sustainable Minerals, Metals & Materials](https://rescorp.org/scialog/sustainable-minerals-metals-and-materials/) (the 2027 cohort is the last in this series) | seed team awards | verified |
-| **Any time** | NSF [Chemical Systems and Solutions](https://www.nsf.gov/funding/opportunities/css-chemical-systems-solutions) (NSF 26-519; covers critical minerals, the hydrosphere and lithosphere, and AI; 2–4 PIs encouraged). The alternative is NSF [CBET](https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport/nsf26-518/solicitation) Chemical Process Systems. Send to one, not both | standard NSF grant | CSS verified |
+| **Any time** | NSF [Chemical Systems and Solutions](https://www.nsf.gov/funding/opportunities/css-chemical-systems-solutions) (NSF 26-519; covers critical minerals, the hydrosphere and lithosphere, and AI; 2–4 PIs encouraged). The alternative is NSF [CBET](https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport/nsf26-518/solicitation) Chemical Process Systems. Send to one, not both, and only once the platform has validated equilibrium data | standard NSF grant | CSS verified |
 | **Jul 28, 2027** | [NSF CAREER](https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program) | ≥ $400K / 5 yr (≥ $500K in Engineering) | date = fourth Wednesday of July |
+| **Sep 13 – Oct 8, 2027** | The earliest sensible PRF DNI: a *new* proposal built on the review's own suggestions, not a revision of the 2026 one. Skip the Feb 15 – Mar 12, 2027 window ([section 1](#1-acs-prf-after-the-decline)) | $110K / 2 yr | verified |
 
-The two calls with near deadlines (the RCSA LOI and the Utah GSL grant) and the closest science match
-(DOE BES Geosciences) come before the PRF resubmission. That leaves time to get the reviews and a
-measured boundary before the PRF draft is revised.
+The review's objections are to the experiment, not the writing, so the order is now:
+
+1. Fix the design with a solution thermodynamicist.
+2. Show on the platform that it measures equilibrium.
+3. Then send it out.
+
+The two near deadlines, the RCSA LOI and the Utah GSL grant, don't depend on the disputed claim and
+can go ahead with the corrected framing.
 
 ## The organization you remembered
 
@@ -46,24 +58,37 @@ Foundation in Calgary.
 - It lists 16 industrial partners, among them Aramco, Baker Hughes, Chevron, ConocoPhillips,
   ExxonMobil, Oxy, Shell, SLB and TotalEnergies.
 - It *receives* industry money and does not publish a way for outside academics to get it. The asks
-  are a letter of collaboration, a data exchange (test ScaleSoftPitzer against the BYU FeS/PbS
-  plates), and a slot at the annual meeting to pitch a project to the member companies.
+  are a letter of collaboration, a data exchange (test ScaleSoftPitzer against BYU's equilibrium FeS
+  and PbS data), and a slot at the annual meeting to pitch a project to the member companies.
+- Reviewer B counts the Rice parameters among those with the trace-ion problem: Pb²⁺–HS⁻ terms, and
+  BaSO₄ fitted with β⁽²⁾ alone where an explicit ion-pair constant would do. That doesn't close the
+  door, but offer Rice measured data, not new Pitzer terms, and don't build the next proposal on
+  ScaleSoftPitzer's parameter set.
 
-Both are worth an email. Rice is the stronger scientific partner and the faster route to
-industry sponsors. Energi Simulation fits better if what you want is a foundation that already pays
-for PHREEQC-style physics-based modelling.
+Both are worth an email. Rice is the faster route to industry sponsors. Energi Simulation fits
+better if what you want is a foundation that already pays for PHREEQC-style physics-based modelling.
+For the science itself, the review points toward the salt-repository community (Sandia WIPP,
+THEREDA; [section 3](#3-the-phreeqc-and-pitzer-community)). There, constant-medium solubility work
+with identified solids is standard practice.
 
-## 1. Resubmitting to ACS PRF
+## 1. ACS PRF after the decline
 
-**Verified on acs.org, 2026-10-24** ([DNI page](https://www.acs.org/funding/grants/petroleum-research-fund/programs/doctoral-new-investigator-grants.html)):
+**The decision (letter received October 2026).** The panel rated the proposal not competitive and
+does not recommend resubmission. One expert review came with it
+([digest](../acs-prf/REVIEW_2026.md)).
 
-- Next window: **Monday, Feb 15 – Friday, Mar 12, 2027**, considered at the October 2027 PRF Committee
-  meeting. The one after that is **Sep 13 – Oct 8, 2027**, decided at the May 2028 meeting.
-- DNI is still $110K over 2 years, with about 75 awards a year. You are eligible for the first three
-  years of a first assistant-professor appointment. A December 2025 start covers every window through
-  fall 2028.
-- A PI gets at most **three DNI applications** considered in a career, and one funded. Spring 2026 used
-  one, so two remain. Once those are used, the New Directions (ND) program is the PRF route.
+**Rules, verified on acs.org 2026-10-29** ([DNI page](https://www.acs.org/funding/grants/petroleum-research-fund/programs/doctoral-new-investigator-grants.html),
+[proposal requirements](https://www.acs.org/funding/grants/petroleum-research-fund/applicants/proposal-requirements.html)):
+
+- Nothing bars resubmitting after a "not recommended" decision. A resubmission has to state what
+  changed, in a text box on the submission site, separate from the proposal.
+- A PI gets at most **three DNI applications** considered in a career, and one funded. Spring 2026
+  used one, so two remain. After that, PRF's route is the New Directions (ND) program.
+- Next windows: **Feb 15 – Mar 12, 2027**, decided at the October 2027 meeting, and
+  **Sep 13 – Oct 8, 2027**, decided in May 2028. DNI is still $110K over 2 years, with about 75
+  awards a year.
+- Eligibility runs for the first three years of a first assistant-professor appointment, so a
+  December 2025 start covers every window through fall 2028.
 - Program officers by panel:
   - Dr. Johan Schijf: Geochemistry and Biogeochemical Cycling (Panel 2) and Geology and Geophysics
   - Dr. William Aumiller: Chemical Physics/Physical Chemistry (Panel 6) and Organic Structures
@@ -72,46 +97,56 @@ for PHREEQC-style physics-based modelling.
 - The panel descriptions are still the Nov 15, 2024 version. PRF updates them each November, so check
   again in a few weeks.
 
-**What to change for the resubmission.**
+**What to do with the two remaining tries.**
 
-1. **Ask the program officer of the panel that handled the 2026 proposal for the reviews and committee
-   comments.** Nothing in this repo records why it was declined. The reviews decide which of the points
-   below matter.
-2. **Ask Dr. Schijf whether Panel 2 fits.** [`PANEL_SELECTION.md`](../acs-prf/PANEL_SELECTION.md)
-   weighed Panels 3, 6 and 9 but not Panel 2, whose scope covers sedimentary geochemistry and
-   diagenesis. His own research is metal speciation in seawater and anoxic brines: Orca Basin, and
-   Bannock Basin with Millero, whose 1986 HS⁻ Pitzer parameters the proposal relies on. A panel run by
-   a geochemist may value a missing Pitzer dataset more than an inorganic-chemistry panel does. That matches Barry Bickmore's warning in
-   [issue 64](https://github.com/vertical-cloud-lab/digital-wetlab/issues/64) that panels see this
-   kind of work either as overdue or as not exciting enough, and he urged trying again if it wasn't
-   funded.
-3. **Bring a measured boundary by February.** The 2026 proposal had one qualitative BaSO₄ plate:
-   images of 80 Latin-hypercube wells, plus PHREEQC calculations. A measured BaSO₄ boundary plotted
-   against PHREEQC's prediction would answer the feasibility question a PI from robotics gets asked,
-   ideally turbidity over time against ion product. A first PbS plate would do it better still. The
-   setup checklists in [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/80)
-   lead to exactly that plate.
-4. **Start from the post-submission edits that are already written.** Three open PRs revise
-   `drafts/main_proposal_final.tex` after the March 2026 submission:
-   - [PR 65](https://github.com/vertical-cloud-lab/digital-wetlab/pull/65): justifies leaving out the organic–organic terms (Barry's point)
-   - [PR 67](https://github.com/vertical-cloud-lab/digital-wetlab/pull/67): works through Matt Allen's comments
-   - [PR 69](https://github.com/vertical-cloud-lab/digital-wetlab/pull/69): reframes the proposal around discovering ion-interaction rules rather than fitting constants
-
-   All three touch the same file, so merge them in that order and resolve the conflicts once.
+1. **Don't resubmit the 2026 project.** The objections go to the premise (which parameters can exist
+   at all) and to the measurement (a precipitation onset is not a solubility). A revision of the same
+   design would get the same objections and use up one of the two remaining tries.
+2. **Use a try only for a new design** built on the review's own suggestions: solubility and complex
+   constants measured in a fixed NaCl medium, plus freezing-point data for the metal acetates
+   ([digest](../acs-prf/REVIEW_2026.md#what-the-review-says-would-work)). Get a solution
+   thermodynamicist to read it before it goes in.
+   - The earliest realistic window is Sep 13 – Oct 8, 2027. That leaves most of a year to show the
+     platform measuring equilibrium.
+   - The fall 2028 window stays in reserve for the last try.
+3. **Ask the program officer first** ([draft](outreach-drafts.md#1-acs-prf-program-officer)):
+   - Are there other reviews or a panel summary? The letter refers to reviews in the plural but
+     attached only one.
+   - Would a proposal with a different question and design count as new, or as a resubmission of a
+     declined project?
+4. **Panel.** The 2026 proposal named Panel 2 (line 208 of `drafts/main_proposal_final.tex`, and
+   `drafts/suggested_reviewers.md`), so the review most likely came through Dr. Schijf's panel.
+   Confirm against the letter. A thermodynamic-data proposal could also sit in Panel 6
+   ([`PANEL_SELECTION.md`](../acs-prf/PANEL_SELECTION.md)). A physical-chemistry panel is likely to be
+   at least as strict about thermodynamic method.
+5. **Leave the open proposal PRs alone.** [PR 65](https://github.com/vertical-cloud-lab/digital-wetlab/pull/65),
+   [PR 67](https://github.com/vertical-cloud-lab/digital-wetlab/pull/67) and
+   [PR 69](https://github.com/vertical-cloud-lab/digital-wetlab/pull/69) reword the 2026 design but
+   don't change it, so none of them answers the review. Close them or keep them as history; don't
+   merge them into a new draft.
 
 ## 2. One dataset, several missions
 
-The OT-2 campaign stays the same under every framing below; what changes is the question in the
-first paragraph and the reviewers who read it. The Pitzer gap is not only a petroleum problem:
+The OT-2 campaign has to change before any of these framings will survive review. The changes,
+from the [review digest](../acs-prf/REVIEW_2026.md):
 
-| Framing | Question the same experiments answer | Who funds that question |
+- Measure solubility at equilibrium, approached from both sides, in a fixed NaCl or NaCl–CaCl₂
+  medium, with closed vessels and identified solids.
+- Fit solubility products and complex-formation constants, not Pitzer terms for trace ions.
+- Measure homogeneous-solution data, starting with freezing points, for salts that actually reach
+  high concentration, such as the Fe and Pb acetates.
+
+Once the experiment is fixed, what changes between framings is the question in the first paragraph
+and the reviewers who read it. The data gap is not only a petroleum problem:
+
+| Framing | Question the corrected experiments answer | Who funds that question |
 |---|---|---|
-| Oilfield sulfide scale (the 2026 PRF framing) | Which ion interactions set FeS and PbS solubility in produced water with H₂S and acetate/propionate? | ACS PRF; Rice Brine Chemistry Consortium members; oilfield chemical companies |
+| Oilfield sulfide scale (the 2026 PRF framing) | What are the solubility products of FeS and PbS, and the stabilities of their bisulfide, chloride and acetate complexes, in NaCl–CaCl₂ brines at equilibrium? | ACS PRF (as a new proposal); Rice Brine Chemistry Consortium members; oilfield chemical companies |
 | Ore-forming basinal brines | How do Pb²⁺, Zn²⁺ and Fe²⁺ travel as chloride and carboxylate complexes in hot basinal brines, and when do they drop out as sulfides? This is the Mississippi Valley-type Pb–Zn problem, and sphalerite hosts the critical minerals Ge, Ga and In. | NSF EAR; USGS Mineral Resources external grants; SEG Foundation (student grants) |
-| Nuclear waste in salt | WIPP brines contain Fe(II) from steel corrosion and lead from the waste. Acetate is one of the four organic ligands WIPP tracks, with citrate, EDTA and oxalate ([Brush & Xiong 2003](https://www.wipp.energy.gov/library/CRA/2009_CRA/references/Others/Brush_Xiong_2003_Calculation_of_Organic_Ligand_Concentrations_for_the_WIPP_CRA_ERMS527567.pdf)). The proposal's Pb²⁺ baseline (Felmy et al. 2000) was itself built for WIPP brines, and Sandia's Xiong has since added Pb–borate Pitzer terms. | DOE Office of Nuclear Energy (NEUP); Sandia/LANL Carlsbad WIPP programs (DOE EM) |
+| Nuclear waste in salt | WIPP brines contain Fe(II) from steel corrosion and lead from the waste. Acetate is one of the four organic ligands WIPP tracks, with citrate, EDTA and oxalate ([Brush & Xiong 2003](https://www.wipp.energy.gov/library/CRA/2009_CRA/references/Others/Brush_Xiong_2003_Calculation_of_Organic_Ligand_Concentrations_for_the_WIPP_CRA_ERMS527567.pdf)). The proposal's Pb²⁺ baseline (Felmy et al. 2000) was itself built for WIPP brines, and Sandia's Xiong has since added Pb–borate Pitzer terms. Reviewer B faults the Felmy et al. Pb model, which is one more reason to ask Sandia what it uses now. | DOE Office of Nuclear Energy (NEUP); Sandia/LANL Carlsbad WIPP programs (DOE EM) |
 | Geothermal and lithium brines | Salton Sea brines (23–30 wt% TDS) carry Fe, Zn, Pb, Cu, Mn and Li. They deposit metal-rich sulfide scale ([USGS](https://www.usgs.gov/publications/sulfides-associated-salton-sea-geothermal-brine)), and lithium recovery needs activity models above 5 molal. | DOE Geothermal Technologies Office; DOE critical-minerals programs; Utah FORGE |
 | Desalination and brine concentrates | Barite and sulfide scaling limits in RO concentrate and zero-liquid-discharge brines | Bureau of Reclamation DWPR; NAWI |
-| Autonomous measurement of thermodynamic constants | Can a self-driving lab measure ion-interaction parameters faster and with stated uncertainty, and publish them as an open dataset? | NSF CHE; NIST; RCSA Scialog; AI-for-science foundations |
+| Autonomous measurement of thermodynamic constants | Can a self-driving lab measure solubilities, complex-formation constants and freezing points to database quality, with stated uncertainty, and publish them as an open dataset? Reviewer B said the platform could be adapted to both measurements, which makes this the strongest framing | NSF CHE; NIST; RCSA Scialog; AI-for-science foundations |
 
 ## 3. The PHREEQC and Pitzer community
 
@@ -120,13 +155,13 @@ research and federal partners.
 
 | Organization | What it offers | How to engage | Fit |
 |---|---|---|---|
-| [Rice Brine Chemistry Consortium](https://bcc.rice.edu/) | Partner, letters, access to members; fee unpublished | Co-directors; annual meeting | 5 as partner, 2 as cash |
-| [OLI Systems](https://olisystems.com/solutions/academia/) | No grant program, but it reports 25+ research partnerships and helps write joint proposals. A 2023 DOE SBIR Phase II extends its model to high-salinity sulfide scale, so FeS/PbS data are directly useful to it | Academia / Research & Government team: academic licence, letter of support, joint NSF/DOE proposal | 4 |
-| Sandia WIPP geochemistry, Carlsbad (DOE EM) | WIPP test plans (TP 08-02, [TP 14-05](https://wipp.energy.gov/library/CRA/CRA%202019/A%20-%20C/Brush%20and%20Xiong%20%202014%20%20TP%2014-05%20ERMS%20562861.pdf)) target Pitzer parameters for Fe(II), Pb(II) and HS⁻, with acetate, citrate, oxalate and EDTA in scope. No external grants | Ask what they already have, propose joint validation, ask for a letter. Federal partner, not a source of cash | 5 science, 1 cash |
+| [Rice Brine Chemistry Consortium](https://bcc.rice.edu/) | Partner, letters, access to members; fee unpublished. Reviewer B counts its parameters among those with the trace-ion problem, so offer it data rather than new Pitzer terms | Co-directors; annual meeting | 4 as partner, 2 as cash |
+| [OLI Systems](https://olisystems.com/solutions/academia/) | No grant program, but it reports 25+ research partnerships and helps write joint proposals. A 2023 DOE SBIR Phase II extends its model to high-salinity sulfide scale, so FeS/PbS data are directly useful to it. Its mixed-solvent (MSE) model is proprietary and not Pitzer-based (review point 11), so offer measured data, not parameters for its databank | Academia / Research & Government team: academic licence, letter of support, joint NSF/DOE proposal | 4 |
+| Sandia WIPP geochemistry, Carlsbad (DOE EM) | WIPP test plans (TP 08-02, [TP 14-05](https://wipp.energy.gov/library/CRA/CRA%202019/A%20-%20C/Brush%20and%20Xiong%20%202014%20%20TP%2014-05%20ERMS%20562861.pdf)) target Pitzer parameters for Fe(II), Pb(II) and HS⁻, with acetate, citrate, oxalate and EDTA in scope. No external grants. The review's suggested experiments, Fe(II)/Pb(II)–acetate complexation and sulfide solubility in a fixed brine, are the kind WIPP needs | Ask what they already have, propose joint validation, ask for a letter. Federal partner, not a source of cash | 5 science, 1 cash |
 | [FAST JIP](https://www.dscale.org) (Heriot-Watt + Leeds) | FAST9 runs Apr 2025 – Mar 2028 with about 15 sponsors and covers sulphide-scale inhibitors. One-to-one "FASTrac" contracts exist | Present to sponsors; student visit | 3 |
 | [Energi Simulation](https://energisimulation.com/our-chairs/) | Invited chairs only | Through an existing chair holder | 1–2 |
 | [USGS PHREEQC](https://www.usgs.gov/software/phreeqc-version-3) (Water Mission Area; S. R. Charlton maintains it, Parkhurst has retired) | No funding program. Questions go to the phreeqcusers.org forum | Collaboration only | 1 |
-| [THEREDA](https://www.thereda.de/) | German Pitzer database funded by the disposal agency BGE. Release 2026-01 adds Pb and Zn for oceanic salts, 0–110 °C | A home for the new parameters, not a funder | 2 |
+| [THEREDA](https://www.thereda.de/) | German Pitzer database funded by the disposal agency BGE. Release 2026-01 adds Pb and Zn for oceanic salts, 0–110 °C. The review's example of mixing data done right (isopiestic FeCl₂ mixtures, Moog et al. 2004) is the kind of evaluated data such databases are built from | A home for new evaluated data, not a funder | 2 |
 | ThermoChimie, PSI/Nagra TDB, NEA-TDB, Thermoddem | Funded by members. ThermoChimie's Phase 4 contract was awarded in March 2026 | — | 1 |
 | [ACS GCI Oilfield Chemistry Roundtable](https://chemistryforsustainability.org/funding-opportunity/acs-gci-oilfield-chemistry-roundtable-research-grant) | $135K for 12 months in 2025 for green chemistry relevant to oil and gas. No 2026 call seen yet | Watch for the next call; frame around right-sizing inhibitor doses | 3 |
 | [IAGC student grants](https://www.iagc-society.org/Student-Grants) | Up to $2,300 for a PhD student; window reported as Sep 22 – Nov 15, 2026 | For a future PhD student | 2 |
@@ -160,12 +195,12 @@ Several things moved in 2025–2026:
 
 | Program | Fit | Award | Next deadline | Framing |
 |---|---|---|---|---|
-| [NSF CAREER](https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program) | 5 | ≥ $400K / 5 yr (Engineering ≥ $500K) | Jul 28, 2027 | Autonomous thermodynamics of concentrated brines; the cloud lab is the education plan. Check how many of your three attempts are left |
-| [DOE BES Geosciences](https://science.osti.gov/bes/csgb/Research-Areas/Geosciences) | 4 | not published | rolling; before Nov 30 for a June decision | Critical-element transport and sulfide scale in subsurface brines; AI "particularly desirable"; no code development |
-| [NSF Chemistry CSS](https://www.nsf.gov/funding/opportunities/css-chemical-systems-solutions) (NSF 26-519) | 4 | standard | any time | Metal–bisulfide and metal–carboxylate ion association in mixed brines; add the BYU geochemist as co-PI |
-| [NSF CBET](https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport/nsf26-518/solicitation) (NSF 26-518): Chemical Process Systems, or Energy, Water & Resource Engineering | 4 | standard | any time | Data-driven electrolyte thermodynamics for scale in produced-water, geothermal and RO brines; a natural home for a mechanical engineer |
+| [NSF CAREER](https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program) | 5 | ≥ $400K / 5 yr (Engineering ≥ $500K) | Jul 28, 2027 | Autonomous measurement of solubilities, complex constants and freezing points in concentrated brines; the cloud lab is the education plan. Needs validated equilibrium data first. Check how many of your three attempts are left |
+| [DOE BES Geosciences](https://science.osti.gov/bes/csgb/Research-Areas/Geosciences) | 4 | not published | rolling; before Nov 30 for a June decision | Fe(II)/Pb(II) complexation with bisulfide, chloride and carboxylates, and sulfide solubility, in subsurface brines; AI "particularly desirable"; no code development. White paper only this cycle |
+| [NSF Chemistry CSS](https://www.nsf.gov/funding/opportunities/css-chemical-systems-solutions) (NSF 26-519) | 4 | standard | any time | Metal–bisulfide and metal–carboxylate ion association measured in a fixed NaCl medium; add the BYU geochemist and a solution thermodynamicist as co-PIs |
+| [NSF CBET](https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport/nsf26-518/solicitation) (NSF 26-518): Chemical Process Systems, or Energy, Water & Resource Engineering | 4 | standard | any time | Automated measurement of electrolyte thermodynamic data for scale in produced-water, geothermal and RO brines, fitting no more parameters than the data support; a natural home for a mechanical engineer |
 | [DOE HGEO University Training & Research](https://www.energy.gov/node/4859828) | 4 | $250K–1.5M / 2–3 yr | rounds 2–3 not yet dated | Subsurface energy production; universities only; needs a training component |
-| [NSF GEO Core](https://www.nsf.gov/funding/opportunities/geo-core-geosciences-core-research-atmospheric-geospace-earth-ocean/nsf26-516/solicitation), Earth Sciences (CESEV or WaLCZ) | 3 | standard | any time | Mississippi Valley-type ore brines. Reviewers will ask about 75–200 °C, so add heated runs |
+| [NSF GEO Core](https://www.nsf.gov/funding/opportunities/geo-core-geosciences-core-research-atmospheric-geospace-earth-ocean/nsf26-516/solicitation), Earth Sciences (CESEV or WaLCZ) | 3 | standard | any time | Mississippi Valley-type ore brines. Reviewers will ask about 75–200 °C, and Reviewer B notes that temperature-dependent models are missing for several of the needed salts, so plan heated runs only after 25 °C works |
 | [DOE Early Career](https://science.osti.gov/early-career) | 3 | ~$875K / 5 yr | FY2027 call not posted | Has to match a BES priority |
 | [NSF Growing Convergence Research](https://www.nsf.gov/funding/opportunities/gcr-growing-convergence-research) | 2 | large team | Feb 8, 2027 | Only with a big team |
 | [DOE NEUP](https://nsuf.inl.gov/cinr) | 2 | — | FY2027 not posted | Salt-repository brines, if a workscope asks |
@@ -200,14 +235,28 @@ Several things moved in 2025–2026:
 - Moore Inventor Fellows: ended.
 - Schmidt Sciences: by invitation.
 
-## 6. Flags before resubmitting
+## 6. Flags for any next proposal
 
-- **Narrow the novelty claim.** The gap is the Fe/Pb–HS⁻ and metal–carboxylate terms in Na–Ca–Cl
-  brines. It is not Pb Pitzer data in general:
-  - Felmy et al. (2000) already gives Pb²⁺ in Na–K–Ca–Mg–H–Cl–SO₄.
-  - THEREDA 2026-01 adds Pb and Zn.
-  - gebo adds Pb, Zn, Fe and S(−II) species.
-  - Sandia has a PbCO₃ Pitzer model.
+- **Drop Fe²⁺–HS⁻ and Pb²⁺–HS⁻ Pitzer terms as the gap.** Reviewer B's case is that these terms are
+  absent because the ions never coexist at concentrations where such a term could be measured, not
+  because nobody tried. The review does accept these gaps:
+  - binary data for Fe(OAc)₂ and Pb(OAc)₂, and the propionates;
+  - temperature-dependent PbCl₂;
+  - solubility and complex constants for Fe(II) and Pb(II) in brines, measured at equilibrium.
+- **Pb Pitzer data already exist, so evaluate them before using them.** The sets are Felmy et al.
+  (2000), THEREDA 2026-01, gebo (which adds Pb, Zn, Fe and S(−II) species) and Sandia's PbCO₃ model.
+  Reviewer B faults the Millero–Byrne line and Felmy et al. on specific grounds (point 4 in the
+  [digest](../acs-prf/REVIEW_2026.md)). The next proposal should say which sets it accepts and why.
+- **Measure equilibrium, and show that it was reached.** That means:
+  - closed vessels with a known pH₂S;
+  - solids identified before and after;
+  - equilibrium approached from both sides;
+  - concentrations that stop changing over time.
+
+  A turbidity onset is a nucleation result. That is a different question, and also publishable.
+- **Take out the misstatements the review flags.** There are three: that no Na–Ca mixing data exist,
+  that the Pitzer model fails above I ≈ 2, and that misfits come from missing mixing terms. The claim
+  that OLI is Pitzer-based has to go too.
 - **Check Sandia's WIPP work before the next draft.** Its test plans set out to measure Fe(II), Pb(II)
   and HS⁻ parameters with acetate in scope. The search agent read that the HS⁻ terms weren't finished
   for the 2014 compliance cycle. Anything Sandia has published since is either a novelty problem or
@@ -218,6 +267,11 @@ Several things moved in 2025–2026:
 
 ## How this was put together
 
+- **2026-10-29 update.** Revised after the decline letter and Reviewer B's review were posted in
+  [PR 82](https://github.com/vertical-cloud-lab/digital-wetlab/pull/82). The review is summarized,
+  not quoted, in [`../acs-prf/REVIEW_2026.md`](../acs-prf/REVIEW_2026.md). The PRF rules were
+  re-read on acs.org (the DNI and proposal-requirements pages), and the DOIs of the papers the review
+  cites were checked on Crossref and OpenAlex.
 - **Issues and PRs.** I read all 81, open and closed: PR 5 (the Feb 2026 general funding guide),
   Barry's note in issue 64, Matt Allen's in issues 66 and 68, and the OT-2 setup in issue 80.
 - **Raspberry Pi.** This Actions job has no host, key or tunnel for the Pi, so it wasn't used. Pages

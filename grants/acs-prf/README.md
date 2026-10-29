@@ -2,11 +2,16 @@
 
 > **Deadline: March 6, 2026, 5:00 PM EST**
 > Spring 2026 submission window: February 9 – March 6, 2026
+>
+> **Outcome (October 2026):** declined. The panel rated the proposal not competitive and does not
+> recommend resubmission. See [REVIEW_2026.md](REVIEW_2026.md) for the review, and
+> [`../alternative-funding/`](../alternative-funding/) for what comes next.
 
 This directory contains information and materials for preparing an ACS PRF DNI grant proposal for the Digital Wetlab project (LLM-based agents for qualitative inorganic chemistry automation on Opentrons robots).
 
 ## Contents
 
+- [**REVIEW_2026.md**](REVIEW_2026.md) — Paraphrased digest of the 2026 decline and Reviewer B's review, mapped line by line to the submitted proposal
 - [**ACS_PRF_DNI_GUIDE.md**](ACS_PRF_DNI_GUIDE.md) — Comprehensive guide covering eligibility, budget, format, review criteria, research scope, and tips
 - [**PROPOSAL_CHECKLIST.md**](PROPOSAL_CHECKLIST.md) — Quick-reference submission checklist
 - [**EDISON_PRECEDENT_SEARCH.md**](EDISON_PRECEDENT_SEARCH.md) — Edison Scientific precedent search results supporting the recommended alignment angle
