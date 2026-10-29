@@ -118,5 +118,269 @@
     "query": "Have the Pitzer mixing parameters theta(Cl-, acetate) and psi(Na+, Cl-, acetate) been determined from isopiestic, EMF, solubility or other data on NaCl-sodium acetate-water mixtures?",
     "job": "job-futurehouse-paperqa3",
     "submitted": "2026-10-29T21:24:39Z"
+  },
+  "P3c": {
+    "task_id": "4f77bb98-7a7b-45d2-aadb-e854444f1796",
+    "point": "point 3",
+    "claim": "Pitzer parameters for Fe(OAc)2 and Pb(OAc)2 are missing, and no isopiestic data exist for them.",
+    "query": "Are there isopiestic, vapor-pressure, osmotic-coefficient, freezing-point or EMF data for aqueous lead(II) acetate or iron(II) acetate solutions, and have Pitzer parameters been derived for Pb(OAc)2 or Fe(OAc)2?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:41Z"
+  },
+  "P3d": {
+    "task_id": "59d6190d-b206-4d24-be97-ca7e7fdffb2f",
+    "point": "point 3",
+    "claim": "Freezing-point depression would work, and the platform could be adapted to measure it.",
+    "query": "How are freezing-point depression measurements used to derive osmotic coefficients and Pitzer parameters for electrolyte solutions, and have automated, small-volume or multi-well freezing-point or osmometry methods reached the accuracy needed for this?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:42Z"
+  },
+  "P4a": {
+    "task_id": "d250ef6b-4429-42fc-9ade-52deb4f0e4b9",
+    "point": "point 4",
+    "claim": "Millero and Byrne (1984) used ZnCl2 as a stand-in for PbCl2.",
+    "query": "What Pitzer parameters did Millero and Byrne (1984) use for Pb2+-Cl- interactions when modeling lead chloride complexation in seawater and NaCl solutions, and were these based on ZnCl2 or another analog salt?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:43Z"
+  },
+  "P4b": {
+    "task_id": "afc12513-ce8e-4969-9910-13a184c92e0b",
+    "point": "points 4 and 8",
+    "claim": "PbCl2 is below 0.05 mol/kg in water and appreciably more soluble in other chloride solutions.",
+    "query": "What is the solubility of PbCl2 in pure water at 25 C, and how does it change with NaCl, CaCl2 or other chloride concentration and with temperature?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:44Z"
+  },
+  "P4c": {
+    "task_id": "464564bf-9e1d-4d4e-90ea-3931a7eda54d",
+    "point": "point 4",
+    "claim": "Felmy et al. (2000) rest on Kendall and Sloan (1925), whose solid was later shown to be misidentified.",
+    "query": "Is the 1925 Kendall and Sloan dataset on PbCl2 solubility in NaCl solutions considered reliable? Have later studies found that the solid phase in those experiments was not PbCl2 (for example a double salt or a basic lead chloride), and which later PbCl2-NaCl-H2O solubility studies exist?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:45Z"
+  },
+  "P4d": {
+    "task_id": "84f3091f-f2d0-4f2c-9dbf-b440863d1f32",
+    "point": "point 4",
+    "claim": "Felmy et al. added dependent parameters, including a C term for Na-PbCl4 with no matching B term.",
+    "query": "What Pitzer parameters did Felmy et al. (2000) include in their Pb-Na-K-Ca-Mg-H-Cl-SO4-H2O model, such as theta(Na,Pb), B(Na,PbCl3-) and C(Na,PbCl4 2-)? Is it considered physically justified to include a third virial coefficient for an ion pair without the corresponding second virial (beta0/beta1) terms?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:46Z"
+  },
+  "P4f": {
+    "task_id": "5a6452f2-fc24-4913-b2f7-48d1a12f8c02",
+    "point": "point 4",
+    "claim": "The Rice University group's Pb parameters share the same trace-ion problem.",
+    "query": "What Pitzer parameters for Pb2+, Zn2+ or Fe2+ interactions with HS-, Cl- and other ions have been published by the Rice University Brine Chemistry Consortium (Tomson, Kan, Zhang and coworkers) for sulfide scale prediction, and how were they determined?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:47Z"
+  },
+  "P5a": {
+    "task_id": "88faeb5d-25b2-4f7c-8ccf-6ef1ff422307",
+    "point": "point 5",
+    "claim": "Mixing parameters should come from two-salt common-ion systems.",
+    "query": "From what kinds of experimental systems are Pitzer cation-cation mixing parameters (theta, psi) conventionally determined, such as two-salt common-ion mixtures like NaCl-KCl-H2O? Is it considered valid to derive theta for two cations when one or both are present only at trace concentrations?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:48Z"
+  },
+  "P5b": {
+    "task_id": "495dacf9-0d1f-4daf-a686-107c9c51f456",
+    "point": "point 5",
+    "claim": "theta(Pb,Fe) cannot come from sulfide or sulfate systems; it would need something like Pb(OAc)2 + Fe(OAc)2 + H2O.",
+    "query": "Have Pitzer mixing parameters theta(Pb2+, Fe2+) or psi(Pb2+, Fe2+, anion) ever been determined, and if so from what systems?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:49Z"
+  },
+  "P6a": {
+    "task_id": "3c31a8d0-78b7-4c9d-ae2a-f3c48ac62eee",
+    "point": "point 6",
+    "claim": "Pitzer and Mayorga (1973) used no C term below I of about 2 mol/kg.",
+    "query": "In Pitzer and Mayorga (1973), how were the third virial coefficients (Cphi) determined, and for which electrolytes or below what molality or ionic strength were Cphi terms omitted?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:50Z"
+  },
+  "P6b": {
+    "task_id": "c8fe855a-a97f-453d-a0a3-6f79facfe93b",
+    "point": "point 6",
+    "claim": "PbSO4 solubility is below 1 mmol/kg and does not rise much in other salts.",
+    "query": "What is the solubility of PbSO4 (anglesite) in pure water at 25 C, and how much does it increase in NaCl and other salt solutions?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:51Z"
+  },
+  "P6c": {
+    "task_id": "b46560a1-e303-4d16-ac36-582049769837",
+    "point": "point 6",
+    "claim": "Paige et al. (1992) used beta2 for PbSO4 to mimic the PbSO4 ion pair.",
+    "query": "How did Paige et al. (1992) represent lead sulfate in their Pitzer model, and did they use a beta(2) term to represent PbSO4 ion pairing instead of an explicit association constant?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:52Z"
+  },
+  "P6d": {
+    "task_id": "a3fbdc10-2151-464b-a15f-673c7db8fc17",
+    "point": "point 6",
+    "claim": "beta2 was a computational convenience; explicit ion-pair constants can match or beat it with fewer parameters.",
+    "query": "Why did Pitzer introduce the beta(2) parameter for 2:2 electrolytes, and how do Pitzer models that use beta(2) compare with models that use explicit ion-pair formation constants (for example CaSO4, MgSO4, BaSO4 or PbSO4 aqueous complexes) in accuracy and range?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:52Z"
+  },
+  "P6e": {
+    "task_id": "507f853a-dc07-421c-af18-0d52ec4f6844",
+    "point": "point 6",
+    "claim": "The Rice group fitted barite solubility with only beta2 for Ba-SO4.",
+    "query": "In the Rice University (Tomson, Kan and coworkers) Pitzer models for barite solubility in brines, which Ba2+-SO42- Pitzer parameters were used (for example only beta(2) without beta0 or beta1), and could an explicit BaSO4 association constant fit the same data?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:53Z"
+  },
+  "P6f": {
+    "task_id": "08256d50-0335-4513-a989-f60b43c45a86",
+    "point": "point 6",
+    "claim": "Na-Fe mixing terms should come from independent data where the ions are concentrated (Moog et al. 2004; Chou and Phan 1985).",
+    "query": "What Pitzer mixing parameters have been published for Na+-Fe2+ (theta(Na,Fe), psi(Na,Fe,Cl)) and from what data, for example NaCl-FeCl2-H2O solubility (Chou and Phan 1985) or isopiestic data for FeCl2 mixtures (Moog et al. 2004)?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:26:54Z"
+  },
+  "P7a": {
+    "task_id": "344a3938-a955-4508-a41b-465cf6eb1a7f",
+    "point": "point 7",
+    "claim": "Complex-formation constants and B terms overlap, e.g. K(PbOAc+) against B(Pb,OAc).",
+    "query": "In Pitzer models that include explicit ion pairs or complexes, how strongly are the association constants (for example K for PbOAc+ or CaSO4 aq) correlated with the binary interaction parameters for the same ions, and how has this non-uniqueness been handled?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:01Z"
+  },
+  "P7b": {
+    "task_id": "895dcdbc-d6ec-4f0c-9b8a-359f983366ce",
+    "point": "point 7",
+    "claim": "Solubility data alone leave beta0 and beta1 poorly constrained, especially when both salts are very soluble.",
+    "query": "Can Pitzer binary parameters beta0 and beta1 be determined reliably from solid-solubility data alone, especially when both salts in the system are very soluble (above about 2 mol/kg)? Why did Pitzer and coworkers rely on osmotic, isopiestic and EMF data for homogeneous solutions instead?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:01Z"
+  },
+  "P8a": {
+    "task_id": "33ea15dd-e25d-41c3-b1ff-5c5814025315",
+    "point": "point 8",
+    "claim": "Enough thermal data exist for NaOAc and Na propanoate to build temperature-dependent models.",
+    "query": "Have temperature-dependent Pitzer parameters been published for aqueous sodium acetate and sodium propanoate, and what heat-capacity, enthalpy-of-dilution and vapor-pressure data support them?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:02Z"
+  },
+  "P8b": {
+    "task_id": "03df001b-bc67-4bf7-a88b-6da0ef6a30d4",
+    "point": "point 8",
+    "claim": "Enough thermal data exist for FeCl2 to build a temperature-dependent model.",
+    "query": "Have temperature-dependent Pitzer parameters for aqueous FeCl2 been published, and what heat capacity, enthalpy of dilution, vapor pressure and solubility data exist for FeCl2 solutions above 25 C?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:03Z"
+  },
+  "P8c": {
+    "task_id": "48d8ddf6-f476-44e7-b761-1120270dc3dd",
+    "point": "point 8",
+    "claim": "A temperature-dependent PbCl2 model may not be possible from existing data.",
+    "query": "Are there temperature-dependent Pitzer models for PbCl2 or Pb(II)-chloride systems from 25 to 90 C or higher, and what PbCl2 solubility, heat capacity or enthalpy data support them?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:04Z"
+  },
+  "P8d": {
+    "task_id": "4c9949da-fcd2-41ed-a2fa-33089708f8d2",
+    "point": "point 8",
+    "claim": "No temperature-dependent model exists for Pb(OAc)2, and Fe(OAc)2 has essentially no thermodynamic data.",
+    "query": "What thermodynamic data exist for aqueous lead(II) acetate and iron(II) acetate above 25 C, such as stability constants, heat capacities, enthalpies, solubilities or activity coefficients?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:04Z"
+  },
+  "P9a": {
+    "task_id": "f2fdf3f4-47ea-4339-9215-747bbcef4014",
+    "point": "point 9",
+    "claim": "PHREEQC has several Pitzer databases of uneven quality; adding entries is easy, consistency is the work.",
+    "query": "What Pitzer databases exist for PHREEQC (pitzer.dat, THEREDA, the Bozau gebo extension and others), how do they treat Fe(II) and Pb(II), and what internal-consistency problems have been reported when parameter sets from different sources are combined?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:06Z"
+  },
+  "P9b": {
+    "task_id": "1b225dca-c977-49fe-b133-4646acf7f2a8",
+    "point": "point 9",
+    "claim": "theta(Na,Pb) from Na-Pb-NO3 data is far better constrained than one from Na-Pb-Cl data.",
+    "query": "Has the Pitzer mixing parameter theta(Na+, Pb2+) been determined from data for the NaNO3-Pb(NO3)2-H2O system (solubility or isopiestic), and how does it compare with values derived from Na-Pb-Cl systems?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:08Z"
+  },
+  "P10a": {
+    "task_id": "2521283f-1126-44f9-9910-5acca1755ded",
+    "point": "point 10a",
+    "claim": "Na-Ca mixing parameters have been measured (Holmes et al. 1981; Oakes et al. 1998).",
+    "query": "What Pitzer mixing parameters theta(Na,Ca) and psi(Na,Ca,Cl) were determined by Holmes, Baes and Mesmer (1981) and by Oakes, Pitzer and Sterner (1998), from what measurements and over what temperature range?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:09Z"
+  },
+  "P10b": {
+    "task_id": "e94a57a2-c1bf-4244-aef3-d8be7c4b1661",
+    "point": "point 10b",
+    "claim": "NaNO3 is fitted to about 11 mol/kg with only beta0 and beta1 (Marion 2002).",
+    "query": "Up to what molality can the Pitzer model reproduce osmotic and activity coefficients of aqueous NaNO3 at 25 C, and is a Cphi term needed? What parameters did Marion (2002) use for NaNO3?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:09Z"
+  },
+  "P10b2": {
+    "task_id": "5ed85d07-badf-4aa8-9483-1ece3fc88d34",
+    "point": "point 10b",
+    "claim": "The Pitzer model does not generally fail above I of about 2 mol/kg.",
+    "query": "How accurate are Pitzer ion-interaction models for concentrated salt systems and natural brines above an ionic strength of 2 mol/kg, for example the Harvie-Moller-Weare model, and where do they break down?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:10Z"
+  },
+  "P10c": {
+    "task_id": "801d6999-4bfe-40f8-9952-e1d6df148f4e",
+    "point": "point 10c",
+    "claim": "FeS/PbS model misfits come from pH2S handling, model construction, equilibrium constants or bad data, not missing mixing terms.",
+    "query": "What explanations have been given for disagreement between modeled and measured solubilities of mackinawite or galena in brines, such as uncertainty in the second dissociation constant of H2S, uncontrolled H2S partial pressure, inaccurate bisulfide complex constants, or experimental error?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:11Z"
+  },
+  "P11": {
+    "task_id": "ca40134f-a5ff-43ff-baf2-13097a9263da",
+    "point": "point 11",
+    "claim": "OLI is not Pitzer-based; its MSE databanks are proprietary and its aqueous model is Bromley's.",
+    "query": "What activity-coefficient models does the OLI Systems software use (its aqueous model and the mixed-solvent electrolyte MSE model), are they based on the Pitzer equations, and are their parameter databanks published or proprietary?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:11Z"
+  },
+  "P12": {
+    "task_id": "a5bcb5d2-1373-4f4f-a49b-d17d4a65d79b",
+    "point": "point 12",
+    "claim": "Sulfide solubility needs controlled pH2S; H2S escaping from the plate leaves an open, non-equilibrium system.",
+    "query": "How do FeS and PbS solubility studies control H2S partial pressure, and what errors arise when H2S degasses from open vessels or microplates during sulfide precipitation experiments?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:12Z"
+  },
+  "P13": {
+    "task_id": "16607f47-5cea-416a-b25d-49d1af6875a1",
+    "point": "point 13",
+    "claim": "ICP-OES is inaccurate for high-ionic-strength samples because of dilution errors.",
+    "query": "What are the main sources of inaccuracy when measuring dissolved Fe and Pb by ICP-OES in high-salinity brines (dilution error, matrix and easily ionized element effects), and what practices are recommended, such as gravimetric dilution, matrix matching, internal standards, standard addition or ICP-MS?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:28:13Z"
+  },
+  "P14": {
+    "task_id": "3326f2b2-5504-4ed5-bb94-585d73543c54",
+    "point": "point 14",
+    "claim": "pH buffers complicate the experiment and add nothing; pH is not an independent variable.",
+    "query": "In thermodynamic solubility studies of metal sulfides or carbonates in brines, are pH buffers (Good's buffers such as MES and HEPES, or bicarbonate) used or avoided, and do these buffers complex Pb(II) or Fe(II)? Is pH treated as a controlled variable or as a measured quantity set by composition and gas partial pressure?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:29:20Z"
+  },
+  "P15a": {
+    "task_id": "0741cc5b-dd12-40ac-9d58-309b593fc4c6",
+    "point": "point 15",
+    "claim": "Fitting Pitzer parameters through log(Q/Ksp) is a mistake; single-salt data resolve them better.",
+    "query": "Have Pitzer parameters been regressed successfully from saturation-index (log Q/Ksp) or precipitation-boundary data, and what pitfalls are known compared with fitting osmotic or activity coefficients of single-salt solutions?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:29:22Z"
+  },
+  "P15b": {
+    "task_id": "0b1da07d-1c8b-4e8b-8523-152057419d0d",
+    "point": "point 15",
+    "claim": "Taking water activity as 1 in Ksp expressions would be inconsistent at these conditions.",
+    "query": "How large is the error from assuming water activity equals 1 in solubility-product calculations for minerals in concentrated NaCl brines (for example 1-6 mol/kg), particularly for hydrated solids or dissolution reactions that involve water?",
+    "job": "job-futurehouse-paperqa3",
+    "submitted": "2026-10-29T21:29:23Z"
   }
 }
