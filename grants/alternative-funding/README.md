@@ -18,7 +18,7 @@
 | **Now** | Read the [review digest](../acs-prf/REVIEW_2026.md). Stop pitching new Fe²⁺–HS⁻ or Pb²⁺–HS⁻ Pitzer terms anywhere; use the corrected framing in [section 2](#2-one-dataset-several-missions) | — | — |
 | **Nov 9, 2026** | LOI to the [RCSA Team Science Accelerator](https://rescorp.org/team-science-accelerator/). Needs a team of 3–5 PIs, each within 10 years of their first independent job, at US or Canadian institutions, in basic physical science. A solution thermodynamicist on the team would answer the review directly | up to $1M total over 2 yr; 3–4 teams | verified |
 | **Nov 13, 2026, 5 pm** | Utah [Great Salt Lake Research Grant](https://ffsl.utah.gov/funding/gsl-research-grant/) (FY2028–29 call). Needs a lake-specific aim, e.g. predicting halite, gypsum and mirabilite precipitation and Li/Mg behaviour in lake brine. These major-ion systems already have well-tested Pitzer parameters, so test them with equilibrium measurements and identified solids rather than fit new ones | 1–2 yr projects | verified |
-| **Nov 30, 2026** | [DOE BES Geosciences](https://science.osti.gov/bes/csgb/Research-Areas/Geosciences): a white paper only, with the corrected pitch: solubility products and complex-formation constants for Fe(II) and Pb(II) with bisulfide, chloride and acetate in NaCl–CaCl₂ brines, plus the missing binary data for the metal acetates. Skip the Nov 30 full application, because BES reviewers come from the same community as Reviewer B | standard BES grant | verified |
+| **Nov 30, 2026** | [DOE BES Geosciences](https://science.osti.gov/bes/csgb/Research-Areas/Geosciences): a white paper only, with the corrected pitch: solubility products and complex-formation constants for Fe(II) and Pb(II) with bisulfide, chloride and acetate in NaCl–CaCl₂ brines, plus the missing binary data for the metal acetates. Skip the Nov 30 full application: BES geochemistry reviewers are likely to apply the same standards as Reviewer B | standard BES grant | verified |
 | **Nov–Dec** | Email the PRF program officer, a solution-thermodynamics collaborator, Sandia's WIPP geochemistry group, the Rice Brine Chemistry Consortium and OLI Systems ([drafts](outreach-drafts.md)) | — | — |
 | **Mar 15, 2027** | Apply to be a Fellow in [Scialog: Sustainable Minerals, Metals & Materials](https://rescorp.org/scialog/sustainable-minerals-metals-and-materials/) (the 2027 cohort is the last in this series) | seed team awards | verified |
 | **Any time** | NSF [Chemical Systems and Solutions](https://www.nsf.gov/funding/opportunities/css-chemical-systems-solutions) (NSF 26-519; covers critical minerals, the hydrosphere and lithosphere, and AI; 2–4 PIs encouraged). The alternative is NSF [CBET](https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport/nsf26-518/solicitation) Chemical Process Systems. Send to one, not both, and only once the platform has validated equilibrium data | standard NSF grant | CSS verified |
@@ -31,8 +31,8 @@ The review's objections are to the experiment, not the writing, so the order is 
 2. Show on the platform that it measures equilibrium.
 3. Then send it out.
 
-The two near deadlines, the RCSA LOI and the Utah GSL grant, don't depend on the disputed claim and
-can go ahead with the corrected framing.
+The two near deadlines, the RCSA LOI and the Utah GSL grant, don't depend on the claim the review
+rejected, and can go ahead with the corrected framing.
 
 ## The organization you remembered
 
@@ -67,9 +67,9 @@ Foundation in Calgary.
 
 Both are worth an email. Rice is the faster route to industry sponsors. Energi Simulation fits
 better if what you want is a foundation that already pays for PHREEQC-style physics-based modelling.
-For the science itself, the review points toward the salt-repository community (Sandia WIPP,
-THEREDA; [section 3](#3-the-phreeqc-and-pitzer-community)). There, constant-medium solubility work
-with identified solids is standard practice.
+For the science itself, the approach the review recommends is closest to how the salt-repository
+community works (Sandia WIPP, THEREDA; [section 3](#3-the-phreeqc-and-pitzer-community)): solubility
+measured in a fixed brine, with the solid identified.
 
 ## 1. ACS PRF after the decline
 
@@ -119,7 +119,7 @@ does not recommend resubmission. One expert review came with it
    Confirm against the letter. A thermodynamic-data proposal could also sit in Panel 6
    ([`PANEL_SELECTION.md`](../acs-prf/PANEL_SELECTION.md)). A physical-chemistry panel is likely to be
    at least as strict about thermodynamic method.
-5. **Leave the open proposal PRs alone.** [PR 65](https://github.com/vertical-cloud-lab/digital-wetlab/pull/65),
+5. **Don't build on the open proposal PRs.** [PR 65](https://github.com/vertical-cloud-lab/digital-wetlab/pull/65),
    [PR 67](https://github.com/vertical-cloud-lab/digital-wetlab/pull/67) and
    [PR 69](https://github.com/vertical-cloud-lab/digital-wetlab/pull/69) reword the 2026 design but
    don't change it, so none of them answers the review. Close them or keep them as history; don't
@@ -146,7 +146,7 @@ and the reviewers who read it. The data gap is not only a petroleum problem:
 | Nuclear waste in salt | WIPP brines contain Fe(II) from steel corrosion and lead from the waste. Acetate is one of the four organic ligands WIPP tracks, with citrate, EDTA and oxalate ([Brush & Xiong 2003](https://www.wipp.energy.gov/library/CRA/2009_CRA/references/Others/Brush_Xiong_2003_Calculation_of_Organic_Ligand_Concentrations_for_the_WIPP_CRA_ERMS527567.pdf)). The proposal's Pb²⁺ baseline (Felmy et al. 2000) was itself built for WIPP brines, and Sandia's Xiong has since added Pb–borate Pitzer terms. Reviewer B faults the Felmy et al. Pb model, which is one more reason to ask Sandia what it uses now. | DOE Office of Nuclear Energy (NEUP); Sandia/LANL Carlsbad WIPP programs (DOE EM) |
 | Geothermal and lithium brines | Salton Sea brines (23–30 wt% TDS) carry Fe, Zn, Pb, Cu, Mn and Li. They deposit metal-rich sulfide scale ([USGS](https://www.usgs.gov/publications/sulfides-associated-salton-sea-geothermal-brine)), and lithium recovery needs activity models above 5 molal. | DOE Geothermal Technologies Office; DOE critical-minerals programs; Utah FORGE |
 | Desalination and brine concentrates | Barite and sulfide scaling limits in RO concentrate and zero-liquid-discharge brines | Bureau of Reclamation DWPR; NAWI |
-| Autonomous measurement of thermodynamic constants | Can a self-driving lab measure solubilities, complex-formation constants and freezing points to database quality, with stated uncertainty, and publish them as an open dataset? Reviewer B said the platform could be adapted to both measurements, which makes this the strongest framing | NSF CHE; NIST; RCSA Scialog; AI-for-science foundations |
+| Autonomous measurement of thermodynamic constants | Can a self-driving lab measure solubilities, complex-formation constants and freezing points to database quality, with stated uncertainty, and publish them as an open dataset? Reviewer B said the proposed design could run the constant-medium solubility work and the platform could be adapted to measure freezing points, which makes this the strongest framing | NSF CHE; NIST; RCSA Scialog; AI-for-science foundations |
 
 ## 3. The PHREEQC and Pitzer community
 
@@ -222,7 +222,7 @@ Several things moved in 2025–2026:
 | [RCSA Team Science Accelerator](https://rescorp.org/team-science-accelerator/) | 4 | ≤ $1M / 2 yr per team | **LOI Nov 9, 2026**; full application Jul 1, 2027; workshop Jun 21–23, 2027 in Tucson | Basic physical sciences. The LOI needs biosketches and current-and-pending support for every PI |
 | [Scialog: Sustainable Minerals, Metals & Materials](https://rescorp.org/scialog/sustainable-minerals-metals-and-materials/) | 4 | team seed awards | Mar 15, 2027 | Early-career faculty in any field; critical-mineral separation is in scope |
 | Beckman Young Investigator | 4 | $600K / 4 yr | LOI ~summer 2027 (unverified) | Rewards new methods and instruments, which PRF excludes. About 12 awards a year; two attempts |
-| BYU College of Engineering seed / mentored research; ORCA student grants | 4 | small | seed Nov 15 / Mar 15 / Jul 15; ORCA ~late Oct (unverified) | Bridge money for undergraduates to measure the boundary before March |
+| BYU College of Engineering seed / mentored research; ORCA student grants | 4 | small | seed Nov 15 / Mar 15 / Jul 15; ORCA ~late Oct (unverified) | Bridge money for undergraduates to run the validation measurements the review calls for: an equilibrium solubility approached from both sides, and freezing points of NaCl solutions |
 | Sloan Research Fellowship | 3 | $75K / 2 yr | ~Sep 2027 (unverified) | Department nominates; chemistry or Earth system science |
 | Cottrell Scholar | 3 | $120K / 3 yr | ~Jul 2027 (unverified) | Needs a primary or courtesy appointment in chemistry, physics or astronomy |
 | Camille Dreyfus Teacher-Scholar | 2 | $100K | Feb 4, 2027 | One nominee per institution; must be in the chemical sciences |

@@ -4,86 +4,115 @@ Short first-contact emails for the funders and partners in [`README.md`](README.
 single question that can be answered in a reply. Edit before sending. Send them from your BYU account;
 none of these have been sent.
 
-## 1. ACS PRF program officer (before the Feb 15 – Mar 12, 2027 window)
+**Revised 2026-10-29, after the decline letter.** None of these drafts pitches new Fe²⁺–HS⁻ or
+Pb²⁺–HS⁻ Pitzer terms anymore. Reviewer B showed why those terms can't be measured (see the
+[review digest](../acs-prf/REVIEW_2026.md)). The drafts offer equilibrium solubility data,
+complex-formation constants and freezing-point data instead.
 
-> **Subject:** DNI resubmission: Pitzer parameters for sulfide scale, Panel 2 or Panel 6?
+## 1. ACS PRF program officer
+
+Address it to the officer who signed the decline letter. The proposal named Panel 2, which would
+make that Dr. Schijf.
+
+> **Subject:** 2026 DNI decision: other reviews, and whether a new design would count as new
 >
 > Dear Dr. Schijf,
 >
-> I submitted a DNI proposal in spring 2026 (*Pitzer Ion-Interaction Framework for Predicting
-> Sulfide-Mineral Precipitation from Petroleum-Derived H₂S and Organic Acids in Produced-Water Brines*).
-> It was not funded, and I plan to resubmit in the February–March 2027 window. The project uses a
-> liquid-handling robot to map FeS and PbS precipitation boundaries in concentrated NaCl–CaCl₂ brines
-> with acetate and propionate. From those boundaries we would regress the Pitzer ion-interaction
-> parameters (Fe²⁺–HS⁻, Pb²⁺–HS⁻, metal–carboxylate) that standard databases lack.
+> Thank you for the decision on my spring 2026 DNI proposal (*Pitzer Ion-Interaction Framework for
+> Predicting Sulfide-Mineral Precipitation from Petroleum-Derived H₂S and Organic Acids in
+> Produced-Water Brines*) and for sending Reviewer B's comments. The review was detailed and useful,
+> and its main points are well taken. The trace-ion Pitzer terms I planned to fit cannot be resolved
+> from sulfide solubility data, and a precipitation onset is not an equilibrium solubility.
 >
-> Two questions. Would Panel 2 (Geochemistry and Biogeochemical Cycling) be a suitable home, given the
-> focus on metal speciation and sulfide precipitation in basinal brines? And could I see the reviewer
-> comments from the 2026 decision, if they are available?
+> Two questions. First, are any other reviews or a panel summary available? Second, I am considering
+> a different project along the lines the reviewer suggested. It would measure equilibrium solubility
+> and complex-formation constants for Fe(II) and Pb(II) with bisulfide, chloride and acetate in a
+> fixed NaCl medium, plus freezing points of Fe and Pb acetate solutions. Would PRF treat that as a new
+> proposal rather than a resubmission, and would your panel be the right home for it?
 >
 > Thank you,
 > Sterling Baird, Assistant Professor, Mechanical Engineering, Brigham Young University
 
-## 2. Rice Brine Chemistry Consortium (co-directors)
+## 2. A solution-thermodynamics collaborator
 
-> **Subject:** FeS/PbS solubility data for ScaleSoftPitzer: collaboration?
+The review's main lesson is to have the design read by someone who has published Pitzer parameters or
+solubility constants. Start with Dean Wheeler (BYU Chemical Engineering), whom the 2026 proposal named
+as a consultant, and ask him for names if this isn't his area.
+
+> **Subject:** Would you look over a redesigned brine-thermodynamics experiment?
+>
+> Dear [name],
+>
+> My ACS PRF proposal on Pitzer parameters for FeS and PbS in brines was declined. An expert review
+> found the design unsound on two counts. Most of the parameters I planned to fit cannot be measured
+> at trace concentrations, and turbidity onset is not solubility. The reviewer suggested two
+> experiments my liquid-handling robot could run instead: constant-medium solubility and
+> complex-formation constants in NaCl, and freezing-point depression for the Fe and Pb acetates.
+>
+> Would you be willing to read a two-page redesign before I write anything? If it holds up, would you
+> consider joining the next proposal as co-PI or named collaborator?
+>
+> Sterling Baird, Assistant Professor, Mechanical Engineering, Brigham Young University
+
+## 3. Sandia WIPP geochemistry (Carlsbad)
+
+> **Subject:** Fe(II)/Pb(II) with acetate and sulfide in brines: what does WIPP already have?
+>
+> Dear Dr. Xiong,
+>
+> I am planning measurements of Fe(II) and Pb(II) chemistry in concentrated NaCl–CaCl₂ brines. The
+> plan covers sulfide solubility and complexation with bisulfide, chloride and acetate in a fixed
+> background electrolyte, plus freezing points of the metal acetates. WIPP test plans TP 08-02 and
+> TP 14-05 cover related systems. Before we commit to a design, could you tell me what Sandia has
+> measured or published, and which Pb and Fe(II) parameter sets you consider reliable? Would you be
+> open to validating against WIPP-relevant brines, or to a letter for a DOE proposal?
+>
+> Sterling Baird, Brigham Young University
+
+## 4. Rice Brine Chemistry Consortium (co-directors)
+
+> **Subject:** Equilibrium FeS/PbS solubility data for ScaleSoftPitzer: collaboration?
 >
 > Dear Professors Tomson and Kan,
 >
-> My group at BYU runs a liquid-handling robot that maps precipitation boundaries in concentrated
-> brines. We have started with BaSO₄ as a benchmark and are setting up FeS and PbS in NaCl–CaCl₂
-> brines with acetate and propionate. The goal is the Fe²⁺–HS⁻, Pb²⁺–HS⁻ and metal–carboxylate Pitzer
-> terms that are still missing. Your FeS work in ScaleSoftPitzer is the model we would most like to
-> test the data against.
+> My group at BYU uses a liquid-handling robot for brine chemistry. We are setting up equilibrium
+> measurements of FeS and PbS solubility in NaCl–CaCl₂ brines with acetate, in closed vessels and with
+> the solids identified. Your FeS work in ScaleSoftPitzer is the model we would most like to test the
+> data against.
 >
-> Would you be open to a short call about (1) comparing our plates with ScaleSoftPitzer predictions,
+> Would you be open to a short call about (1) comparing our data with ScaleSoftPitzer predictions,
 > (2) a letter of collaboration for an NSF/DOE proposal, and (3) whether presenting at your next
 > annual meeting would make sense?
 >
 > Best regards,
 > Sterling Baird, Assistant Professor, Mechanical Engineering, Brigham Young University
 
-## 3. OLI Systems (Academia / Research & Government team)
+## 5. OLI Systems (Academia / Research & Government team)
 
-> **Subject:** High-salinity FeS/PbS solubility data: joint proposal or data partnership?
+> **Subject:** High-salinity FeS/PbS solubility data: data partnership or joint proposal?
 >
 > Hello,
 >
-> We are generating high-throughput solubility and precipitation-boundary data for FeS and PbS in
-> NaCl–CaCl₂ brines (to ~5 molal) with acetate and propionate, aimed at the missing ion-interaction
-> parameters. OLI's work extending its models to high-salinity sulfide scale looks closely aligned.
-> Would OLI consider a data partnership, a letter of support, or a joint NSF/DOE proposal? An
-> academic licence would also let us compare against your model directly.
+> We are measuring the equilibrium solubility of FeS and PbS in NaCl–CaCl₂ brines up to about
+> 5 mol/kg, along with Fe(II) and Pb(II) complexation by bisulfide, chloride and acetate. OLI's work
+> extending its models to high-salinity sulfide scale looks closely aligned. Would OLI consider a data
+> partnership, a letter of support, or a joint NSF/DOE proposal? An academic licence would also let us
+> compare the data with your MSE model directly.
 >
 > Sterling Baird, Brigham Young University
 
-## 4. Sandia WIPP geochemistry (Carlsbad)
-
-> **Subject:** Fe(II)/Pb(II)–HS⁻ Pitzer parameters: avoiding duplication, joint validation
->
-> Dear Dr. Xiong,
->
-> I am planning high-throughput measurements of FeS and PbS precipitation in concentrated
-> NaCl–CaCl₂ brines with acetate. The aim is the Fe(II)/Pb(II)–HS⁻ and metal–acetate Pitzer terms.
-> WIPP test plans TP 08-02 and TP 14-05 cover closely related parameters. Before we commit to a
-> design, could you tell me which of these Sandia has measured or published? Would you be open to
-> validating against WIPP-relevant brines, or to a letter for a DOE proposal?
->
-> Sterling Baird, Brigham Young University
-
-## 5. Energi Simulation, via the Heriot-Watt chair
+## 6. Energi Simulation, via the Heriot-Watt chair
 
 Energi Simulation funds invited chairs and has no open call, so write to the chair holder rather than
 the foundation:
 
-> **Subject:** Experimental Pitzer data for sulphide-scale modelling: collaboration?
+> **Subject:** Equilibrium sulphide solubility data at high salinity: collaboration?
 >
 > Dear Professor Mackay,
 >
-> Sulphide-scale prediction depends on activity terms that have hardly been measured at high ionic
-> strength. My group at BYU is generating robot-measured FeS/PbS precipitation boundaries in brines
-> with acetate and propionate, to fit those terms. Would you be interested in
-> testing your models against the data, and could you advise whether Energi Simulation supports
-> collaborating groups outside its chairs?
+> Sulphide-scale prediction at high salinity rests on few equilibrium measurements. My group at BYU is
+> setting up robot-run solubility measurements for FeS and PbS in brines with acetate, with the solids
+> identified and the H₂S contained. Would you be interested in testing your models against the data,
+> and could you advise whether Energi Simulation supports collaborating groups outside its chairs?
 >
 > Sterling Baird, Brigham Young University

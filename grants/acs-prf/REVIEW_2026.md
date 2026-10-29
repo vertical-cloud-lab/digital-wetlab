@@ -82,15 +82,15 @@ SI = 0 inside the design, around pH 5–7.
 | **3.** Pitzer parameters for Fe(OAc)₂ and Pb(OAc)₂ really are missing and would be useful, oil and gas included. Isopiestic data would be best but don't exist. Freezing-point depression would also work, and the platform could be adapted to measure it | Lines 50, 77 | The second lead in the review |
 | **4.** The literature parameter sets were taken on trust: <br>• Woosley and Millero (2013) build on Millero and Byrne (1984), which used ZnCl₂ as a stand-in for PbCl₂. ZnCl₂ is very soluble and PbCl₂ is not, and the C_Pb,Cl term has no justification. <br>• Felmy et al. (2000) adopted those terms and added dependent ones: θ_Na,Pb, B_Na,PbCl₃, and C_Na,PbCl₄ without its B. Their model rests on one 1925 PbCl₂–NaCl dataset (Kendall and Sloan) whose solid was later shown to be misidentified. <br>• The Rice group's parameters have the same trace-ion problem | The proposal fixes these values (lines 147–149, 196) | Holds for the proposal, which used them without evaluating them. Felmy et al. do cite Kendall and Sloan (checked on OpenAlex). We have not yet read the later studies on that solid |
 | **7.** Fitting β⁽⁰⁾ and β⁽¹⁾ from solubility alone has two problems. They overlap with complex-formation constants (K_PbOAc⁺ against B_Pb,OAc). And when both salts are very soluble, solubility data cover only high I, which leaves the B terms poorly constrained. This is why Pitzer worked from homogeneous-solution data | Lines 85, 188 | Holds |
-| **8.** The 25–90 °C range is a problem. Temperature-dependent models may not exist for Na acetate, Na propionate, PbCl₂ or FeCl₂, and do not exist for Pb(OAc)₂. Fe(OAc)₂ has no data at all. The heat-capacity, enthalpy and vapor-pressure data to build such models exist for NaOAc, Na propanoate and FeCl₂, and maybe not for PbCl₂ | Lines 81, 124 | Holds. Work at 25 °C first |
+| **8.** The 25–90 °C range is a problem. The reviewer was unsure whether temperature-dependent models exist for sodium acetate, sodium propionate, PbCl₂ or FeCl₂. There are none for Pb(OAc)₂, and no data at all for Fe(OAc)₂. Enough calorimetric and vapor-pressure data exist to build such models for the sodium salts and FeCl₂, but perhaps not for PbCl₂ | Lines 81, 124 | Holds. Work at 25 °C first |
 | **9.** Adding parameter sets to a PHREEQC database is easy. The real work is making them consistent and deriving them from suitable data: a θ_Na,Pb from the Na–Pb–NO₃ system beats one from Na–Pb–Cl | The gap is framed as "pitzer.dat has no Pb²⁺" (line 97) | Holds. The gap is evaluated data, not database entries |
 | **10a.** Na–Ca mixing parameters have been measured (Holmes et al. 1981; Oakes et al. 1998) | Line 71 | Holds. Na–Fe mixing data exist too (Chou and Phan 1985; Moog et al. 2004) |
 | **10b.** The Pitzer model does not fail above I ≈ 2. For example, NaNO₃ is fitted to about 11 mol/kg with only β⁽⁰⁾ and β⁽¹⁾ (Marion 2002) | Line 99 | Holds |
 | **10c.** FeS and PbS misfits do not come from missing mixing terms. Likelier causes are pH₂S handling, model construction, wrong equilibrium constants, or bad data | Line 200 | Holds |
 | **11.** OLI is not Pitzer-based. Its mixed-solvent (MSE) databanks are proprietary, and its aqueous model is Bromley's | Lines 71, 200 | Holds. Line 200's promise of parameters for OLI databases can't be kept |
-| **12.** Sulfide equilibria need a controlled pH₂S. If H₂S escapes from the plate, the system is open and never reaches equilibrium | Adhesive seals, fume hood (lines 107, 134) | Holds |
+| **12.** Sulfide equilibria need a controlled pH₂S, just as carbonate solubility needs a controlled pCO₂. Wells that lose H₂S are open systems and can't reach equilibrium | Adhesive seals, fume hood (lines 107, 134) | Holds |
 | **13.** ICP-OES on high-ionic-strength samples suffers from dilution errors, and precision gets mistaken for accuracy | ICP-OES on 5% of wells (lines 117, 188) | Partly. Gravimetric dilution, matrix-matched standards, an internal standard and a reference check address it |
-| **14.** pH buffers complicate the chemistry and add nothing, since pH is not an independent variable | MES, HEPES and bicarbonate (line 122) | Holds. Bicarbonate also adds carbonate solids. Measure pH in the brine rather than fix it |
+| **14.** pH buffers complicate the chemistry and gain nothing, since pH follows from the composition rather than being set independently | MES, HEPES and bicarbonate (line 122) | Holds. Bicarbonate also adds carbonate solids. Measure pH in the brine rather than fix it |
 | **15.** Fitting through log(Q/K_sp) is a mistake. Each γ in K_sp mixes contributions from several salt pairs, so the parameters are better fixed from single-salt systems. Assuming a_H₂O = 1 would also be inconsistent | SI as log(Q/K_sp) (line 147) | The first half holds. PHREEQC's Pitzer mode computes water activity, so the second half only affects hand-written K_sp expressions for hydrated solids |
 
 ## What the review says would work
@@ -103,8 +103,8 @@ These are the review's own suggestions.
 2. **Binary data for the metal carboxylates.** Measure freezing-point depression of Fe(OAc)₂ and
    Pb(OAc)₂ solutions, and of the propionates; isopiestic data are the gold standard. The reviewer
    calls these parameters missing and useful, and says an adapted platform could measure them.
-3. **Mixing terms only from two-salt, common-ion systems.** For example, Pb(OAc)₂ + Fe(OAc)₂ + H₂O,
-   fitted only if the binary terms fail there. NaCl + NaOAc + H₂O would test ψ_Na,Cl,OAc.
+3. **Mixing terms only from pairs of salts that share an ion**, such as Pb(OAc)₂ + Fe(OAc)₂ + H₂O.
+   Fit them only if the binary terms fail there. NaCl + NaOAc + H₂O would test ψ_Na,Cl,OAc.
 4. **Explicit ion-pair and complex constants** instead of β⁽²⁾ or extra virial terms.
 5. **Lab practice:**
    - closed vessels with a known pH₂S;
