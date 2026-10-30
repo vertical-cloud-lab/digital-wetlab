@@ -1,0 +1,72 @@
+Boundary for equal barium and sulfate (SI = 0):
+  0 molal NaCl: 12 uM
+  1 molal NaCl: 102 uM
+  3 molal NaCl: 140 uM
+
+Barite SI, 1 molal NaCl (rows: barium mM; columns: sulfate mM)
+Ba \ SO4     0.01     0.1     1.0     3.0
+     0.01    -2.02   -1.02   -0.02    0.45
+      0.1    -1.02   -0.02    0.98    1.45
+      1.0    -0.02    0.98    1.98    2.45
+      3.0     0.46    1.46    2.45    2.93
+
+Barite SI, no NaCl (rows: barium mM; columns: sulfate mM)
+Ba \ SO4     0.01     0.1     1.0     3.0
+     0.01    -0.19    0.77    1.63    1.96
+      0.1     0.77    1.75    2.62    2.95
+      1.0     1.63    2.62    3.55    3.91
+      3.0     1.96    2.96    3.91    4.31
+
+1 molal NaCl: 3 pairs below SI -0.1, 3 within 0.1 of SI 0, 10 above SI +0.1
+Removing the NaCl raises SI by 1.38 to 1.83 units
+
+Positive controls, 10 mM barium + 10 mM sulfate:
+  1 molal NaCl: SI 3.94
+  no NaCl:      SI 5.02
+
+Most barium sulfate a 200 uL well can form, set by the scarcer ion:
+   0.01 mM: 0.5 ug
+    0.1 mM: 4.7 ug
+    1.0 mM: 46.7 ug
+    3.0 mM: 140.0 ug
+
+==================================================================
+
+No barium chloride dispensed: 8 of 80 conditions
+  H1 (2.9976 -> 0.60 uL)
+  D4 (1.094 -> 0.22 uL)
+  C7 (1.4559 -> 0.29 uL)
+  D7 (0.3782 -> 0.08 uL)
+  E9 (4.4576 -> 0.89 uL)
+  G9 (3.4095 -> 0.68 uL)
+  C10 (2.1815 -> 0.44 uL)
+  G10 (4.508 -> 0.90 uL)
+No sodium sulfate dispensed: 8 of 80 conditions
+  C1 (4.5997 -> 0.92 uL)
+  D3 (2.5078 -> 0.50 uL)
+  F3 (0.3278 -> 0.07 uL)
+  B5 (0.7808 -> 0.16 uL)
+  H5 (4.1967 -> 0.84 uL)
+  A7 (1.8047 -> 0.36 uL)
+  F8 (3.361 -> 0.67 uL)
+  F10 (2.6161 -> 0.52 uL)
+No NaCl dispensed: 1 of 80 conditions
+  F5 (0.0158 -> 0.63 uL)
+
+Dispensed, but under 2 uL (the P20 is least accurate there): 16
+  E1 sodium sulfate 1.66 uL
+  G1 sodium sulfate 1.19 uL
+  A2 sodium sulfate 1.49 uL
+  C2 sodium sulfate 1.52 uL
+  F2 barium chloride 1.93 uL
+  H2 sodium sulfate 1.97 uL
+  H4 barium chloride 1.34 uL
+  C5 sodium sulfate 1.02 uL
+  G6 barium chloride 1.42 uL
+  H6 barium chloride 1.21 uL
+  A7 barium chloride 1.71 uL
+  C8 sodium sulfate 1.39 uL
+  G8 sodium sulfate 1.88 uL
+  H8 barium chloride 1.86 uL
+  A9 barium chloride 1.13 uL
+  B10 barium chloride 1.59 uL

@@ -5,6 +5,10 @@ Asked on [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/
 and no glovebox. The iron (FeS) experiments wait until the glovebox arrives. The overhead camera
 needs a few more days of focusing, so the steps that don't need it come first.
 
+Updated 2026-10-30: a barium sulfate practice plate is now step 13, between the camera and the
+first lead plate. It's the "BaSO₄-only plate" from the [2026-10-21 order][prev-order]. The pH
+calibration buffers will be bought just before the real tests.
+
 The status column means:
 
 - **have**: a record in byu-vcl, powder-doser or this repo shows it was bought or is in the lab
@@ -61,10 +65,10 @@ masses in the [protocol that ran on 03-05][baso4-stocks].
 | Lead(II) nitrate, 500 g | Pb(NO₃)₂ | 10099-74-8 | have | 49.7 mg makes 15 mL of 10 mM | Bought 03-03 ([byu-vcl 15][vcl-15-list]). The proposal names lead(II) chloride (PbCl₂); lead(II) nitrate dissolves far better. |
 | Ammonium sulfide solution, about 20 wt% in water, 500 mL | (NH₄)₂S | 12135-76-1 | have, **check** | about 51 µL makes 15 mL of 10 mM | Sigma-Aldrich A1952, bought 03-03. It is sold as 20 wt% (the SDS gives 10–30%), about 2.9 M if its density is near 1 g/mL; check the label. Open it in the hood. If it has turned yellow (ammonium polysulfide), it still works for the vial tests but not for quantitative plates. |
 | Sodium chloride, 500 g | NaCl | 7647-14-5 | have | 4.383 g makes 15 mL of 5 M | |
-| Barium chloride dihydrate | BaCl₂·2H₂O | 10326-27-9 | have, **check** | 366.4 mg makes 15 mL of 0.1 M | For the barium sulfate positive controls on every plate: 20 µL of the 0.1 M stock in a 200 µL well gives 10 mM. The 03-05 stock was 1.0 M, made from the dihydrate. Check the label: anhydrous barium chloride (BaCl₂, CAS 10361-37-2) needs 15% less mass. |
-| Sodium sulfate, anhydrous, 500 g | Na₂SO₄ | 7757-82-6 | have | 213.1 mg makes 15 mL of 0.1 M | The other half of the barium sulfate controls, used the same way. Also used on 03-05. |
+| Barium chloride dihydrate | BaCl₂·2H₂O | 10326-27-9 | have, **check** | 366.4 mg makes 15 mL of 0.1 M | For the barium sulfate practice plate (step 13) and the positive controls on every plate: 20 µL of the 0.1 M stock in a 200 µL well gives 10 mM. The 03-05 stock was 1.0 M, made from the dihydrate. Check the label: anhydrous barium chloride (BaCl₂, CAS 10361-37-2) needs 15% less mass. |
+| Sodium sulfate, anhydrous, 500 g | Na₂SO₄ | 7757-82-6 | have | 213.1 mg makes 15 mL of 0.1 M | The other half of the practice plate and the barium sulfate controls, used the same way. Also used on 03-05. |
 | Deionized (DI) water | H₂O | 7732-18-5 | have, refill | about 1 L per session | Free from the Chem Stores breakroom, kept in HDPE ([byu-vcl 15][vcl-15-di]). The jug dates from March. |
-| pH 4.00, 7.00 and 10.00 calibration buffers (usually colour-coded red, yellow and blue) | | | **get** | a few tens of mL of each per calibration | For calibrating a pH meter. The safety plan keeps sulfide at pH 8 or above, so check the stocks and a few wells. Unopened they keep 1–2 years. Once opened, pH 4 and 7 keep 1–3 months and pH 10 only 1–4 weeks, because it absorbs CO₂ from the air ([details][ph-buffers]). Buy small bottles or single-use vials. I couldn't confirm that Chem Stores stocks them. |
+| pH 4.00, 7.00 and 10.00 calibration buffers (usually colour-coded red, yellow and blue) | | | **get**, just before the real tests | a few tens of mL of each per calibration | For calibrating a pH meter. The practice plate (step 13) needs none. The safety plan keeps sulfide at pH 8 or above, so check the stocks and a few wells. If there's no meter by the vial tests, pH strips cover step 7's check of the sulfide stock without buffers. Unopened they keep 1–2 years. Once opened, pH 4 and 7 keep 1–3 months and pH 10 only 1–4 weeks, because it absorbs CO₂ from the air ([details][ph-buffers]). Buy small bottles or single-use vials. I couldn't confirm that Chem Stores stocks them. |
 
 For the full design later. None of these are needed for the vial tests or the first plate, and
 quantities and grades are in the [shopping list][shop].
@@ -111,12 +115,12 @@ quantities and grades are in the [shopping list][shop].
 | item | status | notes |
 | --- | --- | --- |
 | OT-2 with a P300 single GEN2 on the left mount | have | On 09-29 it picked up a tip and blew air out in a well. It has no tip-length or pipette-offset calibration, and the deck calibration dates from 01-27, before the robot was moved ([calibration notes][calib], [tip test][tip-test]). |
-| P20 single GEN2 | **check** | It ran the March plate and is now on the CubXL ([byu-vcl 169][vcl-169]). Without it the OT-2 can't dispense less than 20 µL, so the low concentrations need diluted stocks (step 14). |
+| P20 single GEN2 | **check** | It ran the March plate and is now on the CubXL ([byu-vcl 169][vcl-169]). Without it the OT-2 can't dispense less than 20 µL, so the low concentrations need diluted stocks (steps 13 and 15). |
 | 300 µL tips | have | Ordered 07-31 ([byu-vcl 168][vcl-168]). The rack sits in slot 6. |
 | 200 µL filter tips | **get** | The proposal and the safety plan use filter tips for lead and sulfide. They fit the P300. |
 | 96-well flat-bottom plates, clear polystyrene and polypropylene | **check** | Clear plates for the camera and the colour sensor. The safety plan names polypropylene for sulfide ([shopping list][shop-plates]). |
 | Clear adhesive plate seals | **get** | Each plate is sealed right after the last sulfide addition. |
-| Opentrons 15 mL tube rack, or a 12-channel reservoir | **check** | The March run used the tube rack. |
+| Opentrons 15 mL tube rack, or a 12-channel reservoir | **check** | The March run used a 6-tube rack. The practice plate and the first lead plate need 10 tubes each (steps 13 and 15): two racks, or one with 10 or more places. |
 | Heater-shaker | have, not needed yet | In the OT-2 since 10-13, not seated or wired. It runs at 37–95 °C, so it's for the heated runs later ([byu-vcl 81][vcl-81]). |
 
 ### Imaging and records
@@ -134,7 +138,7 @@ quantities and grades are in the [shopping list][shop].
 | --- | --- | --- |
 | Liquid waste container labelled "lead and sulfide, basic, never acidify" | **get** | Register it with Risk Management ([byu-vcl 15][vcl-15-waste], [punch list][punch]). Rinses go in here too. |
 | Bagged, labelled solid waste for lead-contaminated tips, plates, wipes and gloves | **get** | |
-| Container for leftover BaCl₂ stock | **get** | Or ask EHS whether it can go in with the lead waste. |
+| Container for barium waste: leftover BaCl₂ stock and the practice plate's wells | **get** | Or ask EHS whether it can go in with the lead waste. |
 
 ### pH buffers: how long they keep, and where to get them
 
@@ -263,11 +267,90 @@ up to 6 mL, and PHREEQC has lead(II) chloride (PbCl₂) precipitating above 3.4�
 12. **Set up the colour sensor** on a few sentinel wells, on a white background for black PbS. A
     full pass over 96 wells is too slow for the 1 and 5 min reads.
 
+### Barium sulfate practice plate
+
+This is the "BaSO₄-only plate" from the [2026-10-21 order][prev-order]. It runs the first lead
+plate's workflow with barium chloride in place of lead(II) nitrate and sodium sulfate in place of
+the sulfide. Together they form barium sulfate (BaSO₄), a white precipitate.
+
+- **No hood, H₂S detector or pH chemicals.** Every chemical is on hand, so it can run in CB154
+  while the hood and EHS are still being settled.
+- **Cheap mistakes.** If the camera stops, a tip carries precipitate back into a stock tube, or
+  the timing doesn't work, the loss is a plate of cheap salts.
+- **The camera's first real test.** A dye plate can't show whether the camera picks up a
+  precipitate as it forms, from faint to heavy.
+
+13. **Run the first lead plate's layout with barium and sulfate**, 200 µL per well:
+    - barium chloride against sodium sulfate at 0.01, 0.1, 1 and 3 mM each, in triplicate, in
+      1 molal NaCl: 48 wells
+    - barium-only and sulfate-only blanks at each level, plus water and NaCl blanks
+    - 10 mM + 10 mM positive controls, from 20 µL each of the 0.1 M stocks
+    - the same 16 pairs once more without NaCl, in the spare wells
+
+    Make 0.1 M stocks of barium chloride dihydrate (366.4 mg) and sodium sulfate (213.1 mg), each
+    made up to 15 mL. Dilute each tenfold three times (1.5 mL made up to 15 mL) for 10, 1 and
+    0.1 mM. Without hand pipettes, dilute by weight: weigh about 1.5 g of the stronger stock into
+    the tube, add water to about 15 g, and work out the dilution from the two weights. With the
+    5 M NaCl and DI water, that's 10 tubes. The volumes are the same as in step
+    15: 20 µL of the 0.1, 1 or 10 mM stock gives 0.01, 0.1 or 1 mM, and 60 µL of the 10 mM stock
+    gives 3 mM.
+
+    Run it the way step 16 will run the lead plate. That means sulfate last and from above the
+    liquid, each well's start time logged, a pause to seal, and images at 1, 5, 15, 60 and
+    240 min. Then score and store it as in step 17. Also time the sulfate step from its first
+    well to its last; that's how far apart the wells' time zeros will be on the lead plate. The
+    wells and leftover stocks go in the barium waste. Barium chloride is toxic if swallowed, so
+    wear gloves and goggles, and add its SDS to the binder.
+
+**What to expect.** Unlike the 03-05 plate, this grid crosses the barium sulfate boundary. PHREEQC
+(pitzer.dat, 25 °C) puts the boundary at about 0.1 mM of each in 1 molal NaCl
+([script and output][baso4-checks]). Saturation index in 1 molal NaCl, where below 0 it can't
+precipitate:
+
+| barium (mM) \ sulfate (mM) | 0.01 | 0.1 | 1 | 3 |
+| --- | --- | --- | --- | --- |
+| 0.01 | −2.0 | −1.0 | 0.0 | +0.5 |
+| 0.1 | −1.0 | 0.0 | +1.0 | +1.5 |
+| 1 | 0.0 | +1.0 | +2.0 | +2.5 |
+| 3 | +0.5 | +1.5 | +2.5 | +2.9 |
+
+- **Salt shifts it.** Without NaCl the same pairs are 1.4–1.8 units higher, so 0.1 mM of each is
+  supersaturated in water (+1.75) but sits on the boundary in 1 molal NaCl. That's the salt
+  effect the proposal is about, in a system whose Pitzer parameters are known.
+- **The visible edge will sit above 0.** Barium sulfate can stay supersaturated for a while
+  before it nucleates, and how long depends steeply on how supersaturated it is
+  ([He, Oddo and Tomson 1995][he1995]).
+- **It tests the camera's limit.** At 0.1 mM a well can form only about 5 µg of barium sulfate.
+  Where the camera first sees it, at each time point, says how faint a precipitate it can pick
+  up. The lead plates go down to 0.01 mM.
+
+**Why run it again.** The 03-05 plate ([plan 002][plan-002]) ran a different design and left
+gaps:
+
+- **16 of its 80 conditions got no barium or no sulfate.** The [protocol][march-skip] set any dose
+  under 1 µL, the P20's minimum, to zero. With 1 M stocks, that dropped every dose under 5 mM
+  ([check][baso4-checks]):
+  - no barium: H1, D4, C7, D7, E9, G9, C10, G10
+  - no sulfate: C1, D3, F3, B5, H5, A7, F8, F10
+
+  In the [photo of the finished plate on a black tray][march-photo] (5:33 pm, 03-05), the clear
+  wells in rows E–H are E9, F3, F8, F10, G9, G10, H1 and H5, plus the sulfate-only controls in
+  column 11. The rest of those rows show white precipitate.
+- **That changes how wells H1 and F3 read.** On 03-06 H1's clear well was put down to its low
+  barium and high salt ([PR 3][pr3-h1]). The proposal's feasibility paragraph
+  ([line 132][p-feasibility]) cites wells G1, H1, F3 and G3 as "the expected qualitative
+  progression from clear/faint turbidity to strongest precipitation at higher ion product". But
+  H1 and F3 were in effect blanks. G1 and G3 did get both salts.
+- **It couldn't locate a boundary.** All 80 designed conditions were supersaturated (SI 2.6–5.8,
+  [plan 002][plan-002]).
+- **No time-point record.** I found no images tied to the 5, 15, 60 and 240 min time points and
+  no per-well scores. The camera on the 03-05 dry run stopped after about 1.5 h.
+
 ### First lead plate on the OT-2
 
-13. **Move the OT-2 into the hood**, if that's what EHS agrees to, with the power and network
+14. **Move the OT-2 into the hood**, if that's what EHS agrees to, with the power and network
     cables run in from outside the sash. Check the deck calibration again after the move.
-14. **First plate, as a shakedown**: lead against sulfide at 1 molal NaCl, 200 µL per well.
+15. **First plate, as a shakedown**: lead against sulfide at 1 molal NaCl, 200 µL per well.
     - Four levels of each, 0.01, 0.1, 1 and 3 mM, in triplicate: 48 wells.
     - Lead-only and sulfide-only blanks at each level, plus water and NaCl blanks. The 3 mM
       lead-only blanks also show whether PbCl₂ comes out.
@@ -278,22 +361,22 @@ up to 6 mL, and PHREEQC has lead(II) chloride (PbCl₂) precipitating above 3.4�
     20 µL of one of them gives 0.01, 0.1 or 1 mM, and 60 µL of the 10 mM stock gives 3 mM. The
     fullest well (3 mM of each, 1 molal NaCl) takes 60 + 60 + 40 µL, plus 40 µL of water. Make
     the dilute sulfide stocks just before the run, since dilute sulfide oxidises in air.
-15. **Run it**, with the protocol fixes from the [earlier checklist][prev-protocol]:
+16. **Run it**, with the protocol fixes from the [earlier checklist][prev-protocol]:
     - Add sulfide last, and dispense it from above the liquid. A tip that touches a well with
       lead in it carries PbS back into the sulfide tube.
     - Log each well's start time. Filling well by well spreads time zero over several minutes.
     - Pause after the last sulfide addition so someone can seal the plate in the hood, and log
       the time.
     - Image at 1, 5, 15, 60 and 240 min.
-16. **Score and store** the results: a precipitate score per well and time point, and the
+17. **Score and store** the results: a precipitate score per well and time point, and the
     images with the run's metadata (stock IDs and ages, protocol commit, temperature and
     humidity), in MongoDB `digital-wetlab`.
-17. **Waste**: the sealed plate goes in the lead solids, and the leftover stocks in the lead and
+18. **Waste**: the sealed plate goes in the lead solids, and the leftover stocks in the lead and
     sulfide container.
 
 ### The lead campaign
 
-18. **Settle these with Sterling** before widening the design toward the proposal's ranges
+19. **Settle these with Sterling** before widening the design toward the proposal's ranges
     ([earlier checklist, step 0][prev-step0]):
     - **Lead tops out at a few mM in brine.** PHREEQC puts PbCl₂ saturation at 3.4–4.7 mM total
       lead in 1 molal NaCl, whichever lead salt is used, and its databases disagree at higher
@@ -304,11 +387,11 @@ up to 6 mL, and PHREEQC has lead(II) chloride (PbCl₂) precipitating above 3.4�
       sulfide on the shelf.
     - **Buffers**: not bicarbonate, which would precipitate lead carbonate.
     - **5 molal NaCl** leaves little room in a well for anything else.
-19. **Latin hypercube plates**, with a volume check in the design generator, blanks and BaSO₄
+20. **Latin hypercube plates**, with a volume check in the design generator, blanks and BaSO₄
     controls on every plate, and three replicate plates, as in the proposal.
-20. **Heated runs (60–90 °C)** come later, in year 2 of the proposal: sealed vials in a heating
+21. **Heated runs (60–90 °C)** come later, in year 2 of the proposal: sealed vials in a heating
     block, or polypropylene plates with heat-rated seals on the heater-shaker.
-21. **ICP-OES** on about 300 conditions also comes later.
+22. **ICP-OES** on about 300 conditions also comes later.
 
 The FeS work follows, once the glovebox is in.
 
@@ -317,10 +400,13 @@ The FeS work follows, once the glovebox is in.
 - H₂S detector
 - splash goggles
 - hand pipettes (about 20–200 µL and 100–1000 µL) and tips, if the lab has none
-- a pH meter with a double-junction electrode, or pH strips, and pH 4, 7 and 10 calibration
-  buffers in small bottles or single-use vials ([how long they keep][ph-buffers])
+- pH strips, for step 7's check of the sulfide stock, unless a meter is in by then
+- just before the real tests: a pH meter with a double-junction electrode, and pH 4, 7 and 10
+  calibration buffers in small bottles or single-use vials ([how long they keep][ph-buffers])
 - 200 µL filter tips, clear plate seals, clear flat-bottom 96-well plates
-- waste containers (through Risk Management), bench liner, trays and a sign
+- a 15 mL tube rack with 10 or more places, or a second rack, if the lab has none
+- waste containers (through Risk Management, including one for barium), bench liner, trays and
+  a sign
 - a temperature and humidity logger
 
 Later: sodium hydrosulfide hydrate or sodium sulfide nonahydrate, and the salts and buffers for
@@ -332,6 +418,14 @@ the full design.
 [phreeqc]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/5b29ece/docs/phreeqc-checks/results.txt
 [baso4-stocks]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/cded249/Experiment_1__AgCl_Precipitation_V1.py#L116-L118
 [plan-003]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/1c0f422/experiments/003-pbs-vial-tests/README.md
+[plan-002]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/1c0f422/experiments/002-baso4-precipitation/README.md
+[prev-order]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/5b29ece/docs/ot2-sulfide-scaling-setup.md#suggested-order
+[baso4-checks]: baso4-checks/
+[he1995]: https://doi.org/10.1006/jcis.1995.1397
+[march-skip]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/cded249/Experiment_1__AgCl_Precipitation_V1.py#L173-L175
+[march-photo]: https://github.com/vertical-cloud-lab/digital-wetlab/issues/1#issuecomment-4008876464
+[pr3-h1]: https://github.com/vertical-cloud-lab/digital-wetlab/pull/3#issuecomment-4009402724
+[p-feasibility]: https://github.com/vertical-cloud-lab/digital-wetlab/blob/2f91cfb/drafts/main_proposal_final.tex#L132
 [shop]: ../SHOPPING_LIST.md
 [shop-plates]: ../SHOPPING_LIST.md#3a-well-plates
 [shop-safety]: ../SHOPPING_LIST.md#4-safety--monitoring-equipment
