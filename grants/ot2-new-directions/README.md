@@ -24,8 +24,12 @@ Three directions stand out:
    materials-science of the three: it turns the lab's precipitation know-how to synthesis. It pairs
    with direction 1 for the MURI and has an NSF program that takes proposals any time.
 
-Teaching through remote experiments ([direction 6](#6-remote-materials-experiments-for-teaching))
-has two January deadlines and costs little to write. Nucleation statistics
+Direction 6 is now qualitative analysis for teaching and for testing how AI reasons about chemistry
+([direction 6](#6-qualitative-analysis-for-teaching-and-for-testing-how-ai-reasons-about-chemistry);
+full write-up in [`teaching-and-reasoning.md`](teaching-and-reasoning.md)). It is Kevin Jablonka's
+original design for this robot, with a teaching half added. It needs no new hardware, has two
+January deadlines, and joins research and education the way an NSF CAREER proposal has to.
+Nucleation statistics
 ([direction 4](#4-nucleation-statistics-and-crystallisation-inhibitors-the-current-setup-re-aimed))
 is the quickest dataset but has the fewest funders. Direction 5 needs no proposal.
 
@@ -40,16 +44,18 @@ DOE Early Career, NSF CMMI AMDO, DURIP) are left out so the two lines of work do
 | Any time | NSF [CBET, NSF 26-518](https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport): Chemical Process Systems (electrochemical systems, separations) or Energy, Water & Resource Engineering (minerals). Send a one-page summary to a program director first | 1, 2 | standard NSF | verified |
 | Any time | NSF [MPS Materials Research Programs, NSF 26-521](https://www.nsf.gov/funding/opportunities/mps-materials-mps-materials-research-programs) (Solid State & Materials Chemistry, Ceramics, Metals). **One proposal per PI per fiscal year across all eight programs**, and automation must be scientifically justified, not incidental | 3 (or 1) | standard NSF | verified |
 | Any time | [ARO Early Career Program](https://www.grants.gov/search-results-detail/344592) through the ARL foundational-research BAA. For faculty in their first five tenure-track years; ARO's Electrochemistry program covers electrochemical synthesis and electrode–electrolyte interfaces. Talk to the program officer first | 1 | ≤ $120K/yr for 3 yr | verified (BAA open to Nov 20, 2027) |
+| Any time | [NSF–DFG Lead Agency in Chemistry, NSF 25-537](https://www.nsf.gov/funding/opportunities/nsf-dfg-lead-agency-opportunity-chemistry-chemical-process/nsf25-537/solicitation), through [MPS Chemistry, NSF 26-519](https://www.nsf.gov/funding/opportunities/mps-chem-mps-chemistry-research-programs/nsf26-519/solicitation), with Kevin Jablonka's group filing the same proposal at DFG. One NSF–DFG proposal per person per year, counted in MPS Chemistry's limit of 2 | 6 | each agency funds its own side | verified (Oct 31) |
 | **Dec 14, 2026** | DOE BES **Catalysis Science** application for FY2027 (white-paper target Oct 30 has passed) | 1 | standard BES grant | verified |
 | **Jan 20, 2027** | NSF [IUSE: EDU](https://www.nsf.gov/funding/opportunities/iuse-edu-improving-undergraduate-stem-education-directorate-stem) Engaged Student Learning, Level 1 | 6 | ≤ $400K / 3 yr | verified |
 | **Jan 21, 2027** | NSF [CyberTraining](https://www.nsf.gov/funding/opportunities/training-based-workforce-development-advanced) Pilot (DMR, CHE, CBET and CMMI take part). Needs a co-PI with cyberinfrastructure expertise | 6 | ≤ $300K / 2 yr | verified |
 | ~**late Jan / mid-Feb 2027** | BYU [IDR Origination Award](https://researchdevelopment.byu.edu/idr-awards), e.g. with Jason Porter (bath spectroscopy, direction 1) or with Geology and Chemistry (brines, direction 2). 2026 dates were LOI Jan 21, proposal Feb 17; 3+ departments and 2+ colleges for Track 1 | 1, 2 | ≤ $60K/yr for 2 yr | unverified (2027 dates not posted) |
 | **Feb 1, 2027** | DOE BES **Materials Chemistry** application for FY2027 (synthesis or property optimisation is out of scope; pitch the mechanism) | 3 | standard BES grant | verified |
+| **Feb 4, 2027** (target; any time) | NSF CISE [Future CoRe, NSF 25-543](https://www.nsf.gov/funding/opportunities/future-core-computer-information-science-engineering-future-computing): Robust Intelligence or Human-Centered Computing, for AI agents tested against students on the robot | 6 | ≤ $1M / 4 yr | verified (Oct 31) |
 | **Mar 2, 2027** | NSF [PESOSE, NSF 26-506](https://www.nsf.gov/funding/opportunities/pesose-pathways-enable-secure-open-source-ecosystems) (successor to POSE), Track 1, for an open-source ecosystem around the lab's frugal-twin hardware and software. Hardware is in scope | 6 | ≤ $300K / 1 yr | verified |
 | **Mar 15, 2027** | Fellow application, [Scialog: Sustainable Minerals, Metals & Materials](https://rescorp.org/scialog/sustainable-minerals-metals-and-materials/) (last cohort) | 2, 3 | team seed awards | verified (PR 82) |
 | ~**Mar 15, 2027** | BYU internal summary for the [W. M. Keck Research Program](https://www.wmkeck.org/research-overview/) round due Jun 7, 2027. Basic science only; Keck won't fund projects "solely focused on engineering equipment, tools, or materials" | 2, 4 | $1–1.3M / 3 yr | verified (Keck); BYU rule from an archived page |
 | ~**Apr 30, 2027** | [ECS Toyota Young Investigator Fellowship](https://www.electrochem.org/toyota-fellowship). Topics have included low-iridium electrolyzer anodes and aqueous battery electrodes. Needs ECS membership; join now | 1 | ≥ $50K / 1 yr | unverified for 2027 (2026 call ran Feb – Apr 30) |
-| Rolling | [AWS Cloud Credit for Research](https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/) (review takes 90–120 days) and [Anthropic AI for Science credits](https://www.anthropic.com/news/expanding-support-for-scientists) (up to $50K per project), for the cloud-lab and agent layers | 6 | credits | verified |
+| Rolling | [AWS Cloud Credit for Research](https://aws.amazon.com/government-education/research-and-technical-computing/cloud-credit-for-research/) (review takes 90–120 days) and [Anthropic AI for Science credits](https://www.anthropic.com/news/expanding-support-for-scientists) (up to $50K per project), for the cloud-lab and agent layers; [NAIRR Pilot](https://nairrpilot.org/opportunities/allocations) research, start-up and classroom allocations (rolling; classroom users must be US-based) | 6 | credits | verified |
 | Rolling | Two-page letter to the Sloan Foundation's [Exploratory Grantmaking in Technology](https://sloan.org/programs/digital-technology/exploratory-grantmaking-in-technology), whose focus areas include automation in science | 6 | recent grants $82K–399K | unverified (page blocked; archived Aug 2026) |
 
 **Also open, but a weaker fit or blocked.**
@@ -257,17 +263,41 @@ optimization) and its cloud-lab and frugal-twin themes, from the
   [ONR Long Range BAA](https://www.grants.gov/search-results-detail/356605) (open until Dec 31, 2026,
   or its successor) takes white papers on naval materials and corrosion.
 
-### 6. Remote materials experiments for teaching
+### 6. Qualitative analysis for teaching, and for testing how AI reasons about chemistry
 
-- The remote colour-matching OT-2 demo had run more than 1,000 experiments for dozens of users by
-  August 2025 (org profile). Swap the paint for a real materials experiment that students can run from a
-  browser: silver-nanoparticle colour, electrodeposition from direction 1, or the nucleation
-  curves from direction 4.
-- **Fit.** The cloud-lab theme exactly, and the education plan for NSF CAREER (Jul 28, 2027).
-- **Funding.** NSF IUSE: EDU Level 1 (Jan 20, 2027, ≤ $400K); NSF CyberTraining Pilot (Jan 21,
-  2027, ≤ $300K; needs a cyberinfrastructure co-PI); NSF PESOSE Track 1 (Mar 2, 2027); AWS and
-  Anthropic research credits (rolling); a Sloan letter of inquiry (rolling, unverified); and, later,
-  the education plan of an NSF CAREER proposal.
+Full write-up: [`teaching-and-reasoning.md`](teaching-and-reasoning.md). This replaces the earlier
+version of direction 6, which swapped the colour-matching demo's paint for a materials experiment and
+had little research novelty.
+
+- **Question.** Do LLM agents reason about chemistry from a model, keeping track of which answers are
+  still possible and choosing the test that tells them most, or do they replay memorised schemes?
+  And does reasoning that way help students learn chemistry and experimental design?
+- **Where it comes from.** Kevin Jablonka's original design for this robot
+  ([`opentrons-inorganic-wet-lab-agents.txt`](../../opentrons-inorganic-wet-lab-agents.txt)):
+  qualitative inorganic analysis as a benchmark for LLM agents, with a relabelling ablation that
+  separates reasoning from recall. The teaching half is new. Students solve the same unknowns on the
+  same robot, giving the benchmark its human baseline.
+- **What the OT-2 does.** Mixes about 50 µL of an unknown with one reagent per well and images it
+  for up to 10 minutes. Requests come from a browser, from Python or from a simulator, through the
+  colour-matching demo's remote queue (1,000+ remote experiments by Aug 2025).
+- **Change to the robot.** A reagent rack, fixed lighting with a colour card, and a fresh tip for
+  every test. The sulfide reagents in the original design need a hood, so they are dropped.
+- **Fit.** The cloud-lab theme; the advanced-BO thrust, since choosing tests by expected information
+  gain is Bayesian experimental design; the Turing-benchmark idea; and the precipitation chemistry
+  and PHREEQC set-up the lab already has. Reviewer B's point, that visible precipitation reflects
+  slow nucleation as well as solubility, becomes part of the model the agents are tested against.
+- **Risk.** It needs an education researcher or evaluator for IUSE, and Kevin's group has to be
+  re-engaged. Pale precipitates are hard to tell apart on camera.
+- **Funding.**
+  - Teaching: NSF IUSE: EDU Level 1 (Jan 20, 2027, ≤ $400K), or the NSF CyberTraining Pilot (Jan 21,
+    2027, ≤ $300K; needs a cyberinfrastructure co-PI).
+  - Research: NSF–DFG Lead Agency in Chemistry with Kevin's group (any time), or NSF CISE Future
+    CoRe (target Feb 4, 2027). NSF's Genesis Mission letter (NSF 26-023) names autonomous chemistry
+    labs and rides on a host program such as these.
+  - Both: Camille Dreyfus Teacher-Scholar (Feb 4, 2027, one BYU nominee, aimed at chemistry
+    departments); NSF PESOSE Track 1 (Mar 2, 2027); a Sloan letter (rolling, unverified).
+  - Agent runs: Anthropic, Google and OpenAI credits and NAIRR Pilot allocations (rolling).
+  - Then the NSF CAREER (Jul 28, 2027) as the integrated research and education plan.
 
 ## What others have done with an OT-2
 
