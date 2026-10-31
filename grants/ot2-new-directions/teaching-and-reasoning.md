@@ -18,6 +18,14 @@
   qualitative inorganic analysis as a benchmark for LLM agents, in three tiers: data, agent
   benchmarking, and hypothesis-driven algorithms. It already asks for a comparison of AI with human
   chemists. Teaching supplies the humans.
+- **His group has since published the simulated half.** The `wetlab` environment in their Corral
+  framework ([arXiv:2604.18805](https://arxiv.org/abs/2604.18805), Apr 2026;
+  [code](https://github.com/lamalab-org/corral)) poses one-salt and mixture unknowns, with outcomes
+  from an equilibrium solver and text observations. Across Corral's eight environments, agents
+  ignored evidence in 68% of traces and revised a refuted belief in only 26%. Real observations, a
+  human baseline, an information-theoretic optimum and the relabelling ablation are all missing.
+  Those four are what the OT-2 and a class add, and none of them has been published for
+  qualitative analysis.
 - **It fixes direction 6's weakness.** Remote teaching on its own had little research novelty.
   Paired with the reasoning benchmark, the course gets a research question, and the benchmark gets
   hundreds of real runs a semester.
@@ -110,11 +118,28 @@ point to. In short:
     and give only a composition table. An agent that recalls "AgCl is white" should fail; one that
     reasons from the table should only slow down.
   - The notes point to [arXiv:2507.00310](https://arxiv.org/abs/2507.00310) as the model for this
-    tier.
+    tier: AutoDiscovery (Agarwal et al., NeurIPS 2025), in which an LLM picks hypotheses by Bayesian
+    surprise over existing datasets. It runs no experiments.
 
 Issue 1 then proposed finding the BYU general-chemistry instructors who teach these procedures, and
 issue 2 tied the 10,000-experiment goal to the lab's Turing-benchmark thrust. The petroleum framing
 came later, for the ACS PRF deadline.
+
+**What they have published since.** Ríos-García et al.,
+"[AI scientists produce results without reasoning scientifically](https://arxiv.org/abs/2604.18805)"
+(arXiv, Apr 20, 2026), introduces Corral, with more than 25,000 agent runs in eight domains. One
+domain is a simulated inorganic qualitative-analysis lab, the `wetlab` package in
+[lamalab-org/corral](https://github.com/lamalab-org/corral) (BSD-3; still being updated in Oct 2026).
+
+- It has 30 tasks. Level 1 is one salt, identified from 20 mL; levels 2–3 are mixtures of three to
+  five cations.
+- Outcomes come from the Reaktoro equilibrium engine, so the simulator is itself model-based.
+  Observations are text only.
+- Reagents include HCl, NH₃, H₂SO₄, K₂CrO₄, (NH₄)₂S, AgNO₃ and Ba(NO₃)₂, plus a flame test, pH and
+  filtering.
+- The base model explained 41.4% of the variance in outcomes and the agent scaffold 1.5%. In the
+  qualitative-analysis tasks, the best set-up stayed below 60% at the widest range of candidate ions.
+- Of their environments, only the atomic-force-microscope one runs on real hardware.
 
 ## The dual design
 
@@ -164,6 +189,10 @@ came later, for the ACS PRF deadline.
   4. A Bayesian designer with no LLM, choosing tests by expected information gain under the same
      model. This is the ceiling for playing from the model.
   5. Students, before and after the module.
+
+  Each LLM arm runs twice, on camera images and on text observations. MaCBench found vision-language
+  models weak at reasoning about lab images, and without a text arm, perception errors would look
+  like reasoning errors.
 - **Questions.**
   - Do LLM agents update on evidence, or follow the textbook scheme whatever they see?
   - Does relabelling collapse them?
@@ -190,6 +219,11 @@ came later, for the ACS PRF deadline.
     ([`preliminary_results/phreeqc_si_comparison.py`](../../preliminary_results/phreeqc_si_comparison.py)).
 
 ## Fixes before running Kevin's pilot
+
+Start from Corral's published tasks, so robot and simulator results line up task for task. Leave out
+the flame test and filtering, which the OT-2 can't do, and read pH from an indicator colour. The
+points below are about the Feb 2026 ion lottery. Corral's tasks were generated with an equilibrium
+solver and may already avoid the first one, so check.
 
 1. **Most of the pilot's unknowns can't be made.** The ion lottery pairs Ag⁺, Pb²⁺ and Ba²⁺ with Cl⁻,
    I⁻, SO₄²⁻ and CrO₄²⁻. Of those 12 salts, only BaCl₂ and BaI₂ dissolve at 0.1 M. Ag₂SO₄ and PbCl₂
@@ -229,13 +263,47 @@ So a test is only worth what the camera can resolve, which is why Tier 1 comes f
 solver against the optimal tree is Kevin's "minimal experiment set" metric, and the same calculation
 is the feedback students see.
 
-<!-- PRECEDENTS -->
+## What others have done
+
+A literature search on 2026-10-31 checked each DOI or arXiv ID. "Checked" says how far each was
+read.
+
+| Area | Work | What it shows here | Checked |
+|---|---|---|---|
+| Kevin's group | Ríos-García et al. 2026, arXiv, Corral ([arXiv:2604.18805](https://arxiv.org/abs/2604.18805)) and its `wetlab` code | The simulated benchmark, described above. No human baseline, optimum, relabelling or constraint solver | full text; code read |
+| Kevin's group | Mirza et al. 2025, *Nat. Chem.*, ChemBench ([10.1038/s41557-025-01815-x](https://doi.org/10.1038/s41557-025-01815-x)) | 2,700+ questions; the best models beat the best of 19 chemists on average but are weak on safety and analytical chemistry, and overconfident. Questions only | full text |
+| Kevin's group | Alampara et al. 2025, *Nat. Comput. Sci.*, MaCBench ([10.1038/s43588-025-00836-3](https://doi.org/10.1038/s43588-025-00836-3)) | Vision-language models name lab equipment well (about 0.77) but judge lab safety from images poorly (about 0.46) | full text |
+| Kevin's group | Ríos-García et al. 2026, arXiv ([arXiv:2601.21618](https://arxiv.org/abs/2601.21618)); Bisht et al. 2026, arXiv ([arXiv:2605.08956](https://arxiv.org/abs/2605.08956)) | What is being counted changes counting accuracy by more than 40%, which backs the relabelling ablation; and a position paper arguing science benchmarks lack feedback from physical experiments | abstract |
+| Agents on real hardware | Boiko et al. 2023, *Nature*, Coscientist ([10.1038/s41586-023-06792-0](https://doi.org/10.1038/s41586-023-06792-0)) | A GPT-4 agent drove an **OT-2** and worked out which colours were in which wells from plate-reader spectra, after a guiding prompt | full text |
+| Agents on real hardware | Mandal et al. 2025, *Nat. Commun.*, AILA ([10.1038/s41467-025-64105-7](https://doi.org/10.1038/s41467-025-64105-7)) | LLM agents on a real AFM: models that answer questions well still do poorly in the lab | abstract |
+| Experimental design | Gandhi et al. 2025, BoxingGym ([arXiv:2501.01540](https://arxiv.org/abs/2501.01540)); Choudhury et al. 2025, BED-LLM ([arXiv:2508.21184](https://arxiv.org/abs/2508.21184)) | Experiments scored by expected information gain, and LLMs choosing questions that way. Simulation and text only; no chemistry | abstract |
+| Humans vs LLMs | Grand et al. 2025, Battleship ([arXiv:2510.20886](https://arxiv.org/abs/2510.20886)) | 42 human players: LLMs ask less informative questions than people, but with Bayesian experimental-design inference reach 94% of the achievable information gain. A game | abstract |
+| Humans vs LLMs | Jansen et al. 2024, DiscoveryWorld ([arXiv:2406.06769](https://arxiv.org/abs/2406.06769)) | 11 human scientists completed 66% of tasks on average; the best agent 38% of easy and 18% of hard ones. Simulation | full text |
+| Humans vs algorithms | Shields et al. 2021, *Nature* ([10.1038/s41586-021-03213-y](https://doi.org/10.1038/s41586-021-03213-y)); Duros et al. 2017, *Angew. Chem.* ([10.1002/anie.201705721](https://doi.org/10.1002/anie.201705721)) | Bayesian optimisation beat expert chemists on real reaction data; an active-learning robot beat human experimenters on real crystallisation. Both before LLMs | abstract |
+| Teaching | Norquist et al. 2023, *J. Chem. Educ.* ([10.1021/acs.jchemed.3c00445](https://doi.org/10.1021/acs.jchemed.3c00445)) | **The closest teaching precedent.** A first-year lab where a robot dispenses PbI₂ grids and students score the yellow precipitate from phone photos to fit a solubility product. Names the OT-2 as a suitable robot and the CMU cloud lab for remote runs | full text |
+| Teaching | García Ramos et al. 2025, *ACS Omega* ([10.1021/acsomega.5c05125](https://doi.org/10.1021/acsomega.5c05125)), a review | In teaching labs that use digital images, all ion work is quantitative: no image-based or robotic qualitative identification | full text |
+| Teaching | Bawa et al. 2025, SEFI ([10.5281/zenodo.17631685](https://doi.org/10.5281/zenodo.17631685)) | An OT-2 course module (Protocol Designer, then Python). Limited robot time led to a simulator; no learning assessment | abstract |
+| Teaching | Kadayıfçı 2026, *J. Chem. Educ.* ([10.1021/acs.jchemed.5c00869](https://doi.org/10.1021/acs.jchemed.5c00869)); Maughan et al. 2025, *Chem. Mater.* ([10.1021/acs.chemmater.5c00111](https://doi.org/10.1021/acs.chemmater.5c00111)) | Students using ChatGPT in a qualitative-test lab; NSF workshop recommendations for LLMs in lab courses | abstract |
+| Teaching | Baird & Sparks 2022, *Matter* ([10.1016/j.matt.2022.11.007](https://doi.org/10.1016/j.matt.2022.11.007)); Saar et al. 2022, *MRS Bull.* ([10.1557/s43577-022-00430-2](https://doi.org/10.1557/s43577-022-00430-2)) | Minimal and LEGO self-driving labs for teaching. Published course outcomes are sparse | index |
+
+- **Crowded.** Simulated experiment-design benchmarks (BoxingGym, DiscoveryWorld, ScienceWorld,
+  SciGym and others), LLMs choosing questions by information gain, and LLM agents on real lab
+  hardware, including the OT-2 itself.
+- **Open.**
+  - Qualitative analysis on real hardware: none found, with or without an LLM.
+  - Students and LLM agents on the same physical task: none found. Comparisons exist only for
+    question sets, simulations, games, and logs of past campaigns, and the human-versus-algorithm
+    studies with real outcomes predate LLMs. This is the strongest novelty claim.
+  - Relabelling, an information-theoretic optimum, an information-gain agent and a human baseline
+    have each been done somewhere, but not together and not on physical data.
+  - A remote OT-2 course with measured learning outcomes: none found. Virtual qualitative-analysis
+    labs exist (LabSim, ion-detective) but are unpublished.
 
 ## Six-month plan
 
 | When | Step | What it buys |
 |---|---|---|
-| Nov 2026 | Write to Kevin. Is the virtual wet lab still active, can the robot tasks match its constraints, and would his group co-author the benchmark and co-propose? | The design and the simulator are theirs |
+| Nov 2026 | Write to Kevin. Can the robot run Corral's `wetlab` tasks, and would his group co-author the real-hardware benchmark and co-propose? | The design and the simulator are theirs |
 | Nov 2026 | Meet the general-chemistry lab coordinators (as issue 1 proposed) and a chemistry-education researcher or evaluator | IUSE needs a host course and an evaluation plan |
 | Nov 2026 | Apply for API credits | Agent runs through the spring |
 | Nov – Dec | Tier 1 pilot: Kevin's Phase 1 reactions (the PbS one only in a hood) at 0.01, 0.05 and 0.1 M, imaged from 0 s to 10 min with a colour card; find the smallest volume per test the camera can read | Shows the camera can tell the precipitates apart; gives the first observation model |
@@ -248,6 +316,9 @@ is the feedback students see.
 
 ## Risks
 
+- **Overlap with Corral.** A simulated ion lottery would repeat published work. Frame this as the
+  physical, camera-read, human-baseline extension of Corral's `wetlab`, cite arXiv:2604.18805, and do
+  it with Kevin's group if they are willing.
 - **Kevin's group may have moved on.** Ask first. The design stands without them, but the simulator
   and much of the benchmark's credibility are theirs.
 - **Education evaluation needs a partner.** IUSE reviewers expect a learning-outcomes design and an
@@ -265,6 +336,8 @@ is the feedback students see.
 ## Decisions for Sterling
 
 1. Confirm that the project description is Kevin's proposal, and whether to re-engage his group now.
+   Ask whether Corral's `wetlab` tasks can be the shared task set, and who leads (that decides
+   whether NSF or DFG leads an NSF–DFG proposal).
 2. Teaching-led (IUSE) or training-led (CyberTraining) in January. Either needs a partner on board by
    early December: an education researcher or evaluator for IUSE, a cyberinfrastructure co-PI for
    CyberTraining.

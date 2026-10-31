@@ -275,8 +275,14 @@ had little research novelty.
 - **Where it comes from.** Kevin Jablonka's original design for this robot
   ([`opentrons-inorganic-wet-lab-agents.txt`](../../opentrons-inorganic-wet-lab-agents.txt)):
   qualitative inorganic analysis as a benchmark for LLM agents, with a relabelling ablation that
-  separates reasoning from recall. The teaching half is new. Students solve the same unknowns on the
-  same robot, giving the benchmark its human baseline.
+  separates reasoning from recall. His group published the simulated version in April 2026 (the
+  `wetlab` environment in Corral, [arXiv:2604.18805](https://arxiv.org/abs/2604.18805)): agents there
+  ignored evidence in 68% of traces. The teaching half is new. Students solve the same unknowns on
+  the same robot, giving the benchmark its human baseline.
+- **What's new.** The precedent search found no qualitative analysis on real hardware, and no study
+  of students and LLM agents on the same physical task. The closest teaching precedent is a
+  first-year lab that scores robot-dispensed PbI₂ from phone photos
+  ([Norquist et al. 2023](https://doi.org/10.1021/acs.jchemed.3c00445)).
 - **What the OT-2 does.** Mixes about 50 µL of an unknown with one reagent per well and images it
   for up to 10 minutes. Requests come from a browser, from Python or from a simulator, through the
   colour-matching demo's remote queue (1,000+ remote experiments by Aug 2025).
@@ -301,7 +307,7 @@ had little research novelty.
 
 ## What others have done with an OT-2
 
-A third search checked 32 papers and a few methods papers. Every DOI resolves on Crossref, OpenAlex
+A third search checked 32 papers and a few methods papers (Coscientist was added on 2026-10-31). Every DOI resolves on Crossref, OpenAlex
 or Europe PMC. "Checked" says how far the Opentrons use was confirmed: **abstract** (named there),
 **methods** (read in the full text), **code/BOM** (from the project's repository), or **index** (a
 full-text index hit that wasn't read).
@@ -324,6 +330,7 @@ full-text index hit that wasn't read).
 | Films | Bash et al. 2022, *Digital Discovery* ([10.1039/d1dd00008j](https://doi.org/10.1039/d1dd00008j)) | Drop-cast graphene films, computer vision and conductivity | abstract (arXiv version) |
 | Methods | Nazeri et al. 2025, *HardwareX* ([10.1016/j.ohx.2025.e00653](https://doi.org/10.1016/j.ohx.2025.e00653)) | Pipette-mount tool changes that add imaging to a liquid handler | index |
 | Methods | Li et al. 2025, *Digital Discovery* ([10.1039/d4dd00334a](https://doi.org/10.1039/d4dd00334a)) | Colourimetric titrations read by computer vision | abstract |
+| Agents | Boiko et al. 2023, *Nature*, Coscientist ([10.1038/s41586-023-06792-0](https://doi.org/10.1038/s41586-023-06792-0)) | A GPT-4 agent drove an OT-2 (heater-shaker, plate reader) and worked out which colours were in which wells | methods |
 | Teaching | Maroulis et al. 2026, *Digital Discovery* ([10.1039/d5dd00525f](https://doi.org/10.1039/d5dd00525f)) | A user's guide to a first self-driving liquid-handling lab | index |
 
 **How crowded each area is.**
