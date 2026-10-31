@@ -22,8 +22,8 @@
   Paired with the reasoning benchmark, the course gets a research question, and the benchmark gets
   hundreds of real runs a semester.
 - **The robot needs almost nothing new**: a reagent rack, fixed lighting with a colour card, and the
-  remote queue the colour-matching demo already uses. The chemistry is the precipitation the lab has
-  run since March (BaSO₄ plates, PbS vials), read by the same camera.
+  remote queue the colour-matching demo already uses. The chemistry is the kind of precipitation the
+  lab has run since March, starting with its BaSO₄ plates, read by the same camera.
 - **"Model-based" is the research hook.** An agent reasons from a model when it keeps the candidate
   answers still open, predicts what each test would show under each one (solubility and speciation
   from PHREEQC, plus a measured threshold for what becomes visible in the observation window), and
@@ -55,7 +55,7 @@ re-read.
 | Rolling | [Anthropic AI for Science credits](https://www.anthropic.com/news/expanding-support-for-scientists) | research | up to $50K in API credits | | verified (Oct 29) |
 | Rolling | [Google Cloud research credits](https://support.google.com/google-cloud-higher-ed/answer/10724468?hl=en) | research | up to $5,000 per faculty member | One award per person; 6–8 week decision | verified |
 | Next review Dec 2026 | [OpenAI Researcher Access Program](https://grants.openai.com/prog/openai_researcher_access_program/) | research | up to $1,000 in API credits | Reviewed quarterly | verified |
-| **Jan 20, 2027** | [NSF IUSE: EDU (NSF 23-510)](https://www.nsf.gov/funding/opportunities/iuse-edu-improving-undergraduate-stem-education-directorate-stem/nsf23-510/solicitation), Engaged Student Learning, Level 1 | teaching | up to $400K / 3 yr | At most 3 IUSE proposals per person a year. The solicitation doesn't mention AI, and NSF's AI-education letters since 2025 are K-12 only, so pitch learning, not AI | verified |
+| **Jan 20, 2027** | [NSF IUSE: EDU (NSF 23-510)](https://www.nsf.gov/funding/opportunities/iuse-edu-improving-undergraduate-stem-education-directorate-stem/nsf23-510/solicitation), Engaged Student Learning, Level 1 | teaching | up to $400K / 3 yr | At most 3 IUSE proposals per person a year. The solicitation doesn't mention AI, and NSF's AI-education push since the April 2025 executive order has been K-12, so pitch learning, not AI | verified |
 | **Jan 21, 2027** | [NSF CyberTraining](https://www.nsf.gov/funding/opportunities/training-based-workforce-development-advanced) Pilot (CHE, DMR, CBET and CMMI take part) | training | up to $300K / 2 yr | Needs a co-PI with cyberinfrastructure expertise | verified (Oct 29) |
 | **Feb 4, 2027** (target; any time) | [NSF CISE Future CoRe (NSF 25-543)](https://www.nsf.gov/funding/opportunities/future-core-computer-information-science-engineering-future-computing): Robust Intelligence or Human-Centered Computing for agents against students; Computing Education Research for the AI-literacy half | research (teaching through CER) | up to $1M / 4 yr; typically $150–250K a year | 2 proposals per person in any 12 months. The RI and HCC descriptions don't mention LLM agents, so email a program director first | verified |
 | **Feb 4, 2027** | [Camille Dreyfus Teacher-Scholar](https://www.dreyfus.org/camille-dreyfus-teacher-scholar/) (BYU nominates one person) | both | $100K unrestricted | Aimed at chemistry departments; anyone else must be active in a PhD program and advancing the chemical sciences. The research-plus-teaching story is the right one for it | verified |
@@ -99,8 +99,9 @@ point to. In short:
 - **Tier 2, benchmarking.** LLM agents drive the Opentrons under the simulator's constraints.
   - Scoring: the cation–anion pair is right or wrong, with no partial credit. Tests used, sample
     volume and time are secondary metrics.
-  - Pilot: an "ion lottery" of five unknowns drawn from three cations and four anions. It succeeds if
-    a baseline agent solves one of the five.
+  - Pilot: an "ion lottery" of five unknowns drawn from three cations and four anions. Its success
+    criteria include a camera that tells every precipitate apart and a baseline agent that solves at
+    least one of the five.
 - **Tier 3, algorithms.**
   - Minimal experiment sets, measured against an information-theoretic bound.
   - Belief tracking over the candidate ions, and entropy-based choice of the next test.
@@ -237,7 +238,7 @@ is the feedback students see.
 | Nov 2026 | Write to Kevin. Is the virtual wet lab still active, can the robot tasks match its constraints, and would his group co-author the benchmark and co-propose? | The design and the simulator are theirs |
 | Nov 2026 | Meet the general-chemistry lab coordinators (as issue 1 proposed) and a chemistry-education researcher or evaluator | IUSE needs a host course and an evaluation plan |
 | Nov 2026 | Apply for API credits | Agent runs through the spring |
-| Nov – Dec | Tier 1 pilot: Kevin's eight Phase 1 reactions at 0.01, 0.05 and 0.1 M, imaged from 0 s to 10 min with a colour card; find the smallest volume per test the camera can read | Shows the camera can tell the precipitates apart; gives the first observation model |
+| Nov – Dec | Tier 1 pilot: Kevin's Phase 1 reactions (the PbS one only in a hood) at 0.01, 0.05 and 0.1 M, imaged from 0 s to 10 min with a colour card; find the smallest volume per test the camera can read | Shows the camera can tell the precipitates apart; gives the first observation model |
 | Dec | The corrected ion lottery on the robot, with one or two baseline agents, named and relabelled, and a few volunteer students | Preliminary data for January |
 | Jan 20 or 21, 2027 | IUSE Level 1 (teaching-led) or CyberTraining Pilot (training-led). Pick one | |
 | Jan – Apr | Classroom pilot in the winter semester; compare student and agent paths | Data for the CAREER and a first paper |
@@ -251,9 +252,10 @@ is the feedback students see.
   and much of the benchmark's credibility are theirs.
 - **Education evaluation needs a partner.** IUSE reviewers expect a learning-outcomes design and an
   evaluator, and Sterling is in Mechanical Engineering.
-- **Throughput.** With images out to 10 minutes, one unknown takes about an hour of robot time. Queue
-  students asynchronously, as the colour-matching demo does, and run most agent trials in the
-  simulator, keeping the robot for ground truth.
+- **Throughput.** Each test waits up to 10 minutes for its images, and each test depends on the last,
+  so one unknown can take most of an hour. The robot is free while wells develop, so queue several
+  solvers at once, as the colour-matching demo does, and run most agent trials in the simulator,
+  keeping the robot for ground truth.
 - **Benchmark leakage.** Once published, tasks end up in training data. Random unknowns, relabelling
   and fresh robot observations limit the damage.
 - **Agents driving a lab.** The chemistry is benign, and the agent acts only through a fixed reagent
