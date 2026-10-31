@@ -43,12 +43,14 @@
   - **Research half, with Kevin:** the NSF–DFG Lead Agency route in Chemistry, which takes proposals
     **any time** through NSF's chemistry programs (Chemical Theory, Models and Computational Methods,
     or Chemical Measurement and Imaging). So it can wait for pilot data. NSF's Genesis Mission letter
-    names autonomous chemistry labs and AI-for-science workforce, and it attaches to either half.
+    names autonomous chemistry labs and AI-for-science workforce. It rides on a host program, so it
+    can back the research half, and perhaps the teaching half (ask the IUSE program officer).
   - **Agent runs:** API credits and a NAIRR Pilot allocation, both rolling.
   - **The whole design:** NSF CAREER (Jul 28, 2027), because CAREER requires research and education
     to be integrated.
-- **First steps.** Write to Kevin to restart the collaboration. Run the ion-lottery pilot, corrected
-  as below, in November and December as preliminary data. Apply for API credits now.
+- **First steps.** Write to Kevin to restart the collaboration. Run Corral's one-salt tasks on the
+  robot, with the fixes below, in November and December as preliminary data. Apply for API credits
+  now.
 
 ## Funding, Nov 2026 – Apr 2027
 
@@ -307,7 +309,7 @@ read.
 | Nov 2026 | Meet the general-chemistry lab coordinators (as issue 1 proposed) and a chemistry-education researcher or evaluator | IUSE needs a host course and an evaluation plan |
 | Nov 2026 | Apply for API credits | Agent runs through the spring |
 | Nov – Dec | Tier 1 pilot: Kevin's Phase 1 reactions (the PbS one only in a hood) at 0.01, 0.05 and 0.1 M, imaged from 0 s to 10 min with a colour card; find the smallest volume per test the camera can read | Shows the camera can tell the precipitates apart; gives the first observation model |
-| Dec | The corrected ion lottery on the robot, with one or two baseline agents, named and relabelled, and a few volunteer students | Preliminary data for January |
+| Dec | Corral's one-salt tasks on the robot, with one or two baseline agents (named and relabelled, images and text) and a few volunteer students | Preliminary data for January |
 | Jan 20 or 21, 2027 | IUSE Level 1 (teaching-led) or CyberTraining Pilot (training-led). Pick one | |
 | Jan – Apr | Classroom pilot in the winter semester; compare student and agent paths | Data for the CAREER and a first paper |
 | Mar 2, 2027 | Optional: PESOSE Track 1 for the open task server and simulator | |
