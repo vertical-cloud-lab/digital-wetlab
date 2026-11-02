@@ -33,6 +33,11 @@ Nucleation statistics
 ([direction 4](#4-nucleation-statistics-and-crystallisation-inhibitors-the-current-setup-re-aimed))
 is the quickest dataset but has the fewest funders. Direction 5 needs no proposal.
 
+**Utah critical minerals** (added Nov 2). Refining Utah brines and ores toward a qualified part, and
+recycling AM aluminium, extend direction 2 and tie it to the alloy lab's critical-mineral-lean alloy
+work. The notes, in [`utah-critical-minerals.md`](utah-critical-minerals.md), include new funders:
+ONR's Materials Treatment and Recovery program and two DLA strategic-materials BAAs.
+
 **Calendar, Nov 2026 – Apr 2027.** Programs the alloy proposals already use (AFOSR YIP, ONR YIP,
 DOE Early Career, NSF CMMI AMDO, DURIP) are left out so the two lines of work don't compete.
 One-page white papers for the four DOE BES programs below, with draft emails to their program
@@ -203,6 +208,9 @@ optimization) and its cloud-lab and frugal-twin themes, from the
   26-518 EWRE or Chemical Process Systems, or NSF Chemistry CSS 26-519 (any time; send to one);
   Scialog SMMM (Mar 15, 2027); RCSA Team Science Accelerator LOI (Nov 9, 2026, team); MURI Topic 10
   (superconcentrated brines, team); BYU IDR; W. M. Keck (Jun 7, 2027) with a basic-science framing.
+- **Extension (Nov 2).** [`utah-critical-minerals.md`](utah-critical-minerals.md) asks where Na, K,
+  Ca and B go when the Mg and Li compounds precipitate, and why that matters for Al–Mg and Al–Li
+  parts. It also adds recycling of AM aluminium.
 
 ### 3. Co-precipitated oxide and hydroxide libraries
 
