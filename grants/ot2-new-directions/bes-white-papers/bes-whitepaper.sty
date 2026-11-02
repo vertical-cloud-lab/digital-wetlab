@@ -1,0 +1,55 @@
+% bes-whitepaper.sty: shared layout for the one-page DOE BES white papers.
+% Page rules follow DE-FOA-0003665 (pre-applications): US letter, 1-inch margins,
+% body text no smaller than 11 pt. Build with: pdflatex <name>.tex
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bes-whitepaper}[2026/11/02]
+\RequirePackage[T1]{fontenc}
+\RequirePackage{mathptmx}
+\RequirePackage[letterpaper,margin=1in]{geometry}
+\RequirePackage{microtype}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\RequirePackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.2pt plus 1pt minus 1pt}
+\linespread{0.97}
+
+% Run-in section heads.
+\newcommand{\hd}[1]{\textbf{#1}\enspace}
+
+% Title block: \wptitle{title}{subprogram}{contact(s)}
+\newcommand{\wptitle}[3]{%
+  \begin{center}
+    {\large\bfseries #1\par}\vspace{3pt}
+    {\small Sterling G.\ Baird (PI), Assistant Professor of Mechanical Engineering, Brigham Young University\\
+     White paper for BES \emph{#2} (contact: #3) $\cdot$ DE-FOA-0003665 $\cdot$ Nov.\ 2026\par}
+  \end{center}\vspace{-4pt}}
+
+% Flow diagram: five boxes in a row and a return loop.
+% \wpflow{design}{robot}{measure}{model}{outcome}{loop label}
+\tikzset{
+  wpbox/.style={draw=black!55, fill=black!4, rounded corners=2pt, align=center,
+    text width=2.6cm, minimum height=1.5cm, inner sep=2.5pt,
+    font=\footnotesize\linespread{0.9}\selectfont},
+  wpout/.style={wpbox, draw=black!85, fill=black!13, thick},
+  wparrow/.style={-{Stealth[length=2.2mm]}, thick, black!70},
+}
+\newcommand{\wpflow}[6]{%
+  \par\vspace{2pt}\noindent\begin{center}
+  \begin{tikzpicture}[node distance=0.43cm]
+    \node[wpbox] (a) {#1};
+    \node[wpbox, right=of a] (b) {#2};
+    \node[wpbox, right=of b] (c) {#3};
+    \node[wpbox, right=of c] (d) {#4};
+    \node[wpout, right=of d] (e) {#5};
+    \foreach \x/\y in {a/b, b/c, c/d, d/e} \draw[wparrow] (\x) -- (\y);
+    \draw[wparrow] (d.south) -- ++(0,-0.34) -| node[pos=0.25, fill=white, inner sep=1.5pt,
+      font=\scriptsize\itshape] {#6} (a.south);
+  \end{tikzpicture}
+  \end{center}\vspace{-6pt}}
+
+% Reference list in small type.
+\newenvironment{wprefs}{\par\vspace{1pt}\footnotesize\linespread{0.95}\selectfont\hd{References.}}{\par}
