@@ -17,3 +17,4 @@ branches rather than `main`.
 | `drafts/problem-approach-outcome-overview.png` | The lab's figure, with three oilfield-scale photos (scaled pipe cross-section, vessel of scale, 7" tubing) from published sources not recorded here |
 | `drafts/hte-platform.png` | The lab's photos, with a Gaussian-process surrogate plot inset from a source not recorded here |
 | `drafts/main_proposal_final.pdf` | Embeds the two figures above |
+| `docs/baso4-sop-3d/out/*` (GIF, MP4, PNG) | The lab's renders. They include the geometry of Opentrons' OT-2 reference model (github.com/Opentrons/ot2, published for the community to modify their robots, no licence file); the STEP itself is downloaded at run time and not redistributed. The lid camera is the lab's own CAD (byu-vcl PR 234). |
