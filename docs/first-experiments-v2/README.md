@@ -339,17 +339,27 @@ undersaturated at 25 °C (SI −0.2 to −0.35), so gypsum is the stable solid h
 **Design.**
 - Use NaCl levels of 0, 1 and 2 molal. At each, set total Ca = SO₄ at 0.6, 0.8, 0.9, 1.0, 1.1, 1.25
   and 1.5 times the predicted solubility, which gives gypsum SI from about −0.4 to +0.3.
-- Run every composition twice, seeded and unseeded, in triplicate: 3 × 7 × 2 × 3 = 126 wells, so use
-  two plates or fewer replicates.
-- **Seeds:** about 50 µg of reagent gypsum per well, added as 10 µL of a stirred slurry in
-  gypsum-saturated solution. Mix the slurry tube before each draw.
-  - Count the 10 µL in the composition. It carries about 0.8 mM of Ca and SO₄ into the well, close to
-    half the smallest grid step at 0 molal NaCl.
-  - Give each unseeded well 10 µL of the same solution, filtered, so the two series match.
+- Run every composition twice, seeded and unseeded. In duplicate that is 3 × 7 × 2 × 2 = 84 wells
+  plus 12 blanks, one plate. Triplicate needs two plates run one after the other, since the camera
+  sees one plate at a time.
+- **Stocks, all in a constant medium.** For each NaCl level, make every solution up in that level's
+  NaCl, as in E1:
+  - calcium chloride and sodium sulfate at 0.1 M and at 0.4 M. Use the 0.4 M stock wherever it
+    needs at least 20 µL, which is from about 40 mM up;
+  - a seed slurry, and the same gypsum-saturated medium, filtered, for the unseeded wells;
+  - plain medium to make up the volume.
+
+  That is 7 tubes per level, 21 in all. Every dispense is then at least 20 µL, and the NaCl needs no
+  dispense of its own. With a separate 5 M NaCl stock instead, some compositions don't fit in
+  200 µL. Add calcium before sulfate, and mix.
+- **Seeds:** about 50 µg of reagent gypsum per well, added as 20 µL (the P300's minimum) of a
+  stirred 2.5 g/L slurry. Make the slurry in the level's medium already saturated with gypsum, so
+  the seeds don't dissolve in the tube. Mix the tube before each draw.
+  - Count the slurry's dissolved gypsum in the composition. Its 20 µL brings a tenth of the
+    solubility into the well, a full grid step.
+  - Give each unseeded well 20 µL of the same saturated medium, filtered, so the two series match.
   - At 0.9 × solubility a well can dissolve 60–190 µg of gypsum (0 to 2 molal NaCl), and at 1.1 ×
     it has as much to grow. A 50 µg seed should therefore vanish or at least double.
-- **Stocks:** use 0.1 M and 0.4 M of each salt so that every P300 dispense is 20 µL or more, plus 5 M
-  NaCl and water. Add calcium before sulfate, and mix.
 - **Equilibrate for 48–72 h** on the heater-shaker at room temperature, shaking, with images every
   10 min and a sensor trip over sentinel wells every few hours. Evaporation has to stay well under
   10% over the run, or it will move the 0.9× and 1.1× wells across the line. E0 measures it.
