@@ -35,12 +35,15 @@ is the quickest dataset but has the fewest funders. Direction 5 needs no proposa
 
 **Calendar, Nov 2026 – Apr 2027.** Programs the alloy proposals already use (AFOSR YIP, ONR YIP,
 DOE Early Career, NSF CMMI AMDO, DURIP) are left out so the two lines of work don't compete.
+One-page white papers for the four DOE BES programs below, with draft emails to their program
+managers, are in [`bes-white-papers/`](bes-white-papers/) (added Nov 2).
 
 | By | What | Directions | Size | Status |
 |---|---|---|---|---|
 | **Oct 30, 2026** (target) | White paper to DOE BES **Separation Science** ([FY2027 Office of Science open call, DE-FOA-0003665](https://www.grants.gov/search-results-detail/363993)). Critical minerals are encouraged; the pitch must be a mechanism question, not optimisation. Applications by **Dec 11, 2026** count for FY2027 | 2 | standard BES grant | verified |
 | **Nov 13, 2026** | Utah [Great Salt Lake Research Grant](https://ffsl.utah.gov/funding/gsl-research-grant/), already in PR 82's plan with a lake-brine aim | 2 | 1–2 yr projects | verified (PR 82) |
 | **Nov 20, 2026** (optional) | White paper for the [FY2027 DoD MURI](https://www.grants.gov/search-results-detail/363906). Topic 15 (ONR), *High-Entropy Electrochemical Material*, calls for high-throughput bottom-up synthesis with multi-objective optimisation and active learning. Topic 10 (ARO), *Interfacial Superconcentration in Extreme Multiphase Regimes*, covers superconcentrated brines and electrolytes. Needs a team of up to six funded faculty; full proposals due **Apr 9, 2027** | 1, 3 (Topic 15); 2 (Topic 10) | ≤ $1.5M/yr for 5 yr per team | verified |
+| **Nov 30, 2026** (target) | White paper to DOE BES **Synthesis and Processing Science** (same call), which the call names as the home for nucleation and phase transitions. It excludes automation, AI or iterative optimisation as the aim. Applications by **Feb 1, 2027** count for FY2027 | 4 | standard BES grant | verified (Nov 2) |
 | Any time | NSF [CBET, NSF 26-518](https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport): Chemical Process Systems (electrochemical systems, separations) or Energy, Water & Resource Engineering (minerals). Send a one-page summary to a program director first | 1, 2 | standard NSF | verified |
 | Any time | NSF [MPS Materials Research Programs, NSF 26-521](https://www.nsf.gov/funding/opportunities/mps-materials-mps-materials-research-programs) (Solid State & Materials Chemistry, Ceramics, Metals). **One proposal per PI per fiscal year across all eight programs**, and automation must be scientifically justified, not incidental | 3 (or 1) | standard NSF | verified |
 | Any time | [ARO Early Career Program](https://www.grants.gov/search-results-detail/344592) through the ARL foundational-research BAA. For faculty in their first five tenure-track years; ARO's Electrochemistry program covers electrochemical synthesis and electrode–electrolyte interfaces. Talk to the program officer first | 1 | ≤ $120K/yr for 3 yr | verified (BAA open to Nov 20, 2027) |
@@ -244,8 +247,9 @@ optimization) and its cloud-lab and frugal-twin themes, from the
   right observable, because a cloud point is a phase boundary.
 - **Risk.** Heterogeneous nucleation on dust and plate walls can swamp the chemistry. It needs blanks
   and replicate plates.
-- **Funding.** NSF CBET 26-518 (Transport Phenomena covers physicochemical phenomena at fluid
-  interfaces) or NSF Chemistry CSS 26-519 (any time); W. M. Keck (Jun 7, 2027); ACS PRF DNI with a
+- **Funding.** DOE BES Synthesis and Processing Science (white paper Nov 30, application Feb 1,
+  2027; [one-page draft](bes-white-papers/synthesis-processing.pdf)); NSF CBET 26-518 (Transport
+  Phenomena covers physicochemical phenomena at fluid interfaces) or NSF Chemistry CSS 26-519 (any time); W. M. Keck (Jun 7, 2027); ACS PRF DNI with a
   scale-inhibition framing, but only as a genuinely new proposal with data behind it (PR 82 advises
   saving the two remaining tries).
 
