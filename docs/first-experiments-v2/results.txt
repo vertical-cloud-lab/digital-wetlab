@@ -1,0 +1,95 @@
+1. BARITE, equal barium chloride and sodium sulfate
+
+Solubility (equal Ba and SO4 at SI = 0), umol/kgw:
+  NaCl (m)   25 C    40 C    60 C    80 C
+      0.0       12      15      17      19
+      1.0      102     121     149     176
+      2.0      128     154     193     235
+
+SI (and S) for equal Ba = SO4, 0 molal NaCl
+  mM each  ug BaSO4/well   25 C          40 C          60 C          80 C
+     0.10        4.7      1.75 (S   7.5)  1.61 (S   6.4)  1.48 (S   5.5)  1.40 (S   5.0)
+     0.20        9.3      2.31 (S  14.3)  2.17 (S  12.2)  2.04 (S  10.5)  1.95 (S   9.5)
+     0.30       14.0      2.63 (S  20.7)  2.50 (S  17.7)  2.36 (S  15.1)  2.27 (S  13.7)
+     0.50       23.3      3.03 (S  32.6)  2.89 (S  27.9)  2.75 (S  23.8)  2.66 (S  21.5)
+     0.70       32.7      3.28 (S  43.8)  3.15 (S  37.4)  3.01 (S  31.8)  2.91 (S  28.7)
+     1.00       46.7      3.55 (S  59.3)  3.41 (S  50.6)  3.27 (S  43.0)  3.17 (S  38.6)
+     2.00       93.4      4.04 (S 104.2)  3.90 (S  88.7)  3.75 (S  74.9)  3.65 (S  66.9)
+
+SI (and S) for equal Ba = SO4, 1 molal NaCl
+  mM each  ug BaSO4/well   25 C          40 C          60 C          80 C
+     0.10        4.7     -0.02 (S   1.0) -0.17 (S   0.8) -0.34 (S   0.7) -0.49 (S   0.6)
+     0.20        9.3      0.58 (S   2.0)  0.43 (S   1.6)  0.26 (S   1.3)  0.11 (S   1.1)
+     0.30       14.0      0.94 (S   2.9)  0.79 (S   2.5)  0.61 (S   2.0)  0.46 (S   1.7)
+     0.50       23.3      1.38 (S   4.9)  1.23 (S   4.1)  1.05 (S   3.4)  0.91 (S   2.8)
+     0.70       32.7      1.67 (S   6.8)  1.52 (S   5.8)  1.34 (S   4.7)  1.20 (S   4.0)
+     1.00       46.7      1.98 (S   9.8)  1.83 (S   8.2)  1.65 (S   6.7)  1.51 (S   5.7)
+     2.00       93.4      2.58 (S  19.4)  2.43 (S  16.3)  2.25 (S  13.3)  2.10 (S  11.2)
+
+
+2. GYPSUM, equal calcium chloride and sodium sulfate
+
+Solubility at 25 C (equal Ca and SO4 at gypsum SI = 0), mmol/kgw, with the anhydrite SI
+of that solution (anhydrite is the stable phase where its SI > 0, but it rarely nucleates
+below about 100 C):
+  NaCl (m)   mmol/kgw   g CaSO4/kg water   anhydrite SI
+      0.0       18.1           2.47          -0.35
+      0.5       37.4           5.09          -0.33
+      1.0       46.8           6.37          -0.32
+      2.0       55.8           7.60          -0.28
+      3.0       57.6           7.85          -0.24
+      4.0       55.6           7.57          -0.20
+
+Gypsum solubility in water against temperature (heater-shaker range), mmol/kgw:
+   25 C:   18.1   anhydrite SI there -0.35
+   40 C:   18.7   anhydrite SI there -0.17
+   60 C:   18.2   anhydrite SI there  0.04
+   80 C:   16.7   anhydrite SI there  0.23
+
+Gypsum SI (and S) for equal Ca = SO4 in water at 25 C (induction-time levels):
+  mM each   SI     S     mg gypsum/well if it all came out above solubility
+       20   0.05   1.06     0.06
+       25   0.16   1.21     0.24
+       30   0.26   1.34     0.41
+       40   0.40   1.58     0.75
+       50   0.50   1.78     1.10
+       60   0.59   1.97     1.44
+       80   0.72   2.29     2.13
+
+Bracketing grid for the solubility-from-both-sides plate: total Ca = SO4 as a fraction
+of the 25 C solubility at each NaCl level, with the resulting gypsum SI:
+  NaCl (m)  solubility      0.60x    0.80x    0.90x    1.00x    1.10x    1.25x    1.50x
+      0.0      18.1 mM     -0.27    -0.12    -0.05     0.00     0.05     0.11     0.21
+      1.0      46.8 mM     -0.39    -0.17    -0.08     0.00     0.07     0.16     0.29
+      2.0      55.8 mM     -0.41    -0.18    -0.08     0.00     0.07     0.17     0.31
+
+
+3. MATCHED-SI DESIGNS (equal Ba = SO4)
+
+Barite in 1 molal NaCl: mM of each needed for a target SI at each temperature
+(for holding SI fixed while the heater-shaker changes T):
+  target SI    25 C     40 C     60 C     80 C
+        1.0      0.32     0.38     0.47     0.56
+        1.5      0.57     0.68     0.84     0.99
+        2.0      1.02     1.22     1.50     1.78
+        2.5      1.83     2.18     2.68     3.19
+
+Barite at 25 C: mM of each for a target SI at each NaCl level, and the most BaSO4 a
+200 uL well can then form (the mass a camera has to see differs by this much):
+  target SI   NaCl 0 m           1 m                2 m                3 m
+        1.5    0.07 mM (  3.5 ug)   0.57 mM ( 26.8 ug)   0.72 mM ( 33.6 ug)   0.79 mM ( 36.7 ug)
+        2.0    0.14 mM (  6.4 ug)   1.02 mM ( 47.8 ug)   1.28 mM ( 59.8 ug)   1.40 mM ( 65.3 ug)
+        2.5    0.25 mM ( 11.9 ug)   1.83 mM ( 85.3 ug)   2.28 mM (106.6 ug)   2.49 mM (116.4 ug)
+
+E1a range-finding levels: barite in 1 molal NaCl at 25 C. Each well gets 100 uL of a
+barium chloride stock and 100 uL of a sodium sulfate stock, each at twice the well value and
+both made up in 1 molal NaCl:
+  target SI   mM of each in the well   stock (mM)   most BaSO4 per 200 uL well
+       1.00           0.32              0.65           15.1 ug
+       1.25           0.43              0.86           20.1 ug
+       1.50           0.57              1.15           26.8 ug
+       1.75           0.77              1.53           35.8 ug
+       2.00           1.02              2.05           47.8 ug
+       2.25           1.37              2.74           63.9 ug
+       2.50           1.83              3.66           85.3 ug
+       2.75           2.45              4.89          114.1 ug
