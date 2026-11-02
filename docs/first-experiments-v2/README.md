@@ -87,7 +87,7 @@ here, so use it for those. The two plans differ only on the first barium plate:
 | [001 AgCl formation](https://github.com/vertical-cloud-lab/digital-wetlab/blob/1c0f422/experiments/001-agcl-formation/README.md): AgNO₃ with NaCl (bench) or HCl (hood), P20, 384-well printed plate | Not run | Not addressed | **E4**: a precipitate-colour library for qualitative analysis. The HCl variant is dropped because it needs a hood |
 | [002 BaSO₄ intensity map](https://github.com/vertical-cloud-lab/digital-wetlab/blob/1c0f422/experiments/002-baso4-precipitation/README.md): 80 Latin-hypercube conditions, 0.1–50 mM Ba and SO₄, 0–3 molal NaCl, images at 5–240 min | Ran on 03-05. All 80 conditions were supersaturated (SI 2.6–5.8). 16 of the 80 got no barium or no sulfate because the protocol rounded sub-µL doses to zero ([found on 10-30](https://github.com/vertical-cloud-lab/digital-wetlab/blob/127e1db/docs/baso4-checks/results.txt)). No per-well scores or images tied to its time points were found on 10-30 | A visible onset is nucleation, not solubility, and one onset per condition says little because nucleation is random | **E0** calibration, then **E1/E2**: replicate-well induction-time plates in a constant 1 molal NaCl medium |
 | 002's boundary-crossing alternative: 1 mM intermediate stocks to straddle SI = 0 | Not run | A boundary located by onset is still a nucleation boundary | **E3**: gypsum solubility from both sides, which can locate a real boundary |
-| [003 PbS vial tests](https://github.com/vertical-cloud-lab/digital-wetlab/blob/1c0f422/experiments/003-pbs-vial-tests/README.md): 0.5 mM Pb²⁺ with 1 mM sulfide in 1 molal NaCl | Not run | Sulfide needs a controlled H₂S partial pressure and closed vessels. PbS is supersaturated almost everywhere in the old design, and its solubility needs ICP-MS | **Deferred** |
+| [003 PbS vial tests](https://github.com/vertical-cloud-lab/digital-wetlab/blob/1c0f422/experiments/003-pbs-vial-tests/README.md): 0.5 mM Pb²⁺ with 1 mM sulfide in 1 molal NaCl | Not run | Sulfide needs a controlled H₂S partial pressure and closed vessels. The digest's own check adds that PbS is supersaturated almost everywhere in the old design, and its solubility needs ICP-MS | **Deferred** |
 
 The 10-30 [barium sulfate practice plate](https://github.com/vertical-cloud-lab/digital-wetlab/blob/127e1db/docs/lead-pbs-materials-and-steps.md#barium-sulfate-practice-plate)
 (a 4 × 4 grid from 0.01 to 3 mM in 1 molal NaCl) was a workflow shakedown for the lead plates. E0
@@ -178,8 +178,9 @@ evaporation, light)?
 - 48 blank wells of 1 molal NaCl, to give the noise floor, drift and false-positive rate (from dust)
   for each well position. Half are filtered and half unfiltered, which shows what filtering buys.
 - A barium sulfate dilution series in triplicate: 0.5, 1, 2, 5, 10, 20, 50 and 100 µg per well,
-  pipetted from a stirred, fully precipitated stock suspension (24 wells). This gives a rough
-  detection limit. Fresh precipitate is finer than crystals grown slowly, so E1's own end points are
+  pipetted from 2–3 strengths of a stirred, fully precipitated stock suspension (24 wells). Dilute
+  it with its own filtered supernatant, not fresh NaCl: 200 µL of 1 molal NaCl dissolves about 5 µg
+  of barite, which would wipe out the low standards. This gives a rough detection limit. Fresh precipitate is finer than crystals grown slowly, so E1's own end points are
   the better calibration (see E1).
 - A dye series in triplicate (for example, two food dyes at 4 dilutions each, 24 wells), to check
   colour and focus across the field.
@@ -253,24 +254,32 @@ supersaturation, and does the robot reproduce published values?
   time of each addition.
 - **Shake on the heater-shaker at room temperature** (heater off) at the speed E0 found safe, and
   pause the shaking for each image. Shaken wells keep the solid suspended and act more like the
-  stirred vials in the induction-time literature. On the deck (the "data this week" layout), don't
-  shake. Either way, keep the choice the same across all the plates being compared.
+  stirred vials in the induction-time literature. But the protocol must stop the shaker before
+  every still and every sensor trip, because the API blocks pipette moves near a shaking module.
+  The simplest way is a fixed timetable that both the protocol and the camera Pi follow. Check in E0
+  that 200 µL actually mixes on the 2 mm orbit at the chosen speed. If that is too fiddly, don't
+  shake. On the deck (the "data this week" layout), don't shake. Either way, keep the choice the same across all the plates being compared.
 - **Image** every 1 min for the first 2 h, then every 5 min to 24 h. Once filling is done, send the
   sensor over 4–6 sentinel wells (one or two per level, plus a blank) every 1–2 h. Drop the stills
   it blocks.
 
 **Analysis.**
 - For each well, find the detection time *t*ᵈ: the first image where the well's signal rises above
-  its own starting level by 5σ (σ for that position, from E0) and stays there.
+  its own starting level by 5σ (σ from that well's own first images) and stays there.
 - For each level, plot the fraction of wells detected against *t* − *t*₀ and fit
   *P*(*t*) = 1 − exp[−*JV*(*t* − *t*ᵍ)], following Jiang and ter Horst (2011). Here *J* is the rate,
-  *V* the well volume, and *t*ᵍ the growth time to the detection limit.
+  *V* the well volume, and *t*ᵍ the growth time to the detection limit. The fit assumes that one
+  nucleus per well grows until it is detected. In an unshaken well, a lone barite crystal would have
+  to grow large before a camera could see it, so onsets may reflect many nuclei. Test that by
+  varying the fill volume (a single-nucleus rate scales with volume) before calling the number *J*.
 - Plot ln *J* against 1/ln²*S* to get an interfacial energy, and compare it with He et al.'s
   79 mJ/m². Use their definition of *S* and their shape factor, or the two numbers won't be
   comparable.
 - Once a well has nucleated and stopped changing (24–48 h), its solid is the barium above solubility,
   which PHREEQC gives (about 0.1 mM stays dissolved in 1 molal NaCl). That well's final signal
-  against this known mass is the in-situ calibration, and it beats E0's standards.
+  against this known mass is the in-situ calibration, and it beats E0's standards. Calibrate each
+  SI level separately, because crystal size, and so signal per µg, changes with SI. Keep imaging to
+  48 h so the end points are recorded.
 - At the end, filter or centrifuge the solid from 3–4 wells and confirm barite by XRD or Raman.
 
 **What it shows.** The platform measures a well-defined kinetic quantity with uncertainties, checked
@@ -294,8 +303,11 @@ al.'s temperature series, also in 1 molal NaCl.
   so the concentrations rise with temperature. For SI 1.5 in 1 molal NaCl that means 0.57, 0.68,
   0.84 and 0.99 mM at 25, 40, 60 and 80 °C; for SI 2.0 it is 1.02, 1.22, 1.50 and 1.78 mM
   ([results](results.txt), section 3).
-- Pre-heat the plate with the barium halves on the heater-shaker. Add the room-temperature sulfate,
-  and use E0's measured recovery to set *t*₀ correction or exclusion rules.
+- Add the oil overlay before pre-heating, so the wells don't lose water while they wait to be
+  filled, and dispense under it. Pre-heat the plate with the barium halves on the heater-shaker,
+  then add the room-temperature sulfate. A 100 µL room-temperature addition to 100 µL at 80 °C
+  leaves the well near 50 °C at first (+0.2 SI), so measure these exact volumes in E0 and use the
+  recovery time to set *t*₀ correction or exclusion rules.
 - Use an oil overlay rather than a seal if E0 shows fogging. Keep the run under a few hours at 80 °C
   unless E0's evaporation numbers allow longer.
 - **Constraints from Opentrons:** the module can't cool and doesn't go below 37 °C, so the "25 °C"
@@ -333,7 +345,9 @@ NaCl that forms when calcium chloride meets sodium sulfate ([results](results.tx
 |---|---|---|---|---|---|---|
 | Gypsum solubility (mmol/kg water) | 18.1 | 37.4 | 46.8 | 55.8 | 57.6 | 55.6 |
 
-The rise and the flat maximum near 3 molal are the known salting-in behaviour. Anhydrite stays
+The "0" wells still hold about 36 mM NaCl from the reaction, so compare with Marshall and Slusher
+at the total NaCl. Gypsum in pure water is 15.0 mM in `pitzer.dat`. The rise and the flat maximum
+near 3 molal are the known salting-in behaviour. Anhydrite stays
 undersaturated at 25 °C (SI −0.2 to −0.35), so gypsum is the stable solid here.
 
 **Design.**
@@ -359,7 +373,9 @@ undersaturated at 25 °C (SI −0.2 to −0.35), so gypsum is the stable solid h
     solubility into the well, a full grid step.
   - Give each unseeded well 20 µL of the same saturated medium, filtered, so the two series match.
   - At 0.9 × solubility a well can dissolve 60–190 µg of gypsum (0 to 2 molal NaCl), and at 1.1 ×
-    it has as much to grow. A 50 µg seed should therefore vanish or at least double.
+    it has as much to grow; PHREEQC gives 54 µg at 0.9 × in the "0" wells. Score the direction of
+    change rather than waiting for the seed to vanish, and use smaller seeds (about 25 µg) at the
+    lowest NaCl.
 - **Equilibrate for 48–72 h** on the heater-shaker at room temperature, shaking, with images every
   10 min and a sensor trip over sentinel wells every few hours. Evaporation has to stay well under
   10% over the run, or it will move the 0.9× and 1.1× wells across the line. E0 measures it.
@@ -370,8 +386,10 @@ undersaturated at 25 °C (SI −0.2 to −0.35), so gypsum is the stable solid h
   supersaturated. The solubility lies between the last dissolving and the first growing composition,
   within about ±5–10% at this spacing. Compare that bracket with PHREEQC and with Marshall and
   Slusher.
-- **Unseeded wells show the metastable limit:** compositions above solubility that stay clear for
-  72 h. That gap is the nucleation barrier, measured right beside the equilibrium value.
+- **Unseeded wells show the metastable zone at 72 h:** compositions above solubility that stay
+  clear. The grid stops at SI +0.3, so add unseeded wells up to about SI +0.7 (for example 80 mM in
+  the "0" wells), or the zone may only be bounded from below. This is how far nucleation lags,
+  measured beside the equilibrium value. It is not the nucleation barrier itself.
 - **For an actual number, not just a bracket:** run ICP-OES on the filtered supernatant of a few
   equilibrated seeded wells, with gravimetric dilution, matrix-matched standards and an internal
   standard (the review digest's answer to the ICP-OES point).
@@ -425,7 +443,8 @@ The ammonia test (AgCl dissolving in NH₃) needs a hood.
 - Two heater-shaker steps:
   - PbCl₂ dissolves in hot water. This is the classical step that separates lead from silver in
     Group I.
-  - PbI₂ dissolves when hot and recrystallises as it cools.
+  - PbI₂ dissolves when hot and recrystallises as it cools. Do this only at 0.01 M. At 0.05–0.1 M
+    the PbI₂ is several times its solubility even at 100 °C, so it won't redissolve at 95 °C.
 - The key test: do the sensor's 8 channels separate AgCl, AgBr and AgI, and AgI from PbI₂, where the
   camera's RGB can't? It may not. The differences between these solids are mostly in the blue,
   410 nm is unusable, and the sensor compresses colour differences 2.6–4.4× on paint. Untried
@@ -445,8 +464,8 @@ buy a ready-made solution. Silver nitrate stains and is corrosive.
 ## Deferred: PbS and the sulfide work
 
 The PbS vials (003) and the lead plan's sulfide plates are the petroleum-specific part. They need the
-hood, an H₂S detector and EHS sign-off. The review's sulfide points also mean an open plate can't
-give data worth defending:
+hood, an H₂S detector and EHS sign-off. The review's sulfide point, and the digest's own checks (the last
+two below), also mean an open plate can't give data worth defending:
 - sulfide equilibria need a controlled H₂S partial pressure, in closed vessels;
 - PbS is supersaturated across almost the whole old design;
 - equilibrium lead at galena saturation is far below what ICP-OES can see after a brine is diluted.
