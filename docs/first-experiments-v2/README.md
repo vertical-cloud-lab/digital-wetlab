@@ -65,6 +65,21 @@ also the goal Timothy set on issue 80 for the team's next barium chloride and so
 show that the lab can monitor and document an experiment over an extended period. E0, then E1, can
 be that run.
 
+### How this fits the monitoring plan for Timothy's run
+
+A plan for that run was posted on issue 80 just before this one:
+[`docs/baso4-extended-monitoring.md`](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md).
+It covers the capture job, record-keeping, the dry run and the run record in more detail than E0
+here, so use it for those. The two plans differ only on the first barium plate:
+- **The monitoring plan suggests the 10-30 grid** (its Plate A, 0.01–3 mM in triplicate) first, and
+  many replicates near the boundary (its option C) later.
+- **This plan would swap them.** A grid with three wells per condition can only show where
+  nucleation became visible in the time watched, which is the reading the review rejected. Its most
+  interesting wells, between SI 0 and +1, can form at most about 5 µg of solid, which may be below
+  what the camera can see.
+- **E1a** (8 SI levels × 8 replicates at SI 1.0–2.75, 10–109 µg per well) is just as good a
+  monitoring demo, and its data mean something.
+
 ## What PR 3 planned, and what changes
 
 | PR 3 experiment | What happened | What the review says about it | Revised plan |
@@ -101,6 +116,8 @@ Paraphrased from the [review digest](https://github.com/vertical-cloud-lab/digit
 - **Approach from both sides** whenever the claim is about equilibrium (E3).
 - **Keep the system closed.** Seal the wells or cover them with oil, and use nothing volatile.
 - **No buffers.** None of these salts needs one.
+- **Randomise well positions,** so fill order and position on the plate don't line up with the
+  condition.
 - **Measure what each well actually saw**: its start time, its temperature, and the detection limit.
   The SI values below are for 25 °C. Log the room temperature and recompute SI for it; barite in
   1 molal NaCl moves about 0.01 SI per °C.
@@ -152,7 +169,9 @@ evaporation, light)?
 2. weigh water dispenses at 20, 50 and 100 µL;
 3. connect and test the heater-shaker in its slot;
 4. refocus the camera at the chosen plate height and confirm it with a measured still;
-5. set up the time-lapse job, the rail lights and the reboot hold;
+5. set up the time-lapse job, the rail lights and the reboot hold. Lock exposure, gain and white
+   balance, or wells turning white will make the rest look darker. The monitoring plan spells out
+   the schedule, storage, alerts and a check of the OT-2's clock against the Pi's;
 6. set the sensor's hover height over that plate.
 
 **Plate** (200 µL per well, sealed or under oil):
