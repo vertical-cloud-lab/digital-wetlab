@@ -1,0 +1,62 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{bes-whitepaper}
+
+\begin{document}
+
+\wptitle{One barrier or two steps? Nucleation statistics for gypsum and\\how additives change its pathway}
+  {Synthesis and Processing Science}{Shawn Chen}
+
+\hd{Research question.} When gypsum (CaSO$_4\cdot$2H$_2$O) crystallizes from water, is the rate set by
+a single nucleation barrier, as classical nucleation theory assumes, or by forming and then
+transforming a precursor? And when an additive delays crystallization, which step does it act on?
+
+\hd{Knowledge gap.} Gypsum is a model for low-energy crystallization of an ionic solid from water,
+and a costly scale in geothermal, oil and gas, and water systems. Scattering and imaging show
+nanoscale precursors [1,2] but cannot say whether the precursor step limits the rate. Nucleation is
+stochastic, so that answer lies in the distribution of induction times over many identical samples
+[3,4], yet scale and additive studies usually report one onset time per condition.
+
+\hd{Hypotheses.} \emph{H1, single barrier:} each well crystallizes by one rare event, so the
+fraction of wells still clear decays exponentially after a fixed growth lag, $\ln J$ falls linearly
+with $1/\ln^2 S$, and an additive moves only the slope (interfacial energy) or intercept (prefactor) of that line.
+\emph{H2, precursor-mediated:} two slow steps in series give a sigmoidal, non-exponential
+distribution, a break in slope where the slower step switches, and additives that change the
+distribution's shape, not just its scale.
+
+\hd{Approach.} An Opentrons OT-2 fills 96-well plates from filtered CaCl$_2$ and Na$_2$SO$_4$
+stocks to set the supersaturation $S$ (from Pitzer activities), ionic strength and additive (a
+phosphonate, a polyacrylate, citrate), with 48--96 replicate wells per condition and a logged start
+time for each well. Turbidity is read every 30 s by a plate reader, or by the lab's camera under
+fixed lighting. Fill volume is varied too: rates that scale with volume mean nucleation in the bulk,
+and rates that scale with wetted area mean the walls. Selected wells are sampled at set times to
+identify the first solid (Raman, XRD). Replicates are added where H1 and H2 predict the most
+different distributions; the automation is the means, not the aim.
+
+\wpflow
+  {\textbf{Design}\\ $S$, additive and fill volume; add replicates where H1, H2 differ}
+  {\textbf{OT-2}\\ 48--96 replicate wells per condition; per-well start times}
+  {\textbf{Turbidity}\\ every 30 s; first solid by Raman or XRD}
+  {\textbf{Statistics}\\ induction-time distributions; fit H1 and H2}
+  {\textbf{Outcome}\\ rate-limiting step; where each additive acts}
+  {update the probability of H1 and H2, then choose the next plate}
+
+\hd{Expected outcomes.} (1) Nucleation rates with uncertainties across $S$, ionic strength and
+additives, with bulk and wall contributions separated; (2) a test of whether precursor formation
+controls the rate; (3) which step each additive acts on. Together these give a statistically
+grounded time--supersaturation--transformation map for a model ionic crystal, and a mechanistic basis
+for choosing additives.
+
+\hd{Fit and resources.} The project asks why crystallization proceeds as it does, through the roles
+of \emph{nucleation} and \emph{precursor and intermediate states} in materials synthesis. It does not
+optimize a process or develop automation for its own sake. The PI works on self-driving labs and
+Bayesian experimental design; the lab's OT-2 already runs turbidity-onset precipitation series, so
+preliminary distributions can be measured before an application.
+
+\begin{wprefs}
+[1] A.\,E.\,S. Van Driessche \emph{et al.}, \emph{Science} 336, 69 (2012), doi:10.1126/science.1215648.
+[2] T.\,M. Stawski \emph{et al.}, \emph{Nat.\ Commun.} 7, 11177 (2016), doi:10.1038/ncomms11177.
+[3] S. Jiang, J.\,H. ter Horst, \emph{Cryst.\ Growth Des.} 11, 256 (2011), doi:10.1021/cg101213q.
+[4] T. Brandel, J.\,H. ter Horst, \emph{Faraday Discuss.} 179, 199 (2015), doi:10.1039/C4FD00230J.
+\end{wprefs}
+
+\end{document}

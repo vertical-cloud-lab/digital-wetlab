@@ -1,0 +1,65 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{bes-whitepaper}
+
+\begin{document}
+
+\wptitle{Losing iron sites or losing the nickel host? Why Ni--Fe oxygen-evolution\\catalysts deactivate}
+  {Catalysis Science}{Viviane Schwartz, Chris Bradley}
+
+\hd{Research question.} Ni--Fe (oxy)hydroxides are among the most active earth-abundant catalysts for
+the oxygen evolution reaction (OER) in alkaline and anion-exchange-membrane water electrolysis,
+which avoids the iridium that acidic electrolysis needs [1,2]. Their activity fades under load. Is that because Fe active sites leave faster than they
+return, or because the Ni host itself transforms?
+
+\hd{Knowledge gap.} Fe in these catalysts is not fixed: it dissolves and redeposits during OER, and
+activity holds only while the two rates balance [3]. That has been shown for a few compositions.
+Whether site exchange, rather than restructuring of the host, controls durability across
+compositions, and how a third metal shifts the balance, has not been tested systematically, because
+each test consumes a film and needs matched electrolyte analysis.
+
+\hd{Hypotheses.} \emph{H1, site exchange:} retained activity is set by the steady-state Fe site
+coverage, fixed by a composition-dependent Fe dissolution rate and an electrolyte-Fe-dependent
+redeposition rate. Predictions: adding Fe to the electrolyte restores activity, and Fe lost to the
+electrolyte predicts the activity decay of every composition with the same two rate laws.
+\emph{H2, host restructuring:} activity loss follows irreversible change in the Ni host (fewer
+redox-active Ni sites, rising charge-transfer resistance, loss of film). Predictions: added Fe does
+not restore activity, and decay tracks the Ni redox charge (CV) and impedance (EIS), not electrolyte
+Fe.
+
+\hd{Approach.} An Opentrons OT-2 fitted with the open AMPERE-2 electrodeposition hardware [4]
+plates matched Ni--Fe--M films (Fe 0--40\%; M = Co or Mn, 0--20\%) on identical substrates by one
+fixed protocol: the films are a controlled variable, not the product. Each film gets CV, a Tafel
+scan and EIS, then a short stress test (constant current or potential cycling) in Fe-free KOH [2]
+with Fe added at set levels, while the robot draws electrolyte aliquots for ICP (Fe, Ni, M). Both
+mechanisms are written as kinetic models with shared parameters. Bayesian experimental design picks
+the next composition, electrolyte Fe level and current density where the models' predicted activity
+retention differs most, so AI serves mechanism identification.
+
+\wpflow
+  {\textbf{Design}\\ next film, Fe level and current where H1 and H2 disagree}
+  {\textbf{OT-2 + AMPERE-2}\\ plate a matched Ni--Fe--M film; set electrolyte Fe}
+  {\textbf{Electrochemistry}\\ CV, Tafel, EIS; stress test; electrolyte ICP}
+  {\textbf{Kinetic models}\\ fit site-exchange (H1) and host-loss (H2)}
+  {\textbf{Outcome}\\ which mechanism controls where; Fe exchange rates}
+  {update the probability of H1 and H2, then choose the next film}
+
+\hd{Expected outcomes.} (1) A map of where in composition and electrolyte space each mechanism
+controls durability; (2) Fe dissolution and redeposition rate constants as functions of host
+composition; (3) whether a third metal works by slowing Fe loss or by stabilizing the host. Together
+these explain how to keep earth-abundant active sites in place, which is what limits alkaline and
+anion-exchange-membrane electrolyzers.
+
+\hd{Fit and resources.} The project addresses catalyst \emph{dynamics during catalytic cycles and
+deactivation}, \emph{mechanisms mediated by earth-abundant metals}, and
+\emph{AI/ML for mechanism identification}. It does not optimize catalyst synthesis or electrolyzer
+design. The PI works on self-driving labs and Bayesian experimental design; the lab has an OT-2, is
+adding a potentiostat, and has campus ICP access.
+
+\begin{wprefs}
+[1] M.\,W. Louie, A.\,T. Bell, \emph{J.\ Am.\ Chem.\ Soc.} 135, 12329 (2013), doi:10.1021/ja405351s.
+[2] L. Trotochaud \emph{et al.}, \emph{J.\ Am.\ Chem.\ Soc.} 136, 6744 (2014), doi:10.1021/ja502379c.
+[3] D.\,Y. Chung \emph{et al.}, \emph{Nat.\ Energy} 5, 222 (2020), doi:10.1038/s41560-020-0576-y.
+[4] Fisker-B{\o}dker \emph{et al.}, \emph{Digital Discovery} 4, 2491 (2025), doi:10.1039/D5DD00180C.
+\end{wprefs}
+
+\end{document}
