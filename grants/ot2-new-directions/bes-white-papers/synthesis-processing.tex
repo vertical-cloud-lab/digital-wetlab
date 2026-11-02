@@ -10,9 +10,10 @@
 a single nucleation barrier, as classical nucleation theory assumes, or by forming and then
 transforming a precursor? And when an additive delays crystallization, which step does it act on?
 
-\hd{Knowledge gap.} Gypsum is a model for low-energy crystallization of an ionic solid from water,
-and a costly scale in geothermal, oil and gas, and water systems. Scattering and imaging show
-nanoscale precursors [1,2] but cannot say whether the precursor step limits the rate. Nucleation is
+\hd{Knowledge gap.} Gypsum is a model ionic crystal grown from water, and a costly scale in
+geothermal, oil and gas, and water systems. Its induction times have been mapped against
+supersaturation, salinity and temperature, one onset per condition. Scattering and imaging show
+nanoscale precursors [1,2] but have not linked the precursor step to the rate. Nucleation is
 stochastic, so that answer lies in the distribution of induction times over many identical samples
 [3,4], yet scale and additive studies usually report one onset time per condition.
 
@@ -20,22 +21,23 @@ stochastic, so that answer lies in the distribution of induction times over many
 fraction of wells still clear decays exponentially after a fixed growth lag, $\ln J$ falls linearly
 with $1/\ln^2 S$, and an additive moves only the slope (interfacial energy) or intercept (prefactor) of that line.
 \emph{H2, precursor-mediated:} two slow steps in series give a sigmoidal, non-exponential
-distribution, a break in slope where the slower step switches, and additives that change the
-distribution's shape, not just its scale.
+distribution, a break in slope where the slower step switches (unlike a wall-to-bulk switch, with no change in
+volume scaling), and additives that change the distribution's shape, not just its scale.
 
 \hd{Approach.} An Opentrons OT-2 fills 96-well plates from filtered CaCl$_2$ and Na$_2$SO$_4$
 stocks to set the supersaturation $S$ (from Pitzer activities), ionic strength and additive (a
-phosphonate, a polyacrylate, citrate), with 48--96 replicate wells per condition and a logged start
+phosphonate, a polyacrylate), with 48--96 replicate wells per condition and a logged start
 time for each well. Turbidity is read every 30 s by a plate reader, or by the lab's camera under
-fixed lighting. Fill volume is varied too: rates that scale with volume mean nucleation in the bulk,
-and rates that scale with wetted area mean the walls. Selected wells are sampled at set times to
-identify the first solid (Raman, XRD). Replicates are added where H1 and H2 predict the most
+fixed lighting. Fill volume and wall material are varied too: rates that scale with volume mean nucleation in the
+bulk, and rates that follow the wall mean the walls. Seeded, sealed wells measure the growth and
+detection lag directly, so a spread in lag (which additives that slow growth can cause) is not
+mistaken for H2. Selected conditions suit time-resolved SAXS at a BES user facility. Replicates are added where H1 and H2 predict the most
 different distributions; the automation is the means, not the aim.
 
 \wpflow
   {\textbf{Design}\\ $S$, additive and fill volume; add replicates where H1, H2 differ}
   {\textbf{OT-2}\\ 48--96 replicate wells per condition; per-well start times}
-  {\textbf{Turbidity}\\ every 30 s; first solid by Raman or XRD}
+  {\textbf{Turbidity}\\ every 30 s; seeded wells give the growth lag}
   {\textbf{Statistics}\\ induction-time distributions; fit H1 and H2}
   {\textbf{Outcome}\\ rate-limiting step; where each additive acts}
   {update the probability of H1 and H2, then choose the next plate}

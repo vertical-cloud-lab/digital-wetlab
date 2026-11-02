@@ -59,18 +59,28 @@ be committed here.
 
 ## Claims to check before sending
 
-- **Catalysis.** That Fe dissolution–redeposition has been tested for only "a few compositions" and
-  not systematically against host restructuring. This is the most likely place a PM knows newer
-  work. Search for composition-resolved stability studies of Ni–Fe–Co/Mn (oxy)hydroxides since
-  Chung et al. 2020.
-- **Separation.** That selectivity is "usually reported as a distribution coefficient in a few
-  brines". Also check that PHREEQC's `pitzer.dat` has the Li–Na and Li–Mg mixing terms the
-  activity correction needs.
-- **Materials Chemistry.** That room-temperature "high-entropy" hydroxides are often reported as
-  single-phase. Also, Cu(OH)₂ and Zn(OH)₂ can dehydrate to oxides when aged hot in base, which would
-  mix a dehydration step into the segregation test; start the hot aging with the Mg–Co–Ni set.
-- **Synthesis and Processing.** That scale and additive studies "usually report one onset time per
-  condition". Static jar tests do; check for recent microfluidic or droplet studies of gypsum.
+An independent read on Nov 2 found that, as first drafted, the measurements in all four couldn't
+cleanly tell the two hypotheses apart. The pages were revised to fix that. Its points that are still
+open:
+
+- **Catalysis.** The gap is now framed against Chung et al. 2020, which covered several hosts and
+  proposed an Fe-retention descriptor. The reader also named Farhat et al. (*ACS Catal.*, 2020;
+  activity needs Fe in solution) and Kuai et al. (*Nat. Catal.*, 2020; reversible Ni/Fe
+  segregation). Check them and cite them if they hold up. AMPERE-2 plates cathodically from
+  chloride baths, so show that the anodic conditioning step gives (oxy)hydroxide films. A small
+  film sheds only low-ppb Fe, so ICP-MS is needed, not ICP-OES.
+- **Separation.** PHREEQC's `pitzer.dat` (checked Nov 2) has binary Li⁺ terms (LiCl, LiBr, LiOH,
+  Li₂SO₄) but no Li–Na or Li–Mg mixing terms (θ, ψ). Take those from published salt-lake models, or
+  show the conclusion doesn't depend on them. Reading released water from ln K against ln a_w is the
+  osmotic-stress method (Parsegian, Rand and Rau), so claim the application, not the idea.
+- **Materials Chemistry.** At room temperature, Ni and Co hydroxides may turn over too slowly for
+  non-convergence on aging to rule out H1. Isotope spikes with ICP-MS would measure exchange
+  directly. Cu- and Zn-containing sets are now aged at room temperature only.
+- **Synthesis and Processing.** Gypsum induction times against supersaturation, NaCl up to 6 m
+  and 90 °C were measured by He, Oddo and Tomson (*J. Colloid Interface Sci.*, 1994); cite them, and
+  present the distributions as what's new. Single-step nucleation can also give sigmoidal
+  distributions (Maggioni and Mazzotti, *Faraday Discuss.* 179, 2015), which is why the page now
+  has seeded-lag controls. Time-resolved SAXS needs beamtime at a user facility.
 
 ## Draft cover emails
 

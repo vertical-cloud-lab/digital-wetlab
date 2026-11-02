@@ -10,18 +10,19 @@
 ion, outnumbered by Na$^+$ and Mg$^{2+}$ by one to three orders of magnitude. Some sorbents still take
 it up selectively. Why, and why does that selectivity change from one brine to the next?
 
-\hd{Knowledge gap.} Sorbent selectivity is usually reported as a distribution coefficient measured
-in a few brines, where ion activities, ion pairing and water activity all change at once, so the
-mechanism rests on correlations and selectivity in a new brine cannot be predicted. Yet for the major
+\hd{Knowledge gap.} Selectivity is usually reported as a distribution coefficient in a few brines,
+where activities, ion pairing and water activity change at once, so mechanisms rest on correlations
+and selectivity in a new brine cannot be predicted. Yet for the major
 ions of natural brines (Na--K--Mg--Ca--Cl--SO$_4$), Pitzer models give reliable activities up to
-saturation [1], and lithium-salt parameters are tabulated [4]. The solution side can therefore be
+saturation [1], and binary lithium-salt parameters are tabulated [4]. The solution side can therefore be
 largely accounted for, and the selectivity that remains belongs to the sorbent.
 
 \hd{Hypotheses.} \emph{H1, dehydration control:} after Pitzer activity correction, the exchange
-constant $K$ for Li$^+$ against Na$^+$ or Mg$^{2+}$ depends on brine composition only through the
-water activity $a_\mathrm{w}$, and the slope of $\ln K$ against $\ln a_\mathrm{w}$ counts the waters
-released per exchanged ion, as expected if Mg$^{2+}$ is excluded by its far larger hydration free
-energy ($-1830$ against $-475$ kJ\,mol$^{-1}$ for Li$^+$ [2]). \emph{H2, cooperative co-ion uptake:}
+constant $K$ for Li$^+$ against Mg$^{2+}$, at matched solid loading, depends on brine composition only
+through the water activity $a_\mathrm{w}$, and the slope of $\ln K$ against $\ln a_\mathrm{w}$ counts the net
+waters released per exchange (an osmotic-stress analysis), as expected if Mg$^{2+}$ is excluded by the
+cost of shedding its hydration shell ($-1830$ kJ\,mol$^{-1}$, against $-950$ for the two Li$^+$ that
+replace it [2]). \emph{H2, cooperative co-ion uptake:}
 at fixed $a_\mathrm{w}$, selectivity also depends on which anion enters the solid with Li$^+$. H2 is
 expected for a layered double hydroxide, which takes up LiCl as a pair [3], but not for a titanate
 ion sieve, which exchanges Li$^+$ for H$^+$, so each sorbent is a control for the other.
@@ -29,17 +30,18 @@ ion sieve, which exchanges Li$^+$ for H$^+$, so each sorbent is a control for th
 \hd{Approach.} An Opentrons OT-2 prepares synthetic brines by mass in sealed vials: dilution series
 of a Great Salt Lake composition that take $a_\mathrm{w}$ from about 0.98 to 0.75 at fixed ion
 ratios, and swaps (Cl$^-$ for SO$_4^{2-}$, Na$^+$ for Mg$^{2+}$) designed in PHREEQC [4] to hold
-$a_\mathrm{w}$ constant. Vials equilibrate with each sorbent at room temperature and on a
-heater-shaker at 40--65\,$^\circ$C. ICP-OES, on gravimetric, matrix-matched dilutions, measures Li,
-Na, K, Mg and B, and any Ti or Al the sorbent sheds. Equilibrium is confirmed by time series and by
+$a_\mathrm{w}$ constant while staying undersaturated in mirabilite and epsomite. Vials equilibrate with each sorbent at room temperature and on a
+heater-shaker at 40--65\,$^\circ$C. ICP-OES, on gravimetric, matrix-matched dilutions, measures the
+brine and the rinsed, digested solid, so Na and Mg loadings are measured rather than taken by
+difference; pH is logged, since the titanate releases H$^+$. Equilibrium is confirmed by time series and by
 approach from both sides (loading and stripping). Bayesian experimental design picks each next batch
 where H1 and H2 predict the most different $K$: AI used to tell mechanisms apart, not to optimize
-uptake. (Automated recovery from produced water so far targets selective precipitation [5].)
+uptake.
 
 \wpflow
   {\textbf{Design}\\ next brines where H1 and H2 predict the most different $K$}
   {\textbf{OT-2}\\ brines by mass + sorbent; sealed vials, RT--65\,$^\circ$C}
-  {\textbf{ICP-OES}\\ Li, Na, K, Mg, B; time series; load and strip}
+  {\textbf{ICP-OES, pH}\\ brine and digested solid; load and strip}
   {\textbf{Pitzer/PHREEQC}\\ activities $\rightarrow$ exchange constants; fit H1, H2}
   {\textbf{Outcome}\\ waters released per exchange; role of the co-ion}
   {update the probability of H1 and H2, then choose the next batch}
@@ -52,11 +54,11 @@ result is a mechanistic basis for predicting selectivity in brines not yet measu
 domestic lithium from brines.
 
 \hd{Fit and resources.} This addresses \emph{Overcoming Thermodynamics via Cooperative Chemical
-Interactions}: a dilute critical mineral isolated from a complex mixture, with co-ion cooperation one
-of the two mechanisms tested and AI used for mechanistic insight. No sorbent screening, optimization
+Interactions}: isolating and releasing (loading and stripping) a dilute critical mineral from a
+complex mixture, where H2 is the cooperative mechanism, with AI used for mechanistic insight. No sorbent screening, optimization
 or process engineering is proposed. The PI works on self-driving labs and Bayesian experimental
-design; the lab's OT-2 already runs precipitation series checked against PHREEQC/Pitzer; campus
-ICP-OES and XRD are available.
+design; the lab's OT-2 runs precipitation series checked against PHREEQC/Pitzer; campus ICP-OES and
+XRD are available.
 
 \begin{wprefs}
 [1] C.\,E. Harvie, N. M{\o}ller, J.\,H. Weare, \emph{Geochim.\ Cosmochim.\ Acta} 48, 723 (1984),
@@ -65,7 +67,6 @@ doi:10.1016/0016-7037(84)90098-X.
 [3] M.\,P. Paranthaman \emph{et al.}, \emph{Environ.\ Sci.\ Technol.} 51, 13481 (2017),
 doi:10.1021/acs.est.7b03464.
 [4] D.\,L. Parkhurst, C.\,A.\,J. Appelo, USGS Techniques and Methods 6-A43 (2013), doi:10.3133/tm6A43.
-[5] Ritchhart \emph{et al.}, \emph{Mater.\ Horiz.} 13, 7008 (2026), doi:10.1039/d6mh00475j.
 \end{wprefs}
 
 \end{document}
