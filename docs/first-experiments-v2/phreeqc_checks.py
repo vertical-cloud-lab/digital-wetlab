@@ -62,6 +62,31 @@ def ug_per_well(phase, mm):
     return mm * 1e-3 * WELL_UL * 1e-6 * G_PER_MOL[phase] * 1e6
 
 
+def precip_ug(phase, metal, metal_mm, so4_mm, nacl_m, temp_c=25.0):
+    """Solid formed in a 200 uL well once the solution has reached equilibrium with `phase`
+    (what is left dissolved is the solubility at that composition)."""
+    na = 2 * so4_mm + 1000 * nacl_m
+    cl = 2 * metal_mm + 1000 * nacl_m
+    ip.run_string(f"""SOLUTION 1
+    temp {temp_c}
+    units mmol/kgw
+    pH 7 charge
+    {metal} {metal_mm}
+    S(6) {so4_mm}
+    Na {max(na, 1e-9)}
+    Cl {max(cl, 1e-9)}
+EQUILIBRIUM_PHASES 1
+    {phase} 0 0
+SELECTED_OUTPUT
+    -reset false
+    -equilibrium_phases {phase}
+END
+""")
+    out = ip.get_selected_output_array()
+    mol_per_kgw = float(out[-1][0])  # moles of solid after reaction, per kg water
+    return max(mol_per_kgw, 0.0) * WELL_UL * 1e-6 * G_PER_MOL[phase] * 1e6
+
+
 # 1. Barite --------------------------------------------------------------------------------
 print("1. BARITE, equal barium chloride and sodium sulfate")
 print("\nSolubility (equal Ba and SO4 at SI = 0), umol/kgw:")
@@ -73,13 +98,13 @@ for nacl in (0.0, 1.0, 2.0):
 LEVELS_BA = [0.1, 0.2, 0.3, 0.5, 0.7, 1.0, 2.0]
 for nacl in (0.0, 1.0):
     print(f"\nSI (and S) for equal Ba = SO4, {nacl:.0f} molal NaCl")
-    print("  mM each  ug BaSO4/well   25 C          40 C          60 C          80 C")
+    print("  mM each  ug BaSO4/well at equilibrium (25 C)   25 C          40 C          60 C          80 C")
     for c in LEVELS_BA:
         cells = []
         for t in (25, 40, 60, 80):
             s_i = si("Barite", "Ba", c, c, nacl, t)
             cells.append(f"{s_i:5.2f} (S {10 ** (s_i / 2):5.1f})")
-        print(f"  {c:>7.2f} {ug_per_well('Barite', c):10.1f}     " + " ".join(cells))
+        print(f"  {c:>7.2f} {precip_ug('Barite', 'Ba', c, c, nacl, 25):10.1f}                           " + " ".join(cells))
 
 # 2. Gypsum --------------------------------------------------------------------------------
 print("\n\n2. GYPSUM, equal calcium chloride and sodium sulfate")
@@ -98,12 +123,11 @@ for t in (25, 40, 60, 80):
           f"   anhydrite SI there {si('Anhydrite', 'Ca', solubility_mm('Gypsum', 'Ca', 0.0, t), solubility_mm('Gypsum', 'Ca', 0.0, t), 0.0, t):5.2f}")
 
 print("\nGypsum SI (and S) for equal Ca = SO4 in water at 25 C (induction-time levels):")
-print("  mM each   SI     S     mg gypsum/well if it all came out above solubility")
-sol0 = solubility_mm("Gypsum", "Ca", 0.0, 25)
+print("  mM each   SI     S     mg gypsum per 200 uL well at equilibrium")
 for c in (20, 25, 30, 40, 50, 60, 80):
     s_i = si("Gypsum", "Ca", c, c, 0.0, 25)
-    excess_mg = max(c - sol0, 0) * 1e-3 * WELL_UL * 1e-6 * G_PER_MOL["Gypsum"] * 1e3
-    print(f"  {c:>7}  {s_i:5.2f}  {10 ** (s_i / 2):5.2f}   {excess_mg:6.2f}")
+    mg = precip_ug("Gypsum", "Ca", c, c, 0.0, 25) / 1000
+    print(f"  {c:>7}  {s_i:5.2f}  {10 ** (s_i / 2):5.2f}   {mg:6.2f}")
 
 print("\nBracketing grid for the solubility-from-both-sides plate: total Ca = SO4 as a fraction")
 print("of the 25 C solubility at each NaCl level, with the resulting gypsum SI:")
@@ -136,22 +160,22 @@ for target in (1.0, 1.5, 2.0, 2.5):
     row = [conc_for_si("Barite", "Ba", target, 1.0, t) for t in (25, 40, 60, 80)]
     print(f"  {target:>9.1f} " + "".join(f"{v:9.2f}" for v in row))
 
-print("\nBarite at 25 C: mM of each for a target SI at each NaCl level, and the most BaSO4 a")
-print("200 uL well can then form (the mass a camera has to see differs by this much):")
+print("\nBarite at 25 C: mM of each for a target SI at each NaCl level, and the BaSO4 a 200 uL")
+print("well holds once it has reached equilibrium (the mass a camera has to see differs this much):")
 print("  target SI   NaCl 0 m           1 m                2 m                3 m")
 for target in (1.5, 2.0, 2.5):
     cells = []
     for nacl in (0.0, 1.0, 2.0, 3.0):
         c = conc_for_si("Barite", "Ba", target, nacl, 25)
-        cells.append(f"{c:5.2f} mM ({ug_per_well('Barite', c):5.1f} ug)")
+        cells.append(f"{c:5.2f} mM ({precip_ug('Barite', 'Ba', c, c, nacl, 25):5.1f} ug)")
         
     print(f"  {target:>9.1f}   " + "  ".join(cells))
 
 print("\nE1a range-finding levels: barite in 1 molal NaCl at 25 C. Each well gets 100 uL of a")
 print("barium chloride stock and 100 uL of a sodium sulfate stock, each at twice the well value and")
 print("both made up in 1 molal NaCl:")
-print("  target SI   mM of each in the well   stock (mM)   most BaSO4 per 200 uL well")
+print("  target SI   mM of each in the well   stock (mM)   BaSO4 per 200 uL well at equilibrium")
 for k in range(8):
     target = 1.0 + 0.25 * k
     c = conc_for_si("Barite", "Ba", target, 1.0, 25)
-    print(f"  {target:>9.2f} {c:14.2f} {2 * c:17.2f} {ug_per_well('Barite', c):14.1f} ug")
+    print(f"  {target:>9.2f} {c:14.2f} {2 * c:17.2f} {precip_ug('Barite', 'Ba', c, c, 1.0, 25):14.1f} ug")
