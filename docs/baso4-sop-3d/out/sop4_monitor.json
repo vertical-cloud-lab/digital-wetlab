@@ -1,0 +1,47 @@
+{
+ "name": "sop4_monitor",
+ "fps": 15,
+ "n_frames": 612,
+ "size": [
+  1280,
+  720
+ ],
+ "substeps": [
+  {
+   "label": "4.1",
+   "caption": "The lid camera (Raspberry Pi HQ camera, 8-50 mm zoom, Pi 5) looks straight down through the top window at slot 7. The capture job takes a still every minute until 30 min after the last sulfate, every 5 min until 6 h, then every 15 min: about 400 stills in 72 h.",
+   "start_frame": 0,
+   "end_frame": 98
+  },
+  {
+   "label": "4.2",
+   "caption": "Its view: about 200 pixels across each well. Clear wells look dark on the black paper; barium sulfate shows as white.",
+   "start_frame": 99,
+   "end_frame": 152
+  },
+  {
+   "label": "4.3",
+   "caption": "Illustrative timing: wells with the highest saturation index (PHREEQC, 10-30 table) turn white within minutes, those near +1 take hours, and those at or below 0 never should. The real times are what this run measures.",
+   "start_frame": 153,
+   "end_frame": 362
+  },
+  {
+   "label": "4.4",
+   "caption": "Once a day, someone checks the stream and the heartbeat and writes anything that happened in the event log: a door opened, a reboot, a missed still. The Pi's 05:00, 13:00 and 21:00 reboots are held off while the run's lock is on.",
+   "start_frame": 363,
+   "end_frame": 434
+  },
+  {
+   "label": "4.5",
+   "caption": "At 72 h: take a last still, then take the plate out, weigh it (start and end weights give the water lost) and photograph it on black with a phone, as in March.",
+   "start_frame": 435,
+   "end_frame": 512
+  },
+  {
+   "label": "4.6",
+   "caption": "The plate's wells, the leftover stocks and the rinses go in the labelled barium waste; Risk Management collects it. The run record, plate map, well start times, stills index and the environment and event logs go in the repo; the stills go to the agreed storage.",
+   "start_frame": 513,
+   "end_frame": 611
+  }
+ ]
+}

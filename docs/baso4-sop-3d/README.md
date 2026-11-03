@@ -22,13 +22,17 @@ It is built the way the lab's other animations are (byu-vcl's `viz3d`, used for 
 the vertical lift module): CadQuery and vendor STEP models, rendered off-screen in PyVista, text drawn with PIL, and
 written as MP4 and GIF.
 
-| Chapter | GIF (800 × 450, 10 fps) | MP4 (1280 × 720, 15 fps) |
+Chapters 2 and 3 are in two parts each, so every GIF stays under the ~5 MB GitHub shows inline. Part 2a's GIF runs at 8 fps for the same reason; every MP4 has all its frames.
+
+| Part | GIF (800 × 450, 10 fps) | MP4 (1280 × 720, 15 fps) |
 | --- | --- | --- |
 | **1. Where each step happens**: the two rooms, with the zones coloured: inside the hood (red), next to it (amber), the OT-2 (blue). Then the walk between them | [`out/sop1_where.gif`](out/sop1_where.gif) | [`out/mp4/sop1_where.mp4`](out/mp4/sop1_where.mp4) |
-| **2. Stocks in EB B125**: hood set-up, barium chloride weighed by difference in a capped vial, dilutions in the hood; sodium sulfate and sodium chloride weighed at the balance; packing the tub | [`out/sop2_stocks.gif`](out/sop2_stocks.gif) | [`out/mp4/sop2_stocks.mp4`](out/mp4/sop2_stocks.mp4) |
-| **3. Loading the OT-2 in CB 154**: plate on black paper in slot 7, tips, the racks, uncapping, the four dispensing passes, the seal at the pause | [`out/sop3_load.gif`](out/sop3_load.gif) | [`out/mp4/sop3_load.mp4`](out/mp4/sop3_load.mp4) |
+| **2a. Barium chloride, inside the hood**: PPE, the balance beside the hood, loading the hood, and the capped vial tared at the balance, filled in the hood and weighed again | [`out/sop2a_hood.gif`](out/sop2a_hood.gif) | [`out/mp4/sop2a_hood.mp4`](out/mp4/sop2a_hood.mp4) |
+| **2b. Dilutions, then the bench**: the 0.1 M tube and its tenfold series in the hood; sodium sulfate and sodium chloride at the balance; packing the tub and closing the hood | [`out/sop2b_bench.gif`](out/sop2b_bench.gif) | [`out/mp4/sop2b_bench.mp4`](out/mp4/sop2b_bench.mp4) |
+| **3a. Loading the OT-2 in CB 154**: the door, the plate on black paper in slot 7, the tips, the racks, uncapping, and the start | [`out/sop3a_load.gif`](out/sop3a_load.gif) | [`out/mp4/sop3a_load.mp4`](out/mp4/sop3a_load.mp4) |
+| **3b. The fill and the seal**: water, NaCl, barium chloride, then sodium sulfate last; the seal at the pause; recapping | [`out/sop3b_fill.gif`](out/sop3b_fill.gif) | [`out/mp4/sop3b_fill.mp4`](out/mp4/sop3b_fill.mp4) |
 | **4. Watching it for 72 h**: the lid camera's view and stills schedule, daily checks, the end of the run and the waste | [`out/sop4_monitor.gif`](out/sop4_monitor.gif) | [`out/mp4/sop4_monitor.mp4`](out/mp4/sop4_monitor.mp4) |
-| **All four**, one after another | | [`out/mp4/baso4_sop_full.mp4`](out/mp4/baso4_sop_full.mp4) |
+| **All of it**, one part after another | | [`out/mp4/baso4_sop_full.mp4`](out/mp4/baso4_sop_full.mp4) |
 
 `out/<name>.json` gives the frame range of every sub-step in the MP4, and `out/<name>_still.png` is a still of one
 sub-step.
@@ -116,8 +120,8 @@ clipping range every frame, which the lid camera's close view needs.
 
 ```bash
 pip install cadquery pyvista pillow numpy scipy          # plus ffmpeg and gifsicle on the PATH
-xvfb-run -a python3 animate.py sop1 sop2 sop3 sop4 full   # full joins the four MP4s
-PREVIEW=1 xvfb-run -a python3 animate.py sop2             # the last frame of each sub-step, to /tmp
+xvfb-run -a python3 animate.py sop1 sop2a sop2b sop3a sop3b sop4 full   # full joins the six MP4s
+PREVIEW=1 xvfb-run -a python3 animate.py sop2              # the last frame of each sub-step, to /tmp
 ```
 
 The first run downloads the two STEP files into `.cache/` and tessellates everything, which takes about 10 s. The

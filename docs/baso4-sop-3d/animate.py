@@ -18,6 +18,7 @@ README.md for the sources of each step and model.
 from __future__ import annotations
 
 import math
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -28,17 +29,52 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE / "lab_models"))
 
+import scene                           # noqa: E402
 import models as M                      # noqa: E402
 import world as Wd                      # noqa: E402
 from scene import FPS, OUT, R, Scene, T, ease, window   # noqa: E402
 from world import BT, CB_X, OT2_AT, TT, WS, World, carry, cap_off   # noqa: E402
 
 TITLE = "BaSO4 plate run: 3-D SOP"
+# SOP_GIF_FPS=8 thins a long part's GIF so it stays under ~5 MB (the MP4 keeps every frame)
+scene.GIF_FPS = int(os.environ.get("SOP_GIF_FPS", scene.GIF_FPS))
+
+
+class StopChapter(Exception):
+    pass
 
 
 class SopScene(Scene):
-    """scene.Scene, with the camera's clipping range reset every frame: the lid camera's view sits 0.6 m from the
-    plate, inside a scene 10 m across, and the near plane left over from the wide shots would clip it."""
+    """scene.Scene, with two changes:
+
+    * the camera's clipping range is reset every frame: the lid camera's view sits 0.6 m from the plate, inside a
+      scene 10 m across, and the near plane left over from the wide shots would clip it;
+    * a chapter can be written in parts (so each GIF stays under ~5 MB): steps before `start` are run without
+      rendering, to reach their end state, and the part ends after the step labelled `stop`.
+    """
+
+    def __init__(self, name, title, start=None, stop=None, **kw):
+        super().__init__(name, title, **kw)
+        self.start, self.stop = start, stop
+        self.recording = start is None
+
+    def step(self, label, caption, seconds, update=None, hold=1.2, cam_to=None, labels=(), still=False,
+             view_angle_to=None, live=False):
+        if not self.recording and label == self.start:
+            self.recording = True
+        if not self.recording:
+            if update is not None:
+                for u in np.linspace(0, 1, 9)[1:]:
+                    update(float(ease(u)))
+            if cam_to is not None:
+                self.cam = [tuple(v) for v in cam_to]
+            if view_angle_to is not None:
+                self.view_angle = view_angle_to
+            return
+        super().step(label, caption, seconds, update=update, hold=hold, cam_to=cam_to, labels=labels, still=still,
+                     view_angle_to=view_angle_to, live=live)
+        if self.stop is not None and label == self.stop:
+            raise StopChapter(self)
 
     def render_base(self):
         self.apply()
@@ -368,8 +404,13 @@ def sop1():
 
 
 # ============================================================================================ chapter 2
-def sop2():
-    S = SopScene("sop2_stocks", TITLE + " · 2 Stocks in EB B125")
+def sop2(part=None):
+    if part == "a":
+        S = SopScene("sop2a_hood", TITLE + " · 2a Barium chloride, inside the hood", stop="2.9")
+    elif part == "b":
+        S = SopScene("sop2b_bench", TITLE + " · 2b Dilutions, then the bench", start="2.10")
+    else:
+        S = SopScene("sop2_stocks", TITLE + " · 2 Stocks in EB B125")
     W = World(S)
     for k in ("so0", "so1", "so2", "so3", "nacl", "water"):
         W.tube_show(k)
@@ -710,8 +751,13 @@ def sop2():
 
 
 # ============================================================================================ chapter 3
-def sop3():
-    S = SopScene("sop3_load", TITLE + " · 3 Loading the OT-2 in CB 154")
+def sop3(part=None):
+    if part == "a":
+        S = SopScene("sop3a_load", TITLE + " · 3a Loading the OT-2 in CB 154", stop="3.7")
+    elif part == "b":
+        S = SopScene("sop3b_fill", TITLE + " · 3b The fill and the seal", start="3.8")
+    else:
+        S = SopScene("sop3_load", TITLE + " · 3 Loading the OT-2 in CB 154")
     W = World(S)
     stocks_done(W)
     racks_in_tub(W, at_cb=True)
@@ -776,11 +822,11 @@ def sop3():
         W.set_world("rack_bench", carry(rb0, rb1, window(u, 0.45, 0.9), 260))
         person_at(W, OT2_AT[0] + 760, -380, 0, 0.0)
     S.gauges = gauges("CB 154", "side bench -> deck", "tub lid")
-    S.step("3.5", "Lift the two racks out of the tub and onto the deck as they are: barium and the two blanks' "
-                  "stocks in slot 4, sulfate in slot 5, in the positions the protocol's map gives.",
+    S.step("3.5", "Lift the two racks out of the tub and onto the deck as they are: barium chloride in slot 4; sodium "
+                  "sulfate, the 5 M NaCl and the DI water in slot 5, in the positions the protocol's map gives.",
            4.0, update=racks_on, cam_to=CAM_DECK, hold=0.6,
-           labels=[("slot 4: BaCl2 x4,\n5 M NaCl, DI water", tuple(W.world_of("ot2", tuple(M.deck(x4, y4, 130)))), (0.14, 0.30)),
-                   ("slot 5: Na2SO4 x4", tuple(W.world_of("ot2", tuple(M.deck(x5, y5, 130)))), (0.62, 0.16))])
+           labels=[("slot 4: BaCl2 x4", tuple(W.world_of("ot2", tuple(M.deck(x4, y4, 130)))), (0.14, 0.30)),
+                   ("slot 5: Na2SO4 x4,\n5 M NaCl, DI water", tuple(W.world_of("ot2", tuple(M.deck(x5, y5, 130)))), (0.62, 0.16))])
     W.reparent("rack_hood", "ot2")
     W.reparent("rack_bench", "ot2")
     wipe = W.S.world("wipe")
@@ -830,7 +876,7 @@ def sop3():
         S.set_mesh(f"well_{r}_{c}", M.cyl(x, y, Wd.WELL_BOTTOM, Wd.PLATE_WELL_R - 0.15, h, res=20))
         S.alpha[f"well_{r}_{c}"] = 1.0 if ul > 0 else 0.0
 
-    passes = [("water", "water", "DI water", (4, 5)), ("nacl", "nacl", "5 M NaCl", (4, 4)),
+    passes = [("water", "water", "DI water", (5, 5)), ("nacl", "nacl", "5 M NaCl", (5, 4)),
               ("ba", "ba2", "barium chloride", (4, 2)), ("so", "so2", "sodium sulfate, last", (5, 2))]
     tip_i = [0]
 
@@ -958,6 +1004,8 @@ def sop4():
 
     def to_cam(u):
         W.S.alpha["fov"] = 0.25 * (1 - u)
+        W.S.base_alpha["plate:polystyrene"] = 0.55 - 0.33 * u      # clear wells look dark on the black paper
+        W.S.base_alpha["seal:s"] = 0.35 - 0.25 * u
         W.show("lidcam", 1.0 - window(u, 0.6, 0.9))
         for n in W.S.members("ot2"):
             if "TOP WINDOW" in n:
@@ -1009,6 +1057,8 @@ def sop4():
 
     def back(u):
         W.show("lidcam", window(u, 0.0, 0.3))
+        W.S.base_alpha["plate:polystyrene"] = 0.22 + 0.33 * u
+        W.S.base_alpha["seal:s"] = 0.10 + 0.25 * u
         for n in W.S.members("ot2"):
             if "TOP WINDOW" in n:
                 W.S.alpha[n] = window(u, 0.0, 0.3)
@@ -1042,11 +1092,13 @@ def sop4():
 
 
 # ------------------------------------------------------------------------------------------- full
-CHAPTERS = {"sop1": sop1, "sop2": sop2, "sop3": sop3, "sop4": sop4}
+CHAPTERS = {"sop1": sop1, "sop2": sop2, "sop3": sop3, "sop4": sop4,
+            "sop2a": lambda: sop2("a"), "sop2b": lambda: sop2("b"), "sop3a": lambda: sop3("a"), "sop3b": lambda: sop3("b")}
+PARTS = ["sop1_where", "sop2a_hood", "sop2b_bench", "sop3a_load", "sop3b_fill", "sop4_monitor"]
 
 
 def full():
-    names = ["sop1_where", "sop2_stocks", "sop3_load", "sop4_monitor"]
+    names = PARTS
     lst = OUT / "mp4" / "concat.txt"
     lst.write_text("".join(f"file '{n}.mp4'\n" for n in names))
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy",
@@ -1060,4 +1112,7 @@ if __name__ == "__main__":
         if arg == "full":
             full()
         else:
-            CHAPTERS[arg]()
+            try:
+                CHAPTERS[arg]()
+            except StopChapter as stop:
+                stop.args[0].save() if stop.args else None
