@@ -9,6 +9,7 @@ Nothing is re-rendered, so it needs only ffmpeg (on the PATH, or from `pip insta
 
     python3 split_steps.py           # writes out/steps/*.mp4, out/steps/index.json and out/steps/contact_sheet.jpg
     python3 split_steps.py --page-only --sha <commit with the clips>   # writes out/steps/player.html
+        [--readme-sha <commit>]   # the README the page's hood note links to (default: the clips' commit)
 """
 
 import json
@@ -179,8 +180,31 @@ def contact_sheet(rows):
 REPO = "vertical-cloud-lab/digital-wetlab"
 REPO_PATH = "docs/baso4-sop-3d/out"
 
+# Shown on the player page. Asked on issue 80 (2026-11-05): shouldn't the OT-2 run be in the fume hood too?
+# The README's "Does the OT-2 need to be in the hood?" section has the sources; {readme} is filled in with its URL.
+BYU_LCSP = "https://chem.byu.edu/documents/1767/byu_chemical_hygiene_plan.pdf"
+HOOD_NOTE = (
+    "<b>Does the OT-2 need to be in the hood?</b> Not for this barium plate. A fume hood protects you from what gets "
+    "into the air: BYU's <a href=\"" + BYU_LCSP + "\">Laboratory &amp; Chemical Safety Program</a> says to \u201cuse "
+    "the fume hood for operations that might result in the release of toxic chemical vapors, fumes or dust\u201d (page "
+    "43). Barium chloride <i>powder</i> is that kind of hazard, so its bottle is only opened, weighed from and dissolved "
+    "in the hood. Once it is dissolved, nothing comes off it, so the plate is filled on the OT-2 in CB 154 with the door "
+    "closed. What is left is the risk of swallowing it or getting it on skin or in the eyes, which gloves, glasses or "
+    "goggles, a lab coat and the closed door take care of. <b>Lead and sulfide plates are different:</b> ammonium sulfide "
+    "gives off hydrogen sulfide and ammonia, and lead(II) nitrate is a particularly hazardous substance, so the OT-2 "
+    "runs inside a hood for those. Sources and caveats: <a href=\"{readme}\">the README</a>."
+)
+PART_NOTES = {
+    "sop3a_load": "In CB 154: lab coat, safety glasses or goggles and nitrile gloves on before the tub is opened, and on "
+                  "until the tubes are recapped (3.13). Beside the OT-2: a labelled barium waste bottle, damp wipes and "
+                  "a wash bottle of DI water. Wipe up any drip while it is wet, so it never dries to a dust.",
+    "sop4_monitor": "At the end of the run (4.5 and 4.6): lab coat, glasses or goggles and gloves on again to take the "
+                    "plate out and empty it into the barium waste. Wipe the deck with a damp wipe, then wash your "
+                    "hands.",
+}
 
-def player_page(rows, sha):
+
+def player_page(rows, sha, readme_sha=None):
     """out/steps/player.html: every step on one page, each in its own player, with its caption written out.
 
     GitHub can't play an MP4 itself (its file view says "View raw", and raw links download), so the page is opened
@@ -189,6 +213,9 @@ def player_page(rows, sha):
     this repo for being over its 50 MB limit. Both are pinned to `sha`, the commit that added the clips.
     """
     from html import escape
+
+    readme = (f"https://github.com/{REPO}/blob/{readme_sha or sha}/docs/baso4-sop-3d/README.md"
+              "#does-the-ot-2-need-to-be-in-the-hood")
 
     def sources(rel):
         return (f'<source src="https://raw.githubusercontent.com/{REPO}/{sha}/{REPO_PATH}/{rel}" type="video/mp4">'
@@ -201,6 +228,8 @@ def player_page(rows, sha):
         toc.append(f'<li><a href="#{pid}">{escape(PART_TITLES[part])}</a>: '
                    + " ".join(f'<a href="#s{r["label"]}">{r["label"]}</a>' for r in part_rows) + "</li>")
         body.append(f'<h2 id="{pid}">{escape(PART_TITLES[part])}</h2>')
+        if part in PART_NOTES:
+            body.append(f'<p class="safety">{escape(PART_NOTES[part])}</p>')
         for r in part_rows:
             raw = f"https://github.com/{REPO}/raw/{sha}/{REPO_PATH}/steps/{r['file']}"
             body.append(
@@ -224,6 +253,7 @@ body {{ font: 16px/1.45 system-ui, sans-serif; max-width: 980px; margin: 0 auto;
 h1 {{ font-size: 1.5em; }} h2 {{ margin-top: 2em; border-bottom: 2px solid #2a3d8f; color: #14205a; }}
 h3 {{ margin: 1.4em 0 .2em; }} video {{ width: 100%; height: auto; background: #000; border-radius: 6px; }}
 .where {{ margin: 0 0 .4em; color: #2a3d8f; font-weight: 600; }} .dl {{ font-size: .9em; }} .note {{ color: #555; }}
+.safety {{ background: #fff4dc; border-left: 4px solid #c97a00; padding: .6em .9em; border-radius: 4px; }}
 nav li {{ margin: .2em 0; }}
 </style></head><body>
 <h1>Barium sulfate plate run: the 3-D SOP, one video per step</h1>
@@ -231,6 +261,7 @@ nav li {{ margin: .2em 0; }}
 Every clip ends by holding its last frame, so the text stays up long enough to read.</p>
 <p class="note">From <a href="https://github.com/{REPO}/tree/{sha}/docs/baso4-sop-3d">docs/baso4-sop-3d</a>
 (issue 80). The time-lapse in step 4.3 is illustrative, not a prediction; the README lists the other assumptions.</p>
+<p class="safety">{HOOD_NOTE.format(readme=readme)}</p>
 <nav><ul>{"".join(toc)}<li><a href="#whole">The six parts, and all of it</a></li></ul></nav>
 {chr(10).join(body)}
 <script>
@@ -249,7 +280,8 @@ window.addEventListener("hashchange", goToStep);
 
 def main():
     if "--page-only" in sys.argv:  # rewrite player.html for clips already committed at --sha <commit>
-        player_page(plan(), sys.argv[sys.argv.index("--sha") + 1])
+        readme_sha = sys.argv[sys.argv.index("--readme-sha") + 1] if "--readme-sha" in sys.argv else None
+        player_page(plan(), sys.argv[sys.argv.index("--sha") + 1], readme_sha)
         return
     ff = ffmpeg_exe()
     STEPS.mkdir(parents=True, exist_ok=True)

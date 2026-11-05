@@ -146,6 +146,9 @@ The six part MP4s and the full video are at the end of the page:
 - Barium chloride powder is opened only inside the hood, and a barium solution stays there until its tube is capped.
 - The balance, sodium sulfate, sodium chloride, labels and the log are next to the hood.
 - Every tube is uncapped again only on the OT-2's deck in CB 154.
+- In CB 154 too: lab coat, safety glasses or goggles and nitrile gloves whenever the barium tubes or the plate are
+  handled. The OT-2 runs outside the hood because nothing comes off the solutions; lead plates are different. See
+  [Does the OT-2 need to be in the hood?](#does-the-ot-2-need-to-be-in-the-hood)
 
 | # | Where | What | Opened |
 | --- | --- | --- | --- |
@@ -161,14 +164,80 @@ The six part MP4s and the full video are at the end of the page:
 | 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate. 4.383 g NaCl to 15 mL (5 M). A tube of fresh DI water. Ten tubes in all | sodium chloride bottle, tubes |
 | 2.17 | hood, then bench | Wipe the barium tubes and rack, then put both racks in the tub, lid on. Outer gloves off in the hood; liner and wipes into the barium waste. Sash fully down | tub lid |
 | 1.4 | between buildings | Carry the tub closed | nothing |
-| 3.1 | CB 154 | Before the day: OT-2 calibrated (deck, tip length, pipette offset, Labware Position Check), Pi 5 on its 27 W supply, camera exposure and white balance locked, rail lights on with no timer, capture job tested | - |
-| 3.2-3.5 | OT-2 deck | Door open. Black paper and the plate in slot 7 under the lid camera (lid off now), 300 µL tips in slot 6 (lid off), the barium rack in slot 4, the sulfate rack in slot 5. The colour sensor stays parked in slot 10 | plate lid, tip-rack lid |
-| 3.6 | OT-2 deck | Uncap the ten tubes one at a time; each cap goes top-down on a wipe, in order | tubes |
+| 3.1 | CB 154 | Before the day: OT-2 calibrated (deck, tip length, pipette offset, Labware Position Check), Pi 5 on its 27 W supply, camera exposure and white balance locked, rail lights on with no timer, capture job tested. Beside the OT-2: a labelled barium waste bottle, damp wipes and a wash bottle of DI water | - |
+| 3.2-3.5 | OT-2 deck | Lab coat, safety glasses or goggles and nitrile gloves on before the tub is opened; they stay on until the tubes are recapped (3.13). Door open. Black paper and the plate in slot 7 under the lid camera (lid off now), 300 µL tips in slot 6 (lid off), the barium rack in slot 4, the sulfate rack in slot 5. The colour sensor stays parked in slot 10 | plate lid, tip-rack lid |
+| 3.6 | OT-2 deck | Uncap the ten tubes one at a time; each cap goes top-down on a wipe, in order. A drip or spill: wipe it up while it's wet, wipe into the barium waste, then wipe the spot again with water | tubes |
 | 3.7 | CB 154 | Close the door. Start the capture job, then the protocol | - |
 | 3.8-3.11 | OT-2, door closed | Water, then 5 M NaCl, then barium chloride. Sodium sulfate goes in last, with a new tip per well, dispensed from above | - |
 | 3.12-3.13 | OT-2 deck | At the pause: a clear adhesive seal, pressed down well by well; log the time. Recap the tubes, close the door, rail lights stay on | door |
 | 4.1-4.4 | CB 154 | Stills every 1 min to 30 min after the last sulfate, every 5 min to 6 h, then every 15 min (about 400 in 72 h). Check the stream, the heartbeat and the event log once a day | - |
-| 4.5-4.6 | CB 154 | Last still. Take the plate out, weigh it, and photograph it on black. Wells, leftover stocks and rinses go to barium waste. Commit the run record to `experiments/004-baso4-monitoring/<run-id>/` | door, waste |
+| 4.5-4.6 | CB 154 | Lab coat, glasses or goggles and gloves on again. Last still. Take the plate out, weigh it, and photograph it on black. Wells, leftover stocks and rinses go to barium waste. Wipe the deck with a damp wipe, gloves off, wash your hands. Commit the run record to `experiments/004-baso4-monitoring/<run-id>/` | door, waste |
+
+## Does the OT-2 need to be in the hood?
+
+Asked on [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/80) by @timothy-commins on
+2026-11-05. **Not for this barium sulfate plate. For the lead plates, yes.**
+
+A fume hood protects you from what gets into the air. BYU's
+[Laboratory & Chemical Safety Program](https://chem.byu.edu/documents/1767/byu_chemical_hygiene_plan.pdf) (Risk
+Management, revision 0.0, January 2013; the copy hosted by BYU Chemistry) says, on page 43: "Use the fume hood for
+operations that might result in the release of toxic chemical vapors, fumes or dust", and "Bench-top use of
+chemicals that present an inhalation hazard is prohibited."
+
+**Why the barium plate can run on the OT-2 in CB 154:**
+- **Barium chloride powder is an inhalation hazard.** Its dust is harmful if inhaled (H332), and the solid is toxic if
+  swallowed (H301). That's why the bottle is opened, and the powder weighed and dissolved, only in the hood (2.3-2.13).
+- **Once it's dissolved, nothing comes off it.** Barium chloride doesn't evaporate; only the water does. What's left
+  is the risk of swallowing it or getting it on skin or in the eyes. Gloves, glasses or goggles, a lab coat, capped
+  tubes, the OT-2's closed door, a sealed plate, and no food or drink take care of that.
+- **The solutions on the deck are dilute.** The strongest is the 0.1 M stock, about 2.4 % barium chloride dihydrate
+  by weight; the rest are 10, 1 and 0.1 mM. Makers' safety data sheets for barium chloride solutions on either side
+  of it ask for ordinary ventilation, not a hood:
+  - Loba Chemie's [0.05 M solution](https://www.lobachemie.com/lab-chemical-msds/MSDS-BARIUM-CHLORIDE-005M-01N-STANDARDIZED-SOLUTION-traceable-to-NIST-CASNO-R600A-EN.aspx)
+    (revised 2026-01-14), half the strength of the 0.1 M stock: "Not classified". Engineering controls: "Ensure good
+    ventilation of the work station."
+  - AquaPhoenix's [10 % (w/v) solution](https://sds.aquaphoenixsci.com/SDS/Barium%20Chloride%20Solution%2010%20%20(w%20v)%20(BC2010SS)_GHSUnitedStatesSDS_en_2021-02-01.pdf)
+    (revised 2021-01-27), 4-5 times stronger: harmful if swallowed or inhaled, and an eye irritant. Engineering
+    controls: "Provide adequate ventilation."
+  - My estimate by the GHS mixture formula: with an oral LD50 of 150 mg/kg, a 2.4 % solution comes out at about
+    6,000 mg/kg, far above the 2,000 mg/kg below which OSHA classes a mixture as harmful if swallowed.
+- **It isn't on BYU's list of high-hazard chemicals.** That list (page 5) counts acute toxins by OSHA's former
+  "highly toxic" definition, an oral LD50 in rats of 50 mg/kg or less
+  ([29 CFR 1910.1200 Appendix A, 2011](https://www.govinfo.gov/content/pkg/CFR-2011-title29-vol6/pdf/CFR-2011-title29-vol6-sec1910-1200.pdf)).
+  Barium chloride's is 150 mg/kg ([PubChem, from HSDB](https://pubchem.ncbi.nlm.nih.gov/compound/25204#section=Non-Human-Toxicity-Values)):
+  "toxic", not "highly toxic".
+- **The other chemicals aren't classed as hazardous:** sodium sulfate, sodium chloride, and the barium sulfate the
+  plate makes. Barium sulfate is so insoluble that it is what patients swallow for X-ray imaging.
+- **The proposal says the same.** Its [safety plan](../../drafts/safety_explanation.md) puts the OT-2 inside a hood
+  for "all sulfide and lead experiments" and doesn't list barium. The 10-30 practice plate was planned for CB 154 for
+  this reason ([lead plan](https://github.com/vertical-cloud-lab/digital-wetlab/blob/127e1db/docs/lead-pbs-materials-and-steps.md#barium-sulfate-practice-plate)).
+
+**Where the hood still matters on this run:**
+- Anything with barium chloride powder, which the SOP already keeps in the hood.
+- A spill: wipe it up while it's wet, so it never dries to a dust.
+- Sterling and Risk Management have the last word. If they want all barium work in a hood anyway, the OT-2 and its
+  lid camera have to go to a room with one: facilities said in March that CB 154 can't have a fume hood installed
+  ([byu-vcl 29](https://github.com/vertical-cloud-lab/byu-vcl/issues/29#issuecomment-4093457224)). In February,
+  for silver nitrate with hydrochloric acid, Sterling wrote that "Ideally, the OT-2 should be in a fumehood, or at the
+  very least tied into the exhaust" ([issue 1](https://github.com/vertical-cloud-lab/digital-wetlab/issues/1#issuecomment-3925864040)).
+
+**Why the lead plates need the OT-2 inside a hood:**
+1. Ammonium sulfide gives off hydrogen sulfide and ammonia. That is an inhalation hazard, so no bench-top use.
+2. Lead(II) nitrate is a carcinogen (Category 1B) and a reproductive toxin (Category 1A), so it is a particularly
+   hazardous substance. BYU's program (page 21) says to "Use adequate ventilation (such as a fume hood) when
+   transferring even a small amount" of one. That covers lead plates without sulfide too. The 11-02
+   [first-experiments plan](https://github.com/vertical-cloud-lab/digital-wetlab/blob/10e82b9/docs/first-experiments-v2/README.md?plain=1#L458-L462)
+   says aqueous lead salts without sulfide don't need a hood; by this rule they do, unless Risk Management says
+   otherwise.
+
+Before the OT-2 goes into a hood ([step 14](https://github.com/vertical-cloud-lab/digital-wetlab/blob/127e1db/docs/lead-pbs-materials-and-steps.md?plain=1#L351-L352)
+of the lead plan):
+- **Measure the hood.** The OT-2 is about 63-66 cm wide and tall and 57 cm deep, with the lid camera on top. Work is
+  meant to sit 15 cm (6 in) behind the sash, so the hood needs about 72 cm of clear depth, and a sash that opens
+  above the robot and camera.
+- **Ask the hood's owner.** A robot running for days takes over the hood.
+- **Ask Risk Management to check the airflow with the robot inside.** BYU's program says not to let what's in a hood
+  "block vents or airflow", and Risk Management measures hood face velocity.
 
 ## The models
 
