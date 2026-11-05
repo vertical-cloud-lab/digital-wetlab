@@ -70,4 +70,13 @@ Every clip ends by holding its last frame, so the text stays up long enough to r
 <section id="wsop3b_fill"><h3>3b. The fill and the seal</h3><video controls playsinline preload="none" width="1280" height="720"><source src="https://raw.githubusercontent.com/vertical-cloud-lab/digital-wetlab/15c9430/docs/baso4-sop-3d/out/mp4/sop3b_fill.mp4" type="video/mp4"><source src="https://cdn.jsdelivr.net/gh/vertical-cloud-lab/digital-wetlab@15c9430/docs/baso4-sop-3d/out/mp4/sop3b_fill.mp4" type="video/mp4"></video></section>
 <section id="wsop4_monitor"><h3>4. Watching it for 72 h</h3><video controls playsinline preload="none" width="1280" height="720"><source src="https://raw.githubusercontent.com/vertical-cloud-lab/digital-wetlab/15c9430/docs/baso4-sop-3d/out/mp4/sop4_monitor.mp4" type="video/mp4"><source src="https://cdn.jsdelivr.net/gh/vertical-cloud-lab/digital-wetlab@15c9430/docs/baso4-sop-3d/out/mp4/sop4_monitor.mp4" type="video/mp4"></video></section>
 <section id="wbaso4_sop_full"><h3>All of it, one part after another (4 min 8 s)</h3><video controls playsinline preload="none" width="1280" height="720"><source src="https://raw.githubusercontent.com/vertical-cloud-lab/digital-wetlab/15c9430/docs/baso4-sop-3d/out/mp4/baso4_sop_full.mp4" type="video/mp4"><source src="https://cdn.jsdelivr.net/gh/vertical-cloud-lab/digital-wetlab@15c9430/docs/baso4-sop-3d/out/mp4/baso4_sop_full.mp4" type="video/mp4"></video></section>
+<script>
+// Open at the step named in the link (player.html#s2.7), also when the page is shown through htmlpreview.
+function goToStep() {
+  const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (el) el.scrollIntoView();
+}
+goToStep();
+window.addEventListener("hashchange", goToStep);
+</script>
 </body></html>

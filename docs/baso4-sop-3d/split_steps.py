@@ -183,10 +183,10 @@ REPO_PATH = "docs/baso4-sop-3d/out"
 def player_page(rows, sha):
     """out/steps/player.html: every step on one page, each in its own player, with its caption written out.
 
-    GitHub can't play an MP4 itself (its file view says "View raw", and raw links download), so the page is meant to be
-    opened through a service that serves the repo's HTML as a web page (raw.githack.com). Each video tries GitHub's raw
-    file first, which browsers play inside a <video> tag, then jsDelivr, which serves it as video/mp4. Both are pinned
-    to `sha`, the commit that added the clips.
+    GitHub can't play an MP4 itself (its file view says "View raw", and raw links download), so the page is opened
+    through htmlpreview.github.io, which shows a repo's HTML file as a web page. Each video tries GitHub's raw file
+    first, which browsers play inside a <video> tag, then jsDelivr, which serves it as video/mp4 but sometimes refuses
+    this repo for being over its 50 MB limit. Both are pinned to `sha`, the commit that added the clips.
     """
     from html import escape
 
@@ -233,6 +233,15 @@ Every clip ends by holding its last frame, so the text stays up long enough to r
 (issue 80). The time-lapse in step 4.3 is illustrative, not a prediction; the README lists the other assumptions.</p>
 <nav><ul>{"".join(toc)}<li><a href="#whole">The six parts, and all of it</a></li></ul></nav>
 {chr(10).join(body)}
+<script>
+// Open at the step named in the link (player.html#s2.7), also when the page is shown through htmlpreview.
+function goToStep() {{
+  const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (el) el.scrollIntoView();
+}}
+goToStep();
+window.addEventListener("hashchange", goToStep);
+</script>
 </body></html>
 """
     (STEPS / "player.html").write_text(page)
