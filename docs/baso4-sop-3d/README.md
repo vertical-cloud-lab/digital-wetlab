@@ -8,6 +8,9 @@ what Tim and Michael do for the next barium chloride and sodium sulfate plate, f
 - loading the OT-2;
 - the 72 h record from the lid camera.
 
+**Materials for each step, and the hazards that could realistically hurt someone:**
+[`materials-and-safety.md`](materials-and-safety.md) (asked on 2026-11-05).
+
 The procedure is the one already written down:
 - [`docs/baso4-extended-monitoring.md`](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md)
   (11-02): plate A, the stocks, the seal, the stills schedule, and the run record;
