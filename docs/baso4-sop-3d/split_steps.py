@@ -8,6 +8,7 @@ for at least `len(caption) / READ_CPS + 1` seconds (a subtitle reading speed) an
 Nothing is re-rendered, so it needs only ffmpeg (on the PATH, or from `pip install imageio-ffmpeg`) and Pillow.
 
     python3 split_steps.py           # writes out/steps/*.mp4, out/steps/index.json and out/steps/contact_sheet.jpg
+    python3 split_steps.py --page-only --sha <commit with the clips>   # writes out/steps/player.html
 """
 
 import json
@@ -175,7 +176,72 @@ def contact_sheet(rows):
     sheet.save(STEPS / "contact_sheet.jpg", quality=86)
 
 
+REPO = "vertical-cloud-lab/digital-wetlab"
+REPO_PATH = "docs/baso4-sop-3d/out"
+
+
+def player_page(rows, sha):
+    """out/steps/player.html: every step on one page, each in its own player, with its caption written out.
+
+    GitHub can't play an MP4 itself (its file view says "View raw", and raw links download), so the page is meant to be
+    opened through a service that serves the repo's HTML as a web page (raw.githack.com). Each video tries GitHub's raw
+    file first, which browsers play inside a <video> tag, then jsDelivr, which serves it as video/mp4. Both are pinned
+    to `sha`, the commit that added the clips.
+    """
+    from html import escape
+
+    def sources(rel):
+        return (f'<source src="https://raw.githubusercontent.com/{REPO}/{sha}/{REPO_PATH}/{rel}" type="video/mp4">'
+                f'<source src="https://cdn.jsdelivr.net/gh/{REPO}@{sha}/{REPO_PATH}/{rel}" type="video/mp4">')
+
+    toc, body = [], []
+    for part in PARTS:
+        part_rows = [r for r in rows if r["part"] == part]
+        pid = part.split("_")[0]
+        toc.append(f'<li><a href="#{pid}">{escape(PART_TITLES[part])}</a>: '
+                   + " ".join(f'<a href="#s{r["label"]}">{r["label"]}</a>' for r in part_rows) + "</li>")
+        body.append(f'<h2 id="{pid}">{escape(PART_TITLES[part])}</h2>')
+        for r in part_rows:
+            raw = f"https://github.com/{REPO}/raw/{sha}/{REPO_PATH}/steps/{r['file']}"
+            body.append(
+                f'<section id="s{r["label"]}"><h3>{r["label"]} &middot; {escape(r["title"])}</h3>'
+                f'<p class="where">Where: {escape(r["where"])} &middot; {r["seconds"]:.0f} s</p>'
+                f'<video controls playsinline preload="metadata" width="1280" height="720">{sources("steps/" + r["file"])}'
+                f'</video><p>{escape(r["caption"])}</p>'
+                f'<p class="dl"><a href="{raw}">download {escape(r["file"])}</a></p></section>')
+    whole = " &middot; ".join(
+        f'<a href="#w{p}">{escape(PART_TITLES[p])}</a>' for p in PARTS)
+    body.append(f'<h2 id="whole">The six parts, and all of it</h2><p>{whole}</p>')
+    for p in PARTS + ["baso4_sop_full"]:
+        title = PART_TITLES.get(p, "All of it, one part after another (4 min 8 s)")
+        body.append(f'<section id="w{p}"><h3>{escape(title)}</h3><video controls playsinline preload="none" '
+                    f'width="1280" height="720">{sources("mp4/" + p + ".mp4")}</video></section>')
+    page = f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barium sulfate plate run: the 3-D SOP, one video per step</title>
+<style>
+body {{ font: 16px/1.45 system-ui, sans-serif; max-width: 980px; margin: 0 auto; padding: 0 14px 60px; color: #222; }}
+h1 {{ font-size: 1.5em; }} h2 {{ margin-top: 2em; border-bottom: 2px solid #2a3d8f; color: #14205a; }}
+h3 {{ margin: 1.4em 0 .2em; }} video {{ width: 100%; height: auto; background: #000; border-radius: 6px; }}
+.where {{ margin: 0 0 .4em; color: #2a3d8f; font-weight: 600; }} .dl {{ font-size: .9em; }} .note {{ color: #555; }}
+nav li {{ margin: .2em 0; }}
+</style></head><body>
+<h1>Barium sulfate plate run: the 3-D SOP, one video per step</h1>
+<p>Each step has its own player: pause, drag the bar back, or replay it. The step's text is written under each video too.
+Every clip ends by holding its last frame, so the text stays up long enough to read.</p>
+<p class="note">From <a href="https://github.com/{REPO}/tree/{sha}/docs/baso4-sop-3d">docs/baso4-sop-3d</a>
+(issue 80). The time-lapse in step 4.3 is illustrative, not a prediction; the README lists the other assumptions.</p>
+<nav><ul>{"".join(toc)}<li><a href="#whole">The six parts, and all of it</a></li></ul></nav>
+{chr(10).join(body)}
+</body></html>
+"""
+    (STEPS / "player.html").write_text(page)
+
+
 def main():
+    if "--page-only" in sys.argv:  # rewrite player.html for clips already committed at --sha <commit>
+        player_page(plan(), sys.argv[sys.argv.index("--sha") + 1])
+        return
     ff = ffmpeg_exe()
     STEPS.mkdir(parents=True, exist_ok=True)
     THUMBS.mkdir(parents=True, exist_ok=True)
@@ -191,6 +257,7 @@ def main():
     contact_sheet(rows)
     total = sum(r["seconds"] for r in rows)
     print(f"{len(rows)} steps, {total / 60:.1f} min in all")
+    print("then commit the clips, and run: python3 split_steps.py --page-only --sha <that commit>")
 
 
 if __name__ == "__main__":
