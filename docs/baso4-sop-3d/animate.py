@@ -95,9 +95,9 @@ CAM_BENCH = [(1820, -1050, 1750), (1500, 380, 1000), UP]
 CAM_PACK = [(1500, -2500, 3300), (1000, 380, 950), UP]
 CAM_MID = [(1700, -3000, 2500), (560, 330, 1050), UP]
 CAM_CB = [(CB_X + 1100, -2200, 2150), (CB_X + 250, 380, 1000), UP]
-CAM_DECK = [(OT2_AT[0] + 120, -820, 1720), (OT2_AT[0] - 40, 470, 880), UP]
-CAM_DECK2 = [(OT2_AT[0] - 380, -560, 1500), (OT2_AT[0] - 90, 440, 860), UP]
-CAM_FILL = [(OT2_AT[0] - 720, -230, 1720), (OT2_AT[0] - 120, 470, 850), UP]      # from the left: slot 7 in front
+CAM_DECK = [(OT2_AT[0] + 260, -1300, 2150), (OT2_AT[0] - 40, 440, 1170), UP]          # the lid camera in frame
+CAM_DECK2 = [(OT2_AT[0] - 380, -560, 1560), (OT2_AT[0] - 90, 440, 900), UP]
+CAM_FILL = [(OT2_AT[0] - 720, -230, 1760), (OT2_AT[0] - 120, 470, 890), UP]      # from the left: slot 7 in front
 
 
 def gauges(room, where, opened="-", extra=None):
@@ -168,18 +168,18 @@ CAP_SPOT = {"ba0": -50.0, "ba1": -17.0, "ba2": 16.0, "ba3": 49.0, "so0": -50.0, 
 
 
 def tcap(W, key, off=True):
-    """A tube's cap off (or back on): set down top-down on the surface in front of its rack, each in its own spot."""
+    """A vial's cap off (or back on): set down top-down on the surface in front of its holder, each in its own spot."""
     hx, hy = Wd.RACK_HOLES[Wd.RACK_OF[key][1]]
-    return cap_move(W, f"t_{key}_cap", 120.8, off, dx=CAP_SPOT[key] - hx, dy=-75.0 - hy)
+    return cap_move(W, f"t_{key}_cap", M.VIAL_CAP_TOP, off, dx=CAP_SPOT[key] - hx, dy=-75.0 - hy)
 
 
 def pour_pose(t_world):
-    """The wash bottle leaning over a tube from behind, its spout at the tube's mouth."""
-    return t_world @ T((0, 167, 2)) @ R((1, 0, 0), 35)
+    """The wash bottle leaning over a vial from behind, its spout over the vial's mouth."""
+    return t_world @ T((0, 202, 30)) @ R((1, 0, 0), 55)
 
 
 def tube_cap_top():
-    return 120.8
+    return M.VIAL_CAP_TOP
 
 
 def fill_tube(W, key, ml0, ml1):
@@ -189,13 +189,13 @@ def fill_tube(W, key, ml0, ml1):
 
 
 def invert(W, key, times=2):
-    """Cap on, invert the tube a few times in place (about its middle)."""
+    """Cap on, invert the vial a few times in place (about its middle)."""
     base = W.S.gmat[f"t_{key}"].copy()
 
     def f(w):
         ang = 180 * math.sin(math.pi * times * w) ** 2 if w < 1 else 0.0
         lift = 140 * math.sin(math.pi * w)
-        W.set(f"t_{key}", base @ T((0, 0, lift)) @ R((1, 0, 0), ang, (0, 0, 60)))
+        W.set(f"t_{key}", base @ T((0, 0, lift)) @ R((1, 0, 0), ang, (0, 0, 30)))
     return f
 
 
@@ -206,14 +206,14 @@ def show_eb_hood_items(W, a=1.0):
 
 
 def stocks_done(W):
-    """The state at the end of chapter 2: every tube made, capped, in its rack."""
+    """The state at the end of chapter 2: every vial made, capped, in its holder."""
     for key, _, _ in Wd.TUBES:
         W.tube_fill(key, 13.5 if key in ("ba0", "so0") else 15.0)
         W.tube_show(key)
 
 
 def racks_in_tub(W, at_cb=False):
-    """Both racks, with their tubes, in the tub (lid on), on the EB bench or on CB 154's side bench."""
+    """Both holders, with their vials, in the tub (lid on), on the EB bench or on CB 154's side bench."""
     W.show("rack_hood")
     W.show("rack_bench")
     if at_cb:
@@ -282,7 +282,7 @@ def tip_xy(i):
 
 def well_deck(r, c):
     x, y = Wd.well_xy(r, c)
-    return X7 + x, Y7 + y
+    return Wd.PLATE_XY[0] + x, Wd.PLATE_XY[1] + y
 
 
 # -------------------------------------------------------------------------------- plate A and its timing
@@ -357,7 +357,7 @@ def sop1():
                    ("CB 154: OT-2 with the\nlid camera over slot 7", (OT2_AT[0], OT2_AT[1], 1500), (0.86, 0.30))])
     S.gauges = gauges("EB B125 (Dillon lab)", "inside the hood: red")
     S.step("1.2", "Inside the hood (red): the barium chloride bottle is only ever opened here, and every barium "
-                  "solution stays here until its tube is capped. Stand outside it with only your arms in, the sash "
+                  "solution stays here until its vial is capped. Stand outside it with only your arms in, the sash "
                   "at its working-height sticker.",
            3.0, update=during(0.3, 1.0, fade(W, ["zones_eb"], 0, 1)), cam_to=CAM_EB, hold=3.0,
            labels=[("inside the hood:\nbarium chloride, open", (0, 500, 1150), (0.10, 0.56)),
@@ -381,18 +381,18 @@ def sop1():
                                 x0 + (x1 - x0) * b + 25, y0 + (y1 - y0) * b + 25, 14))
     S.add("path", M.merge(dashes), M.MATS["path"][:3], group="path", shown=False, specular=0.1)
     S.gmat["path"] = np.eye(4)
-    S.gauges = gauges("EB B125 -> CB 154", "the walk", "nothing: tubes capped, tub lidded")
-    S.step("1.4", "Everything moves between the buildings capped, in the lidded tub: the two tube racks with their "
-                  "ten tubes. Nothing is opened on the way.",
+    S.gauges = gauges("EB B125 -> CB 154", "the walk", "nothing: vials capped, tub lidded")
+    S.step("1.4", "Everything moves between the buildings capped, in the lidded tub: the two vial holders with their "
+                  "ten vials. Nothing is opened on the way.",
            3.0, update=during(0.0, 0.8, fade(W, ["path"], 0, 1)), cam_to=CAM_ALL, hold=2.6,
-           labels=[("capped tubes in the\nlidded tub", (3800, -1200, 50), (0.50, 0.30))])
+           labels=[("capped vials in the\nlidded tub", (3800, -1200, 50), (0.50, 0.30))])
     S.gauges = gauges("CB 154 (Vertical Cloud Lab)", "at the OT-2: blue")
-    S.step("1.5", "In CB 154 (blue): the tubes are uncapped only on the OT-2's deck. The plate sits in slot 7 on "
-                  "black paper, under the lid camera, and is sealed at the protocol's pause. The run, the stills and "
-                  "the end of the run all happen here.",
+    S.step("1.5", "In CB 154 (blue): the vials are uncapped only on the OT-2's deck. The plate sits on the "
+                  "heater-shaker in slot 7, under the lid camera, and is sealed at the protocol's pause. The run, the "
+                  "stills and the end of the run all happen here.",
            3.2, update=during(0.3, 1.0, fade(W, ["zones_cb"], 0, 1)), cam_to=CAM_CB, hold=3.2,
            labels=[("lid camera + Pi 5\n(byu-vcl PR 234)", tuple(W.world_of("lidcam", (W.lens[0], W.lens[1], W.lens[2] + 60))), (0.20, 0.18)),
-                   ("slot 7: plate on\nblack paper", tuple(W.world_of("ot2", tuple(M.deck(X7, Y7, 15)))), (0.22, 0.74)),
+                   ("slot 7: plate on the\nheater-shaker", tuple(W.world_of("ot2", tuple(M.deck(*Wd.PLATE_XY, Wd.PLATE_TOP)))), (0.22, 0.74)),
                    ("side bench: tub,\nwipe for the caps, waste", (Wd.BENCH_CB[0], 300, BT + 120), (0.86, 0.34))],
            still=True)
     S.gauges = [("1", "stocks: EB B125, hood + bench"), ("2", "carry: lidded tub"), ("3", "load + fill: CB 154"),
@@ -412,6 +412,9 @@ def sop2(part=None):
     else:
         S = SopScene("sop2_stocks", TITLE + " · 2 Stocks in EB B125")
     W = World(S)
+    for k in ("ba1", "ba2", "ba3", "so1", "so2", "so3"):      # the dilution vials: 13.50 g of DI water each, weighed in
+        W.tube_fill(k, 13.5)
+    W.tube_show("ba0", 0.0)                                   # the 0.1 M barium vial is the weighing vial until 2.11
     for k in ("so0", "so1", "so2", "so3", "nacl", "water"):
         W.tube_show(k)
     pan = W.S.world("balance") @ T(W.pan)
@@ -420,15 +423,17 @@ def sop2(part=None):
     S.cam = CAM_EB
     S.view_angle = 30
     person_at(W, 1040, -1500)
-    S.gauges = gauges("EB B125 (Dillon lab)", "arriving", "-", [("PPE", "coat, goggles, nitrile")])
-    S.step("2.1", "Before anything is opened: lab coat, splash goggles and nitrile gloves (two pairs for barium). "
-                  "The barium chloride SDS goes in the binder. Chris Dillon's rule for the room: keep every "
-                  "container closed and labelled.",
+    S.gauges = gauges("EB B125 (Dillon lab)", "arriving", "-", [("PPE", "nitrile, coat, glasses"),
+                                                               ("and", "long pants, closed-toe shoes")])
+    S.step("2.1", "Before anything is opened: nitrile gloves (two pairs for barium), a lab coat and safety glasses, "
+                  "with long pants and closed-toe shoes. The barium chloride SDS goes in the binder. Chris Dillon's "
+                  "rule for the room: keep every container closed and labelled.",
            2.6, update=walk(W, (1040, -1500, 0), (1040, -220, 0)), hold=2.0)
     S.gauges = gauges("EB B125", "next to the hood", "-", [("balance", "warm-up >= 1 h")])
     S.step("2.2", "The balance sits on the bench beside the hood. If it was carried over, plug it in at least an "
                   "hour before weighing: the HR-100A drifts for about an hour after a move (powder-doser 157). "
-                  "Level it by its bubble and check it with a check weight.",
+                  "Level it by its bubble and check it with a check weight. Then weigh 13.50 g of DI water into "
+                  "each of six capped vials, for the dilutions.",
            2.4, cam_to=CAM_BAL, hold=2.6, update=during(0, 1, lambda w: person_at(W, 1040, -220, 0, 1 - w)),
            labels=[("bubble level", tuple(W.world_of("balance", (-80, -112, 66))), (0.18, 0.62)),
                    ("breeze-break lid\n(lift it to load)", tuple(W.world_of("balance", (0, 37.5, 176))), (0.70, 0.18))])
@@ -443,14 +448,15 @@ def sop2(part=None):
             a = window(u, 0.2 + i * 0.075, 0.2 + i * 0.075 + 0.07)
             W.show(g, a)
             if g == "rack_hood":
-                for k in ("ba0", "ba1", "ba2", "ba3"):
+                for k in ("ba1", "ba2", "ba3"):
                     W.tube_show(k, a)
             base = W.base[g]
             W.S.gmat[g] = T((0, 0, 80 * (1 - a))) @ base if g not in ("bacl2_cap",) else W.S.gmat[g]
         person_at(W, -80 + 1120 * (1 - window(u, 0, 0.15)), -220, 0, 0.0)
     S.gauges = gauges("EB B125", "inside the hood", "-", [("sash", "up to load, then working height")])
     S.step("2.3", "Load the hood before opening anything: absorbent liner, a tray, the barium waste bottle, a wash "
-                  "bottle of fresh DI water, the barium chloride, a tube rack and a spatula, all behind the yellow line "
+                  "bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials "
+                  "and a spatula, all behind the yellow line "
                   "15 cm (6 in) inside the sash. Then lower the sash to its working-height sticker.",
            5.0, update=setup, cam_to=CAM_HOOD, hold=2.4,
            labels=[("15 cm (6 in) line", (-420, 226, WS), (0.10, 0.84)),
@@ -466,7 +472,8 @@ def sop2(part=None):
         W.set_world("vial", carry(vial_bench, pan, window(u, 0.25, 0.6), 120))
         person_at(W, 1040, -220, 0, 0.0)
     S.gauges = gauges("EB B125", "next to the hood", "balance lid only", [("balance", "0.0000 g after TARE")])
-    S.step("2.4", "At the balance: lift the breeze-break lid, put the empty capped 20 mL vial on the pan, close the "
+    S.step("2.4", "At the balance: lift the breeze-break lid, put the empty capped vial for the 0.1 M barium "
+                  "chloride on the pan, close the "
                   "lid and press TARE. A capped vial is how barium chloride reaches the balance: the powder never "
                   "leaves the hood in an open container.",
            3.4, update=tare, cam_to=CAM_BAL, hold=1.6)
@@ -545,12 +552,13 @@ def sop2(part=None):
         S.gauges = gauges("EB B125", "inside -> next to the hood", "balance lid only",
                           [("balance", "0.3664 g" if u > 0.92 else "-")])
     S.step("2.9", "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's "
-                  "lot. 0.3664 g in 15.00 mL is 0.1000 M (244.26 g/mol); for another mass, work out its "
-                  "concentration and use that in the plate map.",
+                  "lot. 0.3664 g is 1.500 mmol (244.26 g/mol): with 15.00 g of water, 0.1000 mol/kg. For another "
+                  "mass, work out its concentration and use that in the plate map.",
            3.6, update=weigh, cam_to=CAM_MID, hold=2.0)
-    # dissolve and make up the 0.1 M tube; uncap the four barium tubes first
+    # dissolve in the vial itself: it is the 0.1 M barium vial
     rack_w = W.S.world("rack_hood")
-    t0w = W.S.world("t_ba0")
+    wash0 = W.S.world("wash_hood")
+    hole0 = Wd.rack_pose(rack_w, 0)                     # A1 of the barium holder
 
     def dissolve(u):
         a = window(u, 0.0, 0.25)
@@ -558,64 +566,51 @@ def sop2(part=None):
         W.set_world("vial", carry(pan, vial_hood, window(u, 0.05, 0.3), 260))
         person_at(W, 1040 - 1120 * window(u, 0.05, 0.3), -220, 0, 0.0)
         cap_move(W, "vial_cap", 60, True, dx=60, dy=-40)(window(u, 0.3, 0.42))
-        for k in ("ba0", "ba1", "ba2", "ba3"):
-            tcap(W, k, True)(window(u, 0.3, 0.45))
-        wv = window(u, 0.45, 0.6)
-        W.S.alpha["vial_liquid"] = 1.0 if wv > 0 else 0.0
-        W.S.set_mesh("vial_liquid", M.cyl(0, 0, 1.6, 12.4, max(0.5, 20.0 * wv)))
-        sw = window(u, 0.6, 0.72)
-        W.S.alpha["vial_powder"] = 1.0 - sw
-        base = vial_hood @ T((0, 0, 70 * math.sin(math.pi * sw)))
-        swirl = R((1, 0, 0), 12 * math.sin(sw * math.pi * 6))
-        if u < 0.72:
-            W.set_world("vial", base @ swirl if sw > 0 else W.S.world("vial"))
-        pw = window(u, 0.72, 0.92)
-        above = t0w @ T((0, -18, 150))
+        pw = window(u, 0.42, 0.74)
+        over = pour_pose(vial_hood)
         if pw > 0:
-            tilt = R((1, 0, 0), -115 * window(pw, 0.3, 1.0), (0, 0, 57))
-            W.set_world("vial", carry(vial_hood, above, min(pw / 0.3, 1.0), 60) @ tilt)
-            W.S.set_mesh("vial_liquid", M.cyl(0, 0, 1.6, 12.4, max(0.3, 20.0 * (1 - window(pw, 0.4, 1.0)))))
-            W.tube_fill("ba0", 10.0 * window(pw, 0.4, 1.0))
-        tw = window(u, 0.92, 1.0)
-        if tw > 0:
-            W.set_world("vial", carry(above, vial_hood, tw, 40))
-            W.S.alpha["vial_liquid"] = 1.0 - tw
-    S.gauges = gauges("EB B125", "INSIDE the hood", "vial, the four barium tubes")
-    S.step("2.10", "In the hood: about 10 mL of DI water into the vial, cap and swirl until clear, then pour it into "
-                   "the tube marked 0.1 M barium chloride. Uncap the four barium tubes now and set their caps down "
-                   "top-down.",
+            W.set_world("wash_hood", carry(wash0, over, min(pw / 0.25, 1.0), 80) if pw < 0.85 else
+                        carry(over, wash0, (pw - 0.85) / 0.15, 80))
+        fw = window(u, 0.5, 0.7)
+        W.S.alpha["vial_liquid"] = 1.0 if fw > 0 else 0.0
+        W.S.set_mesh("vial_liquid", M.tube_liquid(max(2.2, M.ml_to_level(15.0 * fw))))
+        cap_move(W, "vial_cap", 60, False, dx=60, dy=-40)(window(u, 0.74, 0.84))
+        sw = window(u, 0.84, 1.0)
+        W.S.alpha["vial_powder"] = 1.0 - sw
+        if sw > 0:
+            W.set_world("vial", vial_hood @ T((0, 0, 70 * math.sin(math.pi * sw))) @ R((1, 0, 0), 12 * math.sin(sw * math.pi * 6)))
+    S.gauges = gauges("EB B125", "INSIDE the hood", "the 0.1 M barium vial")
+    S.step("2.10", "In the hood: about 15 mL of DI water into the vial from the wash bottle. Cap it and swirl until "
+                   "the solid is gone. The powder never leaves this vial: it is the 0.1 M barium chloride stock.",
            6.0, update=dissolve, cam_to=[(-60, -430, 1380), (40, 470, 1000), UP], hold=0.6)
-    wash0 = W.S.world("wash_hood")
 
-    def make_up(u):
-        # rinse the vial twice into the tube, then DI water to the 15 mL mark
-        p = window(u, 0.0, 0.7)
-        over = pour_pose(t0w)
-        W.set_world("wash_hood", carry(wash0, over, min(p / 0.25, 1.0), 80) if p < 0.85 else carry(over, wash0, (p - 0.85) / 0.15, 80))
-        W.tube_fill("ba0", 10.0 + 5.0 * window(u, 0.2, 0.7))
-        tcap(W, "ba0", False)(window(u, 0.72, 0.85))
-        if u > 0.85:
-            invert(W, "ba0", 2)(window(u, 0.85, 1.0))
-    S.gauges = gauges("EB B125", "INSIDE the hood", "barium tube", [("tube", "0.1 M BaCl2, 15.00 mL")])
-    S.step("2.11", "Rinse the vial twice into the tube, make it up to the 15 mL mark with DI water, cap it and invert "
-                   "it ten times. The empty vial is rinsed into the barium waste.", 4.0, update=make_up, hold=0.6)
-    W.set("t_ba0", W.base["t_ba0"])
+    def weigh_back(u):
+        lift = window(u, 0.3, 0.4) - window(u, 0.47, 0.52) + window(u, 0.6, 0.65) - window(u, 0.76, 0.86)
+        W.set("balance_lid", T((0, -40 * lift, 130 * lift)) @ lid0)
+        W.set_world("vial", carry(vial_hood, pan, window(u, 0.0, 0.45), 260) if u < 0.66 else
+                    carry(pan, hole0, window(u, 0.66, 1.0), 260))
+        person_at(W, -80 + 1120 * window(u, 0.0, 0.4) - 1120 * window(u, 0.68, 0.95), -220, 0, 1.0)
+        S.gauges = gauges("EB B125", "inside -> next to the hood -> inside", "balance lid only",
+                          [("balance", "15.37 g (+ the vial's tare)" if u > 0.52 else "-")])
+        if u > 0.985:                                   # it is now A1's vial: hand over to the stock vial ba0
+            for g in ("vial", "vial_cap"):
+                W.show(g, 0.0)
+            W.tube_fill("ba0", 15.0)
+            W.tube_show("ba0")
+    S.gauges = gauges("EB B125", "INSIDE the hood", "-", [("vial", "0.1 M BaCl2, about 15 g of water")])
+    S.step("2.11", "Wipe it, weigh it capped at the balance and log the reading: the water's mass sets the "
+                   "concentration (0.3664 g with 15.00 g of water is 0.1000 mol/kg). Then it goes back into the "
+                   "hood, into A1 of the barium holder.", 5.0, update=weigh_back, cam_to=CAM_MID, hold=0.6)
     pip0 = W.S.world("pipette_h")
     W.show("pipette_h")
 
     def dilute(u):
-        # 13.5 mL of water into tubes 2-4, then 1.5 mL down the series with the pipette
-        for i, k in enumerate(("ba1", "ba2", "ba3")):
-            W.tube_fill(k, 13.5 * window(u, 0.02 + 0.08 * i, 0.1 + 0.08 * i))
-        over_w = [pour_pose(W.S.world(f"t_{k}")) for k in ("ba1", "ba2", "ba3")]
-        if u < 0.3:
-            i = min(int(u / 0.1), 2)
-            W.set_world("wash_hood", carry(wash0, over_w[i], min(1.0, window(u, 0.0, 0.05) + (u > 0.05)), 60))
-        else:
-            W.set_world("wash_hood", carry(W.S.world("wash_hood"), wash0, window(u, 0.3, 0.36), 60) if u < 0.36 else wash0)
+        # uncap the 0.1 M vial and the three water vials, then 1.5 mL down the series with the pipette
         keys = ("ba0", "ba1", "ba2", "ba3")
+        for k in keys:
+            tcap(W, k, True)(window(u, 0.0, 0.14))
         for j in range(3):
-            a, b = 0.36 + 0.21 * j, 0.36 + 0.21 * (j + 1)
+            a, b = 0.16 + 0.28 * j, 0.16 + 0.28 * (j + 1)
             if a <= u < b:
                 v = (u - a) / (b - a)
                 src = W.S.world(f"t_{keys[j]}") @ T((0, 0, 75))
@@ -628,22 +623,22 @@ def sop2(part=None):
                     W.set_world("pipette_h", dst @ T((0, 0, -20 * math.sin(math.pi * (v - 0.6) / 0.4))))
                 lv = window(v, 0.62, 0.95)
                 W.tube_fill(keys[j + 1], 13.5 + 1.5 * lv)
-                W.tube_fill(keys[j], (15.0 if j else 15.0) - 1.5 * window(v, 0.1, 0.25))
+                W.tube_fill(keys[j], 15.0 - 1.5 * window(v, 0.1, 0.25))
         if u >= 0.99:
             W.set_world("pipette_h", carry(W.S.world("pipette_h"), pip0, 1.0, 0))
-    S.gauges = gauges("EB B125", "INSIDE the hood", "barium tubes", [("series", "0.1 M -> 10 -> 1 -> 0.1 mM")])
-    S.step("2.12", "Still in the hood: 13.5 mL of DI water in each of the next three tubes, then 1.5 mL down the "
-                   "series with a fresh pipette tip each time: 10 mM, 1 mM and 0.1 mM barium chloride. Mix each before "
-                   "the next transfer.",
+    S.gauges = gauges("EB B125", "INSIDE the hood", "barium vials", [("series", "0.1 M -> 10 -> 1 -> 0.1 mM")])
+    S.step("2.12", "Still in the hood: uncap the 0.1 M vial and the three water vials, then move 1.5 mL down the "
+                   "series with a new pipette tip each time: 10, 1 and 0.1 mM barium chloride. Cap and invert each "
+                   "before the next transfer.",
            7.0, update=dilute, hold=0.6,
            labels=[("100-1000 uL pipette\n(new tip per transfer)", (380, 380, WS + 280), (0.86, 0.22))])
 
     def recap(u):
-        for k in ("ba1", "ba2", "ba3"):
+        for k in ("ba0", "ba1", "ba2", "ba3"):
             tcap(W, k, False)(window(u, 0.0, 0.6))
         W.set_world("pipette_h", carry(W.S.world("pipette_h"), pip0, window(u, 0, 0.3), 30) if u < 0.3 else pip0)
-    S.gauges = gauges("EB B125", "INSIDE the hood", "closing the tubes")
-    S.step("2.13", "Cap all four barium tubes. Label each one: name, concentration, date, initials. Pipette tips "
+    S.gauges = gauges("EB B125", "INSIDE the hood", "closing the vials")
+    S.step("2.13", "Cap all four barium vials. Label each one: name, concentration, date, initials. Pipette tips "
                    "and wipes that touched barium go in the barium waste in the hood.", 2.4, update=recap, hold=0.6)
     # ---- sodium sulfate and sodium chloride, at the balance
     boat0 = W.S.world("boat")
@@ -684,7 +679,7 @@ def sop2(part=None):
     S.gauges = gauges("EB B125", "next to the hood", "-")
     S.step("2.14", "Sodium sulfate is weighed on the bench, in an open weigh boat: tare the boat, open the bottle, "
                    "spatula about 213 mg into the boat, close the bottle. 0.2131 g of anhydrous sodium sulfate "
-                   "(142.04 g/mol) in 15.00 mL is 0.1000 M.",
+                   "(142.04 g/mol) with 15.00 g of water is 0.1000 mol/kg.",
            7.0, update=so4, cam_to=CAM_BENCH, hold=1.0,
            labels=[("sodium sulfate,\nanhydrous", (1330, 560, BT + 150), (0.70, 0.20))])
     t_so0 = W.S.world("t_so0")
@@ -693,12 +688,12 @@ def sop2(part=None):
 
     def so4_tube(u):
         tcap(W, "so0", True)(window(u, 0.0, 0.12))
-        W.set_world("funnel", carry(funnel0, t_so0 @ T((0, 0, 118)), window(u, 0.05, 0.2), 80) if u < 0.75 else
-                    carry(t_so0 @ T((0, 0, 118)), funnel0, window(u, 0.75, 0.85), 80))
+        W.set_world("funnel", carry(funnel0, t_so0 @ T((0, 0, 58)), window(u, 0.05, 0.2), 80) if u < 0.75 else
+                    carry(t_so0 @ T((0, 0, 58)), funnel0, window(u, 0.75, 0.85), 80))
         a = window(u, 0.15, 0.25)
         b = window(u, 0.3, 0.38)
         W.set("balance_lid", T((0, -40 * (a - b), 130 * (a - b))) @ lid0)
-        over = t_so0 @ T((-35, 0, 175)) @ R((0, 1, 0), 110, (0, 0, 0))
+        over = t_so0 @ T((-35, 0, 115)) @ R((0, 1, 0), 110, (0, 0, 0))
         tw = window(u, 0.25, 0.42)
         W.set_world("boat", carry(boat_pan, over, min(tw / 0.6, 1.0), 120) if tw < 1 else boat0)
         if tw >= 0.6:
@@ -709,15 +704,15 @@ def sop2(part=None):
                     carry(over_w, wash_b0, (ww - 0.85) / 0.15, 80))
         W.tube_fill("so0", 15.0 * window(u, 0.48, 0.72))
         tcap(W, "so0", False)(window(u, 0.84, 0.95))
-    S.gauges = gauges("EB B125", "next to the hood", "sulfate tube")
-    S.step("2.15", "Tip the boat through a funnel into the 0.1 M sodium sulfate tube, rinse the boat and funnel in "
-                   "with DI water, and make it up to 15 mL. Cap and invert.",
+    S.gauges = gauges("EB B125", "next to the hood", "sulfate vial")
+    S.step("2.15", "Tip the boat through a funnel into the 0.1 M sodium sulfate vial and rinse the boat and funnel in "
+                   "with DI water, to about 15 mL. Cap and invert it, then weigh it capped and log the water's mass.",
            4.6, update=so4_tube, cam_to=[(1950, -700, 1550), (1650, 380, 1000), UP], hold=0.6)
 
     def rest(u):
         for i, k in enumerate(("so1", "so2", "so3")):
             tcap(W, k, True)(window(u, 0.0, 0.12))
-            W.tube_fill(k, 13.5 * window(u, 0.05 + 0.05 * i, 0.12 + 0.05 * i) + 1.5 * window(u, 0.3 + 0.08 * i, 0.38 + 0.08 * i))
+            W.tube_fill(k, 13.5 + 1.5 * window(u, 0.3 + 0.08 * i, 0.38 + 0.08 * i))
             tcap(W, k, False)(window(u, 0.55, 0.65))
         cap_move(W, "nacl_cap", 178, True, dx=-80, dy=-60)(window(u, 0.6, 0.7))
         for k in ("nacl", "water"):
@@ -727,12 +722,13 @@ def sop2(part=None):
         cap_move(W, "nacl_cap", 178, False, dx=-80, dy=-60)(window(u, 0.8, 0.9))
         for k in ("nacl", "water"):
             tcap(W, k, False)(window(u, 0.9, 1.0))
-        S.gauges = gauges("EB B125", "next to the hood", "sulfate tubes" if u < 0.6 else "sodium chloride bottle",
+        S.gauges = gauges("EB B125", "next to the hood", "sulfate vials" if u < 0.6 else "sodium chloride bottle",
                           [("balance", "4.3830 g NaCl" if u > 0.75 else "-")])
-    S.step("2.16", "The same tenfold series for 10, 1 and 0.1 mM sodium sulfate. Then 4.383 g of sodium chloride "
-                   "made up to 15 mL (5 M), and a tube of fresh DI water: ten tubes in all, each labelled and logged.",
+    S.step("2.16", "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials. Then "
+                   "4.383 g of sodium chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: "
+                   "ten vials in all, each labelled and logged.",
            5.0, update=rest, hold=1.2,
-           labels=[("5 M NaCl and DI water", tuple(W.world_of("rack_bench", (17, -17, 130))), (0.82, 0.22))])
+           labels=[("5 M NaCl and DI water", tuple(W.world_of("rack_bench", (20, -20, 80))), (0.82, 0.22))])
     # clean up and pack
     tub_w = W.S.world("tub")
 
@@ -743,8 +739,8 @@ def sop2(part=None):
         W.set("sash", T((0, 0, (M.HOOD["working"] - 30) * (1 - window(u, 0.85, 1.0)))))
         person_at(W, 1120 - 1200 * window(u, 0.0, 0.15) + 1150 * window(u, 0.5, 0.7), -220, 0, 1.0)
     S.gauges = gauges("EB B125", "inside the hood -> bench", "tub lid")
-    S.step("2.17", "Wipe the outside of the barium tubes and the rack in the hood, then carry the rack straight to "
-                   "the tub; the bench rack joins it. Lid on. Outer gloves off in the hood, liner and wipes into the "
+    S.step("2.17", "Wipe the outside of the barium vials and their holder in the hood, then carry the holder "
+                   "straight to the tub; the bench holder joins it. Lid on. Outer gloves off in the hood, liner and wipes into the "
                    "barium waste, sash fully down. Leave the hood as you found it.",
            6.0, update=pack, cam_to=CAM_PACK, hold=2.0, still=True)
     S.save()
@@ -772,14 +768,16 @@ def sop3(part=None):
                   "lights on with no off timer, and the capture job tested.",
            2.6, update=walk(W, (Wd.BENCH_CB[0], -1600, 0), (OT2_AT[0] + 760, -380, 0)), hold=2.4,
            cam_to=[(CB_X + 700, -3400, 3300), (CB_X + 450, 420, 900), UP],
-           labels=[("tub with both racks", (Wd.BENCH_CB[0] + 30, 330, BT + 170), (0.86, 0.26)),
+           labels=[("tub with both holders", (Wd.BENCH_CB[0] + 30, 330, BT + 170), (0.86, 0.26)),
                    ("lid camera + Pi 5", tuple(W.world_of("lidcam", (W.lens[0], W.lens[1], W.lens[2] + 70))), (0.30, 0.16))])
     S.gauges = gauges("CB 154", "at the OT-2", "OT-2 door")
-    S.step("3.2", "Open the OT-2's door. The colour sensor stays parked in slot 10, and nothing else drives the "
-                  "robot while the protocol runs (one controller at a time).",
+    S.step("3.2", "Open the OT-2's door. The colour sensor stays parked in its charging station in slot 10, and "
+                  "nothing else drives the robot while the protocol runs (one controller at a time). The "
+                  "heater-shaker sits in slot 7, under the lid camera.",
            2.6, update=seq(door(W, True), lambda u: W.show("person", 1 - u)), cam_to=CAM_DECK, hold=1.4,
-           labels=[("colour sensor, parked\n(slot 10)", tuple(W.world_of("sensor", (0, 0, 104))), (0.14, 0.22)),
-                   ("slot 7, under\nthe lid camera", tuple(W.world_of("ot2", tuple(M.deck(X7, Y7, 2)))), (0.14, 0.66))])
+           labels=[("colour sensor in its\ncharging station (slot 10)", tuple(W.world_of("sensor", (*M.WCS_A2[:2], 104))), (0.12, 0.30)),
+                   ("lid camera (Pi HQ\n+ Pi 5) over slot 7", tuple(W.world_of("lidcam", (W.lens[0], W.lens[1], W.lens[2] + 70))), (0.40, 0.10)),
+                   ("heater-shaker\n(slot 7)", tuple(W.world_of("ot2", tuple(M.deck(X7, Y7 - 40, 60)))), (0.12, 0.66))])
     paper_w = W.S.world("paper")
     plate_w = W.S.world("plate")
     side = T((Wd.BENCH_CB[0] - 250, 120, BT))
@@ -795,9 +793,10 @@ def sop3(part=None):
             W.set("plate_lid", T((0, -260 * lw, 60 * math.sin(math.pi * lw) + 30 * lw)))
             W.show("plate_lid", 1 - window(u, 0.9, 1.0))
         W.S.alpha["fov"] = 0.22 * window(u, 0.1, 0.3)
-    S.gauges = gauges("CB 154", "on the deck", "plate lid")
-    S.step("3.3", "Slot 7, under the lid camera: black paper, then the NEST 96-well plate with A1 at the back left. "
-                  "Take its lid off only now. The yellow cone is what the camera sees.",
+    S.gauges = gauges("CB 154", "on the deck", "plate lid", [("slot 7", "heater-shaker + flat adapter")])
+    S.step("3.3", "Slot 7, on the heater-shaker's 96 flat-bottom adapter: black paper cut to the adapter, then the "
+                  "NEST 96-well plate with A1 at the back left; close the labware latch. Take the plate's lid off "
+                  "only now. The yellow cone is what the camera sees.",
            3.4, update=plate_in, cam_to=CAM_DECK2, hold=1.2)
 
     def tips_in(u):
@@ -822,19 +821,19 @@ def sop3(part=None):
         W.set_world("rack_bench", carry(rb0, rb1, window(u, 0.45, 0.9), 260))
         person_at(W, OT2_AT[0] + 760, -380, 0, 0.0)
     S.gauges = gauges("CB 154", "side bench -> deck", "tub lid")
-    S.step("3.5", "Lift the two racks out of the tub and onto the deck as they are: barium chloride in slot 4; sodium "
-                  "sulfate, the 5 M NaCl and the DI water in slot 5, in the positions the protocol's map gives.",
+    S.step("3.5", "Lift the two vial holders out of the tub and onto the deck as they are, A1 at the back left: barium "
+                  "chloride in slot 4; sodium sulfate, the 5 M NaCl and the DI water in slot 5, in the positions the "
+                  "protocol's map gives.",
            4.0, update=racks_on, cam_to=CAM_DECK, hold=0.6,
-           labels=[("slot 4: BaCl2 x4", tuple(W.world_of("ot2", tuple(M.deck(x4, y4, 130)))), (0.14, 0.30)),
-                   ("slot 5: Na2SO4 x4,\n5 M NaCl, DI water", tuple(W.world_of("ot2", tuple(M.deck(x5, y5, 130)))), (0.62, 0.16))])
+           labels=[("slot 4: BaCl2 x4", tuple(W.world_of("ot2", tuple(M.deck(x4, y4, 75)))), (0.14, 0.40)),
+                   ("slot 5: Na2SO4 x4,\n5 M NaCl, DI water", tuple(W.world_of("ot2", tuple(M.deck(x5, y5, 75)))), (0.62, 0.86))])
     W.reparent("rack_hood", "ot2")
     W.reparent("rack_bench", "ot2")
     wipe = W.S.world("wipe")
     order = ["ba0", "ba1", "ba2", "ba3", "so0", "so1", "so2", "so3", "nacl", "water"]
     cap_home = {}
     for i, k in enumerate(order):
-        cap_home[k] = wipe @ T((-120 + (i % 5) * 60, 40 - (i // 5) * 80, 0)) @ R((1, 0, 0), 180, (0, 0, 60.4)) @ \
-            T((0, 0, -(120.8 - 120.8)))
+        cap_home[k] = wipe @ T((-120 + (i % 5) * 60, 40 - (i // 5) * 80, 0)) @ R((1, 0, 0), 180, (0, 0, M.VIAL_CAP_TOP / 2))
     starts = {k: W.S.world(f"t_{k}_cap") for k in order}
 
     def uncap(u):
@@ -844,11 +843,11 @@ def sop3(part=None):
                 continue
             spin = R((0, 0, 1), -540 * min(w / 0.3, 1.0))
             lifted = starts[k] @ T((0, 0, 10 * min(w / 0.3, 1.0))) @ spin
-            dest = cap_home[k] @ T((0, 0, 120.8 - 110.3)) @ T((0, 0, -120.8 + 10.5)) if False else cap_home[k]
+            dest = cap_home[k]
             W.set_world(f"t_{k}_cap", lifted if w < 0.3 else carry(lifted, dest, (w - 0.3) / 0.7, 200))
-    S.gauges = gauges("CB 154", "on the deck", "the ten stock tubes")
-    S.step("3.6", "Uncap the ten tubes one at a time, here on the deck and only now. Each cap goes top-down on a "
-                  "clean wipe, in the same order, so it goes back on its own tube.",
+    S.gauges = gauges("CB 154", "on the deck", "the ten stock vials")
+    S.step("3.6", "Uncap the ten vials one at a time, here on the deck and only now. Each cap goes top-down on a "
+                  "clean wipe, in the same order, so it goes back on its own vial.",
            5.4, update=uncap, cam_to=[(OT2_AT[0] + 520, -900, 1650), (OT2_AT[0] + 330, 330, 900), UP], hold=0.8)
 
     def close_start(u):
@@ -894,7 +893,7 @@ def sop3(part=None):
         for rc in wells[:detailed]:
             wx, wy = well_deck(*rc)
             legs += [(tx, ty, SAFE_Z), (tx, ty, surf + TIP_DROP - 10), (tx, ty, SAFE_Z), (wx, wy, SAFE_Z),
-                     (wx, wy, 14.6 + 3 + TIP_DROP), (wx, wy, SAFE_Z)]
+                     (wx, wy, Wd.PLATE_TOP + 3 + TIP_DROP), (wx, wy, SAFE_Z)]
         nd = len(legs)
         f_detail = head_path(W, legs)
         wx_l, wy_l = well_deck(*wells[-1])
@@ -923,8 +922,8 @@ def sop3(part=None):
         n = sum(1 for rc in pm if vols[rc][kind] > 0)
         cap = {"water": f"{n} wells: DI water first, one tip for the pass, dispensing from above.",
                "nacl": f"{n} wells: 40 uL of 5 M NaCl (1 molal in 200 uL). Barium chloride and sodium sulfate come from "
-                       "the 0.1 M, 10, 1 and 0.1 mM tubes: 20 uL gives 1/10 of the stock, 60 uL of 10 mM gives 3 mM.",
-               "ba": f"{n} wells: barium chloride, from the tube each well needs (shown: 1 mM). A dose under 20 uL, "
+                       "the 0.1 M, 10, 1 and 0.1 mM vials: 20 uL gives 1/10 of the stock, 60 uL of 10 mM gives 3 mM.",
+               "ba": f"{n} wells: barium chloride, from the vial each well needs (shown: 1 mM). A dose under 20 uL, "
                      "the P300's minimum, stops the protocol instead of becoming zero.",
                "so": f"{n} wells: sodium sulfate last, a new tip for every well, dispensed from above the liquid, so no "
                      "tip that touched barium goes back into a stock. Each well's start time comes from the run log."}[kind]
@@ -957,7 +956,7 @@ def sop3(part=None):
         door(W, False)(window(u, 0.85, 1.0)) if u > 0.85 else None
         S.gauges = gauges("CB 154", "on the deck", "-", [("protocol", "done; head parked"),
                                                          ("lights", "rail lights on, no timer")])
-    S.step("3.13", "When the protocol ends: recap each tube from its place on the wipe (leftover stocks go to the "
+    S.step("3.13", "When the protocol ends: recap each vial from its place on the wipe (leftover stocks go to the "
                    "barium waste at the end of the run), close the door, and leave the rail lights on. The head parks "
                    "away from slot 7 so the camera has a clear view.",
            4.4, update=recap, cam_to=CAM_DECK, hold=1.6, still=True)
@@ -989,17 +988,18 @@ def sop4():
         S.base_alpha[f"well_{r}_{c}"] = 0.22
     person_at(W, OT2_AT[0] + 900, -900, 0, 0.0)
     lens_world = (W.S.world("ot2") @ np.array([*W.lens, 1.0]))[:3]
-    plate_world = (W.S.world("ot2") @ np.array([*M.deck(X7, Y7, 14.6), 1.0]))[:3]
+    plate_world = (W.S.world("ot2") @ np.array([*M.deck(*Wd.PLATE_XY, Wd.PLATE_TOP), 1.0]))[:3]
     S.cam = CAM_CB
     S.view_angle = 30
     S.gauges = gauges("CB 154", "OT-2, door closed", "-", [("t", "0 min after the last sulfate")])
     S.step("4.1", "The lid camera (Raspberry Pi HQ camera, 8-50 mm zoom, Pi 5) looks straight down through the top "
-                  "window at slot 7. The capture job takes a still every minute until 30 min after the last sulfate, "
-                  "every 5 min until 6 h, then every 15 min: about 400 stills in 72 h.",
+                  "window at the plate on the heater-shaker, 69 mm closer than a plate on the deck, so refocus it "
+                  "first. Stills every minute until 30 min after the last sulfate, every 5 min until 6 h, then every "
+                  "15 min: about 400 in 72 h.",
            3.2, update=lambda u: W.S.alpha.__setitem__("fov", 0.25 * u),
-           cam_to=[(OT2_AT[0] - 650, -380, 1900), (OT2_AT[0] - 130, 450, 950), UP], hold=2.4,
+           cam_to=[(OT2_AT[0] - 760, -760, 2250), (OT2_AT[0] - 130, 440, 1130), UP], hold=2.4,
            labels=[("lid camera", tuple(lens_world + (0, 0, 60)), (0.70, 0.16)),
-                   ("its view: about\n140 x 105 mm", tuple(plate_world), (0.70, 0.62))])
+                   (f"its view: about\n{W.fov_mm[0]:.0f} x {W.fov_mm[1]:.0f} mm", tuple(plate_world), (0.70, 0.62))])
     cam_view = [tuple(lens_world - (0, 0, 4)), tuple(plate_world), (0, 1, 0)]
 
     def to_cam(u):

@@ -23,21 +23,27 @@ WS = M.HOOD["ws_z"]                   # hood work surface
 BT = 915.0                            # bench tops
 TT = 760.0                            # the OT-2 table top
 
-# 15 mL stock tubes: (key, label, band, mL at the start)
+# the ten stock vials (20 mL VOA, in two printed 6-vial holders): (key, label, band)
 TUBES = [("ba0", "0.1 M BaCl2", "band_ba"), ("ba1", "10 mM BaCl2", "band_ba"), ("ba2", "1 mM BaCl2", "band_ba"),
          ("ba3", "0.1 mM BaCl2", "band_ba"), ("so0", "0.1 M Na2SO4", "band_so4"), ("so1", "10 mM Na2SO4", "band_so4"),
          ("so2", "1 mM Na2SO4", "band_so4"), ("so3", "0.1 mM Na2SO4", "band_so4"), ("nacl", "5 M NaCl", "band_nacl"),
          ("water", "DI water", "band_water")]
-RACK_HOLES = [(-35.0, 17.5), (0.0, 17.5), (35.0, 17.5), (-35.0, -17.5), (0.0, -17.5), (35.0, -17.5)]   # labware.tube_rack_6
-TUBE_Z_IN_RACK = 4.0
-# where each tube sits: the hood's rack (barium) and the bench's rack (sulfate, NaCl, water). The racks are the AC
-# 6-tube OT-2 racks, so they travel in the tub and go onto the deck as they are: hood rack -> slot 4, bench rack -> 5.
+RACK_HOLES = [(-40.0, 20.0), (0.0, 20.0), (40.0, 20.0), (-40.0, -20.0), (0.0, -20.0), (40.0, -20.0)]   # vial_holder: A1-A3, B1-B3
+TUBE_Z_IN_RACK = 3.0                  # the holder's pocket floor
+# where each vial sits: the hood's holder (barium) and the bench's holder (sulfate, NaCl, water). The holders are the
+# printed 6-vial OT-2 holders (vial_holder.py), so they travel in the tub and go onto the deck as they are: hood
+# holder -> slot 4, bench holder -> 5.
 RACK_OF = {"ba0": ("rack_hood", 0), "ba1": ("rack_hood", 1), "ba2": ("rack_hood", 2), "ba3": ("rack_hood", 3),
            "so0": ("rack_bench", 0), "so1": ("rack_bench", 1), "so2": ("rack_bench", 2), "so3": ("rack_bench", 3),
            "nacl": ("rack_bench", 4), "water": ("rack_bench", 5)}
 
 PLATE_WELL_R = 3.48
 WELL_BOTTOM = 3.4                     # NEST 200 uL flat: 14.3 tall, wells 10.9 deep
+PAPER_T = 0.3                         # black paper under the plate, on the heater-shaker's adapter
+# the plate on the Heater-Shaker in slot 7 (models.HS): its centre and its top, in deck coordinates
+PLATE_XY = (M.slot_centre(7)[0] + M.HS_PLATE_XY[0], M.slot_centre(7)[1] + M.HS_PLATE_XY[1])
+PLATE_Z = M.HS_PLATE_Z + PAPER_T
+PLATE_TOP = PLATE_Z + 14.3
 
 
 def well_xy(r: int, c: int) -> tuple[float, float]:
@@ -137,11 +143,12 @@ class World:
         bacl2 = M.reagent_bottle("amber", 72, 125, 56, 24, band="band_ba", fill=0.5)
         self.put("bacl2", {k: v for k, v in bacl2.items() if k != "cap"}, T((-290, 560, WS + 4)), shown=False)
         self.put("bacl2_cap", {"cap": bacl2["cap"]}, parent="bacl2", shown=False)
-        self.put("rack_hood", self.lw["rack"], T((120, 470, WS + 4)), shown=False)
+        self.put("rack_hood", self.lw["holder"], T((120, 470, WS + 4)), shown=False)
         self.put("spatula", self.lw["spatula"], T((-120, 360, WS + 4)) @ R((0, 0, 1), 20), shown=False)
         # weighing vial (20 mL, capped) starts on the bench by the balance
         vial = self.lw["vial"]
-        self.put("vial", {"glass": vial["glass"]}, T((1240, 520, BT)))
+        self.put("vial", {"glass": vial["glass"], "band": M.entry(M.ring(0, 0, 32, 14.45, 13.9, 9), "band_ba")},
+                 T((1240, 520, BT)))
         self.put("vial_cap", {"cap": vial["pp_black"]}, parent="vial")
         S.add("vial_powder", M.cyl(0, 0, 1.6, 12.3, 1.0), M.MATS["powder"][:3], group="vial", shown=False, specular=0.05)
         S.add("vial_liquid", M.cyl(0, 0, 1.6, 12.4, 1.0), M.MATS["solution"][:3], group="vial", opacity=0.5,
@@ -159,7 +166,7 @@ class World:
         funnel = pv.Cone(center=(0, 0, 0), direction=(0, 0, -1), height=40, radius=30, resolution=36, capping=False)
         funnel = M.merge([funnel.translate((0, 0, 40), inplace=False).triangulate(), M.cyl(0, 0, 0, 4, 22)])
         self.put("funnel", {"f": M.entry(funnel, "polypropylene")}, T((1560, 180, BT)), shown=True)
-        self.put("rack_bench", self.lw["rack"], T((1700, 330, BT)))
+        self.put("rack_bench", self.lw["holder"], T((1700, 330, BT)))
         self.put("wash_bench", M.wash_bottle(), T((1880, 560, BT)))
         self.put("tub", {"tub": M.tub()["tub"]}, T((2120, 300, BT)))
         self.put("tub_lid", {"lid": M.tub()["tub lid"]}, T((0, 0, 150)), parent="tub")
@@ -195,26 +202,33 @@ class World:
         S.gmat["ot2_tipg"] = T(ot["nozzle"])
         self.nozzle = ot["nozzle"]
         self.put("lidcam", self.lc, parent="ot2")
-        # field of view, lens to the plate (about 140 x 105 mm at the plate, ~200 px per well)
+        # field of view, lens to the plate on the heater-shaker: the 140 x 105 mm the lens saw at a plate on the
+        # deck (10-30), narrowed by the plate's 69 mm rise, if the zoom stays where it is
         x7, y7 = M.slot_centre(7)
         lens = M.deck(x7, y7, 643.8 - 53.55 + 11.5)
-        tgt = M.deck(x7, y7, 14.6)
-        pyr = pv.Pyramid([(tgt[0] - 70, tgt[1] - 52, tgt[2]), (tgt[0] + 70, tgt[1] - 52, tgt[2]),
-                          (tgt[0] + 70, tgt[1] + 52, tgt[2]), (tgt[0] - 70, tgt[1] + 52, tgt[2]), tuple(lens)])
+        tgt = M.deck(PLATE_XY[0], PLATE_XY[1], PLATE_TOP)
+        k = (lens[2] - tgt[2]) / (lens[2] - M.deck(0, 0, 14.6)[2])
+        self.fov_mm = (140.0 * k, 105.0 * k)
+        hx, hy = 70.0 * k, 52.5 * k
+        pyr = pv.Pyramid([(tgt[0] - hx, tgt[1] - hy, tgt[2]), (tgt[0] + hx, tgt[1] - hy, tgt[2]),
+                          (tgt[0] + hx, tgt[1] + hy, tgt[2]), (tgt[0] - hx, tgt[1] + hy, tgt[2]), tuple(lens)])
         S.add("fov", pyr.extract_surface(algorithm="dataset_surface").triangulate(), (1.0, 0.82, 0.2), group="fov", opacity=0.20, shown=False,
               specular=0.0)
         S.parent["fov"] = "ot2"
         S.gmat["fov"] = np.eye(4)
         self.lens = lens
-        # fixed parts of the deck as found: colour sensor parked in slot 10 on its base
+        # fixed parts of the deck: the colour sensor parked in the right-hand socket of its charging station in
+        # slot 10, and the Heater-Shaker in slot 7 with its 96 Flat Bottom Adapter (Sterling put it in on 10-13)
         x10, y10 = M.slot_centre(10)
-        base = {"b": M.entry(M.box(-60, -40, 0, 60, 40, 22), "pla_grey")}
-        self.put("sensor_base", base, T(M.deck(x10, y10, 0)), parent="ot2")
-        self.put("sensor", self.lw["sensor"], T(M.deck(x10, y10, 22)), parent="ot2")
-        # labware, hidden until it goes on: black paper and plate (slot 7), tips (slot 6), two racks (slots 4, 5)
-        self.put("paper", {"p": M.entry(M.box(-66, -45, 0, 66, 45, 0.3), "black_paper")}, T(M.deck(x7, y7, 0)),
-                 parent="ot2", shown=False)
-        self.put("plate", self.lw["plate"], T(M.deck(x7, y7, 0.3)), parent="ot2", shown=False)
+        wcs = M.cached("wcs", M.build_wcs)
+        self.put("sensor_base", wcs["station"], T(M.deck(x10, y10, 0)), parent="ot2")
+        self.put("sensor", wcs["sensor"], T(M.deck(x10, y10, 0)), parent="ot2")
+        self.put("hs", M.cached("hs", M.build_heater_shaker), T(M.deck(x7 - 64.0, y7 - 43.0, 0)), parent="ot2")
+        # labware, hidden until it goes on: black paper and the plate (on the adapter), tips (slot 6), the two vial
+        # holders (slots 4, 5)
+        self.put("paper", {"p": M.entry(M.box(-47, -29, 0, 47, 29, PAPER_T), "black_paper")},
+                 T(M.deck(PLATE_XY[0], PLATE_XY[1], M.HS_PLATE_Z)), parent="ot2", shown=False)
+        self.put("plate", self.lw["plate"], T(M.deck(PLATE_XY[0], PLATE_XY[1], PLATE_Z)), parent="ot2", shown=False)
         lid = M.box(-64.7, -43.5, 9.0, 64.7, 43.5, 10.0).merge(M.box(-64.7, -43.5, 4.0, -63.7, 43.5, 10.0))
         self.put("plate_lid", {"l": M.entry(lid, "polystyrene")}, parent="plate", shown=False)
         self.put("seal", {"s": M.entry(M.seal_film(), "seal")}, T((0, 0, 14.35)), parent="plate", shown=False)
@@ -245,17 +259,17 @@ class World:
 
     # ------------------------------------------------------------------------------------- stock tubes
     def build_tubes(self):
-        """The ten 15 mL tubes, each with a liquid actor and a separate cap. They start empty and hidden."""
+        """The ten stock vials, each with a liquid actor and a separate cap. They start empty and hidden."""
         S = self.S
-        tube = self.lw["tube"]
+        vial = self.lw["vial"]
         for key, _, band in TUBES:
             g = f"t_{key}"
-            ent = {"tube": tube["tube"], "band": M.entry(M.ring(0, 0, 70, 8.95, 8.4, 14), band)}
+            ent = {"tube": vial["glass"], "band": M.entry(M.ring(0, 0, 32, 14.45, 13.9, 9), band)}
             rack, hole = RACK_OF[key]
             hx, hy = RACK_HOLES[hole]
             self.put(g, ent, T((hx, hy, TUBE_Z_IN_RACK)), parent=rack if rack in self.S.gmat else None, shown=False)
             S.add(f"{g}:liquid", M.tube_liquid(5), M.MATS["solution"][:3], group=g, opacity=0.5, shown=False, specular=0.6)
-            self.put(f"{g}_cap", {"cap": tube["cap"]}, parent=g, shown=False)
+            self.put(f"{g}_cap", {"cap": vial["pp_black"]}, parent=g, shown=False)
             self.tube_level[key] = 0.0
 
     def tube_fill(self, key, ml):

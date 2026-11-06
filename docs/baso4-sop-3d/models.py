@@ -38,6 +38,8 @@ import cadquery as cq          # noqa: E402
 import common as LM            # noqa: E402
 import labware as LW           # noqa: E402
 
+_AC_WCS = ("https://raw.githubusercontent.com/AccelerationConsortium/wireless-color-sensor/"
+           "07efedd7302bd1def93ef81ceadba38e1ae96853/CAD-File/STEP/")
 VENDOR = {
     "ot2": dict(
         url="https://raw.githubusercontent.com/Opentrons/ot2/ef9ede131ed1d64daf9a0df5b2140a0a8e56b632/"
@@ -49,6 +51,16 @@ VENDOR = {
             "ot2-overhead-camera/lid-mount/exports/assembly.step",
         name="lid-mount-assembly-49677cf.step",
         sha256="dd015aea0df230f56215424bd1c14c54fc91de910a8626abdeebb4a8facca17b"),
+    # the wireless colour sensor and its charging station: the Acceleration Consortium's own CAD (their repo carries
+    # no licence, so these are fetched for the render and never committed)
+    "wcs_base": dict(url=_AC_WCS + "Charging%20Base.step", name="ac-wcs-charging-base-07efedd.step",
+                     sha256="7a6094618ab3e1b2ddbf0e65873af39f5c484bf8eba008e7435cc9c3257a859b"),
+    "wcs_enc_a": dict(url=_AC_WCS + "Charging%20Enclosure%20A%20side.step", name="ac-wcs-enclosure-a-07efedd.step",
+                      sha256="0c11644b618b8dcfb6a509cc8c09a88796c59e0dcab28d6b4acc8cfc75bdfbfd"),
+    "wcs_enc_b": dict(url=_AC_WCS + "Charging%20Enclosure%20B%20side.step", name="ac-wcs-enclosure-b-07efedd.step",
+                      sha256="f22a2d9d3627dd846c13751cd6d37ef3c0d85f92d657319098d379cf6a8838bb"),
+    "wcs_sensor": dict(url=_AC_WCS + "Sensor%20package%20main%20enclosure.step", name="ac-wcs-sensor-07efedd.step",
+                       sha256="06f7e4f90d217fbbaae1faf464fb2c033c27f01f99cf24b5bb02860a6748ab96"),
 }
 
 # ---------------------------------------------------------------------------------------------- materials
@@ -265,6 +277,67 @@ def build_lidcam() -> dict:
     return out
 
 
+# ---- the wireless colour sensor on its charging station (Acceleration Consortium CAD) ----------------------------
+# The STEP files are Y-up, like the OT-2's. The station is the black base plate (128 x 86 x 13 mm) with the two
+# halves of the white charging enclosure on it (84 mm tall, a socket each side of the transmitter tower). The lab's
+# labware definition for it (byu-vcl PR 116, byu_color_sensor_charging_port) puts the sensor's foot 16 mm above the
+# deck and its fake-tip post 84 mm above that; the lab parks it in the right-hand socket, A2, whose post the
+# 10-14 README measured at (92.8, 316.5) in slot 10: (+28.8, +2.0) from the slot's centre.
+WCS_A2 = (28.8, 2.0, 21.0)          # post axis from the slot centre; z lifts the sensor's foot (-5 in its file) to 16
+
+
+def _y_up(s: cq.Shape, rz: float = 0.0, t=(0.0, 0.0, 0.0)) -> cq.Shape:
+    s = s.moved(cq.Location(cq.Vector(0, 0, 0), cq.Vector(1, 0, 0), 90))
+    if rz:
+        s = s.moved(cq.Location(cq.Vector(0, 0, 0), cq.Vector(0, 0, 1), rz))
+    return s.moved(cq.Location(cq.Vector(*t)))
+
+
+def build_wcs() -> dict:
+    """{'station': entries, 'sensor': entries}, in a frame at the slot's centre on the deck surface."""
+    one = {k: next(iter(step_solids(fetch(k)).values())) for k in ("wcs_base", "wcs_enc_a", "wcs_enc_b", "wcs_sensor")}
+    station = {"charging base": entry(to_mesh(_y_up(one["wcs_base"]), 0.3), "printer_black"),
+               "charging enclosure A side": entry(to_mesh(_y_up(one["wcs_enc_a"], 0, (0, 0, 13.0)), 0.3), "pla_white"),
+               "charging enclosure B side": entry(to_mesh(_y_up(one["wcs_enc_b"], 180, (0, 0, 13.0)), 0.3), "pla_white")}
+    sensor = {"sensor package": entry(to_mesh(_y_up(one["wcs_sensor"], 180, WCS_A2), 0.3), "pla_white")}
+    return {"station": station, "sensor": sensor}
+
+
+# ---- the Opentrons Heater-Shaker (GEN1) with its 96 Flat Bottom Adapter ------------------------------------------
+# No vendor CAD is published for it, so it is built from Opentrons' own definitions (shared-data at 3260d92):
+# heaterShakerModuleV1 is 156.25 x 91.75 mm and 82 mm tall over its latch, its corner sits (-18, -1.8) from the
+# slot's, and labware goes on at (-0.125, 1.125, 68.275) from the slot's corner. The 96 Flat Bottom Adapter is
+# 111 x 75 x 7.9 mm, and the NEST 96 flat plate stacks on it 6.7 mm below the adapter's top, so the plate's bottom
+# is 69.475 mm above the deck and its top 83.775. The silver housing, the black latch frame and logo end, and the
+# latch jaws follow Sterling's 10-13 photo (byu-vcl 81); their split heights are estimates.
+HS = dict(corner=(-18.0, -1.8), size=(156.25, 91.75), height=82.0, iface=68.275, lw_off=(-0.125, 1.125),
+          adapter=(111.0, 75.0, 7.9), adapter_corner=(8.5, 5.5), plate_stack=6.7)
+HS_PLATE_Z = HS["iface"] + HS["adapter"][2] - HS["plate_stack"]          # 69.475: the plate's bottom above the deck
+HS_PLATE_XY = (HS["lw_off"][0] + 127.56 / 2 - 64.0, HS["lw_off"][1] + 85.36 / 2 - 43.0)   # plate centre - slot centre
+
+
+def build_heater_shaker() -> dict:
+    """The module and its adapter, in a frame at the slot's front-left corner on the deck surface."""
+    (cx, cy), (w, d) = HS["corner"], HS["size"]
+    x0, x1, y0, y1 = cx, cx + w, cy, cy + d
+    zi = HS["iface"]
+    housing = merge([box(x0 + 2, y0 + 2, 0, x1 - 12, y1 - 2, zi - 12),
+                     box(x0, y0 + 6, 0, x0 + 4, y1 - 6, 6)])                       # silver body, cable-side foot
+    frame = merge([box(x0 + 1, y0 + 1, zi - 12, x1 - 12, y1 - 1, zi - 1.5),            # black latch frame
+                   box(x0 + 6, y0 + 8, zi - 1.5, x1 - 18, y1 - 8, zi)])
+    end = box(x1 - 12, y0, 0, x1, y1, zi - 1.5)                                       # black logo end (+x)
+    jaws = merge([box(-6.5, 22, zi - 6, -1.0, 64, HS["height"]), box(128.5, 22, zi - 6, 134.0, 64, HS["height"])])
+    logo = merge([ring(x1 + 0.2, (y0 + y1) / 2 + 12, 30, 5.5, 4.2, 0.6).rotate_y(90, point=(x1, (y0 + y1) / 2 + 12, 30), inplace=False)])
+    ax, ay, at = HS["adapter"]
+    ox, oy = HS["lw_off"][0] + HS["adapter_corner"][0], HS["lw_off"][1] + HS["adapter_corner"][1]
+    adapter = merge([box(ox, oy, zi, ox + ax, oy + ay, zi + 1.2)] +
+                    [box(ox + sx, oy + sy, zi, ox + sx + 8, oy + sy + 8, zi + at)
+                     for sx in (0, ax - 8) for sy in (0, ay - 8)])
+    return {"housing": entry(housing, "aluminium"), "latch frame": entry(frame, "printer_black"),
+            "logo end": entry(end, "printer_black"), "latch jaws": entry(jaws, "printer_black"),
+            "logo": entry(logo, "pp_white"), "96 flat bottom adapter": entry(adapter, "aluminium")}
+
+
 # ---- pyvista primitives -----------------------------------------------------------------------------------
 def box(x0, y0, z0, x1, y1, z1) -> pv.PolyData:
     return pv.Box(bounds=(min(x0, x1), max(x0, x1), min(y0, y1), max(y0, y1), min(z0, z1), max(z0, z1))).triangulate()
@@ -420,38 +493,22 @@ def reagent_bottle(kind: str = "hdpe", d: float = 70.0, h: float = 120.0, cap_d:
     return e
 
 
-def falcon_tube(band: str | None) -> dict:
-    """A 15 mL Falcon tube (lab_models conical, standing on z = 0) with a coloured tape band; the cap is separate."""
-    m = LW.conical("15ml")
-    e = {}
-    for p in m.parts:
-        e["tube" if p.name == "tube" else "cap"] = entry(to_mesh(p.shape, 0.25), "polypropylene" if p.name == "tube" else "pp_blue")
-    if band:
-        e["band"] = entry(ring(0, 0, 70, 8.95, 8.4, 14), band)
-    return e
-
-
-TUBE_LEN = 118.8          # Falcon 352096, without cap
-TUBE_R_IN = 7.5           # bore near the top (lab_models: od 17.37, wall ~1.2)
+# ---- the stock vials: 20 mL clear VOA vials (28 x 57 mm, 24-400 cap), as in vial_holder.py -----------------------
+VIAL_H = 57.0             # glass, without the cap
+VIAL_CAP_TOP = 60.0       # the cap's top above the vial's base (labware.vial: 3 mm over the glass)
+VIAL_R_IN = 12.6          # the body's bore (28 mm OD, 1.2 mm wall), less a hair so the liquid stays inside
 
 
 def tube_liquid(level_mm: float) -> pv.PolyData:
-    """The liquid in a 15 mL tube up to `level_mm` above its tip (cone then cylinder), as one closed solid."""
-    cone = 22.48
-    pts = [(0, 1.0), (1.0, 1.0), (TUBE_R_IN - 0.4, cone + 0.5), (TUBE_R_IN, max(level_mm, cone + 1)), (0, max(level_mm, cone + 1))]
-    if level_mm < cone:
-        k = max(level_mm, 1.5)
-        pts = [(0, 1.0), (1.0, 1.0), (1.0 + (TUBE_R_IN - 1.4) * (k - 1) / cone, k), (0, k)]
-    prof = np.array([[x, 0, z] for x, z in pts])
-    line = pv.lines_from_points(prof)
-    return line.extrude_rotate(resolution=36, capping=True).triangulate()
+    """The liquid in a stock vial up to `level_mm` above the vial's outside bottom, as one closed solid."""
+    z0 = 1.6
+    return cyl(0, 0, z0, VIAL_R_IN, max(level_mm - z0, 0.4), res=36)
 
 
 def ml_to_level(ml: float) -> float:
-    """Height in a 15 mL Falcon tube for a volume (the cone holds ~1.5 mL; 15 mL at the 15 mL mark ~ 102 mm)."""
-    if ml <= 1.5:
-        return 1.0 + 21.5 * (ml / 1.5) ** (1 / 3)
-    return 22.5 + (ml - 1.5) * (102.0 - 22.5) / 13.5
+    """Height in a 20 mL VOA vial for a volume (straight body: 15 mL stands 30.6 mm above the base)."""
+    import vial_holder as VH
+    return VH.vial_level(ml)
 
 
 def tub(w=420.0, d=300.0, h=150.0) -> dict:
@@ -530,7 +587,7 @@ def _hash(*files) -> str:
 def cached(key: str, build):
     """build() once per version of this file and lab_models; vendor CAD is checked by hash when it's fetched."""
     CACHE.mkdir(exist_ok=True)
-    path = CACHE / f"{key}_{_hash(HERE / 'models.py', *(HERE / 'lab_models').glob('*.py'))}.pkl"
+    path = CACHE / f"{key}_{_hash(HERE / 'models.py', HERE / 'vial_holder.py', *(HERE / 'lab_models').glob('*.py'))}.pkl"
     if path.exists():
         return pickle.loads(path.read_bytes())
     print(f"building {key} (cached afterwards in {path.name})", flush=True)
@@ -567,10 +624,10 @@ def build_labware() -> dict:
     rack = LW.tube_rack_6()
     out["rack"] = {"rack": entry(to_mesh([p for p in rack.parts if p.name == "rack"][0].shape, 0.4), "pla_white")}
     out["vial"] = lab_model(LW.vial, "20ml")
+    import vial_holder as VH
+    out["holder"] = {"holder": entry(to_mesh(VH.holder(), 0.25), "petg_teal")}
     out["weigh_boat"] = lab_model(LW.weigh_boat)
     out["spatula"] = lab_model(LW.spoonula)
-    out["sensor"] = lab_model(LW.colour_sensor)
-    out["tube"] = falcon_tube(None)
     return out
 
 
@@ -581,3 +638,5 @@ if __name__ == "__main__":
     print("lid camera parts", list(lc))
     lw = cached("labware", build_labware)
     print("labware", list(lw), lw["balance_notes"])
+    print("colour sensor", {k: list(v) for k, v in cached("wcs", build_wcs).items()})
+    print("heater-shaker", list(cached("hs", build_heater_shaker)))

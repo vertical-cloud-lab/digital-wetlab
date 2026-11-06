@@ -11,6 +11,16 @@ what Tim and Michael do for the next barium chloride and sodium sulfate plate, f
 **Materials for each step, and the hazards that could realistically hurt someone:**
 [`materials-and-safety.md`](materials-and-safety.md) (asked on 2026-11-05).
 
+**Updated 2026-11-06** ([PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84), @sgbaird):
+- **The stocks are in the lab's 20 mL VOA vials** (28 × 57 mm), made up by weight, in **two printed 6-vial holders**
+  for the OT-2. [`cad/`](cad/README.md) has the holder's STEP and STL and its Opentrons labware definition.
+- **The plate sits on the heater-shaker in slot 7**, on its 96 flat-bottom adapter, under the **lid camera**. The deck
+  shots now keep the camera in frame.
+- **The colour sensor and its charging station are the Acceleration Consortium's own CAD**, parked in slot 10.
+- **The OT-2 goes in the fume hood** (Sterling's call), carried by two people. PPE: nitrile gloves, a lab coat,
+  safety glasses, long pants and closed-toe shoes. The videos still show the OT-2 in CB 154; what happens on the deck
+  is the same. See [Does the OT-2 need to be in the hood?](#does-the-ot-2-need-to-be-in-the-hood)
+
 The procedure is the one already written down:
 - [`docs/baso4-extended-monitoring.md`](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md)
   (11-02): plate A, the stocks, the seal, the stills schedule, and the run record;
@@ -31,8 +41,8 @@ Chapters 2 and 3 are in two parts each, so every GIF stays under the ~5 MB GitHu
 | --- | --- | --- |
 | **1. Where each step happens**: the two rooms, with the zones coloured: inside the hood (red), next to it (amber), the OT-2 (blue). Then the walk between them | [`out/sop1_where.gif`](out/sop1_where.gif) | [`out/mp4/sop1_where.mp4`](out/mp4/sop1_where.mp4) |
 | **2a. Barium chloride, inside the hood**: PPE, the balance beside the hood, loading the hood, and the capped vial tared at the balance, filled in the hood and weighed again | [`out/sop2a_hood.gif`](out/sop2a_hood.gif) | [`out/mp4/sop2a_hood.mp4`](out/mp4/sop2a_hood.mp4) |
-| **2b. Dilutions, then the bench**: the 0.1 M tube and its tenfold series in the hood; sodium sulfate and sodium chloride at the balance; packing the tub and closing the hood | [`out/sop2b_bench.gif`](out/sop2b_bench.gif) | [`out/mp4/sop2b_bench.mp4`](out/mp4/sop2b_bench.mp4) |
-| **3a. Loading the OT-2 in CB 154**: the door, the plate on black paper in slot 7, the tips, the racks, uncapping, and the start | [`out/sop3a_load.gif`](out/sop3a_load.gif) | [`out/mp4/sop3a_load.mp4`](out/mp4/sop3a_load.mp4) |
+| **2b. Dilutions, then the bench**: the 0.1 M vial and its tenfold series in the hood; sodium sulfate and sodium chloride at the balance; packing the tub and closing the hood | [`out/sop2b_bench.gif`](out/sop2b_bench.gif) | [`out/mp4/sop2b_bench.mp4`](out/mp4/sop2b_bench.mp4) |
+| **3a. Loading the OT-2 in CB 154**: the door, the plate on the heater-shaker in slot 7, the tips, the vial holders, uncapping, and the start | [`out/sop3a_load.gif`](out/sop3a_load.gif) | [`out/mp4/sop3a_load.mp4`](out/mp4/sop3a_load.mp4) |
 | **3b. The fill and the seal**: water, NaCl, barium chloride, then sodium sulfate last; the seal at the pause; recapping | [`out/sop3b_fill.gif`](out/sop3b_fill.gif) | [`out/mp4/sop3b_fill.mp4`](out/mp4/sop3b_fill.mp4) |
 | **4. Watching it for 72 h**: the lid camera's view and stills schedule, daily checks, the end of the run and the waste | [`out/sop4_monitor.gif`](out/sop4_monitor.gif) | [`out/mp4/sop4_monitor.mp4`](out/mp4/sop4_monitor.mp4) |
 | **All of it**, one part after another | | [`out/mp4/baso4_sop_full.mp4`](out/mp4/baso4_sop_full.mp4) |
@@ -146,40 +156,55 @@ The six part MP4s and the full video are at the end of the page:
 ## The steps, and where each one happens
 
 **Rule of thumb:**
-- Barium chloride powder is opened only inside the hood, and a barium solution stays there until its tube is capped.
-- The balance, sodium sulfate, sodium chloride, labels and the log are next to the hood.
-- Every tube is uncapped again only on the OT-2's deck in CB 154.
-- In CB 154 too: lab coat, safety glasses or goggles and nitrile gloves whenever the barium tubes or the plate are
-  handled. The OT-2 runs outside the hood because nothing comes off the solutions; lead plates are different. See
+- Barium chloride powder is opened only inside the hood, and a barium solution stays there until its vial is capped.
+- The balance, sodium sulfate, sodium chloride, labels and the log are next to the hood. The capped vials fit under
+  the balance's breeze-break lid, so every stock is made up by weight.
+- Every vial is uncapped again only on the OT-2's deck.
+- PPE whenever the barium vials or the plate are handled: nitrile gloves, a lab coat and safety glasses, with long
+  pants and closed-toe shoes (Sterling, 11-06).
+- The OT-2 goes in a fume hood for this run (Sterling, 11-06). See
   [Does the OT-2 need to be in the hood?](#does-the-ot-2-need-to-be-in-the-hood)
 
 | # | Where | What | Opened |
 | --- | --- | --- | --- |
-| 2.1 | EB B125 | Lab coat, splash goggles, nitrile gloves (two pairs for barium). The barium chloride SDS goes in the binder. Keep every container closed and labelled (Dillon's rule) | - |
-| 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight | - |
-| 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, a tube rack, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
-| 2.4 | next to the hood | Put the empty capped 20 mL vial on the pan and tare it | balance lid |
+| 2.1 | EB B125 | Nitrile gloves (two pairs for barium), a lab coat and safety glasses, with long pants and closed-toe shoes. The barium chloride SDS goes in the binder. Keep every container closed and labelled (Dillon's rule) | - |
+| 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight. Weigh 13.50 g of DI water into each of six capped 20 mL vials, for the dilutions | - |
+| 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
+| 2.4 | next to the hood | Put the empty capped vial for the 0.1 M barium chloride on the pan and tare it | balance lid |
 | 2.5-2.8 | inside the hood | Open the barium chloride and the vial, and spatula about 366 mg into the vial. Close both, and wipe the vial | barium chloride bottle, vial |
-| 2.9 | next to the hood | Weigh the capped vial and log the reading. 0.3664 g in 15.00 mL is 0.1000 M (BaCl₂·2H₂O, 244.26 g/mol); for another mass, work out its concentration | balance lid |
-| 2.10-2.11 | inside the hood | About 10 mL of DI water into the vial; swirl until clear. Pour into the 0.1 M tube, rinse the vial twice into it, make up to 15 mL, then cap and invert | vial, barium tubes |
-| 2.12-2.13 | inside the hood | 13.5 mL of DI water in each of three tubes, then 1.5 mL down the series with a new tip each time: 10, 1 and 0.1 mM. Cap and label | barium tubes |
-| 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat: 213.1 mg (anhydrous, 142.04 g/mol) to 15 mL is 0.1 M. Through a funnel into its tube, make up, cap | sodium sulfate bottle, tube |
-| 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate. 4.383 g NaCl to 15 mL (5 M). A tube of fresh DI water. Ten tubes in all | sodium chloride bottle, tubes |
-| 2.17 | hood, then bench | Wipe the barium tubes and rack, then put both racks in the tub, lid on. Outer gloves off in the hood; liner and wipes into the barium waste. Sash fully down | tub lid |
+| 2.9 | next to the hood | Weigh the capped vial and log the reading. 0.3664 g is 1.500 mmol (BaCl₂·2H₂O, 244.26 g/mol); for another mass, work out its concentration | balance lid |
+| 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it and weigh it capped: 0.3664 g with 15.00 g of water is 0.1000 mol/kg. It goes into A1 of the barium holder | vial |
+| 2.12-2.13 | inside the hood | 1.5 mL down the series into the three water vials, with a new tip each time: 10, 1 and 0.1 mM. Cap, invert and label | barium vials |
+| 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat: 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg. Through a funnel into its vial, rinse in to about 15 mL, cap, weigh | sodium sulfate bottle, vial |
+| 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate. 4.383 g NaCl with 13.4 g of DI water (15 mL of 5 M). A vial of fresh DI water. Ten vials in all | sodium chloride bottle, vials |
+| 2.17 | hood, then bench | Wipe the barium vials and their holder, then put both holders in the tub, lid on. Outer gloves off in the hood; liner and wipes into the barium waste. Sash fully down | tub lid |
 | 1.4 | between buildings | Carry the tub closed | nothing |
-| 3.1 | CB 154 | Before the day: OT-2 calibrated (deck, tip length, pipette offset, Labware Position Check), Pi 5 on its 27 W supply, camera exposure and white balance locked, rail lights on with no timer, capture job tested. Beside the OT-2: a labelled barium waste bottle, damp wipes and a wash bottle of DI water | - |
-| 3.2-3.5 | OT-2 deck | Lab coat, safety glasses or goggles and nitrile gloves on before the tub is opened; they stay on until the tubes are recapped (3.13). Door open. Black paper and the plate in slot 7 under the lid camera (lid off now), 300 µL tips in slot 6 (lid off), the barium rack in slot 4, the sulfate rack in slot 5. The colour sensor stays parked in slot 10 | plate lid, tip-rack lid |
-| 3.6 | OT-2 deck | Uncap the ten tubes one at a time; each cap goes top-down on a wipe, in order. A drip or spill: wipe it up while it's wet, wipe into the barium waste, then wipe the spot again with water | tubes |
+| 3.1 | CB 154 | Before the day: OT-2 calibrated (deck, tip length, pipette offset, Labware Position Check), the heater-shaker in slot 7 with its 96 flat-bottom adapter, the lid camera refocused for the plate on it, Pi 5 on its 27 W supply, camera exposure and white balance locked, rail lights on with no timer, capture job tested. Beside the OT-2: a labelled barium waste bottle, damp wipes and a wash bottle of DI water | - |
+| 3.2-3.5 | OT-2 deck | Nitrile gloves, lab coat and safety glasses on before the tub is opened; they stay on until the vials are recapped (3.13). Door open. Black paper cut to the adapter and the plate on the heater-shaker in slot 7, under the lid camera (labware latch closed, lid off now), 300 µL tips in slot 6 (lid off), the barium holder in slot 4, the sulfate holder in slot 5. The colour sensor stays parked in its charging station in slot 10 | plate lid, tip-rack lid |
+| 3.6 | OT-2 deck | Uncap the ten vials one at a time; each cap goes top-down on a wipe, in order. A drip or spill: wipe it up while it's wet, wipe into the barium waste, then wipe the spot again with water | vials |
 | 3.7 | CB 154 | Close the door. Start the capture job, then the protocol | - |
 | 3.8-3.11 | OT-2, door closed | Water, then 5 M NaCl, then barium chloride. Sodium sulfate goes in last, with a new tip per well, dispensed from above | - |
-| 3.12-3.13 | OT-2 deck | At the pause: a clear adhesive seal, pressed down well by well; log the time. Recap the tubes, close the door, rail lights stay on | door |
+| 3.12-3.13 | OT-2 deck | At the pause: a clear adhesive seal, pressed down well by well; log the time. Recap the vials, close the door, rail lights stay on | door |
 | 4.1-4.4 | CB 154 | Stills every 1 min to 30 min after the last sulfate, every 5 min to 6 h, then every 15 min (about 400 in 72 h). Check the stream, the heartbeat and the event log once a day | - |
-| 4.5-4.6 | CB 154 | Lab coat, glasses or goggles and gloves on again. Last still. Take the plate out, weigh it, and photograph it on black. Wells, leftover stocks and rinses go to barium waste. Wipe the deck with a damp wipe, gloves off, wash your hands. Commit the run record to `experiments/004-baso4-monitoring/<run-id>/` | door, waste |
+| 4.5-4.6 | CB 154 | Gloves, lab coat and glasses on again. Last still. Take the plate out, weigh it, and photograph it on black. Wells, leftover stocks and rinses go to barium waste. Wipe the deck with a damp wipe, gloves off, wash your hands. Commit the run record to `experiments/004-baso4-monitoring/<run-id>/` | door, waste |
 
 ## Does the OT-2 need to be in the hood?
 
 Asked on [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/80) by @timothy-commins on
-2026-11-05. **Not for this barium sulfate plate. For the lead plates, yes.**
+2026-11-05.
+
+**Decided on 2026-11-06: put it in the hood.** Sterling ([PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6686353276)): either would probably be fine for this
+plate, as long as the powder is handled in the hood and the concentrations stay low, but the hood is the safe side.
+With that:
+- **Two people carry the OT-2 over.** Clear the deck first, lift by the frame (never the door or the windows), and
+  mind the lid camera on its top window. Recalibrate the deck afterwards (3.1).
+- **PPE:** nitrile gloves, a lab coat and safety glasses, with long pants and closed-toe shoes.
+- **Which hood isn't settled yet.** Measure it first ([below](#before-the-ot-2-goes-into-a-hood)): the robot, with
+  the lid camera on top, has to fit behind the 15 cm line and under the sash. The videos still show the OT-2 in
+  CB 154; what happens on the deck doesn't change.
+
+The 11-05 answer, below, was: not needed for this barium sulfate plate, needed for the lead plates. Its reasons and
+sources still stand, and the lead plates need the hood whatever happens here.
 
 A fume hood protects you from what gets into the air. BYU's
 [Laboratory & Chemical Safety Program](https://chem.byu.edu/documents/1767/byu_chemical_hygiene_plan.pdf) (Risk
@@ -187,7 +212,7 @@ Management, revision 0.0, January 2013; the copy hosted by BYU Chemistry) says, 
 operations that might result in the release of toxic chemical vapors, fumes or dust", and "Bench-top use of
 chemicals that present an inhalation hazard is prohibited."
 
-**Why the barium plate can run on the OT-2 in CB 154:**
+**Why the barium plate could run outside a hood (the 11-05 answer):**
 - **Barium chloride powder is an inhalation hazard.** Its dust is harmful if inhaled (H332), and the solid is toxic if
   swallowed (H301). That's why the bottle is opened, and the powder weighed and dissolved, only in the hood (2.3-2.13).
 - **Once it's dissolved, nothing comes off it.** Barium chloride doesn't evaporate; only the water does. What's left
@@ -218,8 +243,8 @@ chemicals that present an inhalation hazard is prohibited."
 **Where the hood still matters on this run:**
 - Anything with barium chloride powder, which the SOP already keeps in the hood.
 - A spill: wipe it up while it's wet, so it never dries to a dust.
-- Sterling and Risk Management have the last word. If they want all barium work in a hood anyway, the OT-2 and its
-  lid camera have to go to a room with one: facilities said in March that CB 154 can't have a fume hood installed
+- Sterling and Risk Management have the last word, and on 11-06 Sterling chose the hood (above). So the OT-2 and its
+  lid camera go to a room with one: facilities said in March that CB 154 can't have a fume hood installed
   ([byu-vcl 29](https://github.com/vertical-cloud-lab/byu-vcl/issues/29#issuecomment-4093457224)). In February,
   for silver nitrate with hydrochloric acid, Sterling wrote that "Ideally, the OT-2 should be in a fumehood, or at the
   very least tied into the exhaust" ([issue 1](https://github.com/vertical-cloud-lab/digital-wetlab/issues/1#issuecomment-3925864040)).
@@ -233,8 +258,10 @@ chemicals that present an inhalation hazard is prohibited."
    says aqueous lead salts without sulfide don't need a hood; by this rule they do, unless Risk Management says
    otherwise.
 
-Before the OT-2 goes into a hood ([step 14](https://github.com/vertical-cloud-lab/digital-wetlab/blob/127e1db/docs/lead-pbs-materials-and-steps.md?plain=1#L351-L352)
-of the lead plan):
+### Before the OT-2 goes into a hood
+
+From [step 14](https://github.com/vertical-cloud-lab/digital-wetlab/blob/127e1db/docs/lead-pbs-materials-and-steps.md?plain=1#L351-L352)
+of the lead plan:
 - **Measure the hood.** The OT-2 is about 63-66 cm wide and tall and 57 cm deep, with the lid camera on top. Work is
   meant to sit 15 cm (6 in) behind the sash, so the hood needs about 72 cm of clear depth, and a sash that opens
   above the robot and camera.
@@ -247,9 +274,12 @@ of the lead plan):
 | In the scene | Model | Source |
 | --- | --- | --- |
 | Opentrons OT-2: frame, deck, windows, door, Z gantry, P300 single on the left mount | Opentrons' reference STEP, "Detailed" | **Vendor CAD**, [github.com/Opentrons/ot2](https://github.com/Opentrons/ot2) at `ef9ede1`. Fetched at run time and SHA-256 checked by `models.py`; not committed. Its solids are named, so the door, head, beam and pipette move separately. The X-gantry beam is part of the frame solid in that file, so `models.py` cuts it out so it can move front to back with the head |
-| Lid camera: HQ camera, 8-50 mm zoom, C-CS adapter, Pi 5, printed base and deck | `ot2-overhead-camera/lid-mount/exports/assembly.step` | **The lab's own CAD**, [byu-vcl PR 234](https://github.com/vertical-cloud-lab/byu-vcl/pull/234) at `49677cf`, fetched and hash-checked. It sits on the top window over slot 7, where the monitoring plan puts it. The yellow cone is a 140 × 105 mm view at the plate |
+| Lid camera: HQ camera, 8-50 mm zoom, C-CS adapter, Pi 5, printed base and deck | `ot2-overhead-camera/lid-mount/exports/assembly.step` | **The lab's own CAD**, [byu-vcl PR 234](https://github.com/vertical-cloud-lab/byu-vcl/pull/234) at `49677cf`, fetched and hash-checked. It sits on the top window over slot 7, where the monitoring plan puts it. The yellow cone is the 140 × 105 mm view it had at a plate on the deck, narrowed to about 123 × 93 mm at the plate on the heater-shaker |
+| Opentrons Heater-Shaker (GEN1) with its 96 Flat Bottom Adapter, in slot 7 | `models.py`, `build_heater_shaker` | **Built from Opentrons' own definitions**, since no vendor CAD is published: `heaterShakerModuleV1`, `opentrons_96_flat_bottom_adapter` and the NEST plate's stacking offset in [shared-data at `3260d92`](https://github.com/Opentrons/opentrons/tree/3260d92fe7dcc13f6c3bdf9b1396b4906223e5e0/shared-data) give its outline, the 68.275 mm labware height and the plate's 69.475 mm. The colours and the heights of the housing's parts follow Sterling's 10-13 photo ([byu-vcl 81](https://github.com/vertical-cloud-lab/byu-vcl/issues/81#issuecomment-6157219356)) |
+| Wireless colour sensor, parked in its charging station in slot 10 | `Sensor package main enclosure.step`; `Charging Base.step`, `Charging Enclosure A side.step`, `Charging Enclosure B side.step` | **The original CAD**: the Acceleration Consortium's [wireless-color-sensor](https://github.com/AccelerationConsortium/wireless-color-sensor/tree/07efedd7302bd1def93ef81ceadba38e1ae96853/CAD-File/STEP) at `07efedd`, fetched and hash-checked by `models.py` and never committed (that repo has no licence). The lab prints this enclosure with its post rebored to 7.5 mm (byu-vcl's `sensor_package_main_enclosure_7p5mm.step`), the same outside. The sensor sits in the right-hand socket, A2, where byu-vcl's 10-14 colour-sensor README puts it, 16 mm up as the lab's `byu_color_sensor_charging_port` labware has it |
+| The stock vials: 20 mL clear VOA, 28 × 57 mm, 24-400 cap; and the 6-vial holder | `lab_models/labware.py` `vial("20ml")`; [`vial_holder.py`](vial_holder.py) | The vials from the electromagnetic capper's bill of materials (Fisher 12-100-112), at Fisher's listed size, not yet calipered. The holder is **designed here** for them; [`cad/`](cad/README.md) has its STEP, STL and Opentrons labware definition |
 | A&D HR-100A with the FXi-10 breeze break and A&D's lid | `lab_models/labware.py`, `balance(lid="stock")` | byu-vcl `vertical-lab/lab_models` at `516f796` (from byu-vcl 199): built from A&D's drawings and the lab's measurements. The doser's AutoTrickler lid is swapped for the stock one here |
-| NEST 96-well plate (200 µL, flat), Opentrons 300 µL tip rack, 15 mL Falcon tubes, AC 6-tube rack, 20 mL vial, weigh boat, spatula, colour sensor | `lab_models/labware.py` | Same copy; built from Opentrons' labware definitions and the makers' drawings |
+| NEST 96-well plate (200 µL, flat), Opentrons 300 µL tip rack, weigh boat, spatula | `lab_models/labware.py` | Same copy; built from Opentrons' labware definitions and the makers' drawings |
 | Fume hood, benches, OT-2 table, rooms | `models.py` | **Modelled here from typical sizes**: a 5 ft bench hood with a vertical sash, 30 in benches. EB B125's hood and both rooms are not measured or photographed on record, so the layout is a stand-in |
 | Reagent bottles, waste bottles, wash bottles, 100-1000 µL pipette, tub, seal, plate lid, stand-in person | `models.py` | Modelled here. The coloured bands on bottles and tubes are only for the animation: orange for barium, green for sulfate, grey for NaCl, blue for water |
 
@@ -263,19 +293,25 @@ clipping range every frame, which the lid camera's close view needs.
   ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). The 10-23 plan says the doser
   is back in CB 154, and the balance probably went with it, so it may have to be carried over again. If the Dillon lab
   has its own analytical balance beside the hood, use that one instead.
-- **The 15 mL tube is too tall for the balance.** It doesn't fit under the HR-100A's breeze-break lid: there is
-  79.4 mm from the pan to the lid. That's why the barium chloride is weighed in a capped 20 mL vial and the other
-  powders in a weigh boat.
+- **Stocks by weight, in the vials.** A capped 20 mL vial (60 mm) fits under the HR-100A's breeze-break lid, which is
+  79.4 mm above the pan; a 15 mL tube (120 mm) didn't. So each stock is made up in its own vial and weighed, and its
+  concentration comes out per kilogram of water: for the dilute stocks that's within a few percent of per litre. The
+  5 M NaCl is 4.383 g with 13.4 g of water, which makes 15 mL at its density of about 1.19 g/mL.
 - **The plate won't fit in the breeze break either.** The run plan weighs the plate at the start and the end, so
   that weighing needs another balance, or the breeze break taken off.
 - **Hand pipettes.** The 10-23 list marks the 100-1000 µL pipette as "get". Without one, dilute by weight, as the
   monitoring plan describes.
-- **Two racks.** Both racks are the 6-tube AC model from the March run. They carry the tubes over and go onto the
-  deck as they are. The March run had only one, so a second rack, or a 15-tube Opentrons rack, is needed.
-- **The heater-shaker isn't drawn.** Plate A sits on black paper on the deck, unshaken, and the module's slot isn't on
-  record. The colour sensor is drawn parked in slot 10. The monitoring plan takes it off the deck for this run, and the
-  10-30 first-experiments plan uses it for sentinel reads. Either way, it doesn't drive the robot while the protocol
-  runs.
+- **Two holders, to print.** Nothing in the lab holds these vials on an OT-2 deck yet (the 9-vial holder is the
+  CubXL's). Print two from [`cad/`](cad/README.md), after Tim's caliper check of the vials.
+- **The heater-shaker moves to slot 7.** Sterling's 10-13 photo has it in slot 1, but the lid camera is fixed over slot
+  7, so the plate has to be there. On the heater-shaker the plate's top is 69 mm higher than on the deck: refocus the
+  lens. If the zoom stays where it is, the view narrows to about 123 × 93 mm, which still takes in all 96 wells
+  (106 × 70 mm). Opentrons allows nothing taller than 53 mm in slot 8, to its right. Whether it shakes the plate after
+  the sulfate is decision 4 of the monitoring plan; this SOP doesn't shake it. The black paper goes on the adapter,
+  under the plate, if the plate still seats; if not, write down what's under the plate in the run record.
+- **The colour sensor stays parked** in its charging station in slot 10. The monitoring plan takes it off the deck for
+  this run, and the 10-30 first-experiments plan uses it for sentinel reads. Either way, it doesn't drive the robot
+  while the protocol runs.
 - **The plate map is one shuffle of plate A:**
   - 48 wells: 16 barium and sulfate pairs in 1 molal NaCl, in triplicate;
   - 16 wells: the same pairs without NaCl;
@@ -293,12 +329,13 @@ clipping range every frame, which the lid camera's close view needs.
 
 ```bash
 pip install cadquery pyvista pillow numpy scipy          # plus ffmpeg and gifsicle on the PATH
+python3 vial_holder.py --od 28.0 --height 57.0            # the holder's STEP, STL, labware JSON and render, in cad/
 xvfb-run -a python3 animate.py sop1 sop2a sop2b sop3a sop3b sop4 full   # full joins the six MP4s
 PREVIEW=1 xvfb-run -a python3 animate.py sop2              # the last frame of each sub-step, to /tmp
 python3 split_steps.py                                    # one MP4 per step from the six parts (ffmpeg and Pillow only)
 python3 split_steps.py --page-only --sha <commit>         # out/steps/player.html, for clips committed at <commit>
 ```
 
-The first run downloads the two STEP files into `.cache/` and tessellates everything, which takes about 10 s. The
+The first run downloads the six STEP files into `.cache/` and tessellates everything, which takes about 10 s. The
 meshes are cached until `models.py` or `lab_models/` changes. To run chapters in parallel, give each its own display
 (`xvfb-run --server-num=N`).
