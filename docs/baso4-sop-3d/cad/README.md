@@ -11,6 +11,7 @@ barium chloride in slot 4, and sodium sulfate, the 5 M NaCl and the DI water in 
 | [`vial_holder_20ml_x6.step`](vial_holder_20ml_x6.step), [`.stl`](vial_holder_20ml_x6.stl) | The holder, in print orientation (upright). Print two |
 | [`byuvcl_6_vialholder_20ml/1.json`](byuvcl_6_vialholder_20ml/1.json) | Its Opentrons labware definition (schema 2), wells A1-B3 with the vials uncapped |
 | [`../vial_holder.py`](../vial_holder.py) | The CadQuery source of all three. The animation builds its holder from the same function |
+| [`check_deck.py`](check_deck.py) | A simulation-only check of the deck: the heater-shaker, the plate and both holders, one transfer of each stock |
 
 ## The vials
 
@@ -59,6 +60,11 @@ freely. If it is tight, rebuild with a slightly larger `--od`.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 4 | barium chloride | 0.1 M | 10 mM | 1 mM | 0.1 mM | (empty) | (empty) |
 | 5 | the rest | 0.1 M sodium sulfate | 10 mM | 1 mM | 0.1 mM | 5 M NaCl | DI water |
+
+**Checked in the simulator** (2026-11-06, opentrons 8.3.1; 10.x no longer simulates OT-2 protocols):
+`opentrons_simulate -L byuvcl_6_vialholder_20ml check_deck.py` loads both holders in slots 4 and 5 next to the
+heater-shaker in slot 7 with no deck conflict, and runs a transfer from each kind of stock into A1. Plate A1's top
+comes out at z 83.775 mm, as in the animation. Nothing has run on the robot.
 
 Load it in the protocol from the JSON, then run Labware Position Check on it:
 
