@@ -1,7 +1,7 @@
 {
  "name": "sop2b_bench",
  "fps": 15,
- "n_frames": 753,
+ "n_frames": 768,
  "size": [
   1280,
   720
@@ -9,51 +9,51 @@
  "substeps": [
   {
    "label": "2.10",
-   "caption": "In the hood: about 10 mL of DI water into the vial, cap and swirl until clear, then pour it into the tube marked 0.1 M barium chloride. Uncap the four barium tubes now and set their caps down top-down.",
+   "caption": "In the hood: about 15 mL of DI water into the vial from the wash bottle. Cap it and swirl until the solid is gone. The powder never leaves this vial: it is the 0.1 M barium chloride stock.",
    "start_frame": 0,
    "end_frame": 113
   },
   {
    "label": "2.11",
-   "caption": "Rinse the vial twice into the tube, make it up to the 15 mL mark with DI water, cap it and invert it ten times. The empty vial is rinsed into the barium waste.",
+   "caption": "Wipe it, weigh it capped at the balance and log the reading: the water's mass sets the concentration (0.3664 g with 15.00 g of water is 0.1000 mol/kg). Then it goes back into the hood, into A1 of the barium holder.",
    "start_frame": 114,
-   "end_frame": 182
+   "end_frame": 197
   },
   {
    "label": "2.12",
-   "caption": "Still in the hood: 13.5 mL of DI water in each of the next three tubes, then 1.5 mL down the series with a fresh pipette tip each time: 10 mM, 1 mM and 0.1 mM barium chloride. Mix each before the next transfer.",
-   "start_frame": 183,
-   "end_frame": 296
+   "caption": "Still in the hood: uncap the 0.1 M vial and the three water vials, then move 1.5 mL down the series with a new pipette tip each time: 10, 1 and 0.1 mM barium chloride. Cap and invert each before the next transfer.",
+   "start_frame": 198,
+   "end_frame": 311
   },
   {
    "label": "2.13",
-   "caption": "Cap all four barium tubes. Label each one: name, concentration, date, initials. Pipette tips and wipes that touched barium go in the barium waste in the hood.",
-   "start_frame": 297,
-   "end_frame": 341
+   "caption": "Cap all four barium vials. Label each one: name, concentration, date, initials. Pipette tips and wipes that touched barium go in the barium waste in the hood.",
+   "start_frame": 312,
+   "end_frame": 356
   },
   {
    "label": "2.14",
-   "caption": "Sodium sulfate is weighed on the bench, in an open weigh boat: tare the boat, open the bottle, spatula about 213 mg into the boat, close the bottle. 0.2131 g of anhydrous sodium sulfate (142.04 g/mol) in 15.00 mL is 0.1000 M.",
-   "start_frame": 342,
-   "end_frame": 461
+   "caption": "Sodium sulfate is weighed on the bench, in an open weigh boat: tare the boat, open the bottle, spatula about 213 mg into the boat, close the bottle. 0.2131 g of anhydrous sodium sulfate (142.04 g/mol) with 15.00 g of water is 0.1000 mol/kg.",
+   "start_frame": 357,
+   "end_frame": 476
   },
   {
    "label": "2.15",
-   "caption": "Tip the boat through a funnel into the 0.1 M sodium sulfate tube, rinse the boat and funnel in with DI water, and make it up to 15 mL. Cap and invert.",
-   "start_frame": 462,
-   "end_frame": 539
+   "caption": "Tip the boat through a funnel into the 0.1 M sodium sulfate vial and rinse the boat and funnel in with DI water, to about 15 mL. Cap and invert it, then weigh it capped and log the water's mass.",
+   "start_frame": 477,
+   "end_frame": 554
   },
   {
    "label": "2.16",
-   "caption": "The same tenfold series for 10, 1 and 0.1 mM sodium sulfate. Then 4.383 g of sodium chloride made up to 15 mL (5 M), and a tube of fresh DI water: ten tubes in all, each labelled and logged.",
-   "start_frame": 540,
-   "end_frame": 632
+   "caption": "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials. Then 4.383 g of sodium chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each labelled and logged.",
+   "start_frame": 555,
+   "end_frame": 647
   },
   {
    "label": "2.17",
-   "caption": "Wipe the outside of the barium tubes and the rack in the hood, then carry the rack straight to the tub; the bench rack joins it. Lid on. Outer gloves off in the hood, liner and wipes into the barium waste, sash fully down. Leave the hood as you found it.",
-   "start_frame": 633,
-   "end_frame": 752
+   "caption": "Wipe the outside of the barium vials and their holder in the hood, then carry the holder straight to the tub; the bench holder joins it. Lid on. Outer gloves off in the hood, liner and wipes into the barium waste, sash fully down. Leave the hood as you found it.",
+   "start_frame": 648,
+   "end_frame": 767
   }
  ]
 }

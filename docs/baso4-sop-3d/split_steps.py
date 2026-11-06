@@ -44,7 +44,7 @@ STEP_INFO = {
     "1.5": ("cb154-ot2", "CB 154: uncap only on the OT-2's deck", "overview"),
     "1.6": ("the-order", "The order of the day", "overview"),
     "2.1": ("ppe-and-sds", "PPE and the SDS", "EB B125"),
-    "2.2": ("balance-check", "Set up and check the balance", "EB B125, next to the hood"),
+    "2.2": ("balance-check", "Check the balance; water into six vials", "EB B125, next to the hood"),
     "2.3": ("load-the-hood", "Load the hood, sash down", "EB B125, inside the hood"),
     "2.4": ("tare-the-vial", "Tare the capped vial", "EB B125, next to the hood"),
     "2.5": ("vial-into-hood", "Carry the vial into the hood", "next to, then inside the hood"),
@@ -52,27 +52,27 @@ STEP_INFO = {
     "2.7": ("spatula-barium-chloride", "Spatula about 366 mg of barium chloride", "EB B125, inside the hood"),
     "2.8": ("cap-and-wipe", "Cap both, wipe the vial", "EB B125, inside the hood"),
     "2.9": ("weigh-the-vial", "Weigh the capped vial and log it", "EB B125, next to the hood"),
-    "2.10": ("dissolve-barium-chloride", "Dissolve it and pour into the 0.1 M tube", "EB B125, inside the hood"),
-    "2.11": ("make-up-barium-0.1M", "Rinse, make up to 15 mL, invert", "EB B125, inside the hood"),
+    "2.10": ("dissolve-barium-chloride", "Dissolve it in the vial", "EB B125, inside the hood"),
+    "2.11": ("weigh-barium-0.1M", "Weigh it, then into the barium holder", "inside, next to, then inside the hood"),
     "2.12": ("barium-dilutions", "Dilute to 10, 1 and 0.1 mM barium chloride", "EB B125, inside the hood"),
-    "2.13": ("cap-and-label-barium", "Cap and label the barium tubes", "EB B125, inside the hood"),
+    "2.13": ("cap-and-label-barium", "Cap and label the barium vials", "EB B125, inside the hood"),
     "2.14": ("weigh-sodium-sulfate", "Weigh about 213 mg of sodium sulfate", "EB B125, next to the hood"),
     "2.15": ("make-up-sodium-sulfate", "Make up the 0.1 M sodium sulfate", "EB B125, next to the hood"),
     "2.16": ("sulfate-nacl-water", "Sulfate dilutions, 5 M NaCl and DI water", "EB B125, next to the hood"),
     "2.17": ("pack-and-clean-up", "Pack the tub and clean up the hood", "EB B125, hood then bench"),
     "3.1": ("before-the-day", "Before the day: calibration, camera, lights", "CB 154"),
     "3.2": ("open-the-door", "Open the OT-2's door", "CB 154, OT-2 deck"),
-    "3.3": ("plate-in-slot-7", "Black paper and the plate in slot 7", "CB 154, OT-2 deck"),
+    "3.3": ("plate-on-heater-shaker", "The plate on the heater-shaker in slot 7", "CB 154, OT-2 deck"),
     "3.4": ("tips-in-slot-6", "Tips in slot 6", "CB 154, OT-2 deck"),
-    "3.5": ("racks-in-slots-4-5", "The racks in slots 4 and 5", "CB 154, OT-2 deck"),
-    "3.6": ("uncap-the-tubes", "Uncap the ten tubes", "CB 154, OT-2 deck"),
+    "3.5": ("holders-in-slots-4-5", "The vial holders in slots 4 and 5", "CB 154, OT-2 deck"),
+    "3.6": ("uncap-the-vials", "Uncap the ten vials", "CB 154, OT-2 deck"),
     "3.7": ("start-capture-then-protocol", "Start the capture job, then the protocol", "CB 154"),
     "3.8": ("fill-water", "Water into 84 wells", "CB 154, OT-2, door closed"),
     "3.9": ("fill-nacl", "5 M NaCl into 64 wells", "CB 154, OT-2, door closed"),
     "3.10": ("fill-barium-chloride", "Barium chloride into 72 wells", "CB 154, OT-2, door closed"),
     "3.11": ("fill-sodium-sulfate-last", "Sodium sulfate last, a new tip per well", "CB 154, OT-2, door closed"),
     "3.12": ("seal-at-the-pause", "Seal the plate at the pause", "CB 154, OT-2 deck"),
-    "3.13": ("recap-the-tubes", "Recap the tubes, leave the lights on", "CB 154, OT-2 deck"),
+    "3.13": ("recap-the-vials", "Recap the vials, leave the lights on", "CB 154, OT-2 deck"),
     "4.1": ("lid-camera-schedule", "The lid camera and its stills schedule", "CB 154"),
     "4.2": ("camera-view", "What the camera sees", "CB 154"),
     "4.3": ("timelapse-illustrative", "The 72 h time-lapse (illustrative)", "CB 154"),
@@ -180,25 +180,25 @@ def contact_sheet(rows):
 REPO = "vertical-cloud-lab/digital-wetlab"
 REPO_PATH = "docs/baso4-sop-3d/out"
 
-# Shown on the player page. Asked on issue 80 (2026-11-05): shouldn't the OT-2 run be in the fume hood too?
-# The README's "Does the OT-2 need to be in the hood?" section has the sources; {readme} is filled in with its URL.
+# Shown on the player page. Asked on issue 80 (2026-11-05): shouldn't the OT-2 run be in the fume hood too? Sterling
+# decided on PR 84 (2026-11-06). The README's "Does the OT-2 need to be in the hood?" section has the decision and the
+# sources; {readme} is filled in with its URL.
 BYU_LCSP = "https://chem.byu.edu/documents/1767/byu_chemical_hygiene_plan.pdf"
 HOOD_NOTE = (
-    "<b>Does the OT-2 need to be in the hood?</b> Not for this barium plate. A fume hood protects you from what gets "
-    "into the air: BYU's <a href=\"" + BYU_LCSP + "\">Laboratory &amp; Chemical Safety Program</a> says to \u201cuse "
-    "the fume hood for operations that might result in the release of toxic chemical vapors, fumes or dust\u201d (page "
-    "43). Barium chloride <i>powder</i> is that kind of hazard, so its bottle is only opened, weighed from and dissolved "
-    "in the hood. Once it is dissolved, nothing comes off it, so the plate is filled on the OT-2 in CB 154 with the door "
-    "closed. What is left is the risk of swallowing it or getting it on skin or in the eyes, which gloves, glasses or "
-    "goggles, a lab coat and the closed door take care of. <b>Lead and sulfide plates are different:</b> ammonium sulfide "
-    "gives off hydrogen sulfide and ammonia, and lead(II) nitrate is a particularly hazardous substance, so the OT-2 "
-    "runs inside a hood for those. Sources and caveats: <a href=\"{readme}\">the README</a>."
+    "<b>Does the OT-2 need to be in the hood?</b> Sterling\u2019s call on 11-06: <b>yes, put it in the fume hood</b>, "
+    "carried over by two people. Either would probably be fine for this plate, as long as the barium chloride powder is "
+    "handled in the hood and the concentrations stay low, but the hood is the safe side. PPE: nitrile gloves, a lab "
+    "coat and safety glasses, with long pants and closed-toe shoes. <b>These videos still show the OT-2 in CB 154</b>; "
+    "what happens on the deck is the same. The stocks are in 20 mL vials in two printed holders, and the plate sits on "
+    "the heater-shaker in slot 7 under the lid camera. The decision, the 11-05 reasoning (BYU\u2019s "
+    "<a href=\"" + BYU_LCSP + "\">Laboratory &amp; Chemical Safety Program</a>) and the hood checklist: "
+    "<a href=\"{readme}\">the README</a>."
 )
 PART_NOTES = {
-    "sop3a_load": "In CB 154: lab coat, safety glasses or goggles and nitrile gloves on before the tub is opened, and on "
-                  "until the tubes are recapped (3.13). Beside the OT-2: a labelled barium waste bottle, damp wipes and "
+    "sop3a_load": "At the OT-2: nitrile gloves, a lab coat and safety glasses on before the tub is opened, and on "
+                  "until the vials are recapped (3.13). Beside the OT-2: a labelled barium waste bottle, damp wipes and "
                   "a wash bottle of DI water. Wipe up any drip while it is wet, so it never dries to a dust.",
-    "sop4_monitor": "At the end of the run (4.5 and 4.6): lab coat, glasses or goggles and gloves on again to take the "
+    "sop4_monitor": "At the end of the run (4.5 and 4.6): gloves, lab coat and safety glasses on again to take the "
                     "plate out and empty it into the barium waste. Wipe the deck with a damp wipe, then wash your "
                     "hands.",
 }

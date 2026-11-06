@@ -15,13 +15,13 @@
   },
   {
    "label": "3.2",
-   "caption": "Open the OT-2's door. The colour sensor stays parked in slot 10, and nothing else drives the robot while the protocol runs (one controller at a time).",
+   "caption": "Open the OT-2's door. The colour sensor stays parked in its charging station in slot 10, and nothing else drives the robot while the protocol runs (one controller at a time). The heater-shaker sits in slot 7, under the lid camera.",
    "start_frame": 90,
    "end_frame": 149
   },
   {
    "label": "3.3",
-   "caption": "Slot 7, under the lid camera: black paper, then the NEST 96-well plate with A1 at the back left. Take its lid off only now. The yellow cone is what the camera sees.",
+   "caption": "Slot 7, on the heater-shaker's 96 flat-bottom adapter: black paper cut to the adapter, then the NEST 96-well plate with A1 at the back left; close the labware latch. Take the plate's lid off only now. The yellow cone is what the camera sees.",
    "start_frame": 150,
    "end_frame": 218
   },
@@ -33,13 +33,13 @@
   },
   {
    "label": "3.5",
-   "caption": "Lift the two racks out of the tub and onto the deck as they are: barium chloride in slot 4; sodium sulfate, the 5 M NaCl and the DI water in slot 5, in the positions the protocol's map gives.",
+   "caption": "Lift the two vial holders out of the tub and onto the deck as they are, A1 at the back left: barium chloride in slot 4; sodium sulfate, the 5 M NaCl and the DI water in slot 5, in the positions the protocol's map gives.",
    "start_frame": 270,
    "end_frame": 338
   },
   {
    "label": "3.6",
-   "caption": "Uncap the ten tubes one at a time, here on the deck and only now. Each cap goes top-down on a clean wipe, in the same order, so it goes back on its own tube.",
+   "caption": "Uncap the ten vials one at a time, here on the deck and only now. Each cap goes top-down on a clean wipe, in the same order, so it goes back on its own vial.",
    "start_frame": 339,
    "end_frame": 431
   },

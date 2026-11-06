@@ -9,7 +9,7 @@
  "substeps": [
   {
    "label": "4.1",
-   "caption": "The lid camera (Raspberry Pi HQ camera, 8-50 mm zoom, Pi 5) looks straight down through the top window at slot 7. The capture job takes a still every minute until 30 min after the last sulfate, every 5 min until 6 h, then every 15 min: about 400 stills in 72 h.",
+   "caption": "The lid camera (Raspberry Pi HQ camera, 8-50 mm zoom, Pi 5) looks straight down through the top window at the plate on the heater-shaker, 69 mm closer than a plate on the deck, so refocus it first. Stills every minute until 30 min after the last sulfate, every 5 min until 6 h, then every 15 min: about 400 in 72 h.",
    "start_frame": 0,
    "end_frame": 98
   },

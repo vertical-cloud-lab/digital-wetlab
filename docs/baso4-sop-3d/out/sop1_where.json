@@ -15,7 +15,7 @@
   },
   {
    "label": "1.2",
-   "caption": "Inside the hood (red): the barium chloride bottle is only ever opened here, and every barium solution stays here until its tube is capped. Stand outside it with only your arms in, the sash at its working-height sticker.",
+   "caption": "Inside the hood (red): the barium chloride bottle is only ever opened here, and every barium solution stays here until its vial is capped. Stand outside it with only your arms in, the sash at its working-height sticker.",
    "start_frame": 102,
    "end_frame": 191
   },
@@ -27,13 +27,13 @@
   },
   {
    "label": "1.4",
-   "caption": "Everything moves between the buildings capped, in the lidded tub: the two tube racks with their ten tubes. Nothing is opened on the way.",
+   "caption": "Everything moves between the buildings capped, in the lidded tub: the two vial holders with their ten vials. Nothing is opened on the way.",
    "start_frame": 273,
    "end_frame": 356
   },
   {
    "label": "1.5",
-   "caption": "In CB 154 (blue): the tubes are uncapped only on the OT-2's deck. The plate sits in slot 7 on black paper, under the lid camera, and is sealed at the protocol's pause. The run, the stills and the end of the run all happen here.",
+   "caption": "In CB 154 (blue): the vials are uncapped only on the OT-2's deck. The plate sits on the heater-shaker in slot 7, under the lid camera, and is sealed at the protocol's pause. The run, the stills and the end of the run all happen here.",
    "start_frame": 357,
    "end_frame": 452
   },

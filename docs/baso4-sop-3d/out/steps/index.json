@@ -31,7 +31,7 @@
    "motion_s": 6.0,
    "hold_s": 9.6,
    "seconds": 15.6,
-   "caption": "Inside the hood (red): the barium chloride bottle is only ever opened here, and every barium solution stays here until its tube is capped. Stand outside it with only your arms in, the sash at its working-height sticker."
+   "caption": "Inside the hood (red): the barium chloride bottle is only ever opened here, and every barium solution stays here until its vial is capped. Stand outside it with only your arms in, the sash at its working-height sticker."
   },
   {
    "label": "1.3",
@@ -59,9 +59,9 @@
    "end_frame": 356,
    "fps": 15,
    "motion_s": 5.6,
-   "hold_s": 4.47,
-   "seconds": 10.1,
-   "caption": "Everything moves between the buildings capped, in the lidded tub: the two tube racks with their ten tubes. Nothing is opened on the way."
+   "hold_s": 4.6,
+   "seconds": 10.2,
+   "caption": "Everything moves between the buildings capped, in the lidded tub: the two vial holders with their ten vials. Nothing is opened on the way."
   },
   {
    "label": "1.5",
@@ -74,9 +74,9 @@
    "end_frame": 452,
    "fps": 15,
    "motion_s": 6.4,
-   "hold_s": 9.73,
-   "seconds": 16.1,
-   "caption": "In CB 154 (blue): the tubes are uncapped only on the OT-2's deck. The plate sits in slot 7 on black paper, under the lid camera, and is sealed at the protocol's pause. The run, the stills and the end of the run all happen here."
+   "hold_s": 10.13,
+   "seconds": 16.5,
+   "caption": "In CB 154 (blue): the vials are uncapped only on the OT-2's deck. The plate sits on the heater-shaker in slot 7, under the lid camera, and is sealed at the protocol's pause. The run, the stills and the end of the run all happen here."
   },
   {
    "label": "1.6",
@@ -104,13 +104,13 @@
    "end_frame": 83,
    "fps": 15,
    "motion_s": 5.6,
-   "hold_s": 9.67,
-   "seconds": 15.3,
-   "caption": "Before anything is opened: lab coat, splash goggles and nitrile gloves (two pairs for barium). The barium chloride SDS goes in the binder. Chris Dillon's rule for the room: keep every container closed and labelled."
+   "hold_s": 12.33,
+   "seconds": 17.9,
+   "caption": "Before anything is opened: nitrile gloves (two pairs for barium), a lab coat and safety glasses, with long pants and closed-toe shoes. The barium chloride SDS goes in the binder. Chris Dillon's rule for the room: keep every container closed and labelled."
   },
   {
    "label": "2.2",
-   "title": "Set up and check the balance",
+   "title": "Check the balance; water into six vials",
    "where": "EB B125, next to the hood",
    "part": "sop2a_hood",
    "part_title": "2a. Barium chloride, inside the hood",
@@ -119,9 +119,9 @@
    "end_frame": 158,
    "fps": 15,
    "motion_s": 5.0,
-   "hold_s": 12.13,
-   "seconds": 17.1,
-   "caption": "The balance sits on the bench beside the hood. If it was carried over, plug it in at least an hour before weighing: the HR-100A drifts for about an hour after a move (powder-doser 157). Level it by its bubble and check it with a check weight."
+   "hold_s": 17.53,
+   "seconds": 22.5,
+   "caption": "The balance sits on the bench beside the hood. If it was carried over, plug it in at least an hour before weighing: the HR-100A drifts for about an hour after a move (powder-doser 157). Level it by its bubble and check it with a check weight. Then weigh 13.50 g of DI water into each of six capped vials, for the dilutions."
   },
   {
    "label": "2.3",
@@ -134,9 +134,9 @@
    "end_frame": 269,
    "fps": 15,
    "motion_s": 7.4,
-   "hold_s": 12.07,
-   "seconds": 19.5,
-   "caption": "Load the hood before opening anything: absorbent liner, a tray, the barium waste bottle, a wash bottle of fresh DI water, the barium chloride, a tube rack and a spatula, all behind the yellow line 15 cm (6 in) inside the sash. Then lower the sash to its working-height sticker."
+   "hold_s": 14.8,
+   "seconds": 22.2,
+   "caption": "Load the hood before opening anything: absorbent liner, a tray, the barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials and a spatula, all behind the yellow line 15 cm (6 in) inside the sash. Then lower the sash to its working-height sticker."
   },
   {
    "label": "2.4",
@@ -149,9 +149,9 @@
    "end_frame": 344,
    "fps": 15,
    "motion_s": 5.0,
-   "hold_s": 11.27,
-   "seconds": 16.3,
-   "caption": "At the balance: lift the breeze-break lid, put the empty capped 20 mL vial on the pan, close the lid and press TARE. A capped vial is how barium chloride reaches the balance: the powder never leaves the hood in an open container."
+   "hold_s": 12.87,
+   "seconds": 17.9,
+   "caption": "At the balance: lift the breeze-break lid, put the empty capped vial for the 0.1 M barium chloride on the pan, close the lid and press TARE. A capped vial is how barium chloride reaches the balance: the powder never leaves the hood in an open container."
   },
   {
    "label": "2.5",
@@ -224,13 +224,13 @@
    "end_frame": 688,
    "fps": 15,
    "motion_s": 5.6,
-   "hold_s": 10.33,
-   "seconds": 15.9,
-   "caption": "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's lot. 0.3664 g in 15.00 mL is 0.1000 M (244.26 g/mol); for another mass, work out its concentration and use that in the plate map."
+   "hold_s": 12.2,
+   "seconds": 17.8,
+   "caption": "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's lot. 0.3664 g is 1.500 mmol (244.26 g/mol): with 15.00 g of water, 0.1000 mol/kg. For another mass, work out its concentration and use that in the plate map."
   },
   {
    "label": "2.10",
-   "title": "Dissolve it and pour into the 0.1 M tube",
+   "title": "Dissolve it in the vial",
    "where": "EB B125, inside the hood",
    "part": "sop2b_bench",
    "part_title": "2b. Dilutions, then the bench",
@@ -239,24 +239,24 @@
    "end_frame": 113,
    "fps": 15,
    "motion_s": 7.6,
-   "hold_s": 6.8,
-   "seconds": 14.4,
-   "caption": "In the hood: about 10 mL of DI water into the vial, cap and swirl until clear, then pour it into the tube marked 0.1 M barium chloride. Uncap the four barium tubes now and set their caps down top-down."
+   "hold_s": 5.93,
+   "seconds": 13.5,
+   "caption": "In the hood: about 15 mL of DI water into the vial from the wash bottle. Cap it and swirl until the solid is gone. The powder never leaves this vial: it is the 0.1 M barium chloride stock."
   },
   {
    "label": "2.11",
-   "title": "Rinse, make up to 15 mL, invert",
-   "where": "EB B125, inside the hood",
+   "title": "Weigh it, then into the barium holder",
+   "where": "inside, next to, then inside the hood",
    "part": "sop2b_bench",
    "part_title": "2b. Dilutions, then the bench",
-   "file": "2-11_make-up-barium-0.1M.mp4",
+   "file": "2-11_weigh-barium-0.1M.mp4",
    "start_frame": 114,
-   "end_frame": 182,
+   "end_frame": 197,
    "fps": 15,
-   "motion_s": 4.6,
-   "hold_s": 7.0,
-   "seconds": 11.6,
-   "caption": "Rinse the vial twice into the tube, make it up to the 15 mL mark with DI water, cap it and invert it ten times. The empty vial is rinsed into the barium waste."
+   "motion_s": 5.6,
+   "hold_s": 9.67,
+   "seconds": 15.3,
+   "caption": "Wipe it, weigh it capped at the balance and log the reading: the water's mass sets the concentration (0.3664 g with 15.00 g of water is 0.1000 mol/kg). Then it goes back into the hood, into A1 of the barium holder."
   },
   {
    "label": "2.12",
@@ -265,28 +265,28 @@
    "part": "sop2b_bench",
    "part_title": "2b. Dilutions, then the bench",
    "file": "2-12_barium-dilutions.mp4",
-   "start_frame": 183,
-   "end_frame": 296,
+   "start_frame": 198,
+   "end_frame": 311,
    "fps": 15,
    "motion_s": 7.6,
-   "hold_s": 7.4,
-   "seconds": 15.0,
-   "caption": "Still in the hood: 13.5 mL of DI water in each of the next three tubes, then 1.5 mL down the series with a fresh pipette tip each time: 10 mM, 1 mM and 0.1 mM barium chloride. Mix each before the next transfer."
+   "hold_s": 7.6,
+   "seconds": 15.2,
+   "caption": "Still in the hood: uncap the 0.1 M vial and the three water vials, then move 1.5 mL down the series with a new pipette tip each time: 10, 1 and 0.1 mM barium chloride. Cap and invert each before the next transfer."
   },
   {
    "label": "2.13",
-   "title": "Cap and label the barium tubes",
+   "title": "Cap and label the barium vials",
    "where": "EB B125, inside the hood",
    "part": "sop2b_bench",
    "part_title": "2b. Dilutions, then the bench",
    "file": "2-13_cap-and-label-barium.mp4",
-   "start_frame": 297,
-   "end_frame": 341,
+   "start_frame": 312,
+   "end_frame": 356,
    "fps": 15,
    "motion_s": 3.0,
    "hold_s": 8.53,
    "seconds": 11.5,
-   "caption": "Cap all four barium tubes. Label each one: name, concentration, date, initials. Pipette tips and wipes that touched barium go in the barium waste in the hood."
+   "caption": "Cap all four barium vials. Label each one: name, concentration, date, initials. Pipette tips and wipes that touched barium go in the barium waste in the hood."
   },
   {
    "label": "2.14",
@@ -295,13 +295,13 @@
    "part": "sop2b_bench",
    "part_title": "2b. Dilutions, then the bench",
    "file": "2-14_weigh-sodium-sulfate.mp4",
-   "start_frame": 342,
-   "end_frame": 461,
+   "start_frame": 357,
+   "end_frame": 476,
    "fps": 15,
    "motion_s": 8.0,
-   "hold_s": 8.0,
-   "seconds": 16.0,
-   "caption": "Sodium sulfate is weighed on the bench, in an open weigh boat: tare the boat, open the bottle, spatula about 213 mg into the boat, close the bottle. 0.2131 g of anhydrous sodium sulfate (142.04 g/mol) in 15.00 mL is 0.1000 M."
+   "hold_s": 9.0,
+   "seconds": 17.0,
+   "caption": "Sodium sulfate is weighed on the bench, in an open weigh boat: tare the boat, open the bottle, spatula about 213 mg into the boat, close the bottle. 0.2131 g of anhydrous sodium sulfate (142.04 g/mol) with 15.00 g of water is 0.1000 mol/kg."
   },
   {
    "label": "2.15",
@@ -310,13 +310,13 @@
    "part": "sop2b_bench",
    "part_title": "2b. Dilutions, then the bench",
    "file": "2-15_make-up-sodium-sulfate.mp4",
-   "start_frame": 462,
-   "end_frame": 539,
+   "start_frame": 477,
+   "end_frame": 554,
    "fps": 15,
    "motion_s": 5.2,
-   "hold_s": 5.8,
-   "seconds": 11.0,
-   "caption": "Tip the boat through a funnel into the 0.1 M sodium sulfate tube, rinse the boat and funnel in with DI water, and make it up to 15 mL. Cap and invert."
+   "hold_s": 8.73,
+   "seconds": 13.9,
+   "caption": "Tip the boat through a funnel into the 0.1 M sodium sulfate vial and rinse the boat and funnel in with DI water, to about 15 mL. Cap and invert it, then weigh it capped and log the water's mass."
   },
   {
    "label": "2.16",
@@ -325,13 +325,13 @@
    "part": "sop2b_bench",
    "part_title": "2b. Dilutions, then the bench",
    "file": "2-16_sulfate-nacl-water.mp4",
-   "start_frame": 540,
-   "end_frame": 632,
+   "start_frame": 555,
+   "end_frame": 647,
    "fps": 15,
    "motion_s": 6.2,
-   "hold_s": 7.47,
-   "seconds": 13.7,
-   "caption": "The same tenfold series for 10, 1 and 0.1 mM sodium sulfate. Then 4.383 g of sodium chloride made up to 15 mL (5 M), and a tube of fresh DI water: ten tubes in all, each labelled and logged."
+   "hold_s": 10.27,
+   "seconds": 16.5,
+   "caption": "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials. Then 4.383 g of sodium chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each labelled and logged."
   },
   {
    "label": "2.17",
@@ -340,13 +340,13 @@
    "part": "sop2b_bench",
    "part_title": "2b. Dilutions, then the bench",
    "file": "2-17_pack-and-clean-up.mp4",
-   "start_frame": 633,
-   "end_frame": 752,
+   "start_frame": 648,
+   "end_frame": 767,
    "fps": 15,
    "motion_s": 8.0,
-   "hold_s": 9.93,
-   "seconds": 17.9,
-   "caption": "Wipe the outside of the barium tubes and the rack in the hood, then carry the rack straight to the tub; the bench rack joins it. Lid on. Outer gloves off in the hood, liner and wipes into the barium waste, sash fully down. Leave the hood as you found it."
+   "hold_s": 10.47,
+   "seconds": 18.5,
+   "caption": "Wipe the outside of the barium vials and their holder in the hood, then carry the holder straight to the tub; the bench holder joins it. Lid on. Outer gloves off in the hood, liner and wipes into the barium waste, sash fully down. Leave the hood as you found it."
   },
   {
    "label": "3.1",
@@ -374,24 +374,24 @@
    "end_frame": 149,
    "fps": 15,
    "motion_s": 4.0,
-   "hold_s": 7.0,
-   "seconds": 11.0,
-   "caption": "Open the OT-2's door. The colour sensor stays parked in slot 10, and nothing else drives the robot while the protocol runs (one controller at a time)."
+   "hold_s": 12.33,
+   "seconds": 16.3,
+   "caption": "Open the OT-2's door. The colour sensor stays parked in its charging station in slot 10, and nothing else drives the robot while the protocol runs (one controller at a time). The heater-shaker sits in slot 7, under the lid camera."
   },
   {
    "label": "3.3",
-   "title": "Black paper and the plate in slot 7",
+   "title": "The plate on the heater-shaker in slot 7",
    "where": "CB 154, OT-2 deck",
    "part": "sop3a_load",
    "part_title": "3a. Loading the OT-2 in CB 154",
-   "file": "3-03_plate-in-slot-7.mp4",
+   "file": "3-03_plate-on-heater-shaker.mp4",
    "start_frame": 150,
    "end_frame": 218,
    "fps": 15,
    "motion_s": 4.6,
-   "hold_s": 7.33,
-   "seconds": 11.9,
-   "caption": "Slot 7, under the lid camera: black paper, then the NEST 96-well plate with A1 at the back left. Take its lid off only now. The yellow cone is what the camera sees."
+   "hold_s": 12.47,
+   "seconds": 17.1,
+   "caption": "Slot 7, on the heater-shaker's 96 flat-bottom adapter: black paper cut to the adapter, then the NEST 96-well plate with A1 at the back left; close the labware latch. Take the plate's lid off only now. The yellow cone is what the camera sees."
   },
   {
    "label": "3.4",
@@ -410,33 +410,33 @@
   },
   {
    "label": "3.5",
-   "title": "The racks in slots 4 and 5",
+   "title": "The vial holders in slots 4 and 5",
    "where": "CB 154, OT-2 deck",
    "part": "sop3a_load",
    "part_title": "3a. Loading the OT-2 in CB 154",
-   "file": "3-05_racks-in-slots-4-5.mp4",
+   "file": "3-05_holders-in-slots-4-5.mp4",
    "start_frame": 270,
    "end_frame": 338,
    "fps": 15,
    "motion_s": 4.6,
-   "hold_s": 9.13,
-   "seconds": 13.7,
-   "caption": "Lift the two racks out of the tub and onto the deck as they are: barium chloride in slot 4; sodium sulfate, the 5 M NaCl and the DI water in slot 5, in the positions the protocol's map gives."
+   "hold_s": 11.0,
+   "seconds": 15.6,
+   "caption": "Lift the two vial holders out of the tub and onto the deck as they are, A1 at the back left: barium chloride in slot 4; sodium sulfate, the 5 M NaCl and the DI water in slot 5, in the positions the protocol's map gives."
   },
   {
    "label": "3.6",
-   "title": "Uncap the ten tubes",
+   "title": "Uncap the ten vials",
    "where": "CB 154, OT-2 deck",
    "part": "sop3a_load",
    "part_title": "3a. Loading the OT-2 in CB 154",
-   "file": "3-06_uncap-the-tubes.mp4",
+   "file": "3-06_uncap-the-vials.mp4",
    "start_frame": 339,
    "end_frame": 431,
    "fps": 15,
    "motion_s": 6.2,
    "hold_s": 5.27,
    "seconds": 11.5,
-   "caption": "Uncap the ten tubes one at a time, here on the deck and only now. Each cap goes top-down on a clean wipe, in the same order, so it goes back on its own tube."
+   "caption": "Uncap the ten vials one at a time, here on the deck and only now. Each cap goes top-down on a clean wipe, in the same order, so it goes back on its own vial."
   },
   {
    "label": "3.7",
@@ -481,7 +481,7 @@
    "motion_s": 6.6,
    "hold_s": 6.8,
    "seconds": 13.4,
-   "caption": "64 wells: 40 uL of 5 M NaCl (1 molal in 200 uL). Barium chloride and sodium sulfate come from the 0.1 M, 10, 1 and 0.1 mM tubes: 20 uL gives 1/10 of the stock, 60 uL of 10 mM gives 3 mM."
+   "caption": "64 wells: 40 uL of 5 M NaCl (1 molal in 200 uL). Barium chloride and sodium sulfate come from the 0.1 M, 10, 1 and 0.1 mM vials: 20 uL gives 1/10 of the stock, 60 uL of 10 mM gives 3 mM."
   },
   {
    "label": "3.10",
@@ -496,7 +496,7 @@
    "motion_s": 6.6,
    "hold_s": 4.8,
    "seconds": 11.4,
-   "caption": "72 wells: barium chloride, from the tube each well needs (shown: 1 mM). A dose under 20 uL, the P300's minimum, stops the protocol instead of becoming zero."
+   "caption": "72 wells: barium chloride, from the vial each well needs (shown: 1 mM). A dose under 20 uL, the P300's minimum, stops the protocol instead of becoming zero."
   },
   {
    "label": "3.11",
@@ -530,18 +530,18 @@
   },
   {
    "label": "3.13",
-   "title": "Recap the tubes, leave the lights on",
+   "title": "Recap the vials, leave the lights on",
    "where": "CB 154, OT-2 deck",
    "part": "sop3b_fill",
    "part_title": "3b. The fill and the seal",
-   "file": "3-13_recap-the-tubes.mp4",
+   "file": "3-13_recap-the-vials.mp4",
    "start_frame": 561,
    "end_frame": 650,
    "fps": 15,
    "motion_s": 6.0,
    "hold_s": 11.0,
    "seconds": 17.0,
-   "caption": "When the protocol ends: recap each tube from its place on the wipe (leftover stocks go to the barium waste at the end of the run), close the door, and leave the rail lights on. The head parks away from slot 7 so the camera has a clear view."
+   "caption": "When the protocol ends: recap each vial from its place on the wipe (leftover stocks go to the barium waste at the end of the run), close the door, and leave the rail lights on. The head parks away from slot 7 so the camera has a clear view."
   },
   {
    "label": "4.1",
@@ -554,9 +554,9 @@
    "end_frame": 98,
    "fps": 15,
    "motion_s": 6.6,
-   "hold_s": 11.8,
-   "seconds": 18.4,
-   "caption": "The lid camera (Raspberry Pi HQ camera, 8-50 mm zoom, Pi 5) looks straight down through the top window at slot 7. The capture job takes a still every minute until 30 min after the last sulfate, every 5 min until 6 h, then every 15 min: about 400 stills in 72 h."
+   "hold_s": 15.4,
+   "seconds": 22.0,
+   "caption": "The lid camera (Raspberry Pi HQ camera, 8-50 mm zoom, Pi 5) looks straight down through the top window at the plate on the heater-shaker, 69 mm closer than a plate on the deck, so refocus it first. Stills every minute until 30 min after the last sulfate, every 5 min until 6 h, then every 15 min: about 400 in 72 h."
   },
   {
    "label": "4.2",

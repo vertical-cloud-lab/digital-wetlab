@@ -35,7 +35,7 @@ It is built the way the lab's other animations are (byu-vcl's `viz3d`, used for 
 the vertical lift module): CadQuery and vendor STEP models, rendered off-screen in PyVista, text drawn with PIL, and
 written as MP4 and GIF.
 
-Chapters 2 and 3 are in two parts each, so every GIF stays under the ~5 MB GitHub shows inline. Part 2a's GIF runs at 8 fps for the same reason; every MP4 has all its frames.
+Chapters 2 and 3 are in two parts each, so every GIF stays under the ~5 MB GitHub shows inline. Parts 2a's and 2b's GIFs run at 6 fps for the same reason; every MP4 has all its frames.
 
 | Part | GIF (800 × 450, 10 fps) | MP4 (1280 × 720, 15 fps) |
 | --- | --- | --- |
@@ -217,7 +217,7 @@ chemicals that present an inhalation hazard is prohibited."
   swallowed (H301). That's why the bottle is opened, and the powder weighed and dissolved, only in the hood (2.3-2.13).
 - **Once it's dissolved, nothing comes off it.** Barium chloride doesn't evaporate; only the water does. What's left
   is the risk of swallowing it or getting it on skin or in the eyes. Gloves, glasses or goggles, a lab coat, capped
-  tubes, the OT-2's closed door, a sealed plate, and no food or drink take care of that.
+  vials, the OT-2's closed door, a sealed plate, and no food or drink take care of that.
 - **The solutions on the deck are dilute.** The strongest is the 0.1 M stock, about 2.4 % barium chloride dihydrate
   by weight; the rest are 10, 1 and 0.1 mM. Makers' safety data sheets for barium chloride solutions on either side
   of it ask for ordinary ventilation, not a hood:
@@ -281,7 +281,7 @@ of the lead plan:
 | A&D HR-100A with the FXi-10 breeze break and A&D's lid | `lab_models/labware.py`, `balance(lid="stock")` | byu-vcl `vertical-lab/lab_models` at `516f796` (from byu-vcl 199): built from A&D's drawings and the lab's measurements. The doser's AutoTrickler lid is swapped for the stock one here |
 | NEST 96-well plate (200 µL, flat), Opentrons 300 µL tip rack, weigh boat, spatula | `lab_models/labware.py` | Same copy; built from Opentrons' labware definitions and the makers' drawings |
 | Fume hood, benches, OT-2 table, rooms | `models.py` | **Modelled here from typical sizes**: a 5 ft bench hood with a vertical sash, 30 in benches. EB B125's hood and both rooms are not measured or photographed on record, so the layout is a stand-in |
-| Reagent bottles, waste bottles, wash bottles, 100-1000 µL pipette, tub, seal, plate lid, stand-in person | `models.py` | Modelled here. The coloured bands on bottles and tubes are only for the animation: orange for barium, green for sulfate, grey for NaCl, blue for water |
+| Reagent bottles, waste bottles, wash bottles, 100-1000 µL pipette, tub, seal, plate lid, stand-in person | `models.py` | Modelled here. The coloured bands on bottles and vials are only for the animation: orange for barium, green for sulfate, grey for NaCl, blue for water |
 
 `lab_models/common.py` and `labware.py`, and `scene.py`, are verbatim copies from byu-vcl at `516f796`, so each
 model and the renderer have one source. `animate.py` overrides one method of `scene.Scene`: it resets the camera's
@@ -337,5 +337,9 @@ python3 split_steps.py --page-only --sha <commit>         # out/steps/player.htm
 ```
 
 The first run downloads the six STEP files into `.cache/` and tessellates everything, which takes about 10 s. The
-meshes are cached until `models.py` or `lab_models/` changes. To run chapters in parallel, give each its own display
+meshes are cached until `models.py`, `vial_holder.py` or `lab_models/` changes. To run chapters in parallel, give each its own display
 (`xvfb-run --server-num=N`).
+
+On the 11-06 runner, `animate.py sop2a` failed to open its X display (VTK: "bad X server connection") every time, and
+only for that part. So part 2a is the first nine steps of a full `animate.py sop2` render, cut frame for frame, with
+its 8 fps GIF made from that cut.
