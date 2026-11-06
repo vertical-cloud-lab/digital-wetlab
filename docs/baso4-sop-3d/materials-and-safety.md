@@ -3,7 +3,7 @@
 Asked on [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/80) by @timothy-commins on
 2026-11-05, before running plate A. The step numbers are the 3-D SOP's
 ([step table](README.md#the-steps-and-where-each-one-happens),
-[videos](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/91a0e7b/docs/baso4-sop-3d/out/steps/player.html)).
+[videos](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html)).
 
 - **get**: no record that the lab has it.
 - **check**: bought, but it may be used up, somewhere else, or not the right one.
