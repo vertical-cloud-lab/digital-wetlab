@@ -1,0 +1,47 @@
+{
+ "name": "sop1_where",
+ "fps": 15,
+ "n_frames": 534,
+ "size": [
+  1280,
+  720
+ ],
+ "substeps": [
+  {
+   "label": "1.1",
+   "caption": "Two rooms in two buildings. The stocks are made in EB B125, Chris Dillon's lab, because it has the fume hood. The plate is filled and watched on the OT-2 in CB 154, under the lid camera.",
+   "start_frame": 0,
+   "end_frame": 101
+  },
+  {
+   "label": "1.2",
+   "caption": "Inside the hood (red): the barium chloride bottle is only ever opened here, and every barium solution stays here until its vial is capped. Stand outside it with only your arms in, the sash at its working-height sticker.",
+   "start_frame": 102,
+   "end_frame": 191
+  },
+  {
+   "label": "1.3",
+   "caption": "Next to the hood (amber), on the bench: the A&D HR-100A balance, sodium sulfate and sodium chloride (neither is classed as hazardous, so they are weighed on the bench), labels and the log. Barium chloride only reaches the balance inside a capped vial.",
+   "start_frame": 192,
+   "end_frame": 272
+  },
+  {
+   "label": "1.4",
+   "caption": "Everything moves between the buildings capped, in the lidded tub: the two vial holders with their ten vials. Nothing is opened on the way.",
+   "start_frame": 273,
+   "end_frame": 356
+  },
+  {
+   "label": "1.5",
+   "caption": "In CB 154 (blue): the vials are uncapped only on the OT-2's deck. The plate sits on the heater-shaker in slot 7, under the lid camera, and is sealed at the protocol's pause. The run, the stills and the end of the run all happen here.",
+   "start_frame": 357,
+   "end_frame": 452
+  },
+  {
+   "label": "1.6",
+   "caption": "The order: make the stocks in EB B125, carry them over, load and fill the plate on the OT-2, then let the lid camera record it for 72 h. The next three chapters go through each part.",
+   "start_frame": 453,
+   "end_frame": 533
+  }
+ ]
+}
