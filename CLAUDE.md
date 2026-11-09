@@ -86,6 +86,87 @@ finished work stops landing.
   needed. Never echo, log, or commit a token value; the script prints only
   statuses and lengths.
 
+## Printing on the lab's Bambu Lab printers (`@claude-print`)
+
+A plain `@claude` run cannot log in to the lab's Bambu Lab account, so it cannot send a print.
+While a printer is bound to Bambu's cloud, its firmware refuses LAN start/pause/stop commands
+that Bambu's own apps did not sign (HMS `0500-0500-0001-0007`), so sending a print means Bambu
+Studio logged in as the lab account. Only [`claude-print.yml`](.github/workflows/claude-print.yml)
+gets that login:
+
+- **A person starts it** with `@claude-print` in a comment or a new issue, in place of
+  `@claude`. Claude's own comments can't start it.
+- **A person approves it.** The run waits in the `bambu-print` environment until a member of
+  [`bambu-print-approvers`](https://github.com/orgs/vertical-cloud-lab/teams/bambu-print-approvers)
+  approves it (the run's page → **Review deployments**, or GitHub Mobile). The workflow posts
+  the link in the thread. An approver may approve their own request. Approvers: read the
+  request first, because an approved run holds the whole login.
+- **Its secrets** are `BAMBU_USERNAME`, `BAMBU_PASSWORD` and `BAMBU_TOTP_SEED`, all environment
+  secrets of `bambu-print`. They are not repo secrets and are not in `claude.yml`.
+- **Second factor: an authenticator code, computed on the runner.** The account has
+  authenticator-app 2-step verification, so Studio's login asks for a 6-digit code after the
+  password. The workflow installs `bambu-totp`, which computes the current code from the seed.
+  Type the code and the password through stdin so neither reaches argv, a log or a screenshot:
+  `bambu-totp | DISPLAY=:99 xdotool type --delay 90 --file -`, and
+  `printenv BAMBU_PASSWORD | DISPLAY=:99 xdotool type --delay 90 --file -`. Never print, post,
+  commit or screenshot these values or a code.
+- **Never ask for, relay or post an e-mailed Bambu verification code.** Bambu accepts the
+  account's e-mail address plus a current e-mailed code as a complete login, with no password,
+  even when 2-step verification is on
+  ([robot-arms PR 10](https://github.com/vertical-cloud-lab/robot-arms/pull/10#issuecomment-6140001145),
+  [ha-bambulab PR 2058](https://github.com/greghesp/ha-bambulab/pull/2058)). A code posted in a
+  thread is the account until it expires. If Studio asks for an e-mailed code instead of the
+  authenticator code, stop and say so in the thread.
+- **Prepare in a plain `@claude` run; send in `@claude-print`.** Slicing, and status and
+  camera over LAN from a Pi, need no login. End the prep run by asking the person to comment
+  `@claude-print` naming the exact file (branch and path) and printer, so the approver can see
+  what they are approving.
+- **Check the installed nozzle diameters before printing.** Read them off the printer, not
+  the slice or an earlier comment: Studio's Device page, or the status report over LAN from
+  a Pi. Check while preparing, before you slice, and again in the `@claude-print` run before
+  Send, and put the diameters in the tracking comment next to the fresh frame.
+  For this repo every installed nozzle must be **0.2 or 0.4 mm** (on the H2D, check both
+  left and right), and the slice must be for the diameter of the nozzle that will print it.
+  tensegrity-optimization prints with 0.6 mm nozzles, so a printer may well still have
+  those in.
+  If a diameter is wrong or you can't read it, don't send (and don't re-slice for the wrong
+  nozzle): say what is installed and wait for a person to swap it.
+- **Nobody replies `plate clear` any more (sgbaird, 2026-10-23).** The print run reads the
+  plate itself and gives people a window to stop it. This replaces the person's go in rule 1
+  and §4.1 of byu-vcl's `bambu/README.md`, which an older branch may still show.
+  1. **A fresh frame comes first.** Before slicing, exporting or anything else, log in to
+     Studio, open the printer on the Device page, and save its camera still. Commit it and put
+     it at the top of the tracking comment with its UTC time, the printer's state, the file and
+     printer you are about to print, the plate type it was sliced for, and your own read of the
+     plate. Anyone watching the thread can then cancel the run within minutes of approving it.
+  2. **Judge the plate yourself.** Go only if the frame is bright enough to tell and shows
+     nothing but the plate, the toolhead's shadow and the base sticker. If it is dark, if
+     anything is on the plate, or if you can't tell, don't send: say what you see and wait for
+     a person. That is the one case that needs a reply.
+  3. **Wait at least 90 seconds** after the frame is posted, doing the rest of the prep
+     meanwhile, and poll the thread for new comments. Any comment asking to stop, wait or
+     change something holds the send; act on it. With no reply, send. A go from someone with
+     write access ends the wait early.
+  4. **Take another frame right before Send.** If the plate looks different, post it and start
+     the 90 seconds again.
+  5. **Still list what a person could check,** as suggestions rather than something to reply
+     to: the plate type, room for the bed to travel, and someone near the printer. The rest of
+     the runbook stands: an idle printer with no HMS alert, working hours, the recording, and
+     watching the print. In `print.json`, record the go as the frame, when the wait ended, and
+     any replies.
+
+  People replying should leave out `@claude` and `@claude-print`, which start another run.
+- **Studio GUI details** are in byu-vcl's runbook, `bambu/studio/README.md` on
+  [byu-vcl PR 234](https://github.com/vertical-cloud-lab/byu-vcl/pull/234)'s branch: setup,
+  the login page, Send, and watching a print. Its "e-mail code" section is superseded by this
+  one. The authenticator prompt is a different dialog from the e-mail-code one, so find its
+  field from a screenshot rather than reusing `wait_code.py`'s click positions.
+- **Rotating** (if the seed or password may have leaked): on bambulab.com, turn 2-step
+  verification off and on again to get a new seed (everyone who logs in to the account
+  re-scans it), change the password, then update the three secrets in the `bambu-print`
+  environment of every repo that has one: byu-vcl, robot-arms, powder-doser,
+  tensegrity-optimization, caliber, digital-wetlab and digital-alloy-lab.
+
 ## Receiving files from other repos (`sgbaird/agent-staging`)
 
 [`sgbaird/agent-staging`](https://github.com/sgbaird/agent-staging) (private) is a one-way
