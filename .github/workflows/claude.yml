@@ -38,6 +38,7 @@ jobs:
     # itself" in
     # https://github.com/ME-EN-372/me-en-372-machine-design-private/blob/main/docs/claude-yml-model-fallback.md.
     # This repo is public, so only the owner, org members and collaborators can start a session.
+    # @claude-print runs go to claude-print.yml instead (approval-gated Bambu login).
     if: |
       github.event.sender.type != 'Bot' &&
       ((github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude') &&
@@ -47,7 +48,8 @@ jobs:
        (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude') &&
         contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.review.author_association)) ||
        (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')) &&
-        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association)))
+        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association))) &&
+      !contains(github.event.comment.body || github.event.review.body || format('{0} {1}', github.event.issue.title, github.event.issue.body), '@claude-print')
     runs-on: ubuntu-latest
     # Allow long waits (e.g., Edison polling) without hitting a job-level limit.
     # This budget now covers both attempts, so a fallback after a long first
