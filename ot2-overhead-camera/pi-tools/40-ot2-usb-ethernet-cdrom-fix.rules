@@ -1,0 +1,10 @@
+# /etc/udev/rules.d/40-ot2-usb-ethernet-cdrom-fix.rules
+# Recovered from the first OT-2 camera Pi on 2026-11-10; written for byu-vcl PR 60 (2026-08-10).
+# Only needed if the robot is cabled through a USB-Ethernet adapter (RTL8153). With the robot's
+# cable in the Pi's built-in eth0, as ../ot2-link.md recommends, this rule never fires.
+#
+# The RTL8153 sometimes enumerates in its fake driver-CD mode (0bda:8151, USB mass storage)
+# after a reboot or replug, so no eth1 appears. Eject + reset flips it to NIC mode (0bda:8153);
+# the r8152 driver then binds and the ot2-usb NetworkManager profile connects.
+# Needs: sudo apt-get install -y usb-modeswitch
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="8151", RUN+="/usr/sbin/usb_modeswitch -v 0bda -p 8151 -K -R"
