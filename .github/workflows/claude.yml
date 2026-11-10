@@ -79,6 +79,12 @@ jobs:
       # in through the browser. See the Onshape section of CLAUDE.md.
       ONSHAPE_USERNAME: ${{ secrets.ONSHAPE_USERNAME }}
       ONSHAPE_PASSWORD: ${{ secrets.ONSHAPE_PASSWORD }}
+      # The OT-2 stream-camera Pi on the lab tailnet (Tailscale SSH), which the Onshape
+      # browser tunnels through. The username is a variable because GitHub masks a short
+      # secret everywhere it appears as a substring. See CLAUDE.md.
+      OT2_STREAM_CAM_HOSTNAME: ${{ secrets.OT2_STREAM_CAM_HOSTNAME }}
+      OT2_STREAM_CAM_PASSWORD: ${{ secrets.OT2_STREAM_CAM_PASSWORD }}
+      OT2_STREAM_CAM_USERNAME: ${{ vars.OT2_STREAM_CAM_USERNAME }}
       # Allow long-blocking foreground commands (e.g., Edison polling)
       BASH_DEFAULT_TIMEOUT_MS: "900000" # 15 min default per Bash call
       BASH_MAX_TIMEOUT_MS: "3600000" # 60 min ceiling per Bash call
@@ -89,6 +95,18 @@ jobs:
         with:
           fetch-depth: 0        # all history, all branches
           filter: blob:none     # ...without historical blobs (i.e., low total size)
+
+      # Join the lab tailnet as an ephemeral node (removed when the job ends) so sessions
+      # can reach the OT-2 stream-camera Pi. Same OAuth client as byu-vcl, scoped to
+      # tag:stream-cam-test. What the runner can reach is set by
+      # vertical-cloud-lab/tailscale-policy (SSH within the tag, tcp:22 only).
+      - name: Connect to Tailscale
+        continue-on-error: true
+        uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:stream-cam-test
 
       # Copilot-style model selector: @claude+<model>[:<effort>]
       # Examples: @claude, @claude+opus-5, @claude+opus-4.8:max, @claude:high
