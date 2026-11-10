@@ -75,6 +75,10 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       EDISON_PLATFORM_API_KEY: ${{ secrets.EDISON_PLATFORM_API_KEY }}
       GH_READ_PAT_STAGING: ${{ secrets.GH_READ_PAT_STAGING }}
+      # The lab's shared Onshape account (member privileges, no 2FA), for signing
+      # in through the browser. See the Onshape section of CLAUDE.md.
+      ONSHAPE_USERNAME: ${{ secrets.ONSHAPE_USERNAME }}
+      ONSHAPE_PASSWORD: ${{ secrets.ONSHAPE_PASSWORD }}
       # Allow long-blocking foreground commands (e.g., Edison polling)
       BASH_DEFAULT_TIMEOUT_MS: "900000" # 15 min default per Bash call
       BASH_MAX_TIMEOUT_MS: "3600000" # 60 min ceiling per Bash call

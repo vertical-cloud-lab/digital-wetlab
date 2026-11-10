@@ -192,3 +192,76 @@ GH_TOKEN=$GH_READ_PAT_STAGING gh api "repos/sgbaird/agent-staging/contents/<path
   Sterling asked to bring over, and don't copy `MANIFEST.md` in.
 - Never echo the token or save it in a remote or a commit. If it is unset or returns
   401/403/404, say so and stop; don't rebuild the content some other way.
+
+## Onshape: signing in through the browser (`ONSHAPE_USERNAME` / `ONSHAPE_PASSWORD`)
+
+`ONSHAPE_USERNAME` and `ONSHAPE_PASSWORD` (job env in `.github/workflows/claude.yml`) are the
+login of the lab's shared Onshape account. It has member privileges in the lab's Onshape
+company, signs in with e-mail and password, and has no two-factor step (checked 2026-11-09).
+Use it to open, export (STL, STEP, Parasolid) or search lab documents that aren't public, such
+as a link someone posts in an issue. The same values are in every core VCL repo; set or rotate
+them in all of them together.
+
+This repo has no Onshape API key, so the browser is the only way to reach a private document.
+Public documents can still be read through the API without a key.
+
+**The route that works** is the one byu-vcl used on 2026-09-26
+([PR 234](https://github.com/vertical-cloud-lab/byu-vcl/pull/234#issuecomment-5842335279)):
+headed Chrome on a virtual display on the runner, with its traffic sent out through a lab Pi
+over an SSH SOCKS tunnel, so that Onshape sees the BYU network instead of a datacenter. Its
+rig script is on that PR's branch; fetch it pinned, into `/tmp`, never into this checkout:
+
+```bash
+B=https://raw.githubusercontent.com/vertical-cloud-lab/byu-vcl/49677cfff31a67765d9182c01765bfa994a7545d/ot2-overhead-camera/lid-mount/onshape
+mkdir -p /tmp/onshape-rig/record /tmp/onshape-rig/pi
+curl -fsSL "$B/record/rig.sh" -o /tmp/onshape-rig/record/rig.sh && chmod +x /tmp/onshape-rig/record/rig.sh
+curl -fsSL "$B/pi/xshot.py" -o /tmp/onshape-rig/pi/xshot.py
+# This repo's runs aren't on the tailnet, so there is no Pi to tunnel through. Start what
+# rig.sh starts, minus the tunnel and --proxy-server:
+mkdir -p /tmp/onshape-rec/profile/Default
+echo '{"credentials_enable_service": false, "profile": {"password_manager_enabled": false}}' > /tmp/onshape-rec/profile/Default/Preferences
+setsid nohup Xvfb :99 -screen 0 1920x1080x24 -nolisten tcp > /tmp/onshape-rec/xvfb.log 2>&1 < /dev/null &
+DISPLAY=:99 setsid nohup google-chrome --user-data-dir=/tmp/onshape-rec/profile \
+    --remote-debugging-port=9222 --remote-debugging-address=127.0.0.1 \
+    --no-first-run --no-default-browser-check --password-store=basic --test-type \
+    --window-position=0,0 --window-size=1920,1080 --force-device-scale-factor=1 \
+    --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader \
+    --disable-features=LocalNetworkAccessChecks,LocalNetworkAccessChecksWebSockets,Translate \
+    about:blank > /tmp/onshape-rec/chrome.log 2>&1 < /dev/null &
+DISPLAY=:99 python3 /tmp/onshape-rig/pi/xshot.py /tmp/onshape-rec/display.png   # a screenshot of the display
+```
+
+That brings up Xvfb on `:99` and Chrome with DevTools on `127.0.0.1:9222`. Attach with Playwright's `chromium.connect_over_cdp("http://127.0.0.1:9222")`.
+
+**Signing in straight from a runner hasn't been tried yet.** This repo's runs have no Pi to
+tunnel through, so Onshape sees a datacenter address. If it blocks the sign-in, stop and say
+so; the fallback is to ask for the job in digital-alloy-lab or byu-vcl, whose runs tunnel
+through the CubXL Pi. `rig.sh stop` still cleans up, since the profile path matches.
+
+Signing in ([`sign_in()` in `onshape_ui.py`](https://github.com/vertical-cloud-lab/byu-vcl/blob/49677cf/ot2-overhead-camera/lid-mount/onshape/onshape_ui.py#L255-L276), selectors checked live):
+
+1. Go to `https://cad.onshape.com/signin`. Click `input[name='username']`, type the e-mail and
+   click `button.continue-button`.
+2. Click `input[name='password']`, type the password and click `button.os-signin-button`.
+3. Wait up to 60 s for the URL to contain `/documents`.
+
+- **Read the values from the environment inside the script.** Never print them, pass them as
+  command-line arguments, or take a screenshot while the form is filled in. Only take
+  screenshots after you reach `/documents`.
+- **Stop at the first failure: don't retry in a loop.** That covers a reCAPTCHA, a code
+  prompt (`input[name='totpCode']`) and an error message. Take one screenshot, then report
+  what you saw. Repeated failed sign-ins can lock the account, and every repo uses it.
+- **To export,** use Onshape's own Export dialog (right-click the part or tab, then *Export*).
+  The browser saves the file, so set a download directory under `/tmp`. Driving that dialog
+  in headless Chrome worked on
+  [digital-alloy-lab PR 174](https://github.com/vertical-cloud-lab/digital-alloy-lab/pull/174#issuecomment-6532349145).
+- **Sketching and modelling are WebGL on a canvas.** DOM selectors don't reach the geometry,
+  so use pointer moves and drags at screen coordinates, with a screenshot between moves.
+  byu-vcl's `onshape_ui.py` has the techniques that worked.
+- **Keep sessions short.** Do only what the request needs. Onshape's terms forbid automated
+  access (§4(a)(ix)), so use the REST API whenever it can do the job.
+- **Only open Onshape in the tunnelled browser.** The tunnel relays everything the browser
+  loads, so any other site would reach the Pi's network too.
+- **Clean up every time:** sign out from Onshape's user menu (*Sign out*); after that,
+  `/documents` redirects to `/signin`. Then run `rig.sh stop`, which deletes the browser
+  profile. Never save cookies or storage state outside `/tmp`, and never commit them.
