@@ -2,8 +2,10 @@
 """Slice the 6-vial holder for the lab's A1 mini with Bambu Studio's command line (no login needed).
 
 Studio's CLI does not follow a system profile's ``inherits`` chain, so this flattens the bundled machine, process and
-filament profiles into one JSON each, applies the holder's changes, and runs the CLI on the STL. Use the nozzle that is
-actually in the printer: read it off the printer first.
+filament profiles into one JSON each, applies the holder's changes, and runs the CLI on the STL. The flattening also
+resolves each profile's ``include`` list, which is where Bambu keeps the A1 mini's own start and end G-code. Before
+2026-11-11 it skipped them, and the files fell back to a generic start sequence that draws prime lines out to Y 200 mm,
+off the A1 mini's 180 mm bed. Use the nozzle that is actually in the printer: read it off the printer first.
 
     # Bambu Studio 02.08.02.61, the AppImage extracted (byu-vcl bambu/studio/setup_runner.sh does the same)
     python3 slice_a1mini.py --studio ~/bambu/squashfs-root --nozzle 0.4          # writes the .gcode.3mf and .3mf here
@@ -23,16 +25,25 @@ CHANGES = {"wall_loops": "3", "elefant_foot_compensation": "0.15", "brim_type": 
            "curr_bed_type": "Textured PEI Plate"}
 
 
-def flat(root: Path, cat: str, name: str) -> dict:
+def find(root: Path, cat: str, name: str) -> dict:
     p = root / cat / f"{name}.json"
-    d = json.loads(p.read_text()) if p.exists() else next(
-        (json.loads(q.read_text()) for q in (root / cat).glob("*.json") if json.loads(q.read_text()).get("name") == name),
-        None)
-    if d is None:
-        raise FileNotFoundError(f"no {cat} profile named {name!r}")
+    if p.exists():
+        return json.loads(p.read_text())
+    for q in (root / cat).glob("*.json"):
+        d = json.loads(q.read_text())
+        if d.get("name") == name:
+            return d
+    raise FileNotFoundError(f"no {cat} profile named {name!r}")
+
+
+def flat(root: Path, cat: str, name: str) -> dict:
+    d = find(root, cat, name)
     out = flat(root, cat, d["inherits"]) if d.get("inherits") else {}
+    for inc in d.get("include", []):               # Bambu's start/end G-code templates
+        out.update({k: v for k, v in find(root, cat, inc).items() if k not in ("name", "instantiation", "type")})
     out.update(d)
-    out.pop("inherits", None)
+    for k in ("inherits", "include"):
+        out.pop(k, None)
     out.update(name=name, **{"from": "system"})
     return out
 

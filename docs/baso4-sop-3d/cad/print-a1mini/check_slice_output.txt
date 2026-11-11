@@ -62,11 +62,11 @@ $ python check_slice.py vial_holder_20ml_x6_A1mini_PETG_0.4.gcode.3mf plate_layo
   "nozzle_temperature": "245",
   "textured_plate_temp": "70"
  },
- "estimate": "2h 0m 20s",
- "filament_g": 76.28
+ "estimate": "2h 8m 10s",
+ "filament_g": 76.27
 }
 
-$ python check_slice.py vial_holder_20ml_x6_A1mini_PLA_0.4.gcode.3mf plate_layout.png
+$ python check_slice.py vial_holder_20ml_x6_A1mini_PLA_0.4.gcode.3mf /tmp/plate_layout_pla.png
 {
  "file": "vial_holder_20ml_x6_A1mini_PLA_0.4.gcode.3mf",
  "layers": 115,
@@ -130,7 +130,6 @@ $ python check_slice.py vial_holder_20ml_x6_A1mini_PLA_0.4.gcode.3mf plate_layou
   "nozzle_temperature": "220",
   "textured_plate_temp": "65"
  },
- "estimate": "1h 40m 56s",
- "filament_g": 80.16
+ "estimate": "1h 48m 50s",
+ "filament_g": 80.14
 }
-
