@@ -9,6 +9,9 @@ Asked on [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/
 - **check**: bought, but it may be used up, somewhere else, or not the right one.
 - Everything else is on record as in the lab.
 
+**To order** the "get" items and new vials, see the [shopping list](shopping-list.md) (2026-11-11): catalogue numbers,
+pack sizes and prices.
+
 **Updated 2026-11-06** for [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84): the stocks are in
 20 mL vials in two printed holders, the plate sits on the heater-shaker, the OT-2 goes in a fume hood, and the PPE is
 Sterling's list.

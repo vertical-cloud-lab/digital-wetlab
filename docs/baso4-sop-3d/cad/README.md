@@ -16,7 +16,7 @@ barium chloride in slot 4, and sodium sulfate, the 5 M NaCl and the DI water in 
 ## The vials
 
 The lab's 20 mL vials are the **clear VOA vials in the electromagnetic capper's bill of materials**: Fisher
-12-100-112, 20 mL, with 24-400 open-top caps and septa (byu-vcl
+12-100-112 (Thermo 339-20C), 20 mL, with 24-414 open-top caps and septa (byu-vcl
 [`modules/electromagnetic-capper/BOM.md`](https://github.com/vertical-cloud-lab/byu-vcl/blob/main/modules/electromagnetic-capper/BOM.md),
 item 11). The same vials sit in the CubXL's 9-vial holder
 ([`9VialHolder20mL_TightFit.step`](https://github.com/vertical-cloud-lab/byu-vcl/blob/main/modules/electromagnetic-capper/cad/9VialHolder20mL_TightFit.step))

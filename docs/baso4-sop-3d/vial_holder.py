@@ -5,11 +5,11 @@ Asked on PR 84 by @sgbaird (2026-11-06): the stocks go in the vials the lab alre
 OT-2 slot, two holders for the ten stocks.
 
 The vials are the 20 mL clear VOA vials in the electromagnetic capper's bill of materials (byu-vcl
-``modules/electromagnetic-capper/BOM.md``, item 11: Fisher 12-100-112, 24-400 open-top caps with septa), the ones in
-the CubXL's 9-vial holder and stirrer. Fisher lists that family at 28 x 57 mm. @timothy-commins calipered the lab's
-vials at **27 mm** across (PR 84, 2026-11-11), and that is the default here. The height is still Fisher's 57 mm until
-someone measures it. ``VIAL`` below is the one place the size is set: the pockets, the labware definition, the exports
-and the vials in the animation (``models.py``, ``world.py``) all follow it.
+``modules/electromagnetic-capper/BOM.md``, item 11: Fisher 12-100-112, which is Thermo 339-20C, with 24-414 open-top
+caps and septa), the ones in the CubXL's 9-vial holder and stirrer. Fisher lists that family at 28 x 57 mm.
+@timothy-commins calipered the lab's vials at **27 mm** across (PR 84, 2026-11-11), and that is the default here. The
+height is still Fisher's 57 mm until someone measures it. ``VIAL`` below is the one place the size is set: the pockets,
+the labware definition, the exports and the vials in the animation (``models.py``, ``world.py``) all follow it.
 
     python3 vial_holder.py                       # writes cad/: STEP, STL, the labware JSON and a render
     python3 vial_holder.py --od 27.0 --height 57.4   # a one-off rebuild of cad/ only; change VIAL for the animation too
@@ -32,7 +32,7 @@ HERE = Path(__file__).resolve().parent
 CAD = HERE / "cad"
 
 SBS_W, SBS_D, SBS_R = 127.76, 85.48, 3.18      # ANSI/SLAS 1-2004 footprint and corner radius
-# the vial: 20 mL clear VOA (Fisher 12-100-112 family, listed at 28 x 57 mm), 24-400 cap. OD: the lab's vials, calipered
+# the vial: 20 mL clear VOA (Fisher 12-100-112 family, listed at 28 x 57 mm), 24-414 cap. OD: the lab's vials, calipered
 # at 27 mm (PR 84, 2026-11-11). Height: Fisher's, not yet measured. Inside (assumed): 1.2 mm wall, 1.5 mm base.
 VIAL = dict(od=27.0, height=57.0, wall=1.2, base=1.5, neck_id=20.0, cap_od=27.8, cap_over=3.0, volume_ul=20000)
 HOLDER = dict(cols=3, rows=2, pitch_x=40.0, pitch_y=40.0, height=23.0, floor=3.0, clearance=1.2, chamfer=1.5,
@@ -132,7 +132,7 @@ def vial_model(v=VIAL):
     import labware as LW
     LW.VIALS["20ml_vcl"] = dict(LW.VIALS["20ml"], od=v["od"], h=v["height"], wall=v["wall"], base=v["base"],
                                 cap_od=v["cap_od"], cap_over=v["cap_over"],
-                                title=f"20 mL VOA vial ({v['od']:g} x {v['height']:g} mm), 24-400 cap")
+                                title=f"20 mL VOA vial ({v['od']:g} x {v['height']:g} mm), 24-414 cap")
     return LW.vial("20ml_vcl")
 
 
