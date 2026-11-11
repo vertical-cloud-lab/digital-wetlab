@@ -496,7 +496,7 @@ def reagent_bottle(kind: str = "hdpe", d: float = 70.0, h: float = 120.0, cap_d:
     return e
 
 
-# ---- the stock vials: 20 mL clear VOA vials, 24-414 cap, at vial_holder.VIAL's size (27 mm OD, calipered 11-11) ----
+# ---- the stock vials: 20 mL clear VOA vials, 24-414 cap, at vial_holder.VIAL's size (27 x 55 mm, calipered 11-11) --
 VIAL_H = VH.VIAL["height"]                             # glass, without the cap
 VIAL_CAP_TOP = VIAL_H + VH.VIAL["cap_over"]            # the cap's top above the vial's base (3 mm over the glass)
 VIAL_R = VH.VIAL["od"] / 2                             # the glass's outside radius
