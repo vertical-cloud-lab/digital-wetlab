@@ -12,14 +12,20 @@ what Tim and Michael do for the next barium chloride and sodium sulfate plate, f
 [`materials-and-safety.md`](materials-and-safety.md) (asked on 2026-11-05).
 
 **Updated 2026-11-06** ([PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84), @sgbaird):
-- **The stocks are in the lab's 20 mL VOA vials** (28 × 57 mm), made up by weight, in **two printed 6-vial holders**
-  for the OT-2. [`cad/`](cad/README.md) has the holder's STEP and STL and its Opentrons labware definition.
+- **The stocks are in the lab's 20 mL VOA vials** (27 mm across, 57 mm tall), made up by weight, in **two printed
+  6-vial holders** for the OT-2. [`cad/`](cad/README.md) has the holder's STEP and STL and its Opentrons labware
+  definition.
 - **The plate sits on the heater-shaker in slot 7**, on its 96 flat-bottom adapter, under the **lid camera**. The deck
   shots now keep the camera in frame.
 - **The colour sensor and its charging station are the Acceleration Consortium's own CAD**, parked in slot 10.
 - **The OT-2 goes in the fume hood** (Sterling's call), carried by two people. PPE: nitrile gloves, a lab coat,
   safety glasses, long pants and closed-toe shoes. The videos still show the OT-2 in CB 154; what happens on the deck
   is the same. See [Does the OT-2 need to be in the hood?](#does-the-ot-2-need-to-be-in-the-hood)
+
+**Updated 2026-11-11:** Tim calipered the vials at **27 mm** across, 1 mm under Fisher's 28 mm. The holder (now
+28.2 mm pockets), its labware definition and the animation's vial are rebuilt for 27 mm. The videos and step clips
+were rendered with 28 mm vials and haven't been re-rendered; the next render picks up 27 mm. The vials' height is
+still Fisher's 57 mm until someone measures it.
 
 The procedure is the one already written down:
 - [`docs/baso4-extended-monitoring.md`](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md)
@@ -278,7 +284,7 @@ of the lead plan:
 | Lid camera: HQ camera, 8-50 mm zoom, C-CS adapter, Pi 5, printed base and deck | `ot2-overhead-camera/lid-mount/exports/assembly.step` | **The lab's own CAD**, [byu-vcl PR 234](https://github.com/vertical-cloud-lab/byu-vcl/pull/234) at `49677cf`, fetched and hash-checked. It sits on the top window over slot 7, where the monitoring plan puts it. The yellow cone is the 140 × 105 mm view it had at a plate on the deck, narrowed to about 123 × 93 mm at the plate on the heater-shaker |
 | Opentrons Heater-Shaker (GEN1) with its 96 Flat Bottom Adapter, in slot 7 | `models.py`, `build_heater_shaker` | **Built from Opentrons' own definitions**, since no vendor CAD is published: `heaterShakerModuleV1`, `opentrons_96_flat_bottom_adapter` and the NEST plate's stacking offset in [shared-data at `3260d92`](https://github.com/Opentrons/opentrons/tree/3260d92fe7dcc13f6c3bdf9b1396b4906223e5e0/shared-data) give its outline, the 68.275 mm labware height and the plate's 69.475 mm. The colours and the heights of the housing's parts follow Sterling's 10-13 photo ([byu-vcl 81](https://github.com/vertical-cloud-lab/byu-vcl/issues/81#issuecomment-6157219356)) |
 | Wireless colour sensor, parked in its charging station in slot 10 | `Sensor package main enclosure.step`; `Charging Base.step`, `Charging Enclosure A side.step`, `Charging Enclosure B side.step` | **The original CAD**: the Acceleration Consortium's [wireless-color-sensor](https://github.com/AccelerationConsortium/wireless-color-sensor/tree/07efedd7302bd1def93ef81ceadba38e1ae96853/CAD-File/STEP) at `07efedd`, fetched and hash-checked by `models.py` and never committed (that repo has no licence). The lab prints this enclosure with its post rebored to 7.5 mm (byu-vcl's `sensor_package_main_enclosure_7p5mm.step`), the same outside. The sensor sits in the right-hand socket, A2, where byu-vcl's 10-14 colour-sensor README puts it, 16 mm up as the lab's `byu_color_sensor_charging_port` labware has it |
-| The stock vials: 20 mL clear VOA, 28 × 57 mm, 24-400 cap; and the 6-vial holder | `lab_models/labware.py` `vial("20ml")`; [`vial_holder.py`](vial_holder.py) | The vials from the electromagnetic capper's bill of materials (Fisher 12-100-112), at Fisher's listed size, not yet calipered. The holder is **designed here** for them; [`cad/`](cad/README.md) has its STEP, STL and Opentrons labware definition |
+| The stock vials: 20 mL clear VOA, 27 × 57 mm, 24-400 cap; and the 6-vial holder | `lab_models/labware.py`'s 20 mL vial at the size in `VIAL` ([`vial_holder.py`](vial_holder.py) `vial_model`); [`vial_holder.py`](vial_holder.py) | The vials from the electromagnetic capper's bill of materials (Fisher 12-100-112). The 27 mm diameter is Tim's caliper reading (11-11); the 57 mm height is Fisher's, not yet measured. The holder is **designed here** for them; [`cad/`](cad/README.md) has its STEP, STL and Opentrons labware definition |
 | A&D HR-100A with the FXi-10 breeze break and A&D's lid | `lab_models/labware.py`, `balance(lid="stock")` | byu-vcl `vertical-lab/lab_models` at `516f796` (from byu-vcl 199): built from A&D's drawings and the lab's measurements. The doser's AutoTrickler lid is swapped for the stock one here |
 | NEST 96-well plate (200 µL, flat), Opentrons 300 µL tip rack, weigh boat, spatula | `lab_models/labware.py` | Same copy; built from Opentrons' labware definitions and the makers' drawings |
 | Fume hood, benches, OT-2 table, rooms | `models.py` | **Modelled here from typical sizes**: a 5 ft bench hood with a vertical sash, 30 in benches. EB B125's hood and both rooms are not measured or photographed on record, so the layout is a stand-in |
@@ -303,7 +309,8 @@ clipping range every frame, which the lid camera's close view needs.
 - **Hand pipettes.** The 10-23 list marks the 100-1000 µL pipette as "get". Without one, dilute by weight, as the
   monitoring plan describes.
 - **Two holders, to print.** Nothing in the lab holds these vials on an OT-2 deck yet (the 9-vial holder is the
-  CubXL's). Print two from [`cad/`](cad/README.md), after Tim's caliper check of the vials.
+  CubXL's). Print two from [`cad/`](cad/README.md). They are built for Tim's 27 mm reading: print one first and check
+  that several vials drop in and lift out freely.
 - **The heater-shaker moves to slot 7.** Sterling's 10-13 photo has it in slot 1, but the lid camera is fixed over slot
   7, so the plate has to be there. On the heater-shaker the plate's top is 69 mm higher than on the deck: refocus the
   lens. If the zoom stays where it is, the view narrows to about 123 × 93 mm, which still takes in all 96 wells
@@ -330,7 +337,7 @@ clipping range every frame, which the lid camera's close view needs.
 
 ```bash
 pip install cadquery pyvista pillow numpy scipy          # plus ffmpeg and gifsicle on the PATH
-python3 vial_holder.py --od 28.0 --height 57.0            # the holder's STEP, STL, labware JSON and render, in cad/
+python3 vial_holder.py                                    # the holder's STEP, STL, labware JSON and render, in cad/
 xvfb-run -a python3 animate.py sop1 sop2a sop2b sop3a sop3b sop4 full   # full joins the six MP4s
 PREVIEW=1 xvfb-run -a python3 animate.py sop2              # the last frame of each sub-step, to /tmp
 python3 split_steps.py                                    # one MP4 per step from the six parts (ffmpeg and Pillow only)

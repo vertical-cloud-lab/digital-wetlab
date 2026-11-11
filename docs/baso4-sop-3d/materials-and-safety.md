@@ -42,7 +42,7 @@ stills. Neither is in this repo or byu-vcl.
 For the whole day: about 0.5 L of DI water, fetched that day rather than from the March jug
 ([why](https://github.com/vertical-cloud-lab/digital-wetlab/blob/cb98aa9/docs/di-water-storage.md#what-to-do)), and
 ten 20 mL clear VOA vials with caps plus spares (Fisher 12-100-112, from the capper's bill of materials: **check** how
-many are left, and caliper one).
+many are left). Tim calipered them at 27 mm across on 11-11; their height is still to measure.
 
 ### Between the buildings
 

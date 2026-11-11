@@ -11,7 +11,7 @@ Where each one comes from:
 * **A&D HR-100A balance, NEST 96-well plate, Opentrons 300 uL tip rack, 15 mL Falcon tubes, the AC 6-tube rack,
   20 mL vial, weigh boat, spatula, colour sensor**: ``lab_models/labware.py``, a verbatim copy of byu-vcl's
   ``vertical-lab/lab_models`` at 516f796 (from #199), built from the makers' drawings and Opentrons' labware
-  definitions.
+  definitions. The 20 mL vial is built at the lab's calipered size from ``vial_holder.VIAL``, not labware.py's 28 mm.
 * **Modelled here, from typical sizes** (no CAD or measurements on record): the fume hood (a 5 ft bench hood with a
   vertical sash), the benches and rooms, the reagent bottles, the carrying tub, the waste bottles, the wash bottle,
   the seal and the stand-in person. Their sizes are round numbers, not measurements of EB B125 or CB 154.
@@ -37,6 +37,7 @@ CACHE = HERE / ".cache"
 import cadquery as cq          # noqa: E402
 import common as LM            # noqa: E402
 import labware as LW           # noqa: E402
+import vial_holder as VH       # noqa: E402
 
 _AC_WCS = ("https://raw.githubusercontent.com/AccelerationConsortium/wireless-color-sensor/"
            "07efedd7302bd1def93ef81ceadba38e1ae96853/CAD-File/STEP/")
@@ -173,7 +174,9 @@ def to_mesh(shape, tol: float = 0.5) -> pv.PolyData:
         return pv.PolyData()
     pts = np.array([(v.x, v.y, v.z) for v in verts], float)
     faces = np.hstack([[3, *t] for t in tris])
-    return pv.PolyData(pts, faces).compute_normals(split_vertices=True, feature_angle=35, auto_orient_normals=False)
+    # point normals only: with cell normals as well, VTK 9.6 (pyvista 0.49) renders these meshes unlit, near-black
+    return pv.PolyData(pts, faces).compute_normals(split_vertices=True, feature_angle=35, auto_orient_normals=False,
+                                                   cell_normals=False)
 
 
 def merge(meshes) -> pv.PolyData:
@@ -493,10 +496,11 @@ def reagent_bottle(kind: str = "hdpe", d: float = 70.0, h: float = 120.0, cap_d:
     return e
 
 
-# ---- the stock vials: 20 mL clear VOA vials (28 x 57 mm, 24-400 cap), as in vial_holder.py -----------------------
-VIAL_H = 57.0             # glass, without the cap
-VIAL_CAP_TOP = 60.0       # the cap's top above the vial's base (labware.vial: 3 mm over the glass)
-VIAL_R_IN = 12.6          # the body's bore (28 mm OD, 1.2 mm wall), less a hair so the liquid stays inside
+# ---- the stock vials: 20 mL clear VOA vials, 24-400 cap, at vial_holder.VIAL's size (27 mm OD, calipered 11-11) ----
+VIAL_H = VH.VIAL["height"]                             # glass, without the cap
+VIAL_CAP_TOP = VIAL_H + VH.VIAL["cap_over"]            # the cap's top above the vial's base (3 mm over the glass)
+VIAL_R = VH.VIAL["od"] / 2                             # the glass's outside radius
+VIAL_R_IN = VIAL_R - VH.VIAL["wall"] - 0.2             # the body's bore, less a hair so the liquid stays inside
 
 
 def tube_liquid(level_mm: float) -> pv.PolyData:
@@ -506,8 +510,7 @@ def tube_liquid(level_mm: float) -> pv.PolyData:
 
 
 def ml_to_level(ml: float) -> float:
-    """Height in a 20 mL VOA vial for a volume (straight body: 15 mL stands 30.6 mm above the base)."""
-    import vial_holder as VH
+    """Height in a 20 mL VOA vial for a volume (straight body: 15 mL stands 33.1 mm above the base)."""
     return VH.vial_level(ml)
 
 
@@ -623,8 +626,7 @@ def build_labware() -> dict:
     out["tiprack"] = lab_model(LW.tiprack, "300ul")
     rack = LW.tube_rack_6()
     out["rack"] = {"rack": entry(to_mesh([p for p in rack.parts if p.name == "rack"][0].shape, 0.4), "pla_white")}
-    out["vial"] = lab_model(LW.vial, "20ml")
-    import vial_holder as VH
+    out["vial"] = lab_model(VH.vial_model)
     out["holder"] = {"holder": entry(to_mesh(VH.holder(), 0.25), "petg_teal")}
     out["weigh_boat"] = lab_model(LW.weigh_boat)
     out["spatula"] = lab_model(LW.spoonula)

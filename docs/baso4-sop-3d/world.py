@@ -147,11 +147,12 @@ class World:
         self.put("spatula", self.lw["spatula"], T((-120, 360, WS + 4)) @ R((0, 0, 1), 20), shown=False)
         # weighing vial (20 mL, capped) starts on the bench by the balance
         vial = self.lw["vial"]
-        self.put("vial", {"glass": vial["glass"], "band": M.entry(M.ring(0, 0, 32, 14.45, 13.9, 9), "band_ba")},
+        self.put("vial", {"glass": vial["glass"], "band": M.entry(M.ring(0, 0, 32, M.VIAL_R + 0.45, M.VIAL_R - 0.1, 9),
+                                                                  "band_ba")},
                  T((1240, 520, BT)))
         self.put("vial_cap", {"cap": vial["pp_black"]}, parent="vial")
-        S.add("vial_powder", M.cyl(0, 0, 1.6, 12.3, 1.0), M.MATS["powder"][:3], group="vial", shown=False, specular=0.05)
-        S.add("vial_liquid", M.cyl(0, 0, 1.6, 12.4, 1.0), M.MATS["solution"][:3], group="vial", opacity=0.5,
+        S.add("vial_powder", M.cyl(0, 0, 1.6, M.VIAL_R_IN - 0.3, 1.0), M.MATS["powder"][:3], group="vial", shown=False, specular=0.05)
+        S.add("vial_liquid", M.cyl(0, 0, 1.6, M.VIAL_R_IN - 0.2, 1.0), M.MATS["solution"][:3], group="vial", opacity=0.5,
               shown=False, specular=0.6)
         # on the bench: sodium sulfate and sodium chloride bottles, weigh boats, a funnel, the bench rack, the tub
         so4 = M.reagent_bottle("hdpe", 78, 135, 60, 26, band="band_so4")
@@ -264,7 +265,7 @@ class World:
         vial = self.lw["vial"]
         for key, _, band in TUBES:
             g = f"t_{key}"
-            ent = {"tube": vial["glass"], "band": M.entry(M.ring(0, 0, 32, 14.45, 13.9, 9), band)}
+            ent = {"tube": vial["glass"], "band": M.entry(M.ring(0, 0, 32, M.VIAL_R + 0.45, M.VIAL_R - 0.1, 9), band)}
             rack, hole = RACK_OF[key]
             hx, hy = RACK_HOLES[hole]
             self.put(g, ent, T((hx, hy, TUBE_Z_IN_RACK)), parent=rack if rack in self.S.gmat else None, shown=False)

@@ -525,7 +525,7 @@ def sop2(part=None):
         elif v < 0.85:
             m = carry(up_v, tip, ease((v - 0.65) / 0.2), 0)
             W.S.alpha["spat_powder"] = 1.0 - ease((v - 0.65) / 0.2)
-            W.S.set_mesh("vial_powder", M.cyl(0, 0, 1.6, 12.3, 0.8 + 0.9 * (k + ease((v - 0.65) / 0.2))))
+            W.S.set_mesh("vial_powder", M.cyl(0, 0, 1.6, M.VIAL_R_IN - 0.3, 0.8 + 0.9 * (k + ease((v - 0.65) / 0.2))))
             W.S.alpha["vial_powder"] = 1.0
         else:
             m = carry(tip, up_b if k < 2 else up_v, ease((v - 0.85) / 0.15), 30)

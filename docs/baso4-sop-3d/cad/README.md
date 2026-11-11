@@ -21,15 +21,18 @@ The lab's 20 mL vials are the **clear VOA vials in the electromagnetic capper's 
 item 11). The same vials sit in the CubXL's 9-vial holder
 ([`9VialHolder20mL_TightFit.step`](https://github.com/vertical-cloud-lab/byu-vcl/blob/main/modules/electromagnetic-capper/cad/9VialHolder20mL_TightFit.step))
 and in its single-vial stirrer, which calls them "20 mL VOA (Ben's)". Fisher lists this family
-([12-100-100](https://www.fishersci.com/shop/products/clear-voa-glass-vials-0-125in-septa/12100100)) at **28 mm outside
-diameter and 57 mm tall**. Those are the numbers used here.
+([12-100-100](https://www.fishersci.com/shop/products/clear-voa-glass-vials-0-125in-septa/12100100)) at 28 mm outside
+diameter and 57 mm tall.
 
-**Nobody has measured the lab's vials yet.** @timothy-commins was asked to caliper the outside diameter and the height
-on 11-06. Rebuild with those numbers and everything follows (the pockets, the labware definition, the exports, the
-render):
+**The lab's vials are 27 mm across.** @timothy-commins calipered them on 11-11
+([PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84)), 1 mm narrower than Fisher's figure, and the
+holder is now built for 27 mm. **The height is still Fisher's 57 mm**, since nobody has measured it yet. It sets the
+labware definition's well depth and where the tip goes, not the pockets. Once it's measured, change `VIAL` at the top of
+[`../vial_holder.py`](../vial_holder.py) and run it. Everything follows (the pockets, the labware definition, the
+exports, the render, and the vials in the animation):
 
 ```bash
-python3 vial_holder.py --od <measured OD, mm> --height <measured height without the cap, mm>
+python3 vial_holder.py            # after setting VIAL's od and height to the calipered values
 ```
 
 The open paint jars standing in slot 3 (Sterling's 10-13 photo in
@@ -45,14 +48,15 @@ They aren't used for the stocks.
 | Footprint | 127.76 × 85.48 mm with 3.18 mm corners (ANSI/SLAS), so the slot's corner clips locate it |
 | Height | 23 mm; the pocket floors are 3 mm thick |
 | Pockets | 6, in 3 columns × 2 rows on a 40 × 40 mm pitch: A1 at the back left, as on a plate |
-| Pocket size | 29.2 mm across (the vial plus 1.2 mm), 20 mm deep, with a 1.5 mm lead-in chamfer |
-| Between vials | 12 mm, room for gloved fingers on the caps |
+| Pocket size | 28.2 mm across (the 27 mm vial plus 1.2 mm), 20 mm deep, with a 1.5 mm lead-in chamfer |
+| Between vials | 13 mm, room for gloved fingers on the caps |
 | Orientation | the A1 corner cut off, as on a plate, so it goes in only one way round |
 | Labels | A and B by the rows, 1-3 by the columns, and "20 mL VOA x6 BYU VCL" on the front face, all 0.6 mm deep |
 | Vial tops | 60 mm above the deck uncapped, 63 mm capped |
 
 Print it upright with no supports: PETG or PLA, 0.2 mm layers, about 15 % infill. A vial should drop in and lift out
-freely. If it is tight, rebuild with a slightly larger `--od`.
+freely. Printed holes usually come out a few tenths of a millimetre small, so print one holder and try several vials in
+it before printing the second. If they are tight, rebuild with a slightly larger `od` (27.5 mm gives 28.7 mm pockets).
 
 ## On the OT-2
 
@@ -61,10 +65,10 @@ freely. If it is tight, rebuild with a slightly larger `--od`.
 | 4 | barium chloride | 0.1 M | 10 mM | 1 mM | 0.1 mM | (empty) | (empty) |
 | 5 | the rest | 0.1 M sodium sulfate | 10 mM | 1 mM | 0.1 mM | 5 M NaCl | DI water |
 
-**Checked in the simulator** (2026-11-06, opentrons 8.3.1; 10.x no longer simulates OT-2 protocols):
-`opentrons_simulate -L byuvcl_6_vialholder_20ml check_deck.py` loads both holders in slots 4 and 5 next to the
-heater-shaker in slot 7 with no deck conflict, and runs a transfer from each kind of stock into A1. Plate A1's top
-comes out at z 83.775 mm, as in the animation. Nothing has run on the robot.
+**Checked in the simulator** (2026-11-06, and again on 11-11 with the 27 mm definition; opentrons 8.3.1, as 10.x no
+longer simulates OT-2 protocols): `opentrons_simulate -L byuvcl_6_vialholder_20ml check_deck.py` loads both holders in
+slots 4 and 5 next to the heater-shaker in slot 7 with no deck conflict, and runs a transfer from each kind of stock
+into A1. Plate A1's top comes out at z 83.775 mm, as in the animation. Nothing has run on the robot.
 
 Load it in the protocol from the JSON, then run Labware Position Check on it:
 
@@ -77,9 +81,9 @@ rest = protocol.load_labware_from_definition(holder_def, 5)
 ```
 
 - The wells are the uncapped vials: bottom 4.5 mm above the deck (the 3 mm floor and the 1.5 mm glass base), depth
-  55.5 mm, 20 mL. Their diameter is the 20 mm neck opening, not the 25.6 mm body, because the neck is what a tip has
-  to clear.
-- 15 mL stands 30.6 mm above a vial's base. Plate A takes about 10 mL of water, 2.6 mL of NaCl, and at most 1.4 mL of
+  55.5 mm, 20 mL. Their diameter is the 20 mm neck opening, not the 24.6 mm body, because the neck is what a tip has
+  to clear. The 27 mm diameter changed none of these: only the definition's name, and the holder's pockets.
+- 15 mL stands about 33 mm above a vial's base (assuming a 1.2 mm glass wall). Plate A takes about 10 mL of water, 2.6 mL of NaCl, and at most 1.4 mL of
   any one barium or sulfate stock.
 - **The heater-shaker in slot 7 limits its neighbours.** Opentrons
   ([Heater-Shaker placement restrictions](https://docs.opentrons.com/v2/modules/heater_shaker.html)) doesn't allow
