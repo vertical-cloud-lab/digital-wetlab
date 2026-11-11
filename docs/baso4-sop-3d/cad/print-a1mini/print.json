@@ -1,0 +1,114 @@
+{
+ "what": "One 6-vial holder (byuvcl_6_vialholder_20ml) for the lab's 20 mL VOA vials, calipered at 27 x 55 mm; the first of the two the SOP needs",
+ "request": "https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6804648055",
+ "request_text": "its 55mm tall. please print out the base on the a1 mini",
+ "requested_by": "timothy-commins",
+ "prep_run": "https://github.com/vertical-cloud-lab/digital-wetlab/actions/runs/43082827524",
+ "status": "sliced; not printed. The 2026-11-11 print run sent the PETG file to Thumbelina, the A1 mini, at 21:04:38 UTC and stopped it at 21:11:01 UTC, still at layer 0, because the plate that had been checked was another printer's (see run-2026-11-11/README.md)",
+ "printer": "the lab account has two A1 minis, 'Thumbelina, the A1 Mini' and 'Tinkerbell'; a request must name one by its Studio name, and the person giving the go must be at that printer",
+ "nozzle": {
+  "sliced_for_mm": 0.4,
+  "read_off_printer": true,
+  "last_reading_on_record": "0.4 mm stainless steel, standard flow, read off the printer 2026-10-28T21:27:13Z (byu-vcl hardware/vial-stirrer-cubxl/print/2026-10-28-a1mini-compact/print.json)",
+  "if_0.2": "re-slice: slice_a1mini.py --nozzle 0.2 (about 15 h for this part)",
+  "if_other": "do not print; wait for a person to swap to 0.4 mm",
+  "readings": {
+   "Thumbelina": "0.4 mm stainless steel, standard flow, Studio Printer Parts, 2026-11-11T19:39:54Z",
+   "Tinkerbell": "0.4 mm stainless steel, standard flow, Studio Printer Parts, 2026-11-11T21:14Z"
+  }
+ },
+ "source": {
+  "stl": "docs/baso4-sop-3d/cad/vial_holder_20ml_x6.stl",
+  "stl_md5": "90bbb63e4d7f4a5f3ed601ebabacad02",
+  "commit": "5d9dd9d",
+  "note": "the STL is byte-identical to 3a82993's: the vials' height sets only the labware definition"
+ },
+ "slicer": {
+  "app": "Bambu Studio 02.08.02.61 (AppImage BambuStudio_ubuntu24.04-v02.08.02.61-20260820225108, SHA-256 d501b103...a7fd checked), command line under xvfb-run, bundled BBL profiles flattened by slice_a1mini.py",
+  "printer_preset": "Bambu Lab A1 mini 0.4 nozzle",
+  "process_preset": "0.20mm Standard @BBL A1M",
+  "filament_presets": {
+   "PETG": "Bambu PETG Basic @BBL A1M 0.4 nozzle (GFG00)",
+   "PLA": "Bambu PLA Basic @BBL A1M (GFA00)"
+  },
+  "plate": "Textured PEI Plate",
+  "changed_from_preset": {
+   "wall_loops": "2 -> 3",
+   "elefant_foot_compensation": "0 -> 0.15 mm",
+   "brim_type": "auto_brim -> no_brim"
+  },
+  "why": "a square bottom edge for the OT-2 slot's corner clips (no flare, no brim to trim); a third wall to stiffen the pockets",
+  "left_at_preset": {
+   "layer_height_mm": 0.2,
+   "sparse_infill": "15% grid",
+   "enable_support": 0,
+   "PETG": "245 C nozzle, 70 C bed",
+   "PLA": "220 C nozzle, 65 C bed"
+  },
+  "known_gaps": [
+   "no plate thumbnails: the CLI's OpenGL context could not open on the runner (GLFW: Wayland: Failed to connect to display)",
+   "slice_info.config has printer_model_id empty (Studio's GUI writes N1 for the A1 mini)",
+   "two CLI runs of the same slice differed in a few gap-fill paths and by seconds in the estimate"
+  ],
+  "start_gcode_fix": "2026-11-11: before this, slice_a1mini.py dropped the machine profile's 'include' templates, so the files had a generic start sequence (G28, M970 lines, G29, prime lines at X 10 from Y 20 to Y 200 mm, off the 180 mm bed, at 205 C) instead of Bambu's A1 mini start and end G-code. The script now resolves 'include'; the re-sliced files' start, end, filament-change and timelapse G-code match Studio's GUI slice, and every layer is within 0.05 mm of filament of it"
+ },
+ "files": {
+  "vial_holder_20ml_x6_A1mini_PETG_0.4.gcode.3mf": {
+   "plate_gcode_md5": "6e593c95ee543ae539f78ba58c4e8d30",
+   "estimate": "2h 8m 10s",
+   "layers": 115,
+   "max_z_mm": 23.0,
+   "filament_g": 76.27
+  },
+  "vial_holder_20ml_x6_A1mini_PLA_0.4.gcode.3mf": {
+   "plate_gcode_md5": "5f4c8e40eea158ca353ddb3e48e8a6e0",
+   "estimate": "1h 48m 50s",
+   "layers": 115,
+   "max_z_mm": 23.0,
+   "filament_g": 80.14
+  },
+  "vial_holder_20ml_x6_A1mini_PETG_0.4.3mf": "the PETG project, unsliced, with the same settings"
+ },
+ "gcode_checks": {
+  "how": "check_slice.py; output in check_slice_output.txt. Outer-wall toolpath spans plus one line width; pockets are least-squares circles through the wall minus one line width",
+  "footprint_mm_at_z_1_10_21": [
+   127.76,
+   85.48
+  ],
+  "pocket_diameters_mm_at_z_6_12_18": "all six 28.20 (model 28.2)",
+  "top_layer_z_mm": 23.0,
+  "centre_on_bed_mm": [
+   90.0,
+   90.0
+  ],
+  "same_for_both_files": true
+ },
+ "zero_point_two_nozzle_estimate": "14h 57m 33s, 230 layers, 59 g PETG (0.10mm Standard @BBL A1M 0.2 nozzle); not committed",
+ "ams_lite_last_on_record": "2026-10-28: A1 dark blue PLA Basic, A2 empty, A3 black PLA Basic, A4 white PETG Basic (byu-vcl record above)",
+ "before_sending": [
+  "name the printer by its Studio name (Thumbelina or Tinkerbell), and have the person giving the go at that printer",
+  "read the installed nozzle diameter off that printer",
+  "check which filament is in which slot, and use the matching file",
+  "a fresh camera frame and the plate rule in CLAUDE.md (frame first, 90 s wait, a second frame before Send); Thumbelina's camera did not load from the runner on 2026-11-11",
+  "the plate is the Textured PEI plate; no HMS alerts; someone near the printer"
+ ],
+ "print_runs": [
+  {
+   "run": "https://github.com/vertical-cloud-lab/digital-wetlab/actions/runs/43085653316",
+   "request": "https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6805021911",
+   "approved_by": "timothy-commins (the requester)",
+   "printer": "Thumbelina, the A1 Mini",
+   "go": {
+    "frame": "none: Thumbelina's camera never loaded from the runner ('Loading failed ... [2:2]')",
+    "reply": "'plate clear', timothy-commins, 2026-11-11T21:02:52Z",
+    "pre_send_check": "2026-11-11T21:03:21Z, Device page: idle, no HMS alert, heaters 22 C"
+   },
+   "sent": "2026-11-11T21:04:38Z",
+   "sent_file": "run-2026-11-11/vial_holder_20ml_x6_A1mini_PETG_0.4_sent.gcode.3mf (Studio's slice, plate G-code MD5 cc7090fe188e2142aacce4834935776e)",
+   "send_options": "PETG Basic from AMS Lite A4, Textured PEI plate, timelapse off, auto bed levelling on, flow dynamics calibration on",
+   "stopped": "2026-11-11T21:11:01Z at layer 0/115 (4 %, start routine), after timothy-commins wrote at 21:09:58 that 'the a1 mini is currently unplugged' while Thumbelina was on and printing",
+   "outcome": "nothing printed; Thumbelina may have a PETG purge line on its plate",
+   "then": "H2D asked for at 21:25; not sent, because its right nozzle was 0.6 mm (TPU high flow) and this repo needs 0.2 or 0.4 mm in both"
+  }
+ ]
+}

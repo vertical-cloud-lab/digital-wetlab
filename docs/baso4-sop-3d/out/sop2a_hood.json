@@ -1,0 +1,65 @@
+{
+ "name": "sop2a_hood",
+ "fps": 15,
+ "n_frames": 689,
+ "size": [
+  1280,
+  720
+ ],
+ "substeps": [
+  {
+   "label": "2.1",
+   "caption": "Before anything is opened: nitrile gloves (two pairs for barium), a lab coat and safety glasses, with long pants and closed-toe shoes. The barium chloride SDS goes in the binder. Chris Dillon's rule for the room: keep every container closed and labelled.",
+   "start_frame": 0,
+   "end_frame": 83
+  },
+  {
+   "label": "2.2",
+   "caption": "The balance sits on the bench beside the hood. If it was carried over, plug it in at least an hour before weighing: the HR-100A drifts for about an hour after a move (powder-doser 157). Level it by its bubble and check it with a check weight. Then weigh 13.50 g of DI water into each of six capped vials, for the dilutions.",
+   "start_frame": 84,
+   "end_frame": 158
+  },
+  {
+   "label": "2.3",
+   "caption": "Load the hood before opening anything: absorbent liner, a tray, the barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials and a spatula, all behind the yellow line 15 cm (6 in) inside the sash. Then lower the sash to its working-height sticker.",
+   "start_frame": 159,
+   "end_frame": 269
+  },
+  {
+   "label": "2.4",
+   "caption": "At the balance: lift the breeze-break lid, put the empty capped vial for the 0.1 M barium chloride on the pan, close the lid and press TARE. A capped vial is how barium chloride reaches the balance: the powder never leaves the hood in an open container.",
+   "start_frame": 270,
+   "end_frame": 344
+  },
+  {
+   "label": "2.5",
+   "caption": "Walk the tared, capped vial from the balance into the hood. Only your arms go in; your head stays outside the sash.",
+   "start_frame": 345,
+   "end_frame": 401
+  },
+  {
+   "label": "2.6",
+   "caption": "Inside the hood only: unscrew the barium chloride bottle and the vial, and set both caps down top-down on the liner.",
+   "start_frame": 402,
+   "end_frame": 455
+  },
+  {
+   "label": "2.7",
+   "caption": "Spatula about 366 mg of barium chloride dihydrate into the vial, low in the hood and slowly, so no dust lifts. It doesn't have to be exact: the balance reading sets the concentration.",
+   "start_frame": 456,
+   "end_frame": 553
+  },
+  {
+   "label": "2.8",
+   "caption": "Cap the bottle and the vial before anything leaves the hood. Wipe the vial's outside with a damp wipe; the wipe goes in the barium waste.",
+   "start_frame": 554,
+   "end_frame": 604
+  },
+  {
+   "label": "2.9",
+   "caption": "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's lot. 0.3664 g is 1.500 mmol (244.26 g/mol): with 15.00 g of water, 0.1000 mol/kg. For another mass, work out its concentration and use that in the plate map.",
+   "start_frame": 605,
+   "end_frame": 688
+  }
+ ]
+}
