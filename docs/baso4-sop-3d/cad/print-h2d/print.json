@@ -1,0 +1,129 @@
+{
+ "what": "One 6-vial holder (byuvcl_6_vialholder_20ml) for the lab's 20 mL VOA vials, calipered at 27 x 55 mm; the first of the two the SOP needs",
+ "request": "https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6807101110",
+ "request_text": "print from the h2d, the a1 mini is currently unplugged",
+ "requested_by": "timothy-commins",
+ "prep_run": "https://github.com/vertical-cloud-lab/digital-wetlab/actions/runs/43100722121",
+ "status": "sliced, not sent. The prep run had no Bambu login (claude.yml does not get it), so nothing went to the printer",
+ "before_this": "the A1 mini slice in ../print-a1mini was sent to the A1 mini at 21:04:38 UTC by print run 43085653316; at 21:09:58 UTC the requester reported the A1 mini unplugged",
+ "printer": "the lab's Bambu Lab H2D (two nozzles)",
+ "nozzles": {
+  "sliced_for_mm": [
+   0.4,
+   0.4
+  ],
+  "flow": "standard (Studio's H2D presets)",
+  "prints_with": "left nozzle: filament_map = 1, and the start G-code heats T1 first",
+  "read_off_printer": "not by this run; by print run 43085653316 at 21:13 UTC, in Studio's Printer Parts dialog",
+  "why_not": "this run had no Bambu login, and this repo has no LAN access code for the H2D",
+  "last_reading_on_record": {
+   "when": "2026-11-11T21:13Z",
+   "by": "print run 43085653316 (https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6805057536), screenshot ../print-a1mini/run-2026-11-11/h2d_nozzles_2113Z.png at 9bf70c8",
+   "nozzles": [
+    "0.4 mm hardened steel, standard flow",
+    "0.6 mm hardened steel, TPU high flow"
+   ],
+   "sides": "inferred: Studio's H2D profiles offer TPU high flow only on the right extruder, so the 0.6 mm is right and the 0.4 mm left",
+   "verdict": "blocked: this repo needs 0.2 or 0.4 mm in both nozzles; the right (0.6 mm, tensegrity-optimization's) has to be swapped first"
+  },
+  "rule": "this repo prints only with 0.2 or 0.4 mm, in both nozzles (CLAUDE.md)",
+  "if_0.2": "re-slice: slice_h2d.py --nozzle 0.2 (about 14 h 52 min, 230 layers, 59.7 g PETG; not committed)",
+  "if_other": "do not print; wait for a person to swap both nozzles",
+  "if_filament_only_on_right": "slice the project in Studio's GUI with the filament grouped on the right nozzle; the command line stops with 'No valid nozzle found' when a project sets a manual map"
+ },
+ "source": {
+  "stl": "docs/baso4-sop-3d/cad/vial_holder_20ml_x6.stl",
+  "stl_md5": "90bbb63e4d7f4a5f3ed601ebabacad02",
+  "commit": "3a82993",
+  "note": "the same STL the A1 mini slice used"
+ },
+ "slicer": {
+  "app": "Bambu Studio 02.08.02.61 (AppImage BambuStudio_ubuntu24.04-v02.08.02.61-20260820225108, SHA-256 d501b103...a7fd checked), command line under xvfb-run, bundled BBL profiles flattened by slice_h2d.py, include templates resolved",
+  "printer_preset": "Bambu Lab H2D 0.4 nozzle",
+  "process_preset": "0.20mm Standard @BBL H2D",
+  "filament_presets": {
+   "PETG": "Bambu PETG Basic @BBL H2D 0.4 nozzle (GFG00)",
+   "PLA": "Bambu PLA Basic @BBL H2D (GFA00)"
+  },
+  "plate": "Textured PEI Plate (Studio's default for the H2D)",
+  "start_gcode": "Bambu's H2D machine_start_gcode (dated 2026-06-05) and machine_end_gcode (2026/07/29), from the include templates; no G0 Z20, G29 or M970 Q1 before layer 1",
+  "changed_from_preset": {
+   "wall_loops": "2 -> 3",
+   "elefant_foot_compensation": "0 -> 0.15 mm",
+   "brim_type": "auto_brim -> no_brim"
+  },
+  "why": "a square bottom edge for the OT-2 slot's corner clips (no flare, no brim to trim); a third wall to stiffen the pockets",
+  "left_at_preset": {
+   "layer_height_mm": 0.2,
+   "sparse_infill": "15% grid",
+   "enable_support": 0,
+   "PETG": "250 C nozzle (245 C first layer), 70 C bed",
+   "PLA": "220 C nozzle, 55 C bed"
+  },
+  "known_gaps": [
+   "no plate thumbnails: the CLI could not open a display for them on the runner",
+   "slice_info.config has printer_model_id empty (Studio's GUI writes O1D for the H2D)",
+   "the CLI keeps filament_map_mode = Auto For Flush, which puts a single filament on the left nozzle; a right-nozzle slice needs the GUI"
+  ]
+ },
+ "files": {
+  "vial_holder_20ml_x6_H2D_PETG_0.4.gcode.3mf": {
+   "plate_gcode_md5": "47b4ea7602bf2da1aafde87ab8faf1e9",
+   "estimate": "1h 45m 8s",
+   "layers": 115,
+   "max_z_mm": 23.0,
+   "filament_g": 77.03,
+   "filament_m": 25.62
+  },
+  "vial_holder_20ml_x6_H2D_PLA_0.4.gcode.3mf": {
+   "plate_gcode_md5": "c9460e77613a10722fb1630b6bd62429",
+   "estimate": "1h 36m 38s",
+   "layers": 115,
+   "max_z_mm": 23.0,
+   "filament_g": 80.1,
+   "filament_m": 26.43
+  },
+  "vial_holder_20ml_x6_H2D_PETG_0.4.3mf": "the PETG project, unsliced, with the same settings",
+  "vial_holder_20ml_x6_H2D_PLA_0.4.3mf": "the PLA project, unsliced, with the same settings"
+ },
+ "gcode_checks": {
+  "how": "check_slice.py; output in check_slice_output.txt. Outer-wall toolpath spans plus one line width; pockets are least-squares circles through the wall minus one line width",
+  "footprint_mm_at_z_1_10_21": [
+   127.76,
+   85.48
+  ],
+  "pocket_diameters_mm_at_z_6_12_18": "all six 28.20 (model 28.2)",
+  "top_layer_z_mm": 23.0,
+  "centre_on_bed_mm": [
+   175.0,
+   160.0
+  ],
+  "part_bbox_on_bed_mm": [
+   111.33,
+   117.47,
+   238.67,
+   202.53
+  ],
+  "inside_left_and_right_nozzle_reach": [
+   true,
+   true
+  ],
+  "prime_tower": "none",
+  "same_for_both_files": true
+ },
+ "before_sending": [
+  "read both installed nozzle diameters off the printer: 0.2 or 0.4 mm in both, and the slice for the diameter that prints",
+  "check which side has PETG (or PLA) loaded; these files print with the left nozzle",
+  "check the plate is the Textured PEI plate, or re-slice for the plate that is on",
+  "a fresh camera frame and the plate rule in CLAUDE.md (frame first, 90 s wait, a second frame before Send)",
+  "no HMS alerts; someone near the printer"
+ ],
+ "h2d_state_2026-11-11T21:12Z": {
+  "by": "print run 43085653316, Studio's Device page (../print-a1mini/run-2026-11-11/h2d_device_page_2112Z.png at 9bf70c8)",
+  "state": "idle, last job finished, heaters off",
+  "left_ams": "A1 empty, A2 PLA black, A3 PLA white, A4 PLA blue; no PETG",
+  "plate": "textured, no parts, faint light outlines of rectangles in the middle",
+  "hms": "maintenance reminder only (clean and lubricate the rails)",
+  "matching_file": "vial_holder_20ml_x6_H2D_PLA_0.4.gcode.3mf (left nozzle, 0.4 mm standard flow, PLA)"
+ }
+}
