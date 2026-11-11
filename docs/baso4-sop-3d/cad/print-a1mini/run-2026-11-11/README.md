@@ -38,12 +38,18 @@ that printer.
 | 21:14 | Tinkerbell: printing someone's 3DBenchy; nozzle 0.4 mm stainless, standard ([`tinkerbell_nozzle_2114Z.png`](tinkerbell_nozzle_2114Z.png)). Not touched |
 | 21:25:00 | "h2d" (timothy-commins). Asked for the right nozzle to be swapped to 0.4 mm |
 | 21:25:12, 21:37:37, 21:52:12 | H2D nozzles re-read: still 0.4 and 0.6 mm ([`h2d_nozzles_2125Z.png`](h2d_nozzles_2125Z.png)) |
+| 22:10:00 | H2D nozzles: still 0.4 and 0.6 mm. No reply by the stated 22:15 cutoff, so nothing was sent to the H2D |
+| 22:15:34 | Thumbelina: idle, nozzle and bed at 23 °C, no HMS alert, filament loaded in the toolhead ([`device_page_final_2215Z.png`](device_page_final_2215Z.png)) |
+| 22:16:06 | Signed out of the Bambu account; Studio closed, its config (with the printers' access codes) deleted, and the raw screen recording deleted |
 
 ## Files
 
 - [`vial_holder_20ml_x6_A1mini_PETG_0.4_sent.gcode.3mf`](vial_holder_20ml_x6_A1mini_PETG_0.4_sent.gcode.3mf): Studio's
   slice as exported before Send (plate G-code MD5 `cc7090fe188e2142aacce4834935776e`), with the account's
   `DesignerUserId` blanked. Nothing changed in the project between the export and Send.
+- [`send_to_stop_2102-2112Z_4x.mp4`](send_to_stop_2102-2112Z_4x.mp4): the screen recording from 21:02:30 to 21:12:05 UTC at
+  4× (pre-send check, Send, the start routine, Stop), cut from the recorder's segments by wall-clock time. The login
+  and the other printers' camera views are outside it.
 - The screenshots linked above. None shows the login, a serial number or a person.
 
 ## What to change next time
