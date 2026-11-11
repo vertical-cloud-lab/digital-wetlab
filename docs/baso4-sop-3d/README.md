@@ -29,7 +29,8 @@ what Tim and Michael do for the next barium chloride and sodium sulfate plate, f
 28.2 mm pockets), its labware definition and the animation's vial are rebuilt for 27 mm. The videos and step clips
 were rendered with 28 × 57 mm vials and haven't been re-rendered; the next render picks up 27 × 55 mm. Later the same
 day Tim measured the height, **55 mm**, and the holder's labware definition now has the vial tops at 58 mm above the
-deck.
+deck. One holder is sliced for the lab's A1 mini in [`cad/print-a1mini/`](cad/print-a1mini/README.md), not yet
+printed.
 
 The procedure is the one already written down:
 - [`docs/baso4-extended-monitoring.md`](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md)

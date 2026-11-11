@@ -1,0 +1,91 @@
+{
+ "what": "One 6-vial holder (byuvcl_6_vialholder_20ml) for the lab's 20 mL VOA vials, calipered at 27 x 55 mm; the first of the two the SOP needs",
+ "request": "https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6804648055",
+ "request_text": "its 55mm tall. please print out the base on the a1 mini",
+ "requested_by": "timothy-commins",
+ "prep_run": "https://github.com/vertical-cloud-lab/digital-wetlab/actions/runs/43082827524",
+ "status": "sliced, not sent. The prep run had no Bambu login (claude.yml does not get it), so nothing went to the printer",
+ "printer": "the lab's Bambu Lab A1 mini (byu-vcl calls it 'Thumbelina, the A1 Mini')",
+ "nozzle": {
+  "sliced_for_mm": 0.4,
+  "read_off_printer": false,
+  "why_not": "no Bambu login in this run, and no LAN access code for the A1 mini in this repo, so neither Studio's Device page nor a LAN status report was available",
+  "last_reading_on_record": "0.4 mm stainless steel, standard flow, read off the printer 2026-10-28T21:27:13Z (byu-vcl hardware/vial-stirrer-cubxl/print/2026-10-28-a1mini-compact/print.json)",
+  "if_0.2": "re-slice: slice_a1mini.py --nozzle 0.2 (about 15 h for this part)",
+  "if_other": "do not print; wait for a person to swap to 0.4 mm"
+ },
+ "source": {
+  "stl": "docs/baso4-sop-3d/cad/vial_holder_20ml_x6.stl",
+  "stl_md5": "90bbb63e4d7f4a5f3ed601ebabacad02",
+  "commit": "5d9dd9d",
+  "note": "the STL is byte-identical to 3a82993's: the vials' height sets only the labware definition"
+ },
+ "slicer": {
+  "app": "Bambu Studio 02.08.02.61 (AppImage BambuStudio_ubuntu24.04-v02.08.02.61-20260820225108, SHA-256 d501b103...a7fd checked), command line under xvfb-run, bundled BBL profiles flattened by slice_a1mini.py",
+  "printer_preset": "Bambu Lab A1 mini 0.4 nozzle",
+  "process_preset": "0.20mm Standard @BBL A1M",
+  "filament_presets": {
+   "PETG": "Bambu PETG Basic @BBL A1M 0.4 nozzle (GFG00)",
+   "PLA": "Bambu PLA Basic @BBL A1M (GFA00)"
+  },
+  "plate": "Textured PEI Plate",
+  "changed_from_preset": {
+   "wall_loops": "2 -> 3",
+   "elefant_foot_compensation": "0 -> 0.15 mm",
+   "brim_type": "auto_brim -> no_brim"
+  },
+  "why": "a square bottom edge for the OT-2 slot's corner clips (no flare, no brim to trim); a third wall to stiffen the pockets",
+  "left_at_preset": {
+   "layer_height_mm": 0.2,
+   "sparse_infill": "15% grid",
+   "enable_support": 0,
+   "PETG": "245 C nozzle, 70 C bed",
+   "PLA": "220 C nozzle, 65 C bed"
+  },
+  "known_gaps": [
+   "no plate thumbnails: the CLI's OpenGL context could not open on the runner (GLFW: Wayland: Failed to connect to display)",
+   "slice_info.config has printer_model_id empty (Studio's GUI writes N1 for the A1 mini)",
+   "two CLI runs of the same slice differed in a few gap-fill paths and by 11 s in the estimate"
+  ]
+ },
+ "files": {
+  "vial_holder_20ml_x6_A1mini_PETG_0.4.gcode.3mf": {
+   "plate_gcode_md5": "399ad7d1578ed6920fe2362b27340b0e",
+   "estimate": "2h 0m 20s",
+   "layers": 115,
+   "max_z_mm": 23.0,
+   "filament_g": 76.28,
+   "filament_m": 25.37
+  },
+  "vial_holder_20ml_x6_A1mini_PLA_0.4.gcode.3mf": {
+   "plate_gcode_md5": "4cc54ea4c023f4cf915449493758db2d",
+   "estimate": "1h 40m 56s",
+   "layers": 115,
+   "max_z_mm": 23.0,
+   "filament_g": 80.16
+  },
+  "vial_holder_20ml_x6_A1mini_PETG_0.4.3mf": "the PETG project, unsliced, with the same settings"
+ },
+ "gcode_checks": {
+  "how": "check_slice.py; output in check_slice_output.txt. Outer-wall toolpath spans plus one line width; pockets are least-squares circles through the wall minus one line width",
+  "footprint_mm_at_z_1_10_21": [
+   127.76,
+   85.48
+  ],
+  "pocket_diameters_mm_at_z_6_12_18": "all six 28.20 (model 28.2)",
+  "top_layer_z_mm": 23.0,
+  "centre_on_bed_mm": [
+   90.0,
+   90.0
+  ],
+  "same_for_both_files": true
+ },
+ "zero_point_two_nozzle_estimate": "14h 57m 33s, 230 layers, 59 g PETG (0.10mm Standard @BBL A1M 0.2 nozzle); not committed",
+ "ams_lite_last_on_record": "2026-10-28: A1 dark blue PLA Basic, A2 empty, A3 black PLA Basic, A4 white PETG Basic (byu-vcl record above)",
+ "before_sending": [
+  "read the installed nozzle diameter off the printer",
+  "check which filament is in which AMS Lite slot, and use the matching file",
+  "a fresh camera frame and the plate rule in CLAUDE.md (frame first, 90 s wait, a second frame before Send)",
+  "the plate is the Textured PEI plate; no HMS alerts; someone near the printer"
+ ]
+}

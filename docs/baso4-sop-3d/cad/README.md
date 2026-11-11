@@ -12,6 +12,7 @@ barium chloride in slot 4, and sodium sulfate, the 5 M NaCl and the DI water in 
 | [`byuvcl_6_vialholder_20ml/1.json`](byuvcl_6_vialholder_20ml/1.json) | Its Opentrons labware definition (schema 2), wells A1-B3 with the vials uncapped |
 | [`../vial_holder.py`](../vial_holder.py) | The CadQuery source of all three. The animation builds its holder from the same function |
 | [`check_deck.py`](check_deck.py) | A simulation-only check of the deck: the heater-shaker, the plate and both holders, one transfer of each stock |
+| [`print-a1mini/`](print-a1mini/README.md) | The holder sliced for the lab's A1 mini (0.4 mm nozzle, PETG or PLA, about 2 h), with checks of the G-code. Sliced on 11-11, not yet printed |
 
 ## The vials
 
@@ -55,7 +56,8 @@ They aren't used for the stocks.
 | Labels | A and B by the rows, 1-3 by the columns, and "20 mL VOA x6 BYU VCL" on the front face, all 0.6 mm deep |
 | Vial tops | 58 mm above the deck uncapped, 61 mm capped |
 
-Print it upright with no supports: PETG or PLA, 0.2 mm layers, about 15 % infill. A vial should drop in and lift out
+Print it upright with no supports: PETG or PLA, 0.2 mm layers, about 15 % infill. For the A1 mini it is sliced in
+[`print-a1mini/`](print-a1mini/README.md), with 3 walls and elephant-foot compensation so the bottom edge stays square. A vial should drop in and lift out
 freely. Printed holes usually come out a few tenths of a millimetre small, so print one holder and try several vials in
 it before printing the second. If they are tight, rebuild with a slightly larger `od` (27.5 mm gives 28.7 mm pockets).
 
