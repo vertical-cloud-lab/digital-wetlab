@@ -333,6 +333,9 @@ Every clip ends by holding its last frame, so the text stays up long enough to r
 <nav><ul><li><a href="#vials">What goes in each vial</a></li>{"".join(toc)}<li><a href="#whole">The six parts, and all of it</a></li></ul></nav>
 {chr(10).join(body)}
 <script>
+// htmlpreview rewrites every link with a # in it to point at this page, which turned the links to the README's
+// sections into dead links. This script runs after that rewrite, so it puts them back from data-href.
+document.querySelectorAll("a[data-href]").forEach(function (a) {{ a.href = a.getAttribute("data-href"); }});
 // Open at the step named in the link (player.html#s2.7), also when the page is shown through htmlpreview.
 function goToStep() {{
   const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
@@ -343,6 +346,8 @@ window.addEventListener("hashchange", goToStep);
 </script>
 </body></html>
 """
+    # keep a copy of each link to another page's section, for the script above to restore under htmlpreview
+    page = re.sub(r'<a href="(https://[^"#]*#[^"]*)"', r'<a href="\1" data-href="\1"', page)
     (STEPS / "player.html").write_text(page)
 
 
