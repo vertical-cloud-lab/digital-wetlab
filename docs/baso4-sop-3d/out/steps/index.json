@@ -269,9 +269,9 @@
    "end_frame": 408,
    "fps": 15,
    "motion_s": 14.07,
-   "hold_s": 10.87,
-   "seconds": 24.9,
-   "caption": "One vial at a time, 1.5 mL down the series: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM. A new transfer pipette for each, drawn to its 1.5 mL mark. Cap the vial, invert it and wipe it, then weigh it at the balance and log the reading before anything is drawn from it. The balance measures each transfer, so the pipette only has to get close."
+   "hold_s": 18.53,
+   "seconds": 32.6,
+   "caption": "Each vial is made from the one before it, one at a time: about 1.53 g of the 0.1 M into the 10 mM vial, then 1.50 g of the 10 mM into the 1 mM vial, then 1.50 g of the 1 mM into the 0.1 mM vial. That's about 1.5 mL each, with a new transfer pipette drawn to its 1.5 mL mark. Cap the vial, invert it, wipe it damp and then dry, then weigh it at the balance and log it before anything is drawn from it. The balance measures each transfer, so the pipette only has to get close."
   },
   {
    "label": "2.13",
@@ -329,9 +329,9 @@
    "end_frame": 822,
    "fps": 15,
    "motion_s": 11.2,
-   "hold_s": 10.87,
-   "seconds": 22.1,
-   "caption": "The same tenfold series for sodium sulfate, beside the balance: a new transfer pipette for each vial, and each vial weighed capped and logged before it is drawn from. Then 4.383 g of sodium chloride in a tared boat, with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each logged."
+   "hold_s": 18.33,
+   "seconds": 29.5,
+   "caption": "The same chain for sodium sulfate, beside the balance: about 1.52 g of the 0.1 M into the 10 mM vial, then 1.50 g of the 10 mM into the 1 mM vial, then 1.50 g of the 1 mM into the 0.1 mM vial, each with a new transfer pipette, and each vial weighed capped and logged before it is drawn from. Then 4.383 g of sodium chloride in a tared boat, with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all."
   },
   {
    "label": "2.17",
