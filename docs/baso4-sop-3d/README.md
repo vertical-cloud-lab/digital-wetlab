@@ -246,6 +246,39 @@ room can read what to do on the spot.
   aid, spills and PPE.
 - The 2.1 clip's caption still just says "the binder".
 
+### What M, mM and mol/kg mean
+
+Asked by @timothy-commins on [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6929976703)
+on 2026-11-16.
+
+- **M means molar: moles of the chemical per litre of solution.** 0.1 M barium chloride has 0.1 mol of barium
+  chloride in each litre, which is 0.1 mmol in each mL. A mole is a count, like a dozen: 6.022 × 10²³ of whatever is
+  being counted, here units of BaCl₂.
+- **The m in mM and mmol is milli, a thousandth.** 10 mM is 0.01 M, 1 mM is 0.001 M and 0.1 mM is 0.0001 M, so each
+  vial in a series is a tenth as strong as the one before it. A vial of 0.1 M is a thousand times stronger than one
+  of 0.1 mM.
+- **The molar mass turns moles into grams.** It's the g/mol in 2.9 and 2.14: a mole of anhydrous barium chloride
+  weighs 208.23 g, of sodium sulfate 142.04 g, and of sodium chloride 58.44 g. A vial's stock is about 15 mL, so the
+  salt to weigh is the concentration × 15 mL × the molar mass:
+
+| Vial | In 15 mL | Weighed |
+| --- | --- | --- |
+| Barium chloride, 0.1 M | 0.1 × 15 = 1.5 mmol | 1.5 × 208.23 = 312 mg (2.5-2.9) |
+| Sodium sulfate, 0.1 M | 0.1 × 15 = 1.5 mmol | 1.5 × 142.04 = 213 mg (2.14) |
+| Sodium chloride, 5 M | 5 × 15 = 75 mmol | 75 × 58.44 = 4.383 g (2.16) |
+
+- **The weaker vials are diluted, not weighed out.** 1.5 mL of a 0.1 M stock in 13.5 g of water is about 15 mL, ten
+  times the volume, so it's a tenth as strong: 10 mM. The same step again makes 1 mM, then 0.1 mM. On the plate,
+  20 µL of a stock in a 200 µL well is another tenfold: 20 µL of the 10 mM vial makes 1 mM in the well.
+- **Why moles, not milligrams.** One barium ion and one sulfate ion make one unit of barium sulfate
+  (Ba²⁺ + SO₄²⁻ → BaSO₄). Solutions of the same molarity hold the same number of units per mL, so the two 0.1 M
+  stocks match ion for ion, although one takes 312 mg of salt and the other 213 mg.
+- **mol/kg** (2.11 and [the dilution arithmetic](#the-dilutions-by-weight-with-transfer-pipettes)) is moles per
+  kilogram of water, called molal. The SOP uses it because the water is weighed, not filled to a line. For these dilute
+  stocks a kilogram of water makes just over a litre of solution, so 0.1 mol/kg is about 0.0995 M, half a percent
+  apart. That doesn't matter here, and the labels say M. The 5 M NaCl is too strong for that (it's 5.6 mol/kg), so its
+  recipe is worked out per litre, from its density.
+
 ### The vial labels
 
 Asked by @timothy-commins on [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6929684008)
@@ -281,8 +314,9 @@ map in [`cad/`](cad/README.md#on-the-ot-2) and `check_deck.py`; the plate A prot
   holder and can't make the vial stick. That band is only about 2 cm tall (my estimate for a 55 mm vial), so use
   labelling tape 1/2 or 3/4 in (13 or 19 mm) wide, or a label no taller. Use a permanent marker, since the barium
   vials are wiped with damp wipes.
-- **M or mM.** The 0.1 M and 0.1 mM vials of each salt differ a thousandfold, and they sit one behind the other in
-  column 1 of their holder (A1 and B1). Write the units clearly, and check those two whenever vials go into a holder.
+- **M or mM** ([what they mean](#what-m-mm-and-molkg-mean)). The 0.1 M and 0.1 mM vials of each salt differ a
+  thousandfold, and they sit one behind the other in column 1 of their holder (A1 and B1). Write the units clearly,
+  and check those two whenever vials go into a holder.
 - **The concentrations are the targets.** The log gives the real ones
   ([the arithmetic](#the-dilutions-by-weight-with-transfer-pipettes)); the labels stay as they are.
 - **Mark the holders too.** The two printed holders are identical. Write "BARIUM, slot 4" on the top face of one,
