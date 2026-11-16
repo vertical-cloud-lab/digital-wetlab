@@ -1,7 +1,7 @@
 {
  "name": "sop2b_bench",
  "fps": 15,
- "n_frames": 768,
+ "n_frames": 943,
  "size": [
   1280,
   720
@@ -21,39 +21,39 @@
   },
   {
    "label": "2.12",
-   "caption": "Still in the hood: uncap the 0.1 M vial and the three water vials, then move 1.5 mL down the series: 10, 1 and 0.1 mM barium chloride. Use a new tip for each vial, and draw 750 uL twice with it. Cap and invert each before the next transfer.",
+   "caption": "One vial at a time, 1.5 mL down the series: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM. A new transfer pipette for each, drawn to its 1.5 mL mark. Cap the vial, invert it and wipe it, then weigh it at the balance and log the reading before anything is drawn from it. The balance measures each transfer, so the pipette only has to get close.",
    "start_frame": 198,
-   "end_frame": 311
+   "end_frame": 408
   },
   {
    "label": "2.13",
-   "caption": "Cap all four barium vials. Label each one: name, concentration, date, initials. The three pipette tips and the wipes that touched barium go in the barium waste in the hood.",
-   "start_frame": 312,
-   "end_frame": 356
+   "caption": "All four barium vials are capped. Wipe their outsides: the wipes go in the barium waste in the hood, with the three used pipettes. Each vial's label: name, concentration, date, initials.",
+   "start_frame": 409,
+   "end_frame": 456
   },
   {
    "label": "2.14",
    "caption": "Sodium sulfate is weighed on the bench, in an open weigh boat: tare the boat, open the bottle, spatula about 213 mg into the boat, close the bottle. 0.2131 g of anhydrous sodium sulfate (142.04 g/mol) with 15.00 g of water is 0.1000 mol/kg.",
-   "start_frame": 357,
-   "end_frame": 476
+   "start_frame": 457,
+   "end_frame": 576
   },
   {
    "label": "2.15",
    "caption": "Tip the boat through a funnel into the 0.1 M sodium sulfate vial and rinse the boat and funnel in with DI water, to about 15 mL. Cap and invert it, then weigh it capped and log the water's mass.",
-   "start_frame": 477,
-   "end_frame": 554
+   "start_frame": 577,
+   "end_frame": 654
   },
   {
    "label": "2.16",
-   "caption": "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials, with a new tip for each vial (two 750 uL draws). Then 4.383 g of sodium chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each labelled and logged.",
-   "start_frame": 555,
-   "end_frame": 647
+   "caption": "The same tenfold series for sodium sulfate, beside the balance: a new transfer pipette for each vial, and each vial weighed capped and logged before it is drawn from. Then 4.383 g of sodium chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each labelled and logged.",
+   "start_frame": 655,
+   "end_frame": 822
   },
   {
    "label": "2.17",
    "caption": "Wipe the outside of the barium vials and their holder in the hood, then carry the holder straight to the tub; the bench holder joins it. Lid on. Outer gloves off in the hood, liner and wipes into the barium waste, sash fully down. Leave the hood as you found it.",
-   "start_frame": 648,
-   "end_frame": 767
+   "start_frame": 823,
+   "end_frame": 942
   }
  ]
 }

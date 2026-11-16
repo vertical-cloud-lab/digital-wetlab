@@ -199,6 +199,50 @@ def invert(W, key, times=2):
     return f
 
 
+def un_ease(e: float) -> float:
+    """The step's linear time from its eased u (scene.Scene.step passes update() ease(u)), so a step made of several
+    equal moves gives each the same time."""
+    e = min(max(e, 0.0), 1.0)
+    return 0.5 - math.sin(math.asin(1.0 - 2.0 * e) / 3.0)
+
+
+def cap_track(W, key, t, events):
+    """A vial's cap through several offs and ons: events are (t0, t1, off) in time order, on the step's time t. Before
+    the first event the cap is in the state that event leaves."""
+    last = None
+    for ev in events:
+        if t < ev[0]:
+            break
+        last = ev
+    if last is None:
+        tcap(W, key, events[0][2])(0.0)
+    else:
+        tcap(W, key, last[2])(window(t, last[0], last[1]))
+
+
+def weigh_trip(hole, pan, v, far=True):
+    """A capped vial's trip to the balance and back, on its move's time v: inverted in place (0.46-0.54), carried to
+    the pan (to 0.70), weighed (0.70-0.82), carried back (to 0.98). far: from the hood (a high carry), else a hop."""
+    if v < 0.46:
+        return hole
+    if v < 0.54:
+        w = (v - 0.46) / 0.08
+        return hole @ T((0, 0, 60 * math.sin(math.pi * w))) @ R((1, 0, 0), 180 * math.sin(2 * math.pi * w) ** 2, (0, 0, 30))
+    lift = 260 if far else 110
+    if v < 0.70:
+        return carry(hole, pan, window(v, 0.54, 0.70), lift)
+    if v < 0.82:
+        return pan
+    if v < 0.98:
+        return carry(pan, hole, window(v, 0.82, 0.98), lift)
+    return hole
+
+
+def trip_lid(v):
+    """The breeze-break lid during weigh_trip: open for the vial to go on, shut to read, open to take it off, shut."""
+    return window(v, 0.60, 0.66) - window(v, 0.70, 0.74) + window(v, 0.78, 0.82) - window(v, 0.88, 0.94)
+
+
 # --------------------------------------------------------------------------------------- set-ups
 def show_eb_hood_items(W, a=1.0):
     for g in ("liner", "tray", "ba_waste", "wash_hood", "bacl2", "bacl2_cap", "rack_hood", "spatula"):
@@ -432,13 +476,14 @@ def sop2(part=None):
     S.gauges = gauges("EB B125", "next to the hood", "-", [("balance", "warm-up >= 1 h")])
     S.step("2.2", "The balance sits on the bench beside the hood. If it was carried over, plug it in at least an "
                   "hour before weighing: the HR-100A drifts for about an hour after a move (powder-doser 157). "
-                  "Level it by its bubble and check it with a check weight. Then weigh 13.50 g of DI water into "
-                  "each of six capped vials, for the dilutions.",
-           2.4, cam_to=CAM_BAL, hold=2.6, update=during(0, 1, lambda w: person_at(W, 1040, -220, 0, 1 - w)),
+                  "Level it by its bubble and check it with a check weight. Then label six vials for the dilutions "
+                  "and log each one capped: empty, then with about 13.5 g of DI water. Zero the empty pan for every "
+                  "reading; don't tare these vials.",
+           2.4, cam_to=CAM_BAL, hold=3.6, update=during(0, 1, lambda w: person_at(W, 1040, -220, 0, 1 - w)),
            labels=[("bubble level", tuple(W.world_of("balance", (-80, -112, 66))), (0.18, 0.62)),
                    ("breeze-break lid\n(lift it to load)", tuple(W.world_of("balance", (0, 37.5, 176))), (0.70, 0.18))])
     # set up the hood: sash up, things in, sash down
-    items = ["liner", "tray", "ba_waste", "wash_hood", "bacl2", "bacl2_cap", "rack_hood", "spatula"]
+    items = ["liner", "tray", "ba_waste", "wash_hood", "bacl2", "bacl2_cap", "rack_hood", "spatula", "pipette_h"]
     for g in items:
         W.show(g, 0.0)
 
@@ -455,8 +500,8 @@ def sop2(part=None):
         person_at(W, -80 + 1120 * (1 - window(u, 0, 0.15)), -220, 0, 0.0)
     S.gauges = gauges("EB B125", "inside the hood", "-", [("sash", "up to load, then working height")])
     S.step("2.3", "Load the hood before opening anything: absorbent liner, a tray, the barium waste bottle, a wash "
-                  "bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials "
-                  "and a spatula, all behind the yellow line "
+                  "bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, "
+                  "three new transfer pipettes and a spatula, all behind the yellow line "
                   "15 cm (6 in) inside the sash. Then lower the sash to its working-height sticker.",
            5.0, update=setup, cam_to=CAM_HOOD, hold=2.4,
            labels=[("15 cm (6 in) line", (-420, 226, WS), (0.10, 0.84)),
@@ -603,44 +648,80 @@ def sop2(part=None):
                    "hood, into A1 of the barium holder.", 5.0, update=weigh_back, cam_to=CAM_MID, hold=0.6)
     pip0 = W.S.world("pipette_h")
     W.show("pipette_h")
+    ba_keys = ("ba0", "ba1", "ba2", "ba3")
+    conc = {"ba0": "0.1 M", "ba1": "10 mM", "ba2": "1 mM", "ba3": "0.1 mM",
+            "so0": "0.1 M", "so1": "10 mM", "so2": "1 mM", "so3": "0.1 mM"}
+    ba_holes = {k: W.S.world(f"t_{k}") for k in ba_keys}
+    over_waste = W.S.world("ba_waste") @ T((0, 0, 330))
 
-    def dilute(u):
-        # uncap the 0.1 M vial and the three water vials, then 1.5 mL down the series with the pipette
-        keys = ("ba0", "ba1", "ba2", "ba3")
-        for k in keys:
-            tcap(W, k, True)(window(u, 0.0, 0.14))
+    def dilute(e):
+        # one water vial at a time: a new transfer pipette draws about 1.5 mL from the stronger vial into it; the vial
+        # is capped, inverted and wiped, then weighed at the balance beside the hood before anything is drawn from it
+        t = un_ease(e)
+        vs = [min(max(t * 3 - j, 0.0), 1.0) for j in range(3)]
+        draw = [window(v, 0.14, 0.20) for v in vs]
+        fill = [window(v, 0.28, 0.34) for v in vs]
+        W.tube_fill("ba0", 15.0 - 1.5 * draw[0])
         for j in range(3):
-            a, b = 0.16 + 0.28 * j, 0.16 + 0.28 * (j + 1)
-            if a <= u < b:
-                v = (u - a) / (b - a)
-                src = W.S.world(f"t_{keys[j]}") @ T((0, 0, 75))
-                dst = W.S.world(f"t_{keys[j + 1]}") @ T((0, 0, 85))
-                if v < 0.25:
-                    W.set_world("pipette_h", carry(pip0 if j == 0 else W.S.world("pipette_h"), src, ease(v / 0.25), 60))
-                elif v < 0.6:
-                    W.set_world("pipette_h", carry(src, dst, ease((v - 0.25) / 0.35), 80))
-                else:
-                    W.set_world("pipette_h", dst @ T((0, 0, -20 * math.sin(math.pi * (v - 0.6) / 0.4))))
-                lv = window(v, 0.62, 0.95)
-                W.tube_fill(keys[j + 1], 13.5 + 1.5 * lv)
-                W.tube_fill(keys[j], 15.0 - 1.5 * window(v, 0.1, 0.25))
-        if u >= 0.99:
-            W.set_world("pipette_h", carry(W.S.world("pipette_h"), pip0, 1.0, 0))
+            d = ba_keys[j + 1]
+            W.tube_fill(d, 13.5 + 1.5 * fill[j] - (1.5 * draw[j + 1] if j < 2 else 0.0))
+            W.set_world(f"t_{d}", weigh_trip(ba_holes[d], pan, vs[j]))
+        for i, k in enumerate(ba_keys):              # each vial's cap is off while it gives or takes
+            moves = [j for j in range(3) if k in (ba_keys[j], ba_keys[j + 1])]
+            cap_track(W, k, t, [ev for j in moves for ev in (((j + 0.0) / 3, (j + 0.08) / 3, True),
+                                                             ((j + 0.36) / 3, (j + 0.46) / 3, False))])
+        j = min(int(t * 3), 2)
+        v = vs[j]
+        s_, d = ba_keys[j], ba_keys[j + 1]
+        over_s, in_s = ba_holes[s_] @ T((0, 0, 140)), ba_holes[s_] @ T((0, 0, 75))
+        in_d = ba_holes[d] @ T((0, 0, 85))
+        if v < 0.08:
+            pm, pa = pip0, window(v, 0.0, 0.06) if j > 0 else 1.0
+        elif v < 0.14:
+            pm, pa = carry(pip0, over_s, window(v, 0.08, 0.14), 60), 1.0
+        elif v < 0.20:
+            pm, pa = carry(over_s, in_s, window(v, 0.14, 0.17), 0) if v < 0.17 else carry(in_s, over_s, window(v, 0.17, 0.20), 0), 1.0
+        elif v < 0.28:
+            pm, pa = carry(over_s, in_d, window(v, 0.20, 0.28), 80), 1.0
+        elif v < 0.34:
+            pm, pa = in_d @ T((0, 0, -12 * math.sin(math.pi * (v - 0.28) / 0.06))), 1.0
+        elif v < 0.42:
+            pm, pa = carry(in_d, over_waste, window(v, 0.34, 0.42), 80), 1.0
+        else:                                           # into the barium solid waste; a new one waits on the liner
+            pm, pa = over_waste, 1.0 - window(v, 0.42, 0.46)
+            if v >= 0.46:
+                pm, pa = pip0, 0.0
+        W.set_world("pipette_h", pm)
+        W.show("pipette_h", pa)
+        person_at(W, -80 + 1120 * window(v, 0.54, 0.68) - 1120 * window(v, 0.82, 0.96), -220, 0, 1.0)
+        lift = trip_lid(v)
+        W.set("balance_lid", T((0, -40 * lift, 130 * lift)) @ lid0)
+        if v < 0.46:
+            S.gauges = gauges("EB B125", "INSIDE the hood", "barium vials",
+                              [("series", "0.1 M -> 10 -> 1 -> 0.1 mM"), ("now", f"{conc[s_]} into the {conc[d]} vial"),
+                               ("pipette", "a new transfer pipette")])
+        elif v < 0.72:
+            S.gauges = gauges("EB B125", "inside -> next to the hood", "-",
+                              [("vial", f"{conc[d]}: capped, inverted, wiped"), ("next", "weigh it")])
+        elif v < 0.84:
+            S.gauges = gauges("EB B125", "next to the hood", "balance lid only",
+                              [("balance", f"log the {conc[d]} vial, 'with stock'"), ("stock", "= with stock - with water")])
+        else:
+            S.gauges = gauges("EB B125", "next to -> inside the hood", "-", [("vial", f"{conc[d]}: back in its holder")])
     S.gauges = gauges("EB B125", "INSIDE the hood", "barium vials", [("series", "0.1 M -> 10 -> 1 -> 0.1 mM")])
-    S.step("2.12", "Still in the hood: uncap the 0.1 M vial and the three water vials, then move 1.5 mL down the "
-                   "series: 10, 1 and 0.1 mM barium chloride. Use a new tip for each vial, and draw 750 uL twice "
-                   "with it. Cap and invert each before the next transfer.",
-           7.0, update=dilute, hold=0.6,
-           labels=[("100-1000 uL pipette\n(new tip per vial, 2 x 750 uL)", (380, 380, WS + 280), (0.86, 0.22))])
-
-    def recap(u):
-        for k in ("ba0", "ba1", "ba2", "ba3"):
-            tcap(W, k, False)(window(u, 0.0, 0.6))
-        W.set_world("pipette_h", carry(W.S.world("pipette_h"), pip0, window(u, 0, 0.3), 30) if u < 0.3 else pip0)
-    S.gauges = gauges("EB B125", "INSIDE the hood", "closing the vials")
-    S.step("2.13", "Cap all four barium vials. Label each one: name, concentration, date, initials. The three "
-                   "pipette tips and the wipes that touched barium go in the barium waste in the hood.",
-           2.4, update=recap, hold=0.6)
+    S.step("2.12", "One vial at a time, 1.5 mL down the series: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into "
+                   "0.1 mM. A new transfer pipette for each, drawn to its 1.5 mL mark. Cap the vial, invert it and wipe "
+                   "it, then weigh it at the balance and log the reading before anything is drawn from it. The balance "
+                   "measures each transfer, so the pipette only has to get close.",
+           13.5, update=dilute, hold=0.6,
+           labels=[("transfer pipette\n(a new one for each vial)", (380, 380, WS + 20), (0.86, 0.22)),
+                   ("weigh each vial capped,\nbefore it is drawn from", tuple(W.world_of("balance", (0, 37.5, 176))),
+                    (0.86, 0.48))])
+    S.gauges = gauges("EB B125", "INSIDE the hood", "-", [("vials", "four barium vials, capped")])
+    S.step("2.13", "All four barium vials are capped. Wipe their outsides: the wipes go in the barium waste in the hood, "
+                   "with the three used pipettes. Each vial's label: name, concentration, date, initials.",
+           2.4, update=lambda u: W.show("person", 1 - window(u, 0, 0.3)), cam_to=[(-60, -430, 1380), (40, 470, 1000), UP],
+           hold=0.8)
     # ---- sodium sulfate and sodium chloride, at the balance
     boat0 = W.S.world("boat")
     boat_pan = pan
@@ -710,25 +791,49 @@ def sop2(part=None):
                    "with DI water, to about 15 mL. Cap and invert it, then weigh it capped and log the water's mass.",
            4.6, update=so4_tube, cam_to=[(1950, -700, 1550), (1650, 380, 1000), UP], hold=0.6)
 
-    def rest(u):
-        for i, k in enumerate(("so1", "so2", "so3")):
-            tcap(W, k, True)(window(u, 0.0, 0.12))
-            W.tube_fill(k, 13.5 + 1.5 * window(u, 0.3 + 0.08 * i, 0.38 + 0.08 * i))
-            tcap(W, k, False)(window(u, 0.55, 0.65))
-        cap_move(W, "nacl_cap", 178, True, dx=-80, dy=-60)(window(u, 0.6, 0.7))
+    so_keys = ("so0", "so1", "so2", "so3")
+    so_holes = {k: W.S.world(f"t_{k}") for k in so_keys}
+
+    def rest(e):
+        # the sulfate series beside the balance, each vial weighed before it is drawn from; then NaCl and water
+        t = un_ease(e)
+        vs = [min(max((t - 0.2 * j) / 0.2, 0.0), 1.0) for j in range(3)]
+        draw = [window(v, 0.14, 0.20) for v in vs]
+        fill = [window(v, 0.28, 0.34) for v in vs]
+        W.tube_fill("so0", 15.0 - 1.5 * draw[0])
+        for j in range(3):
+            d = so_keys[j + 1]
+            W.tube_fill(d, 13.5 + 1.5 * fill[j] - (1.5 * draw[j + 1] if j < 2 else 0.0))
+            W.set_world(f"t_{d}", weigh_trip(so_holes[d], pan, vs[j], far=False))
+        for k in so_keys:
+            moves = [j for j in range(3) if k in (so_keys[j], so_keys[j + 1])]
+            cap_track(W, k, t, [ev for j in moves for ev in ((0.2 * j, 0.2 * (j + 0.08), True),
+                                                             (0.2 * (j + 0.36), 0.2 * (j + 0.46), False))])
+        j = min(int(t / 0.2), 2)
+        lift = trip_lid(vs[j]) if t < 0.6 else 0.0
+        W.set("balance_lid", T((0, -40 * lift, 130 * lift)) @ lid0)
+        cap_move(W, "nacl_cap", 178, True, dx=-80, dy=-60)(window(t, 0.6, 0.7))
         for k in ("nacl", "water"):
-            tcap(W, k, True)(window(u, 0.62, 0.7))
-        W.tube_fill("nacl", 15.0 * window(u, 0.7, 0.86))
-        W.tube_fill("water", 15.0 * window(u, 0.74, 0.9))
-        cap_move(W, "nacl_cap", 178, False, dx=-80, dy=-60)(window(u, 0.8, 0.9))
+            tcap(W, k, True)(window(t, 0.62, 0.7))
+        W.tube_fill("nacl", 15.0 * window(t, 0.7, 0.86))
+        W.tube_fill("water", 15.0 * window(t, 0.74, 0.9))
+        cap_move(W, "nacl_cap", 178, False, dx=-80, dy=-60)(window(t, 0.8, 0.9))
         for k in ("nacl", "water"):
-            tcap(W, k, False)(window(u, 0.9, 1.0))
-        S.gauges = gauges("EB B125", "next to the hood", "sulfate vials" if u < 0.6 else "sodium chloride bottle",
-                          [("balance", "4.3830 g NaCl" if u > 0.75 else "-")])
-    S.step("2.16", "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials, with a "
-                   "new tip for each vial (two 750 uL draws). Then 4.383 g of sodium chloride with 13.4 g of DI water "
-                   "(15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each labelled and logged.",
-           5.0, update=rest, hold=1.2,
+            tcap(W, k, False)(window(t, 0.9, 1.0))
+        if t < 0.6:
+            v = vs[j]
+            s_, d = so_keys[j], so_keys[j + 1]
+            S.gauges = gauges("EB B125", "next to the hood", "sulfate vials",
+                              [("now", f"{conc[s_]} into the {conc[d]} vial, a new pipette")] if v < 0.7 else
+                              [("balance", f"log the {conc[d]} vial, 'with stock'")])
+        else:
+            S.gauges = gauges("EB B125", "next to the hood", "sodium chloride bottle",
+                              [("balance", "4.3830 g NaCl" if t > 0.75 else "-")])
+    S.step("2.16", "The same tenfold series for sodium sulfate, beside the balance: a new transfer pipette for each "
+                   "vial, and each vial weighed capped and logged before it is drawn from. Then 4.383 g of sodium "
+                   "chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, "
+                   "each labelled and logged.",
+           10.0, update=rest, hold=1.2,
            labels=[("5 M NaCl and DI water", tuple(W.world_of("rack_bench", (20, -20, 80))), (0.82, 0.22))])
     # clean up and pack
     tub_w = W.S.world("tub")

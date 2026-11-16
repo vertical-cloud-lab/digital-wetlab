@@ -547,6 +547,14 @@ def hand_pipette() -> dict:
             "tip": entry(pv.Cone(center=(0, 0, -30), direction=(0, 0, -1), height=70, radius=4.2, resolution=24).triangulate(), "polypropylene")}
 
 
+def transfer_pipette() -> dict:
+    """A 3 mL disposable polyethylene transfer pipette (about 155 mm), upright. Its tip is at z = -65, where the hand
+    pipette's tip ends, so the same poses dip it into a vial. The lab has no hand pipette (Tim, 2026-11-16)."""
+    stem = merge([cyl(0, 0, -65, 1.3, 32), cyl(0, 0, -35, 2.6, 84)])
+    bulb = pv.ParametricEllipsoid(8.5, 8.5, 26).translate((0, 0, 72), inplace=False).triangulate()
+    return {"body": entry(merge([stem, bulb]), "polypropylene")}
+
+
 def person(pose: str = "reach") -> dict:
     """A stand-in person, 1750 mm tall, facing +y (towards what they work on): lab coat, goggles, nitrile gloves.
     pose 'reach': both forearms forward at bench height, hands at about z = 1000-1050 and y = 430."""

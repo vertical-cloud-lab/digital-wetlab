@@ -45,7 +45,7 @@ STEP_INFO = {
     "1.5": ("cb154-ot2", "CB 154: uncap only on the OT-2's deck", "overview"),
     "1.6": ("the-order", "The order of the day", "overview"),
     "2.1": ("ppe-and-sds", "PPE and the SDS", "EB B125"),
-    "2.2": ("balance-check", "Check the balance; water into six vials", "EB B125, next to the hood"),
+    "2.2": ("balance-check", "Check the balance; water into six vials, weighed", "EB B125, next to the hood"),
     "2.3": ("load-the-hood", "Load the hood, sash down", "EB B125, inside the hood"),
     "2.4": ("tare-the-vial", "Tare the capped vial", "EB B125, next to the hood"),
     "2.5": ("vial-into-hood", "Carry the vial into the hood", "next to, then inside the hood"),
@@ -55,11 +55,12 @@ STEP_INFO = {
     "2.9": ("weigh-the-vial", "Weigh the capped vial and log it", "EB B125, next to the hood"),
     "2.10": ("dissolve-barium-chloride", "Dissolve it in the vial", "EB B125, inside the hood"),
     "2.11": ("weigh-barium-0.1M", "Weigh it, then into the barium holder", "inside, next to, then inside the hood"),
-    "2.12": ("barium-dilutions", "Dilute to 10, 1 and 0.1 mM barium chloride", "EB B125, inside the hood"),
+    "2.12": ("barium-dilutions", "Dilute to 10, 1 and 0.1 mM barium chloride, weighing each vial",
+             "EB B125, inside the hood, and the balance"),
     "2.13": ("cap-and-label-barium", "Cap and label the barium vials", "EB B125, inside the hood"),
     "2.14": ("weigh-sodium-sulfate", "Weigh about 213 mg of sodium sulfate", "EB B125, next to the hood"),
     "2.15": ("make-up-sodium-sulfate", "Make up the 0.1 M sodium sulfate", "EB B125, next to the hood"),
-    "2.16": ("sulfate-nacl-water", "Sulfate dilutions, 5 M NaCl and DI water", "EB B125, next to the hood"),
+    "2.16": ("sulfate-nacl-water", "Sulfate dilutions (weighed), 5 M NaCl and DI water", "EB B125, next to the hood"),
     "2.17": ("pack-and-clean-up", "Pack the tub and clean up the hood", "EB B125, hood then bench"),
     "3.1": ("before-the-day", "Before the day: calibration, camera, lights", "CB 154"),
     "3.2": ("open-the-door", "Open the OT-2's door", "CB 154, OT-2 deck"),
@@ -200,16 +201,18 @@ HOOD_NOTE = (
     "<a href=\"{readme}\">the README</a>."
 )
 # Asked on PR 84 (Tim, 2026-11-16): update the page wherever an amount differs from what the lab is using. The lab's
-# barium chloride is anhydrous, and the hand pipette is a 100-1000 uL one. {salt} is the README's section on the two
-# forms.
+# barium chloride is anhydrous, and it has no hand pipette, so the dilutions are weighed. {salt} and {dil} are the
+# README's sections on the two forms of the salt and on the dilutions.
 AMOUNTS_NOTE = (
     "<b>Updated 11-16 for what the lab has.</b> The barium chloride is <b>anhydrous</b>, so spatula about "
     "<b>312 mg</b>, not the dihydrate’s 366 mg (2.7). The balance then reads about 0.3123 g (2.9), and 15.31 g "
-    "once the water is in (2.11). The 100–1000 µL hand pipette takes <b>a new tip for each dilution "
-    "vial</b>, and each 1.5 mL is two 750 µL draws with that tip: three tips in the hood (2.12) and three at "
-    "the bench (2.16). Parts 2a and 2b are re-rendered with these numbers and with the 27 × 55 mm vials. The "
-    "other amounts were already right: 213 mg of sodium sulfate, 4.383 g of NaCl with 13.4 g of water, 13.50 g of "
-    "water in each dilution vial, and the volumes the OT-2 pipettes. A dihydrate bottle would need 366 mg: "
+    "once the water is in (2.11). <b>There is no hand pipette, so the dilutions are weighed</b>: the six water "
+    "vials are each logged empty and with about 13.5 g of water (2.2), each 1.5 mL goes in with <b>a new disposable "
+    "transfer pipette</b>, and each vial is weighed again, capped, before anything is drawn from it (2.12, 2.16). The "
+    "balance measures every transfer, so the pipette only has to get close: "
+    "<a href=\"{dil}\">how, and the arithmetic</a>. Parts 2a and 2b are re-rendered with these steps and with the "
+    "27 × 55 mm vials. The other amounts were already right: 213 mg of sodium sulfate, 4.383 g of NaCl with "
+    "13.4 g of water, and the volumes the OT-2 pipettes. A dihydrate bottle would need 366 mg: "
     "<a href=\"{salt}\">why</a>."
 )
 PART_NOTES = {
@@ -235,6 +238,7 @@ def player_page(rows, sha, readme_sha=None):
     readme_url = f"https://github.com/{REPO}/blob/{readme_sha or sha}/docs/baso4-sop-3d/README.md"
     readme = readme_url + "#does-the-ot-2-need-to-be-in-the-hood"
     salt = readme_url + "#the-barium-chloride-anhydrous-or-dihydrate"
+    dil = readme_url + "#the-dilutions-by-weight-with-transfer-pipettes"
     # the full video is the six parts joined, so its length is theirs
     frames = [json.loads((OUT / f"{p}.json").read_text()) for p in PARTS]
     full_s = round(sum(m["n_frames"] / m["fps"] for m in frames))
@@ -283,7 +287,7 @@ nav li {{ margin: .2em 0; }}
 Every clip ends by holding its last frame, so the text stays up long enough to read.</p>
 <p class="note">From <a href="https://github.com/{REPO}/tree/{sha}/docs/baso4-sop-3d">docs/baso4-sop-3d</a>
 (issue 80). The time-lapse in step 4.3 is illustrative, not a prediction; the README lists the other assumptions.</p>
-<p class="safety">{AMOUNTS_NOTE.format(salt=salt)}</p>
+<p class="safety">{AMOUNTS_NOTE.format(salt=salt, dil=dil)}</p>
 <p class="safety">{HOOD_NOTE.format(readme=readme)}</p>
 <nav><ul>{"".join(toc)}<li><a href="#whole">The six parts, and all of it</a></li></ul></nav>
 {chr(10).join(body)}

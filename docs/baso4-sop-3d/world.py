@@ -174,7 +174,9 @@ class World:
         self.put("notebook", {"n": M.entry(M.box(-150, -110, 0, 150, 110, 12), "label_white"),
                               "c": M.entry(M.box(-150, -110, 12, -130, 110, 14), "sign")},
                  T((1560, 620, BT)) @ R((0, 0, 1), 8))
-        self.put("pipette_h", M.hand_pipette(), T((380, 380, WS + 4)), shown=False)
+        # a disposable transfer pipette, lying on the liner (the lab has no hand pipette: the dilutions are weighed)
+        self.put("pipette_h", M.transfer_pipette(), T((380, 380, WS + 4 + 9)) @ R((0, 1, 0), 90) @ T((0, 0, -14)),
+                 shown=False)
 
     # ------------------------------------------------------------------------------------- CB 154
     def build_cb(self):
