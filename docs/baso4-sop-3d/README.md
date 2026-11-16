@@ -194,7 +194,7 @@ The six part MP4s and the full video are at the end of the page:
 
 | # | Where | What | Opened |
 | --- | --- | --- | --- |
-| 2.1 | EB B125 | Nitrile gloves (two pairs for barium), a lab coat and safety glasses, with long pants and closed-toe shoes. The barium chloride SDS goes in the binder. Keep every container closed and labelled (Dillon's rule) | - |
+| 2.1 | EB B125 | Nitrile gloves (two pairs for barium), a lab coat and safety glasses, with long pants and closed-toe shoes. Read the barium chloride SDS; a printed copy goes in the room's SDS binder ([what that is](#the-sds-binder)). Keep every container closed and labelled (Dillon's rule) | - |
 | 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight. Label six 20 mL vials for the dilutions. For each: zero the empty pan, weigh the capped vial and log it, add about 13.5 g of DI water (a water-only transfer pipette for the last drops), cap it and log the reading again. Don't tare a vial for these: [why](#the-dilutions-by-weight-with-transfer-pipettes) | - |
 | 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, three new transfer pipettes, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
 | 2.4 | next to the hood | Put the empty capped vial for the 0.1 M barium chloride on the pan and tare it | balance lid |
@@ -215,6 +215,34 @@ The six part MP4s and the full video are at the end of the page:
 | 4.1-4.4 | CB 154 | Stills every 1 min to 30 min after the last sulfate, every 5 min to 6 h, then every 15 min (about 400 in 72 h). Check the stream, the heartbeat and the event log once a day | - |
 | 4.5-4.6 | CB 154 | Gloves, lab coat and glasses on again. Last still. Take the plate out, weigh it, and photograph it on black. Wells, leftover stocks and rinses go to barium waste. Wipe the deck with a damp wipe, gloves off, wash your hands. Commit the run record to `experiments/004-baso4-monitoring/<run-id>/` | door, waste |
 
+### The SDS binder
+
+"The binder" in 2.1 is the room's **SDS binder**: a ring binder of printed safety data sheets (SDSs), one for each
+chemical used in the room, with a list of those chemicals at the front. An SDS is the maker's sheet for a chemical: its
+hazards, first aid, what to do about a spill, the PPE, and how to dispose of it. If something goes wrong, anyone in the
+room can read what to do on the spot.
+
+- **Every lab has to keep its SDSs.** BYU Engineering's lab safety plan asks each lab for current SDSs with an
+  inventory of its chemicals, on paper or on a USB stick
+  ([p. 9](https://github.com/vertical-cloud-lab/byu-vcl/blob/83dd5a1/byu-engineering-lab-safety-plan-chemical-hygiene-plan-2024.pdf)).
+  The proposal's safety plan promises a labelled binder at the lab entrance
+  ([`safety_explanation.md`](../../drafts/safety_explanation.md)).
+- **What goes in it for this run:** the SDSs for the barium chloride, the sodium sulfate and the sodium chloride, each
+  for the bottle you're using. The maker and product number are on the label, and the maker's website has the sheet.
+  - **The lab has no barium chloride SDS on record.** Its SDSs so far are digital copies from March, on
+    [byu-vcl 15](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3991816640): silver nitrate,
+    sodium chloride, sodium sulfate, barium nitrate, lead nitrate and ammonium sulfide. The barium nitrate sheet
+    doesn't cover barium chloride.
+  - Print the sodium sulfate and sodium chloride sheets from there if the maker on each matches your bottle.
+- **Which binder:** each room where the barium is used.
+  - **EB B125**, where the powder is opened. Ask the Dillon lab where they keep their SDSs, and add yours there.
+  - **The OT-2's room**, if it isn't EB B125, where the stocks and the plate sit for 72 h. Nobody has recorded an SDS
+    binder in CB 154. byu-vcl's [punch list](https://github.com/vertical-cloud-lab/byu-vcl/blob/00ca2f1/docs/lab-punch-list.md)
+    (10-20) still has it open. If there isn't one, start one by the door, labelled "Safety Data Sheets".
+- **Read the barium chloride SDS before you open the bottle**, at least sections 2, 4, 6 and 8: the hazards, first
+  aid, spills and PPE.
+- The 2.1 clip's caption still just says "the binder".
+
 ### The barium chloride: anhydrous or dihydrate
 
 The lab's bottle is anhydrous ([Tim, 2026-11-16](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6925620635)).
@@ -234,7 +262,7 @@ The SOP was first written for the dihydrate.
     [shopping list](shopping-list.md#3-probably-in-the-lab-check-before-ordering)).
   - Close the bottle as soon as the spatula is out (2.8), and keep the cap tight.
 - **The hazards are the same:** toxic if swallowed (H301) and harmful if inhaled (H332). Print the SDS for the lab's
-  own bottle, from its maker, for the binder (2.1).
+  own bottle, from its maker, for the [SDS binder](#the-sds-binder) (2.1).
 - **The clips show the anhydrous salt and 312 mg,** since parts 2a and 2b were re-rendered on 11-16, and so do their
   GIFs and MP4s and the full video.
 
