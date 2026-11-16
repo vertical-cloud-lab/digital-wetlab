@@ -103,7 +103,7 @@ characters a second, and 2 s past the motion. They come to 10.3 min in all, agai
 | 2.4 | Tare the capped vial | EB B125, next to the hood | 18 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.4) | [`2-04_tare-the-vial.mp4`](out/steps/2-04_tare-the-vial.mp4) |
 | 2.5 | Carry the vial into the hood | next to, then inside the hood | 9 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.5) | [`2-05_vial-into-hood.mp4`](out/steps/2-05_vial-into-hood.mp4) |
 | 2.6 | Uncap the barium chloride and the vial | EB B125, inside the hood | 9 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.6) | [`2-06_uncap-bottle-and-vial.mp4`](out/steps/2-06_uncap-bottle-and-vial.mp4) |
-| 2.7 | Spatula about 366 mg of barium chloride | EB B125, inside the hood | 13 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.7) | [`2-07_spatula-barium-chloride.mp4`](out/steps/2-07_spatula-barium-chloride.mp4) |
+| 2.7 | Spatula about 312 mg of barium chloride (the clip still says 366 mg, for the dihydrate: [why](#the-barium-chloride-anhydrous-or-dihydrate)) | EB B125, inside the hood | 13 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.7) | [`2-07_spatula-barium-chloride.mp4`](out/steps/2-07_spatula-barium-chloride.mp4) |
 | 2.8 | Cap both, wipe the vial | EB B125, inside the hood | 10 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.8) | [`2-08_cap-and-wipe.mp4`](out/steps/2-08_cap-and-wipe.mp4) |
 | 2.9 | Weigh the capped vial and log it | EB B125, next to the hood | 18 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.9) | [`2-09_weigh-the-vial.mp4`](out/steps/2-09_weigh-the-vial.mp4) |
 
@@ -183,9 +183,9 @@ The six part MP4s and the full video are at the end of the page:
 | 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight. Weigh 13.50 g of DI water into each of six capped 20 mL vials, for the dilutions | - |
 | 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
 | 2.4 | next to the hood | Put the empty capped vial for the 0.1 M barium chloride on the pan and tare it | balance lid |
-| 2.5-2.8 | inside the hood | Open the barium chloride and the vial, and spatula about 366 mg into the vial. Close both, and wipe the vial | barium chloride bottle, vial |
-| 2.9 | next to the hood | Weigh the capped vial and log the reading. 0.3664 g is 1.500 mmol (BaCl₂·2H₂O, 244.26 g/mol); for another mass, work out its concentration | balance lid |
-| 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it and weigh it capped: 0.3664 g with 15.00 g of water is 0.1000 mol/kg. It goes into A1 of the barium holder | vial |
+| 2.5-2.8 | inside the hood | Open the barium chloride and the vial, and spatula about 312 mg into the vial. The lab's bottle is anhydrous; a dihydrate bottle would need 366 mg ([below](#the-barium-chloride-anhydrous-or-dihydrate)). Close both, and wipe the vial | barium chloride bottle, vial |
+| 2.9 | next to the hood | Weigh the capped vial and log the reading, with the form, maker and lot from the bottle's label. 0.3123 g of anhydrous BaCl₂ (208.23 g/mol) is 1.500 mmol, as is 0.3664 g of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol); for another mass, work out its concentration | balance lid |
+| 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it and weigh it capped: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, which is a reading of 15.31 g from either form. It goes into A1 of the barium holder | vial |
 | 2.12-2.13 | inside the hood | 1.5 mL down the series into the three water vials, with a new tip each time: 10, 1 and 0.1 mM. Cap, invert and label | barium vials |
 | 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat: 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg. Through a funnel into its vial, rinse in to about 15 mL, cap, weigh | sodium sulfate bottle, vial |
 | 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate. 4.383 g NaCl with 13.4 g of DI water (15 mL of 5 M). A vial of fresh DI water. Ten vials in all | sodium chloride bottle, vials |
@@ -199,6 +199,29 @@ The six part MP4s and the full video are at the end of the page:
 | 3.12-3.13 | OT-2 deck | At the pause: a clear adhesive seal, pressed down well by well; log the time. Recap the vials, close the door, rail lights stay on | door |
 | 4.1-4.4 | CB 154 | Stills every 1 min to 30 min after the last sulfate, every 5 min to 6 h, then every 15 min (about 400 in 72 h). Check the stream, the heartbeat and the event log once a day | - |
 | 4.5-4.6 | CB 154 | Gloves, lab coat and glasses on again. Last still. Take the plate out, weigh it, and photograph it on black. Wells, leftover stocks and rinses go to barium waste. Wipe the deck with a damp wipe, gloves off, wash your hands. Commit the run record to `experiments/004-baso4-monitoring/<run-id>/` | door, waste |
+
+### The barium chloride: anhydrous or dihydrate
+
+The lab's bottle is anhydrous ([Tim, 2026-11-16](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6925620635)).
+The SOP was first written for the dihydrate.
+- **Once it's dissolved, either form makes the same stock.** Only the mass you weigh changes. For 1.500 mmol, that's
+  312.3 mg of the anhydrous salt (BaCl₂, 208.23 g/mol) or 366.4 mg of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol).
+  Weighing 366 mg of the anhydrous salt would make the stock 17 % too strong.
+- **The concentration is mmol of BaCl₂ per gram of water** (mol/kg). With the anhydrous salt, the water is the 2.11
+  reading minus the 2.9 reading. The dihydrate also brings 36 mg of water per mmol, and that counts as water too. With
+  either form, 1.500 mmol and a 2.11 reading of 15.31 g is 0.1000 mol/kg.
+- **The anhydrous salt takes up water from the air** and slowly turns into the dihydrate
+  ([Wikipedia](https://en.wikipedia.org/wiki/Barium_chloride)). The water it has picked up gets weighed as barium
+  chloride, so the stock comes out weaker than the log says. It's weaker by about the share of water in what you
+  weighed: 15 % if it had all turned to dihydrate.
+  - When you open the bottle in the hood, check that it's loose and free-flowing. If it's caked, lumpy or damp,
+    don't use it for plate A. Tell Sterling, and buy the dihydrate (it's in the
+    [shopping list](shopping-list.md#3-probably-in-the-lab-check-before-ordering)).
+  - Close the bottle as soon as the spatula is out (2.8), and keep the cap tight.
+- **The hazards are the same:** toxic if swallowed (H301) and harmful if inhaled (H332). Print the SDS for the lab's
+  own bottle, from its maker, for the binder (2.1).
+- **The clips for 2.3-2.11 still show the dihydrate and 366 mg,** and so do part 2a's GIF and MP4 and the full video.
+  The table above is right. [`animate.py`](animate.py) now has the anhydrous numbers, for the next render.
 
 ## Does the OT-2 need to be in the hood?
 

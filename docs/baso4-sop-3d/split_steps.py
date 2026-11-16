@@ -49,7 +49,7 @@ STEP_INFO = {
     "2.4": ("tare-the-vial", "Tare the capped vial", "EB B125, next to the hood"),
     "2.5": ("vial-into-hood", "Carry the vial into the hood", "next to, then inside the hood"),
     "2.6": ("uncap-bottle-and-vial", "Uncap the barium chloride and the vial", "EB B125, inside the hood"),
-    "2.7": ("spatula-barium-chloride", "Spatula about 366 mg of barium chloride", "EB B125, inside the hood"),
+    "2.7": ("spatula-barium-chloride", "Spatula about 312 mg of barium chloride", "EB B125, inside the hood"),
     "2.8": ("cap-and-wipe", "Cap both, wipe the vial", "EB B125, inside the hood"),
     "2.9": ("weigh-the-vial", "Weigh the capped vial and log it", "EB B125, next to the hood"),
     "2.10": ("dissolve-barium-chloride", "Dissolve it in the vial", "EB B125, inside the hood"),

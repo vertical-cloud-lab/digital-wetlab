@@ -461,7 +461,7 @@ def sop2(part=None):
            5.0, update=setup, cam_to=CAM_HOOD, hold=2.4,
            labels=[("15 cm (6 in) line", (-420, 226, WS), (0.10, 0.84)),
                    ("barium waste", (540, 600, WS + 200), (0.88, 0.30)),
-                   ("barium chloride\ndihydrate", (-290, 560, WS + 140), (0.10, 0.30))])
+                   ("barium chloride\nanhydrous", (-290, 560, WS + 140), (0.10, 0.30))])
     # tare the capped vial on the balance
     lid0 = W.S.gmat["balance_lid"].copy()
 
@@ -495,7 +495,7 @@ def sop2(part=None):
                            during(0.4, 1.0, cap_move(W, "vial_cap", 60, True, dx=60, dy=-40)),
                            lambda u: W.show("person", 1 - window(u, 0, 0.3))),
            cam_to=[(-450, -520, 1420), (-200, 480, 985), UP], hold=1.0,
-           labels=[("barium chloride dihydrate\n(toxic if swallowed)", (-290, 560, WS + 150), (0.12, 0.22)),
+           labels=[("barium chloride, anhydrous\n(toxic if swallowed)", (-290, 560, WS + 150), (0.12, 0.22)),
                    ("caps top-down", (-195, 490, WS + 8), (0.60, 0.80))])
     # spatula: three scoops from the bottle into the vial
     sp0 = W.S.world("spatula")
@@ -530,8 +530,8 @@ def sop2(part=None):
         else:
             m = carry(tip, up_b if k < 2 else up_v, ease((v - 0.85) / 0.15), 30)
         W.set_world("spatula", m)
-    S.gauges = gauges("EB B125", "INSIDE the hood", "barium chloride bottle, vial", [("target", "about 366 mg")])
-    S.step("2.7", "Spatula about 366 mg of barium chloride dihydrate into the vial, low in the hood and slowly, "
+    S.gauges = gauges("EB B125", "INSIDE the hood", "barium chloride bottle, vial", [("target", "about 312 mg")])
+    S.step("2.7", "Spatula about 312 mg of anhydrous barium chloride into the vial, low in the hood and slowly, "
                   "so no dust lifts. It doesn't have to be exact: the balance reading sets the concentration.",
            6.0, update=scoop, cam_to=[(-400, -380, 1360), (-200, 470, 1000), UP], hold=0.5)
 
@@ -550,10 +550,10 @@ def sop2(part=None):
         W.set_world("vial", carry(vial_hood, pan, window(u, 0.0, 0.8), 260))
         person_at(W, -80 + 1120 * window(u, 0.0, 0.6), -220, 0, 1.0)
         S.gauges = gauges("EB B125", "inside -> next to the hood", "balance lid only",
-                          [("balance", "0.3664 g" if u > 0.92 else "-")])
+                          [("balance", "0.3123 g" if u > 0.92 else "-")])
     S.step("2.9", "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's "
-                  "lot. 0.3664 g is 1.500 mmol (244.26 g/mol): with 15.00 g of water, 0.1000 mol/kg. For another "
-                  "mass, work out its concentration and use that in the plate map.",
+                  "form and lot. 0.3123 g is 1.500 mmol (anhydrous, 208.23 g/mol): with 15.00 g of water, "
+                  "0.1000 mol/kg. For another mass, work out its concentration and use that in the plate map.",
            3.6, update=weigh, cam_to=CAM_MID, hold=2.0)
     # dissolve in the vial itself: it is the 0.1 M barium vial
     rack_w = W.S.world("rack_hood")
@@ -591,7 +591,7 @@ def sop2(part=None):
                     carry(pan, hole0, window(u, 0.66, 1.0), 260))
         person_at(W, -80 + 1120 * window(u, 0.0, 0.4) - 1120 * window(u, 0.68, 0.95), -220, 0, 1.0)
         S.gauges = gauges("EB B125", "inside -> next to the hood -> inside", "balance lid only",
-                          [("balance", "15.37 g (+ the vial's tare)" if u > 0.52 else "-")])
+                          [("balance", "15.31 g (+ the vial's tare)" if u > 0.52 else "-")])
         if u > 0.985:                                   # it is now A1's vial: hand over to the stock vial ba0
             for g in ("vial", "vial_cap"):
                 W.show(g, 0.0)
@@ -599,7 +599,7 @@ def sop2(part=None):
             W.tube_show("ba0")
     S.gauges = gauges("EB B125", "INSIDE the hood", "-", [("vial", "0.1 M BaCl2, about 15 g of water")])
     S.step("2.11", "Wipe it, weigh it capped at the balance and log the reading: the water's mass sets the "
-                   "concentration (0.3664 g with 15.00 g of water is 0.1000 mol/kg). Then it goes back into the "
+                   "concentration (0.3123 g with 15.00 g of water is 0.1000 mol/kg). Then it goes back into the "
                    "hood, into A1 of the barium holder.", 5.0, update=weigh_back, cam_to=CAM_MID, hold=0.6)
     pip0 = W.S.world("pipette_h")
     W.show("pipette_h")

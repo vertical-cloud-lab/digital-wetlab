@@ -29,9 +29,9 @@ stills. Neither is in this repo or byu-vcl.
 
 | Step | Materials |
 | --- | --- |
-| 2.1 PPE | Nitrile gloves, two pairs; lab coat; safety glasses; long pants and closed-toe shoes (Sterling's list, 11-06). Splash goggles are better for the barium solutions (**get**: only safety glasses are on record). The barium chloride SDS, printed (**get**) |
+| 2.1 PPE | Nitrile gloves, two pairs; lab coat; safety glasses; long pants and closed-toe shoes (Sterling's list, 11-06). Splash goggles are better for the barium solutions (**get**: only safety glasses are on record). The SDS for the lab's barium chloride, from the maker on its label, printed (**get**) |
 | 2.2 Balance | HR-100A (**check** where it is; if it was moved, plug it in 1 h before weighing); check weight; six capped 20 mL vials, each weighed in with 13.50 g of DI water, for the dilutions |
-| 2.3 Load the hood | Absorbent liner and tray (**get**); barium waste, a labelled bottle for liquids and a bag for solids (**get**, from Risk Management); wash bottle of fresh DI water; barium chloride dihydrate (**check** the label: anhydrous needs 312.3 mg, not 366.4 mg); the barium vial holder (**print** it: [`cad/`](cad/README.md)) with three of the water vials, labelled 10, 1 and 0.1 mM; spatula; damp wipes |
+| 2.3 Load the hood | Absorbent liner and tray (**get**); barium waste, a labelled bottle for liquids and a bag for solids (**get**, from Risk Management); wash bottle of fresh DI water; barium chloride, anhydrous, the lab's bottle (Tim, 11-16): 312.3 mg (**check** that it's loose, not caked; a dihydrate bottle needs 366.4 mg: [why](README.md#the-barium-chloride-anhydrous-or-dihydrate)); the barium vial holder (**print** it: [`cad/`](cad/README.md)) with three of the water vials, labelled 10, 1 and 0.1 mM; spatula; damp wipes |
 | 2.4 Tare | An empty 20 mL VOA vial with its cap, labelled 0.1 M barium chloride |
 | 2.5-2.8 Barium chloride into the vial | What's already in the hood |
 | 2.9 Weigh and log | Log sheet, pen |
@@ -79,7 +79,7 @@ seal, and food dye.
 | Hazard | When | What to do |
 | --- | --- | --- |
 | **Swallowing barium chloride.** This is the main one. It's toxic if swallowed. NIOSH cites 0.8-0.9 g as a fatal dose for an adult, and the 0.1 M vial holds about a third of that. It gets in from hand to mouth. | Any time your gloves have touched barium | No food, drink or gum in either room. Don't touch your face, phone, doors or keyboards with gloves on. Wash your hands before you leave. |
-| **Breathing barium chloride dust** (harmful if inhaled) | 2.5-2.8, weighing | Open the bottle only in the hood, with the sash at its sticker and your head outside. Spatula slowly, low down. |
+| **Breathing barium chloride dust** (harmful if inhaled) | 2.5-2.8, weighing | Open the bottle only in the hood, with the sash at its sticker and your head outside. Spatula slowly, low down. The anhydrous salt may be a fine powder, which lifts more easily than crystals. |
 | **Spills and leftover residue.** A spill that dries becomes toxic dust. Residue on the balance, deck or tub ends up on the next person's hands. | Any time, including the carry | Wipe a spill while it's wet, into the barium waste, then wipe again with water. Wipe the balance, deck and tub at the end. Carry the tub closed, with both hands. |
 | **Splashes in your eyes** | Uncapping, inverting, sealing | Safety glasses on throughout; goggles, if you have them, for the barium solutions. Find the eyewash in both rooms before you start. |
 | **Lifting the OT-2** into the hood | Before the run | Two people (Sterling, 11-06). Clear the deck first, lift by the frame, never by the door or the windows, and mind the lid camera on top. Recalibrate the deck afterwards. |
@@ -101,7 +101,7 @@ enough for them.
 - Fatal dose: NIOSH's [IDLH documentation for barium](https://www.cdc.gov/niosh/idlh/7440393.html): "Patty [1963]
   cited 800 to 900 mg of BaCl2 (550 to 600 mg as Ba) as the fatal dose for man [Sollman 1953]." The same page also
   gives a higher estimate, 43-57 mg of barium per kg (Reeve 1979). The 0.1 M vial holds 312 mg of barium chloride
-  (366.4 mg weighed as the dihydrate), in about 15 mL.
+  (312.3 mg weighed as the anhydrous salt, or 366.4 mg as the dihydrate), in about 15 mL.
 - Waste limit: [40 CFR 261.24](https://www.law.cornell.edu/cfr/text/40/261.24),
   barium (D005), 100.0 mg/L; a liquid waste counts as its own extract. 1 mM barium is 137 mg/L.
 - Materials and their status: the 10-30 lead plan's lists, the

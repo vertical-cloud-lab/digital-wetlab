@@ -51,13 +51,13 @@ need little else.
 | --- | --- | --- |
 | **Barium waste:** a labelled liquid-waste bottle, and a bag or pail for solids (tips, wipes, gloves, the plate, the barium vials) | Leftover stocks, the plate's wells, rinses | BYU Risk Management. Ask well before the run. They collect it afterwards |
 | **DI water** | About 0.5 L, fetched that day | The Chem Stores breakroom, as before. Not the March jug ([why](https://github.com/vertical-cloud-lab/digital-wetlab/blob/cb98aa9/docs/di-water-storage.md#what-to-do)) |
-| **The barium chloride SDS,** printed for the binder | 1 | The maker's website. It was missing from the binder in October |
+| **The barium chloride SDS,** printed for the binder | 1 | The website of the maker on the lab's bottle (anhydrous, Tim, 11-16), for that product. It was missing from the binder in October |
 
 ## 3. Probably in the lab: check before ordering
 
 | Item | One run uses | On record | If you do need to buy it (price on 11-11) |
 | --- | --- | --- | --- |
-| **Barium chloride dihydrate**, ACS (BaCl₂·2H₂O, CAS 10326-27-9) | 0.37 g | Used for the March plate. Nobody has checked the bottle since, and its SDS isn't in the binder | Sigma-Aldrich [217565-100G](https://www.sigmaaldrich.com/US/en/product/sigald/217565), $56.80. 100 g is about 270 runs. Check the label says dihydrate: anhydrous takes 312.3 mg, not 366.4 mg |
+| **Barium chloride, anhydrous** (BaCl₂, CAS 10361-37-2) | 0.31 g | **On hand:** Tim, 11-16. Its SDS isn't in the binder | Nothing to buy while it's loose and free-flowing. It takes up water from the air, so if it's caked or lumpy, buy the dihydrate, ACS (BaCl₂·2H₂O, CAS 10326-27-9): Sigma-Aldrich [217565-100G](https://www.sigmaaldrich.com/US/en/product/sigald/217565), $56.80. It takes 366.4 mg a run, so 100 g is about 270 runs ([why the masses differ](README.md#the-barium-chloride-anhydrous-or-dihydrate)) |
 | **Sodium sulfate, anhydrous**, ACS | 0.21 g | 500 g ([byu-vcl 15](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3991816640)) | Sigma-Aldrich [239313-500G](https://www.sigmaaldrich.com/US/en/product/sigald/239313), about $67-96 depending on seller |
 | **Sodium chloride**, ACS | 4.4 g | 500 g ([byu-vcl 15](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3991816640)) | Sigma-Aldrich [S9888-500G](https://www.sigmaaldrich.com/US/en/product/sigald/s9888), $83.30 |
 | **Opentrons 300 µL tips** | One full rack, about 78 tips: 72 for the sulfate (a new tip per well) and one for each other stock. The protocol isn't written yet | Ordered on 07-31 ([byu-vcl 168](https://github.com/vertical-cloud-lab/byu-vcl/issues/168#issuecomment-5138098529)); count the full racks left | [Opentrons](https://opentrons.com/products/opentrons-300ul-tips-1000-refills): $850 for 100 racks (999-00009) or $530 for 100 refills. In July eBay had boxes of 10 racks for about $49 |
