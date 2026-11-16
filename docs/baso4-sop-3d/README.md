@@ -44,6 +44,9 @@ the videos now use the amounts for what the lab has.
 - **Parts 2a and 2b, their step clips, their GIFs and the full video are re-rendered** with these numbers and with
   the 27 × 55 mm vials, and again that afternoon with the transfer pipette and the weighings (2.2, 2.3, 2.12, 2.13,
   2.16). The other parts still have 28 × 57 mm vials, which look the same at that size. No other amount changed.
+- **All ten vials are labelled at the start of 2.2, before any of them is weighed** ([the names](#the-vial-labels)).
+  The 0.1 M sodium sulfate and 5 M NaCl vials are weighed empty there too, since 2.15 and 2.16 work out their water
+  from that weight. The 2.2 clip still says to label six vials.
 
 The procedure is the one already written down:
 - [`docs/baso4-extended-monitoring.md`](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md)
@@ -195,15 +198,15 @@ The six part MP4s and the full video are at the end of the page:
 | # | Where | What | Opened |
 | --- | --- | --- | --- |
 | 2.1 | EB B125 | Nitrile gloves (two pairs for barium), a lab coat and safety glasses, with long pants and closed-toe shoes. Read the barium chloride SDS; a printed copy goes in the room's SDS binder ([what that is](#the-sds-binder)). Keep every container closed and labelled (Dillon's rule) | - |
-| 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight. Label six 20 mL vials for the dilutions. For each: zero the empty pan, weigh the capped vial and log it, add about 13.5 g of DI water (a water-only transfer pipette for the last drops), cap it and log the reading again. Don't tare a vial for these: [why](#the-dilutions-by-weight-with-transfer-pipettes) | - |
+| 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight. Label all ten 20 mL vials before any of them is weighed ([the names](#the-vial-labels)). Weigh eight of them empty and capped, zeroing the empty pan each time, and log each: the six dilution vials (10, 1 and 0.1 mM of each salt), the 0.1 M sodium sulfate and the 5 M NaCl. Add about 13.5 g of DI water to each dilution vial (a water-only transfer pipette for the last drops), cap it and log the reading again. Don't tare a vial for these: [why](#the-dilutions-by-weight-with-transfer-pipettes) | - |
 | 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, three new transfer pipettes, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
 | 2.4 | next to the hood | Put the empty capped vial for the 0.1 M barium chloride on the pan and tare it | balance lid |
 | 2.5-2.8 | inside the hood | Open the barium chloride and the vial, and spatula about 312 mg into the vial. The lab's bottle is anhydrous; a dihydrate bottle would need 366 mg ([below](#the-barium-chloride-anhydrous-or-dihydrate)). Close both, and wipe the vial | barium chloride bottle, vial |
 | 2.9 | next to the hood | Weigh the capped vial and log the reading, with the form, maker and lot from the bottle's label. 0.3123 g of anhydrous BaCl₂ (208.23 g/mol) is 1.500 mmol, as is 0.3664 g of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol); for another mass, work out its concentration | balance lid |
 | 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it and weigh it capped: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, which is a reading of 15.31 g from either form. It goes into A1 of the barium holder | vial |
 | 2.12-2.13 | inside the hood, and the balance after each transfer | 1.5 mL down the series, one water vial at a time: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM. A new transfer pipette for each vial, drawn to its 1.5 mL mark. Cap the vial, invert it ten times and wipe it. Then carry it to the balance, zero the empty pan, weigh it and log it, and bring it back before anything is drawn from it. The three pipettes go in the barium solid waste | barium vials |
-| 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat: 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg. Through a funnel into its vial, rinse in to about 15 mL, cap, weigh | sodium sulfate bottle, vial |
-| 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate, with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. 4.383 g NaCl with 13.4 g of DI water (15 mL of 5 M). A vial of fresh DI water. Ten vials in all | sodium chloride bottle, vials |
+| 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat: 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg. Through a funnel into its vial, rinse in to about 15 mL, cap, weigh and log it. Its water is that reading minus the vial's empty weight (2.2) and the salt | sodium sulfate bottle, vial |
+| 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate, with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. 4.383 g NaCl with 13.4 g of DI water (15 mL of 5 M), its water worked out from its empty weight like the sulfate's. A vial of fresh DI water. Ten vials in all | sodium chloride bottle, vials |
 | 2.17 | hood, then bench | Wipe the barium vials and their holder, then put both holders in the tub, lid on. Outer gloves off in the hood; liner and wipes into the barium waste. Sash fully down | tub lid |
 | 1.4 | between buildings | Carry the tub closed | nothing |
 | 3.1 | CB 154 | Before the day: OT-2 calibrated (deck, tip length, pipette offset, Labware Position Check), the heater-shaker in slot 7 with its 96 flat-bottom adapter, the lid camera refocused for the plate on it, Pi 5 on its 27 W supply, camera exposure and white balance locked, rail lights on with no timer, capture job tested. Beside the OT-2: a labelled barium waste bottle, damp wipes and a wash bottle of DI water | - |
@@ -242,6 +245,51 @@ room can read what to do on the spot.
 - **Read the barium chloride SDS before you open the bottle**, at least sections 2, 4, 6 and 8: the hazards, first
   aid, spills and PPE.
 - The 2.1 clip's caption still just says "the binder".
+
+### The vial labels
+
+Asked by @timothy-commins on [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6929684008)
+on 2026-11-16. Label all ten vials at the start of 2.2, before any of them is weighed, so nothing has to be written in
+the hood.
+
+| Vial | Name | Concentration | Holder pocket | Made in |
+| --- | --- | --- | --- | --- |
+| 1 | Barium chloride | 0.1 M | slot 4, A1 | 2.4-2.11 |
+| 2 | Barium chloride | 10 mM | slot 4, A2 | 2.12 |
+| 3 | Barium chloride | 1 mM | slot 4, A3 | 2.12 |
+| 4 | Barium chloride | 0.1 mM | slot 4, B1 | 2.12 |
+| 5 | Sodium sulfate | 0.1 M | slot 5, A1 | 2.14-2.15 |
+| 6 | Sodium sulfate | 10 mM | slot 5, A2 | 2.16 |
+| 7 | Sodium sulfate | 1 mM | slot 5, A3 | 2.16 |
+| 8 | Sodium sulfate | 0.1 mM | slot 5, B1 | 2.16 |
+| 9 | Sodium chloride | 5 M | slot 5, B2 | 2.16 |
+| 10 | DI water | - | slot 5, B3 | 2.16 |
+
+Slot 4's B2 and B3 stay empty. The six dilution vials that get water in 2.2 are vials 2-4 and 6-8. The pockets are the
+map in [`cad/`](cad/README.md#on-the-ot-2) and `check_deck.py`; the plate A protocol has to use the same one.
+
+- **On each label:** the name written out, the concentration, the date and your initials, and **TOXIC** on the four
+  barium vials. BYU's [chemical safety program](https://chem.byu.edu/documents/1767/byu_chemical_hygiene_plan.pdf)
+  asks for the chemical's name and a hazard warning on containers of hazardous chemicals (p. 19), and for a key
+  posted in the room if codes are used instead of names (p. 34). Adding the pocket (say, 4-A2) helps each barium vial
+  go back in the same pocket after its trip to the balance.
+- **Label first, then weigh.** A strip of tape or a paper label weighs roughly 0.1 g (my estimate). Put on after a
+  vial's empty weighing, it gets logged as water. On the 0.1 M barium chloride vial, which gets only 0.31 g of salt, a
+  label put on after 2.4 would be logged as about a third more barium chloride.
+- **Above the holder.** The bottom 2 cm of each vial sits in its pocket, which is only 0.6 mm wider than the vial on
+  each side. Keep the label between the top of the holder and the cap, where it can be read with the vial in the
+  holder and can't make the vial stick. That band is only about 2 cm tall (my estimate for a 55 mm vial), so use
+  labelling tape 1/2 or 3/4 in (13 or 19 mm) wide, or a label no taller. Use a permanent marker, since the barium
+  vials are wiped with damp wipes.
+- **M or mM.** The 0.1 M and 0.1 mM vials of each salt differ a thousandfold, and they sit one behind the other in
+  column 1 of their holder (A1 and B1). Write the units clearly, and check those two whenever vials go into a holder.
+- **The concentrations are the targets.** The log gives the real ones
+  ([the arithmetic](#the-dilutions-by-weight-with-transfer-pipettes)); the labels stay as they are.
+- **Mark the holders too.** The two printed holders are identical. Write "BARIUM, slot 4" on the top face of one,
+  along an edge, and "slot 5" on the other. The barium one goes into the hood (2.3) and the other one doesn't. The
+  top face keeps the marking away from the slot's corner clips.
+- The 2.2 clip still says to label six vials, and 2.13 is still titled "Cap and label the barium vials". Go by this
+  section: by 2.13 the labels are already on, so only check them.
 
 ### The barium chloride: anhydrous or dihydrate
 
