@@ -15,7 +15,7 @@
   },
   {
    "label": "2.2",
-   "caption": "The balance sits on the bench beside the hood. If it was carried over, plug it in at least an hour before weighing: the HR-100A drifts for about an hour after a move (powder-doser 157). Level it by its bubble and check it with a check weight. Then label six vials for the dilutions and log each one capped: empty, then with about 13.5 g of DI water. Zero the empty pan for every reading; don't tare these vials.",
+   "caption": "The HR-100A sits on the bench beside the hood. If it was carried over, plug it in an hour before weighing: it drifts for about an hour after a move (powder-doser 157). Level it and check it with a check weight. Label all ten vials. Log eight capped and empty: the six dilution vials, the 0.1 M sulfate and the 5 M NaCl; then the six with about 13.5 g of DI water. Every reading: RE-ZERO with the pan empty, then the vial on.",
    "start_frame": 84,
    "end_frame": 173
   },
@@ -27,13 +27,13 @@
   },
   {
    "label": "2.4",
-   "caption": "At the balance: lift the breeze-break lid, put the empty capped vial for the 0.1 M barium chloride on the pan, close the lid and press TARE. A capped vial is how barium chloride reaches the balance: the powder never leaves the hood in an open container.",
+   "caption": "At the balance: press RE-ZERO with the pan empty, then lift the breeze-break lid, put the empty capped vial for the 0.1 M barium chloride on the pan, close the lid and log the reading as 'empty'. A capped vial is how barium chloride reaches the balance: the powder never leaves the hood in an open container.",
    "start_frame": 285,
    "end_frame": 359
   },
   {
    "label": "2.5",
-   "caption": "Walk the tared, capped vial from the balance into the hood. Only your arms go in; your head stays outside the sash.",
+   "caption": "Walk the empty, capped vial from the balance into the hood. Only your arms go in; your head stays outside the sash.",
    "start_frame": 360,
    "end_frame": 416
   },
@@ -57,7 +57,7 @@
   },
   {
    "label": "2.9",
-   "caption": "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's form and lot. 0.3123 g is 1.500 mmol (anhydrous, 208.23 g/mol): with 15.00 g of water, 0.1000 mol/kg. For another mass, work out its concentration and use that in the plate map.",
+   "caption": "Back at the balance: RE-ZERO with the pan empty, weigh the capped vial and log it as 'with salt', with the bottle's form and lot. The salt is 'with salt' minus 'empty': 0.3123 g is 1.500 mmol (anhydrous, 208.23 g/mol), and with 15.00 g of water, 0.1000 mol/kg. For another mass, work out its concentration.",
    "start_frame": 620,
    "end_frame": 703
   }

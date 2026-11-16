@@ -474,11 +474,11 @@ def sop2(part=None):
                   "rule for the room: keep every container closed and labelled.",
            2.6, update=walk(W, (1040, -1500, 0), (1040, -220, 0)), hold=2.0)
     S.gauges = gauges("EB B125", "next to the hood", "-", [("balance", "warm-up >= 1 h")])
-    S.step("2.2", "The balance sits on the bench beside the hood. If it was carried over, plug it in at least an "
-                  "hour before weighing: the HR-100A drifts for about an hour after a move (powder-doser 157). "
-                  "Level it by its bubble and check it with a check weight. Then label six vials for the dilutions "
-                  "and log each one capped: empty, then with about 13.5 g of DI water. Zero the empty pan for every "
-                  "reading; don't tare these vials.",
+    S.step("2.2", "The HR-100A sits on the bench beside the hood. If it was carried over, plug it in an hour before "
+                  "weighing: it drifts for about an hour after a move (powder-doser 157). Level it and check it with "
+                  "a check weight. Label all ten vials. Log eight capped and empty: the six dilution vials, the 0.1 M "
+                  "sulfate and the 5 M NaCl; then the six with about 13.5 g of DI water. Every reading: RE-ZERO with "
+                  "the pan empty, then the vial on.",
            2.4, cam_to=CAM_BAL, hold=3.6, update=during(0, 1, lambda w: person_at(W, 1040, -220, 0, 1 - w)),
            labels=[("bubble level", tuple(W.world_of("balance", (-80, -112, 66))), (0.18, 0.62)),
                    ("breeze-break lid\n(lift it to load)", tuple(W.world_of("balance", (0, 37.5, 176))), (0.70, 0.18))])
@@ -507,21 +507,23 @@ def sop2(part=None):
            labels=[("15 cm (6 in) line", (-420, 226, WS), (0.10, 0.84)),
                    ("barium waste", (540, 600, WS + 200), (0.88, 0.30)),
                    ("barium chloride\nanhydrous", (-290, 560, WS + 140), (0.10, 0.30))])
-    # tare the capped vial on the balance
+    # weigh the empty capped vial: RE-ZERO with the pan empty first, and the vial isn't tared (the HR-100A has no TARE
+    # key; RE-ZERO is its tare, and every vial is weighed against the empty pan)
     lid0 = W.S.gmat["balance_lid"].copy()
 
-    def tare(u):
+    def weigh_empty(u):
         a = window(u, 0.0, 0.25)
         b = window(u, 0.65, 0.9)
         W.set("balance_lid", T((0, -40 * (a - b), 130 * (a - b))) @ lid0)
         W.set_world("vial", carry(vial_bench, pan, window(u, 0.25, 0.6), 120))
         person_at(W, 1040, -220, 0, 0.0)
-    S.gauges = gauges("EB B125", "next to the hood", "balance lid only", [("balance", "0.0000 g after TARE")])
-    S.step("2.4", "At the balance: lift the breeze-break lid, put the empty capped vial for the 0.1 M barium "
-                  "chloride on the pan, close the "
-                  "lid and press TARE. A capped vial is how barium chloride reaches the balance: the powder never "
-                  "leaves the hood in an open container.",
-           3.4, update=tare, cam_to=CAM_BAL, hold=1.6)
+    S.gauges = gauges("EB B125", "next to the hood", "balance lid only",
+                      [("balance", "RE-ZERO, pan empty"), ("then", "the vial on: log 'empty'")])
+    S.step("2.4", "At the balance: press RE-ZERO with the pan empty, then lift the breeze-break lid, put the empty "
+                  "capped vial for the 0.1 M barium chloride on the pan, close the lid and log the reading as "
+                  "'empty'. A capped vial is how barium chloride reaches the balance: the powder never leaves the "
+                  "hood in an open container.",
+           3.4, update=weigh_empty, cam_to=CAM_BAL, hold=1.6)
 
     def to_hood(u):
         a = window(u, 0.0, 0.2)
@@ -530,7 +532,7 @@ def sop2(part=None):
         x = 1040 + (-80 - 1040) * window(u, 0.2, 0.9)
         person_at(W, x, -220, 0, 1.0)
     S.gauges = gauges("EB B125", "next to -> inside the hood", "-")
-    S.step("2.5", "Walk the tared, capped vial from the balance into the hood. Only your arms go in; your head stays "
+    S.step("2.5", "Walk the empty, capped vial from the balance into the hood. Only your arms go in; your head stays "
                   "outside the sash.", 3.0, update=to_hood, cam_to=CAM_MID, hold=0.8)
     # open the barium chloride and the vial
     S.gauges = gauges("EB B125", "INSIDE the hood", "barium chloride bottle, vial")
@@ -595,10 +597,11 @@ def sop2(part=None):
         W.set_world("vial", carry(vial_hood, pan, window(u, 0.0, 0.8), 260))
         person_at(W, -80 + 1120 * window(u, 0.0, 0.6), -220, 0, 1.0)
         S.gauges = gauges("EB B125", "inside -> next to the hood", "balance lid only",
-                          [("balance", "0.3123 g" if u > 0.92 else "-")])
-    S.step("2.9", "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's "
-                  "form and lot. 0.3123 g is 1.500 mmol (anhydrous, 208.23 g/mol): with 15.00 g of water, "
-                  "0.1000 mol/kg. For another mass, work out its concentration and use that in the plate map.",
+                          [("balance", "'empty' + 0.3123 g" if u > 0.92 else "-")])
+    S.step("2.9", "Back at the balance: RE-ZERO with the pan empty, weigh the capped vial and log it as 'with "
+                  "salt', with the bottle's form and lot. The salt is 'with salt' minus 'empty': 0.3123 g is "
+                  "1.500 mmol (anhydrous, 208.23 g/mol), and with 15.00 g of water, 0.1000 mol/kg. For another "
+                  "mass, work out its concentration.",
            3.6, update=weigh, cam_to=CAM_MID, hold=2.0)
     # dissolve in the vial itself: it is the 0.1 M barium vial
     rack_w = W.S.world("rack_hood")
@@ -636,16 +639,16 @@ def sop2(part=None):
                     carry(pan, hole0, window(u, 0.66, 1.0), 260))
         person_at(W, -80 + 1120 * window(u, 0.0, 0.4) - 1120 * window(u, 0.68, 0.95), -220, 0, 1.0)
         S.gauges = gauges("EB B125", "inside -> next to the hood -> inside", "balance lid only",
-                          [("balance", "15.31 g (+ the vial's tare)" if u > 0.52 else "-")])
+                          [("balance", "'empty' + 15.31 g" if u > 0.52 else "-")])
         if u > 0.985:                                   # it is now A1's vial: hand over to the stock vial ba0
             for g in ("vial", "vial_cap"):
                 W.show(g, 0.0)
             W.tube_fill("ba0", 15.0)
             W.tube_show("ba0")
     S.gauges = gauges("EB B125", "INSIDE the hood", "-", [("vial", "0.1 M BaCl2, about 15 g of water")])
-    S.step("2.11", "Wipe it, weigh it capped at the balance and log the reading: the water's mass sets the "
-                   "concentration (0.3123 g with 15.00 g of water is 0.1000 mol/kg). Then it goes back into the "
-                   "hood, into A1 of the barium holder.", 5.0, update=weigh_back, cam_to=CAM_MID, hold=0.6)
+    S.step("2.11", "Wipe it. At the balance, RE-ZERO with the pan empty, weigh it capped and log it as 'with "
+                   "water'. The water is 'with water' minus 'with salt': 0.3123 g with 15.00 g of water is "
+                   "0.1000 mol/kg. Then it goes back into the hood, into A1 of the barium holder.", 5.0, update=weigh_back, cam_to=CAM_MID, hold=0.6)
     pip0 = W.S.world("pipette_h")
     W.show("pipette_h")
     ba_keys = ("ba0", "ba1", "ba2", "ba3")
@@ -719,7 +722,7 @@ def sop2(part=None):
                     (0.86, 0.48))])
     S.gauges = gauges("EB B125", "INSIDE the hood", "-", [("vials", "four barium vials, capped")])
     S.step("2.13", "All four barium vials are capped. Wipe their outsides: the wipes go in the barium waste in the hood, "
-                   "with the three used pipettes. Each vial's label: name, concentration, date, initials.",
+                   "with the three used pipettes. Check each label, put on in 2.2: name, concentration, date, initials, TOXIC.",
            2.4, update=lambda u: W.show("person", 1 - window(u, 0, 0.3)), cam_to=[(-60, -430, 1380), (40, 470, 1000), UP],
            hold=0.8)
     # ---- sodium sulfate and sodium chloride, at the balance
@@ -757,11 +760,12 @@ def sop2(part=None):
             W.set_world("spatula2", carry(up_p, sp2, window(u, 0.68, 0.76), 40))
         cap_move(W, "na2so4_cap", 160, False, dx=-80, dy=-60)(window(u, 0.74, 0.84))
         S.gauges = gauges("EB B125", "next to the hood", "sodium sulfate bottle" if 0.3 < u < 0.84 else "balance lid",
-                          [("balance", "0.2131 g" if u > 0.66 else ("0.0000 g (boat tared)" if u > 0.28 else "-"))])
+                          [("balance", "0.2131 g" if u > 0.66 else ("0.0000 g (boat on, RE-ZERO)" if u > 0.28 else "-"))])
     S.gauges = gauges("EB B125", "next to the hood", "-")
-    S.step("2.14", "Sodium sulfate is weighed on the bench, in an open weigh boat: tare the boat, open the bottle, "
-                   "spatula about 213 mg into the boat, close the bottle. 0.2131 g of anhydrous sodium sulfate "
-                   "(142.04 g/mol) with 15.00 g of water is 0.1000 mol/kg.",
+    S.step("2.14", "Sodium sulfate is weighed on the bench, in an open weigh boat. Put the empty boat on the pan and "
+                   "press RE-ZERO (this tares it), so the display shows only the salt. Open the bottle, spatula about "
+                   "213 mg into the boat, close the bottle. 0.2131 g of anhydrous sodium sulfate (142.04 g/mol) with "
+                   "15.00 g of water is 0.1000 mol/kg.",
            7.0, update=so4, cam_to=CAM_BENCH, hold=1.0,
            labels=[("sodium sulfate,\nanhydrous", (1330, 560, BT + 150), (0.70, 0.20))])
     t_so0 = W.S.world("t_so0")
@@ -788,7 +792,8 @@ def sop2(part=None):
         tcap(W, "so0", False)(window(u, 0.84, 0.95))
     S.gauges = gauges("EB B125", "next to the hood", "sulfate vial")
     S.step("2.15", "Tip the boat through a funnel into the 0.1 M sodium sulfate vial and rinse the boat and funnel in "
-                   "with DI water, to about 15 mL. Cap and invert it, then weigh it capped and log the water's mass.",
+                   "with DI water, to about 15 mL. Cap and invert it, RE-ZERO with the pan empty, then weigh it capped and log "
+                   "it. Its water is that minus its empty reading (2.2) and the salt.",
            4.6, update=so4_tube, cam_to=[(1950, -700, 1550), (1650, 380, 1000), UP], hold=0.6)
 
     so_keys = ("so0", "so1", "so2", "so3")
@@ -831,8 +836,8 @@ def sop2(part=None):
                               [("balance", "4.3830 g NaCl" if t > 0.75 else "-")])
     S.step("2.16", "The same tenfold series for sodium sulfate, beside the balance: a new transfer pipette for each "
                    "vial, and each vial weighed capped and logged before it is drawn from. Then 4.383 g of sodium "
-                   "chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, "
-                   "each labelled and logged.",
+                   "chloride in a tared boat, with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: "
+                   "ten vials in all, each logged.",
            10.0, update=rest, hold=1.2,
            labels=[("5 M NaCl and DI water", tuple(W.world_of("rack_bench", (20, -20, 80))), (0.82, 0.22))])
     # clean up and pack

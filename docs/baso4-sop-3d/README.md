@@ -46,7 +46,12 @@ the videos now use the amounts for what the lab has.
   2.16). The other parts still have 28 × 57 mm vials, which look the same at that size. No other amount changed.
 - **All ten vials are labelled at the start of 2.2, before any of them is weighed** ([the names](#the-vial-labels)).
   The 0.1 M sodium sulfate and 5 M NaCl vials are weighed empty there too, since 2.15 and 2.16 work out their water
-  from that weight. The 2.2 clip still says to label six vials.
+  from that weight.
+- **No vial is tared, and the steps name the balance's key.** The HR-100A has no TARE key: its RE-ZERO key is the
+  tare ([Tim, 11-16](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6929807985)). Every
+  vial is now weighed with RE-ZERO pressed on the empty pan first, including the 0.1 M barium chloride vial, which 2.4
+  used to tare. Only the weigh boats are tared ([the balance](#the-balance-re-zero-and-what-tare-means)). Parts 2a and
+  2b are re-rendered for this, and their 2.2 and 2.13 captions now have the labels going on at 2.2.
 
 The procedure is the one already written down:
 - [`docs/baso4-extended-monitoring.md`](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md)
@@ -67,7 +72,7 @@ Chapters 2 and 3 are in two parts each, so every GIF stays under the ~5 MB GitHu
 | Part | GIF (800 × 450, 10 fps) | MP4 (1280 × 720, 15 fps) |
 | --- | --- | --- |
 | **1. Where each step happens**: the two rooms, with the zones coloured: inside the hood (red), next to it (amber), the OT-2 (blue). Then the walk between them | [`out/sop1_where.gif`](out/sop1_where.gif) | [`out/mp4/sop1_where.mp4`](out/mp4/sop1_where.mp4) |
-| **2a. Barium chloride, inside the hood**: PPE, the balance beside the hood, loading the hood, and the capped vial tared at the balance, filled in the hood and weighed again | [`out/sop2a_hood.gif`](out/sop2a_hood.gif) | [`out/mp4/sop2a_hood.mp4`](out/mp4/sop2a_hood.mp4) |
+| **2a. Barium chloride, inside the hood**: PPE, the balance beside the hood, loading the hood, and the capped vial weighed empty at the balance, filled in the hood and weighed again | [`out/sop2a_hood.gif`](out/sop2a_hood.gif) | [`out/mp4/sop2a_hood.mp4`](out/mp4/sop2a_hood.mp4) |
 | **2b. Dilutions, then the bench**: the 0.1 M vial and its tenfold series in the hood, each vial weighed at the balance; sodium sulfate and its series, and sodium chloride, at the balance; packing the tub and closing the hood | [`out/sop2b_bench.gif`](out/sop2b_bench.gif) | [`out/mp4/sop2b_bench.mp4`](out/mp4/sop2b_bench.mp4) |
 | **3a. Loading the OT-2 in CB 154**: the door, the plate on the heater-shaker in slot 7, the tips, the vial holders, uncapping, and the start | [`out/sop3a_load.gif`](out/sop3a_load.gif) | [`out/mp4/sop3a_load.mp4`](out/mp4/sop3a_load.mp4) |
 | **3b. The fill and the seal**: water, NaCl, barium chloride, then sodium sulfate last; the seal at the pause; recapping | [`out/sop3b_fill.gif`](out/sop3b_fill.gif) | [`out/mp4/sop3b_fill.mp4`](out/mp4/sop3b_fill.mp4) |
@@ -85,7 +90,7 @@ Asked on [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/
 2026-11-05, so each step can be paused and replayed on its own. [`out/steps/`](out/steps) has one MP4 per numbered
 step, 42 in all, cut from the six part MP4s above by [`split_steps.py`](split_steps.py). Nothing is re-rendered. Each
 clip is its step's frames, then its last frame held so the caption stays up long enough to read: at least 15
-characters a second, and 2 s past the motion. They come to 10.7 min in all, against 4 min 22 s for the full video.
+characters a second, and 2 s past the motion. They come to 11.1 min in all, against 4 min 22 s for the full video.
 
 **To watch them, open the [player page](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html).** It has every step in order, each in its own video player
 (pause, drag back, replay), with the step's text written under it. The ▶ links below open it at that step.
@@ -116,25 +121,25 @@ characters a second, and 2 s past the motion. They come to 10.7 min in all, agai
 | Step | What | Where | Length | Watch | File |
 | --- | --- | --- | --- | --- | --- |
 | 2.1 | PPE and the SDS | EB B125 | 18 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.1) | [`2-01_ppe-and-sds.mp4`](out/steps/2-01_ppe-and-sds.mp4) |
-| 2.2 | Check the balance; water into six vials, weighed | EB B125, next to the hood | 28 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.2) | [`2-02_balance-check.mp4`](out/steps/2-02_balance-check.mp4) |
+| 2.2 | Check the balance; label the vials, weigh them | EB B125, next to the hood | 29 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.2) | [`2-02_balance-check.mp4`](out/steps/2-02_balance-check.mp4) |
 | 2.3 | Load the hood, sash down | EB B125, inside the hood | 24 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.3) | [`2-03_load-the-hood.mp4`](out/steps/2-03_load-the-hood.mp4) |
-| 2.4 | Tare the capped vial | EB B125, next to the hood | 18 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.4) | [`2-04_tare-the-vial.mp4`](out/steps/2-04_tare-the-vial.mp4) |
+| 2.4 | Weigh the empty barium chloride vial | EB B125, next to the hood | 22 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.4) | [`2-04_weigh-empty-vial.mp4`](out/steps/2-04_weigh-empty-vial.mp4) |
 | 2.5 | Carry the vial into the hood | next to, then inside the hood | 9 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.5) | [`2-05_vial-into-hood.mp4`](out/steps/2-05_vial-into-hood.mp4) |
 | 2.6 | Uncap the barium chloride and the vial | EB B125, inside the hood | 9 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.6) | [`2-06_uncap-bottle-and-vial.mp4`](out/steps/2-06_uncap-bottle-and-vial.mp4) |
 | 2.7 | Spatula about 312 mg of barium chloride | EB B125, inside the hood | 13 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.7) | [`2-07_spatula-barium-chloride.mp4`](out/steps/2-07_spatula-barium-chloride.mp4) |
 | 2.8 | Cap both, wipe the vial | EB B125, inside the hood | 10 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.8) | [`2-08_cap-and-wipe.mp4`](out/steps/2-08_cap-and-wipe.mp4) |
-| 2.9 | Weigh the capped vial and log it | EB B125, next to the hood | 19 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.9) | [`2-09_weigh-the-vial.mp4`](out/steps/2-09_weigh-the-vial.mp4) |
+| 2.9 | Weigh the capped vial and log it | EB B125, next to the hood | 21 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.9) | [`2-09_weigh-the-vial.mp4`](out/steps/2-09_weigh-the-vial.mp4) |
 
 **2b. Dilutions, then the bench**
 
 | Step | What | Where | Length | Watch | File |
 | --- | --- | --- | --- | --- | --- |
 | 2.10 | Dissolve it in the vial | EB B125, inside the hood | 14 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.10) | [`2-10_dissolve-barium-chloride.mp4`](out/steps/2-10_dissolve-barium-chloride.mp4) |
-| 2.11 | Weigh it, then into the barium holder | inside, next to, then inside the hood | 15 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.11) | [`2-11_weigh-barium-0.1M.mp4`](out/steps/2-11_weigh-barium-0.1M.mp4) |
+| 2.11 | Weigh it, then into the barium holder | inside, next to, then inside the hood | 18 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.11) | [`2-11_weigh-barium-0.1M.mp4`](out/steps/2-11_weigh-barium-0.1M.mp4) |
 | 2.12 | Dilute to 10, 1 and 0.1 mM barium chloride, weighing each vial | EB B125, inside the hood, and the balance | 25 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.12) | [`2-12_barium-dilutions.mp4`](out/steps/2-12_barium-dilutions.mp4) |
-| 2.13 | Cap and label the barium vials | EB B125, inside the hood | 13 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.13) | [`2-13_cap-and-label-barium.mp4`](out/steps/2-13_cap-and-label-barium.mp4) |
-| 2.14 | Weigh about 213 mg of sodium sulfate | EB B125, next to the hood | 17 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.14) | [`2-14_weigh-sodium-sulfate.mp4`](out/steps/2-14_weigh-sodium-sulfate.mp4) |
-| 2.15 | Make up the 0.1 M sodium sulfate | EB B125, next to the hood | 14 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.15) | [`2-15_make-up-sodium-sulfate.mp4`](out/steps/2-15_make-up-sodium-sulfate.mp4) |
+| 2.13 | Wipe the barium vials, check their labels | EB B125, inside the hood | 15 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.13) | [`2-13_cap-and-label-barium.mp4`](out/steps/2-13_cap-and-label-barium.mp4) |
+| 2.14 | Weigh about 213 mg of sodium sulfate | EB B125, next to the hood | 23 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.14) | [`2-14_weigh-sodium-sulfate.mp4`](out/steps/2-14_weigh-sodium-sulfate.mp4) |
+| 2.15 | Make up the 0.1 M sodium sulfate | EB B125, next to the hood | 19 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.15) | [`2-15_make-up-sodium-sulfate.mp4`](out/steps/2-15_make-up-sodium-sulfate.mp4) |
 | 2.16 | Sulfate dilutions (weighed), 5 M NaCl and DI water | EB B125, next to the hood | 22 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.16) | [`2-16_sulfate-nacl-water.mp4`](out/steps/2-16_sulfate-nacl-water.mp4) |
 | 2.17 | Pack the tub and clean up the hood | EB B125, hood then bench | 18 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/28938e4/docs/baso4-sop-3d/out/steps/player.html#s2.17) | [`2-17_pack-and-clean-up.mp4`](out/steps/2-17_pack-and-clean-up.mp4) |
 
@@ -198,15 +203,15 @@ The six part MP4s and the full video are at the end of the page:
 | # | Where | What | Opened |
 | --- | --- | --- | --- |
 | 2.1 | EB B125 | Nitrile gloves (two pairs for barium), a lab coat and safety glasses, with long pants and closed-toe shoes. Read the barium chloride SDS; a printed copy goes in the room's SDS binder ([what that is](#the-sds-binder)). Keep every container closed and labelled (Dillon's rule) | - |
-| 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight. Label all ten 20 mL vials before any of them is weighed ([the names](#the-vial-labels)). Weigh eight of them empty and capped, zeroing the empty pan each time, and log each: the six dilution vials (10, 1 and 0.1 mM of each salt), the 0.1 M sodium sulfate and the 5 M NaCl. Add about 13.5 g of DI water to each dilution vial (a water-only transfer pipette for the last drops), cap it and log the reading again. Don't tare a vial for these: [why](#the-dilutions-by-weight-with-transfer-pipettes) | - |
+| 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight. Label all ten 20 mL vials before any of them is weighed ([the names](#the-vial-labels)). Weigh eight of them empty and capped, pressing RE-ZERO with the pan empty before each one, and log each: the six dilution vials (10, 1 and 0.1 mM of each salt), the 0.1 M sodium sulfate and the 5 M NaCl. Add about 13.5 g of DI water to each dilution vial (a water-only transfer pipette for the last drops), cap it and log the reading again. Never press RE-ZERO with a vial on the pan ([the balance's keys](#the-balance-re-zero-and-what-tare-means)) | - |
 | 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, three new transfer pipettes, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
-| 2.4 | next to the hood | Put the empty capped vial for the 0.1 M barium chloride on the pan and tare it | balance lid |
+| 2.4 | next to the hood | Weigh the empty capped vial for the 0.1 M barium chloride the same way, and log it ("empty"). It isn't tared ([why](#the-balance-re-zero-and-what-tare-means)) | balance lid |
 | 2.5-2.8 | inside the hood | Open the barium chloride and the vial, and spatula about 312 mg into the vial. The lab's bottle is anhydrous; a dihydrate bottle would need 366 mg ([below](#the-barium-chloride-anhydrous-or-dihydrate)). Close both, and wipe the vial | barium chloride bottle, vial |
-| 2.9 | next to the hood | Weigh the capped vial and log the reading, with the form, maker and lot from the bottle's label. 0.3123 g of anhydrous BaCl₂ (208.23 g/mol) is 1.500 mmol, as is 0.3664 g of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol); for another mass, work out its concentration | balance lid |
-| 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it and weigh it capped: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, which is a reading of 15.31 g from either form. It goes into A1 of the barium holder | vial |
-| 2.12-2.13 | inside the hood, and the balance after each transfer | 1.5 mL down the series, one water vial at a time: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM. A new transfer pipette for each vial, drawn to its 1.5 mL mark. Cap the vial, invert it ten times and wipe it. Then carry it to the balance, zero the empty pan, weigh it and log it, and bring it back before anything is drawn from it. The three pipettes go in the barium solid waste | barium vials |
-| 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat: 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg. Through a funnel into its vial, rinse in to about 15 mL, cap, weigh and log it. Its water is that reading minus the vial's empty weight (2.2) and the salt | sodium sulfate bottle, vial |
-| 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate, with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. 4.383 g NaCl with 13.4 g of DI water (15 mL of 5 M), its water worked out from its empty weight like the sulfate's. A vial of fresh DI water. Ten vials in all | sodium chloride bottle, vials |
+| 2.9 | next to the hood | RE-ZERO with the pan empty, weigh the capped vial and log it ("with salt"), with the form, maker and lot from the bottle's label. The salt is this reading minus the 2.4 one. 0.3123 g of anhydrous BaCl₂ (208.23 g/mol) is 1.500 mmol, as is 0.3664 g of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol); for another mass, work out its concentration | balance lid |
+| 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it, RE-ZERO with the pan empty, weigh it capped and log it ("with water"). The water is this reading minus the 2.9 one: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, a reading 15.31 g above the 2.4 one from either form. It goes into A1 of the barium holder | vial |
+| 2.12-2.13 | inside the hood, and the balance after each transfer | 1.5 mL down the series, one water vial at a time: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM. A new transfer pipette for each vial, drawn to its 1.5 mL mark. Cap the vial, invert it ten times and wipe it. Then carry it to the balance, RE-ZERO with the pan empty, weigh it and log it, and bring it back before anything is drawn from it. The three pipettes go in the barium solid waste | barium vials |
+| 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat, tared: the empty boat on the pan, then RE-ZERO, so the display shows only the salt. 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg. Through a funnel into its vial, rinse in to about 15 mL, cap, RE-ZERO with the pan empty, weigh and log it. Its water is that reading minus the vial's empty weight (2.2) and the salt | sodium sulfate bottle, vial |
+| 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate, with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. 4.383 g NaCl, in a tared boat like the sulfate, with 13.4 g of DI water (15 mL of 5 M), its water worked out from its empty weight like the sulfate's. A vial of fresh DI water. Ten vials in all | sodium chloride bottle, vials |
 | 2.17 | hood, then bench | Wipe the barium vials and their holder, then put both holders in the tub, lid on. Outer gloves off in the hood; liner and wipes into the barium waste. Sash fully down | tub lid |
 | 1.4 | between buildings | Carry the tub closed | nothing |
 | 3.1 | CB 154 | Before the day: OT-2 calibrated (deck, tip length, pipette offset, Labware Position Check), the heater-shaker in slot 7 with its 96 flat-bottom adapter, the lid camera refocused for the plate on it, Pi 5 on its 27 W supply, camera exposure and white balance locked, rail lights on with no timer, capture job tested. Beside the OT-2: a labelled barium waste bottle, damp wipes and a wash bottle of DI water | - |
@@ -322,8 +327,50 @@ map in [`cad/`](cad/README.md#on-the-ot-2) and `check_deck.py`; the plate A prot
 - **Mark the holders too.** The two printed holders are identical. Write "BARIUM, slot 4" on the top face of one,
   along an edge, and "slot 5" on the other. The barium one goes into the hood (2.3) and the other one doesn't. The
   top face keeps the marking away from the slot's corner clips.
-- The 2.2 clip still says to label six vials, and 2.13 is still titled "Cap and label the barium vials". Go by this
-  section: by 2.13 the labels are already on, so only check them.
+- By 2.13 the labels are already on, so only check them. The 2.2 and 2.13 clips say so since the 11-16 re-render;
+  2.13's file is still named `cap-and-label-barium`.
+
+### The balance: RE-ZERO, and what "tare" means
+
+Asked by @timothy-commins on
+[PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6929807985) on 2026-11-16: "tare is
+not an option on the scale".
+
+The HR-100A has six keys under its display: ON:OFF, CAL, MODE, SAMPLE, PRINT and, on the right, **RE-ZERO** (→0←).
+RE-ZERO sets the display to zero. Pressed with something on the pan, it takes that weight off the display, and that's
+what "taring" means. The HR-100A has no separate TARE key: "Press the RE-ZERO key to cancel the weight (tare)" (A&D's
+[manual](https://www.aandd.jp/products/manual/balances/hr-az_hr-a_manual.pdf) for the HR-AZ and HR-A series, pp. 10
+and 14).
+
+**Every vial reading** (2.2, 2.4, 2.9, 2.11, 2.12, 2.15, 2.16):
+1. Close the lid with nothing on the pan, press RE-ZERO and wait for 0.0000 g.
+2. Lift the lid, put the capped vial in the middle of the pan and close the lid.
+3. Wait for the stability mark, the small circle at the left of the display, then log the whole reading, all four
+   decimals.
+
+**Never press RE-ZERO with a vial on the pan.** What went into a vial is the difference between two of its readings.
+For the 0.1 M barium chloride:
+
+| Reading | Example | So |
+| --- | --- | --- |
+| 2.4, empty | 14.2051 g | |
+| 2.9, with salt | 14.5174 g | salt = 14.5174 − 14.2051 = 0.3123 g |
+| 2.11, with water | 29.5174 g | water = 29.5174 − 14.5174 = 15.0000 g, so 0.1000 mol/kg |
+
+The vial's weight here is made up; yours will differ.
+- Every reading starts from a fresh zero, which takes out any drift between readings.
+- Nothing is lost if someone presses RE-ZERO, or turns the balance off and on, while a vial is away in the hood. On
+  the day the balance sits in the Dillon lab's room, where others may use it.
+- Until 11-16 the SOP tared the 0.1 M barium chloride vial at 2.4 and read the salt straight off the display at 2.9.
+  That tare had to last through two trips into the hood, with the display reading minus the vial's weight while it was
+  away, and pressing RE-ZERO before 2.9, as every other reading does, would have lost the salt's weight.
+
+**Only the weigh boats are tared** (the sodium sulfate in 2.14 and the NaCl in 2.16). Put the empty boat on the pan,
+close the lid and press RE-ZERO; the display then shows only the salt as you add it. The boat stays on the pan until
+the reading is logged.
+
+**On another balance,** if the Dillon lab's own is used, the key may be marked ZERO, →0←, →T← or O/T, and it works the
+same way. If you can't find one, post a photo of its keys on the PR.
 
 ### The barium chloride: anhydrous or dihydrate
 
@@ -332,9 +379,10 @@ The SOP was first written for the dihydrate.
 - **Once it's dissolved, either form makes the same stock.** Only the mass you weigh changes. For 1.500 mmol, that's
   312.3 mg of the anhydrous salt (BaCl₂, 208.23 g/mol) or 366.4 mg of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol).
   Weighing 366 mg of the anhydrous salt would make the stock 17 % too strong.
-- **The concentration is mmol of BaCl₂ per gram of water** (mol/kg). With the anhydrous salt, the water is the 2.11
-  reading minus the 2.9 reading. The dihydrate also brings 36 mg of water per mmol, and that counts as water too. With
-  either form, 1.500 mmol and a 2.11 reading of 15.31 g is 0.1000 mol/kg.
+- **The concentration is mmol of BaCl₂ per gram of water** (mol/kg). The salt is the 2.9 reading minus the 2.4
+  one (the empty vial). With the anhydrous salt, the water is the 2.11 reading minus the 2.9 reading. The dihydrate
+  also brings 36 mg of water per mmol, and that counts as water too. With either form, 1.500 mmol and a 2.11 reading
+  15.31 g above the 2.4 one is 0.1000 mol/kg.
 - **The anhydrous salt takes up water from the air** and slowly turns into the dihydrate
   ([Wikipedia](https://en.wikipedia.org/wiki/Barium_chloride)). The water it has picked up gets weighed as barium
   chloride, so the stock comes out weaker than the log says. It's weaker by about the share of water in what you
@@ -371,10 +419,9 @@ has to get close to 1.5 mL.
   left.
 - **The balance beside the hood,** reading to 0.1 mg, and the log sheet.
 
-**The weighings.** Log every reading as the balance shows it: zero it with the pan empty, then put the vial on. Don't
-tare a dilution vial. Zeroing the empty pan first also clears the tare left from the 0.1 M barium chloride vial
-(2.4-2.11).
-1. **2.2, before any salt is opened.** Label the six dilution vials. For each one: zero the empty pan, weigh the
+**The weighings.** Log every reading as the balance shows it: press RE-ZERO with the pan empty, then put the vial on
+([the balance's keys](#the-balance-re-zero-and-what-tare-means)). Never press RE-ZERO with a vial on the pan.
+1. **2.2, before any salt is opened.** Label the vials. For each dilution vial: RE-ZERO with the pan empty, weigh the
    capped vial and log it ("empty"). Add about 13.5 g of DI water: the wash bottle, then the water-only transfer
    pipette for the last drops. Cap it and log the reading ("with water").
    - **Practise once while you're there.** Draw DI water to a pipette's 1.5 mL mark, squeeze it into a spare vial on
@@ -382,7 +429,7 @@ tare a dilution vial. Zeroing the empty pan first also clears the tare left from
 2. **Each transfer** (2.12 in the hood, 2.16 at the bench). Uncap the stronger stock and the next water vial. Draw to
    the 1.5 mL mark with a new pipette and empty it into the water vial, tip against the inside wall. Cap both. Invert
    the new vial ten times and wipe it.
-3. **Weigh it straight away,** before anything is drawn from it. Zero the empty pan, weigh the capped vial and log it
+3. **Weigh it straight away,** before anything is drawn from it. RE-ZERO with the pan empty, weigh the capped vial and log it
    ("with stock"). A vial weighed after it has been drawn from gives the wrong number.
    - **For barium,** that's a round trip: the capped, wiped vial goes out to the balance and back into the hood, as
      the 0.1 M vial did in 2.9-2.11. Three trips in all.
@@ -570,4 +617,5 @@ only for that part. So part 2a is the first nine steps of a full `animate.py sop
 its 8 fps GIF made from that cut. On 11-16 both parts rendered directly, each on its own display
 (`SOP_GIF_FPS=4 xvfb-run --server-num=N python3 animate.py sop2a`, and the same for `sop2b`); at 6 fps their GIFs came
 out at 5.7 and 6.0 MB, so they are 4 fps now. Later that day the weighed dilutions made part 2b about 12 s longer, so
-it was rendered with `SOP_GIF_FPS=3`.
+it was rendered with `SOP_GIF_FPS=3`. That evening both were rendered again the same way for the RE-ZERO captions, with
+the same frame counts (704 and 943); their GIFs came out at 4.7 and 4.4 MB.
