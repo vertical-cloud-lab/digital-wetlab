@@ -96,7 +96,7 @@ Asked on [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/
 2026-11-05, so each step can be paused and replayed on its own. [`out/steps/`](out/steps) has one MP4 per numbered
 step, 42 in all, cut from the six part MP4s above by [`split_steps.py`](split_steps.py). Nothing is re-rendered. Each
 clip is its step's frames, then its last frame held so the caption stays up long enough to read: at least 15
-characters a second, and 2 s past the motion. They come to 11.2 min in all, against 4 min 22 s for the full video.
+characters a second, and 2 s past the motion. They come to 11.4 min in all, against 4 min 22 s for the full video.
 
 **To watch them, open the [player page](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/8902fa0/docs/baso4-sop-3d/out/steps/player.html).** It has every step in order, each in its own video player
 (pause, drag back, replay), with the step's text written under it. The ▶ links below open it at that step.
@@ -142,7 +142,7 @@ characters a second, and 2 s past the motion. They come to 11.2 min in all, agai
 | 2.6 | Uncap the barium chloride and the vial | EB B125, inside the hood | 9 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/8902fa0/docs/baso4-sop-3d/out/steps/player.html#s2.6) | [`2-06_uncap-bottle-and-vial.mp4`](out/steps/2-06_uncap-bottle-and-vial.mp4) |
 | 2.7 | Spatula about 312 mg of barium chloride | EB B125, inside the hood | 13 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/8902fa0/docs/baso4-sop-3d/out/steps/player.html#s2.7) | [`2-07_spatula-barium-chloride.mp4`](out/steps/2-07_spatula-barium-chloride.mp4) |
 | 2.8 | Cap both, wipe the vial | EB B125, inside the hood | 10 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/8902fa0/docs/baso4-sop-3d/out/steps/player.html#s2.8) | [`2-08_cap-and-wipe.mp4`](out/steps/2-08_cap-and-wipe.mp4) |
-| 2.9 | Weigh the capped vial and log it | EB B125, next to the hood | 21 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/8902fa0/docs/baso4-sop-3d/out/steps/player.html#s2.9) | [`2-09_weigh-the-vial.mp4`](out/steps/2-09_weigh-the-vial.mp4) |
+| 2.9 | Weigh the capped vial and log it | EB B125, next to the hood | 31 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/8902fa0/docs/baso4-sop-3d/out/steps/player.html#s2.9) | [`2-09_weigh-the-vial.mp4`](out/steps/2-09_weigh-the-vial.mp4) |
 
 **2b. Dilutions, then the bench**
 
@@ -223,8 +223,8 @@ How much powder, water and stock goes in each of the ten vials: [What goes in ea
 | 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, three new transfer pipettes, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
 | 2.4 | next to the hood | Weigh the empty capped vial for the 0.1 M barium chloride the same way, and log it ("empty"). It isn't tared ([why](#the-balance-re-zero-and-what-tare-means)) | balance lid |
 | 2.5-2.8 | inside the hood | Open the barium chloride and the vial, and spatula about 312 mg into the vial. The lab's bottle is anhydrous; a dihydrate bottle would need 366 mg ([below](#the-barium-chloride-anhydrous-or-dihydrate)). Close both, and wipe the vial | barium chloride bottle, vial |
-| 2.9 | next to the hood | RE-ZERO with the pan empty, weigh the capped vial and log it ("with salt"), with the form, maker and lot from the bottle's label. The salt is this reading minus the 2.4 one. 0.3123 g of anhydrous BaCl₂ (208.23 g/mol) is 1.500 mmol, as is 0.3664 g of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol); for another mass, work out its concentration | balance lid |
-| 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it, RE-ZERO with the pan empty, weigh it capped and log it ("with water"). The water is this reading minus the 2.9 one: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, a reading 15.31 g above the 2.4 one from either form. For another mass of anhydrous salt, 48.0 g of water per gram keeps it at 0.1000 mol/kg ([each vial](#what-goes-in-each-vial)). It goes into A1 of the barium holder | vial |
+| 2.9 | next to the hood | RE-ZERO with the pan empty, weigh the capped vial and log it ("with salt"), with the form, maker and lot from the bottle's label. The salt is this reading minus the 2.4 one. 0.3123 g of anhydrous BaCl₂ (208.23 g/mol) is 1.500 mmol, as is 0.3664 g of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol). It needn't be exact: 0.28-0.33 g of the anhydrous salt is fine, and the stock's real concentration is worked out from the log, as salt × 4.802 ÷ water in mol/kg, both in grams ([how](#what-goes-in-each-vial)) | balance lid |
+| 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it, RE-ZERO with the pan empty, weigh it capped and log it ("with water"). The water is this reading minus the 2.9 one: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, a reading 15.31 g above the 2.4 one from either form. If the salt isn't 0.3123 g, log it and its real concentration is worked out from the readings, or add 48.0 g of water per gram of anhydrous salt to keep it at 0.1000 mol/kg ([both](#what-goes-in-each-vial)). It goes into A1 of the barium holder | vial |
 | 2.12-2.13 | inside the hood, and the balance after each transfer | 1.5 mL down the series, one water vial at a time: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM (about 1.53 g of the 0.1 M, then 1.50 g each: [why](#what-goes-in-each-vial)). A new transfer pipette for each vial, drawn to its 1.5 mL mark. Cap the vial, invert it ten times and wipe it. Then carry it to the balance, RE-ZERO with the pan empty, weigh it and log it, and bring it back before anything is drawn from it. The three pipettes go in the barium solid waste | barium vials |
 | 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat, tared: the empty boat on the pan, then RE-ZERO, so the display shows only the salt. 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg; a decahydrate bottle needs 483.3 mg and 14.73 g of water ([why](#what-goes-in-each-vial)). Through a funnel into its vial, rinse in to about 15 mL, cap, RE-ZERO with the pan empty, weigh and log it. Its water is that reading minus the vial's empty weight (2.2) and the salt | sodium sulfate bottle, vial |
 | 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate (about 1.52 g of the 0.1 M, then 1.50 g each), with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. 4.383 g NaCl, in a tared boat like the sulfate, with 13.4 g of DI water (15 mL of 5 M), its water worked out from its empty weight like the sulfate's. A vial of fresh DI water, filled to about 15 mL (plate A's water pass takes about 10 mL, by my count from the plan's layout); it isn't weighed. Ten vials in all | sodium chloride bottle, vials |
@@ -380,14 +380,26 @@ the reading to aim for.
   right. Anything from 1.45 to 1.55 g works, as long as each reading is logged
   ([the arithmetic](#the-dilutions-by-weight-with-transfer-pipettes)).
 - **If the barium chloride isn't 0.3123 g.** It goes in inside the hood, where the balance can't be seen, so it seldom
-  lands exactly. To keep the stock at 0.1000 mol/kg anyway, add **48.0 g of water per gram of the salt** instead of a
-  flat 15.00 g:
-  - 0.2800 g of salt takes 13.45 g of water, 0.3000 g takes 14.41 g, 0.3123 g takes 15.00 g, and 0.3300 g takes
-    15.85 g.
-  - The 2.11 reading to aim for is then the 2.9 reading plus that water.
-  - Keep the salt between 0.28 and 0.33 g, so the water fits in the vial. Outside that, add a little more in the hood,
-    or take some out into the barium solid waste, and weigh it again.
-  - A flat 15.00 g works too. The stock is then not quite 0.1 M, and the log gives its real concentration.
+  lands exactly. That's fine. Keep the salt between 0.28 and 0.33 g, so the water fits in the vial. Outside that, add a
+  little more in the hood, or take some out into the barium solid waste, and weigh it again. Then either:
+  - **Log it, and work out the stock's real concentration.** This is what 2.9's old "for another mass, work out its
+    concentration" meant ([Tim asked](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6931706829),
+    11-16). Add about 15 g of water at 2.10, as usual. Then, from the log:
+    - the salt is the 2.9 reading minus the 2.4 one, and the water is the 2.11 reading minus the 2.9 one;
+    - the concentration, in mol/kg, is **salt × 4.802 ÷ water**, both in grams. 4.802 is 1000 ÷ 208.23, the molar
+      mass of anhydrous barium chloride.
+    - For example, 0.3051 g of salt with 14.87 g of water is 0.3051 × 4.802 ÷ 14.87 = 0.0985 mol/kg, 1.5 % under
+      0.1. With 15.00 g of water it would be 0.0977.
+    - Every stock made from it, and the barium in every well, is off by the same share: here the 10 mM vial is
+      about 9.85 mM, and so on. The robot's volumes don't change, and the analysis uses the real numbers, so
+      nothing else has to be redone. Nobody has to do this sum at the bench: the log is enough.
+  - **Or keep the stock at 0.1000 mol/kg** by adding **48.0 g of water per gram of the salt** instead of about 15 g:
+    - 0.2800 g of salt takes 13.45 g of water, 0.3000 g takes 14.41 g, 0.3051 g takes 14.65 g, 0.3123 g takes
+      15.00 g, and 0.3300 g takes 15.85 g.
+    - The 2.11 reading to aim for is then the 2.9 reading plus that water.
+    - The water goes in inside the hood, out of sight of the balance, so hitting it takes a top-up: add a little
+      less at 2.10, weigh it, then add the rest in the hood with the water-only transfer pipette (1 mL is about 1 g)
+      and weigh it again. That's an extra round trip for a barium vial, which is why logging it is the simpler route.
   - The same rule for the sodium sulfate is 70.4 g of water per gram, but in its tared boat it can be weighed to
     0.2131 g directly.
 - **Check the sodium sulfate's label.** 213.1 mg is for the anhydrous salt, Na₂SO₄. If the label says decahydrate
@@ -688,4 +700,5 @@ out at 5.7 and 6.0 MB, so they are 4 fps now. Later that day the weighed dilutio
 it was rendered with `SOP_GIF_FPS=3`. That evening both were rendered again the same way for the RE-ZERO captions, with
 the same frame counts (704 and 943); their GIFs came out at 4.7 and 4.4 MB. Later that evening part 2a alone was
 rendered again for the 2.2 caption (only the six dilution vials get water), again with 704 frames and a 4.65 MB GIF,
-then `split_steps.py --parts sop2a_hood` and `animate.py full`.
+then `split_steps.py --parts sop2a_hood` and `animate.py full`. Late on 11-16 it was rendered once more, the same way, for the 2.9 caption
+(what "for another mass" meant), again with 704 frames and a 4.65 MB GIF.

@@ -603,10 +603,13 @@ def sop2(part=None):
         person_at(W, -80 + 1120 * window(u, 0.0, 0.6), -220, 0, 1.0)
         S.gauges = gauges("EB B125", "inside -> next to the hood", "balance lid only",
                           [("balance", "'empty' + 0.3123 g" if u > 0.92 else "-")])
+    # Asked on PR 84 (Tim, 2026-11-16): what did "For another mass, work out its concentration" mean? The caption
+    # now says it: the salt needn't be exactly 0.3123 g, and the stock's real concentration is worked out from the log.
     S.step("2.9", "Back at the balance: RE-ZERO with the pan empty, weigh the capped vial and log it as 'with "
-                  "salt', with the bottle's form and lot. The salt is 'with salt' minus 'empty': 0.3123 g is "
-                  "1.500 mmol (anhydrous, 208.23 g/mol), and with 15.00 g of water, 0.1000 mol/kg. For another "
-                  "mass, work out its concentration.",
+                  "salt', with the bottle's form and lot. The salt is 'with salt' minus 'empty'. 0.3123 g (1.500 "
+                  "mmol, anhydrous, 208.23 g/mol) with 15.00 g of water is 0.1000 mol/kg. It needn't be exact: "
+                  "anything from 0.28 to 0.33 g is fine, and the stock's real concentration comes from the log, in "
+                  "mol/kg: salt × 4.802 ÷ water, both in g (0.3051 g with 15.00 g of water is 0.0977).",
            3.6, update=weigh, cam_to=CAM_MID, hold=2.0)
     # dissolve in the vial itself: it is the 0.1 M barium vial
     rack_w = W.S.world("rack_hood")

@@ -57,7 +57,7 @@
   },
   {
    "label": "2.9",
-   "caption": "Back at the balance: RE-ZERO with the pan empty, weigh the capped vial and log it as 'with salt', with the bottle's form and lot. The salt is 'with salt' minus 'empty': 0.3123 g is 1.500 mmol (anhydrous, 208.23 g/mol), and with 15.00 g of water, 0.1000 mol/kg. For another mass, work out its concentration.",
+   "caption": "Back at the balance: RE-ZERO with the pan empty, weigh the capped vial and log it as 'with salt', with the bottle's form and lot. The salt is 'with salt' minus 'empty'. 0.3123 g (1.500 mmol, anhydrous, 208.23 g/mol) with 15.00 g of water is 0.1000 mol/kg. It needn't be exact: anything from 0.28 to 0.33 g is fine, and the stock's real concentration comes from the log, in mol/kg: salt × 4.802 ÷ water, both in g (0.3051 g with 15.00 g of water is 0.0977).",
    "start_frame": 620,
    "end_frame": 703
   }

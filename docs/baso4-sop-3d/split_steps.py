@@ -237,8 +237,10 @@ VIAL_ROWS = [
 ]
 VIAL_NOTE = (
     "Only vials 1, 5 and 9 get powder; each dilution vial gets about 1.5 g of the vial before it. Add the last "
-    "column to a vial's logged empty reading to get the reading to aim for. If the barium chloride isn't 0.3123 g, "
-    "add 48.0 g of water per gram of it instead of 15.00 g, which keeps the stock at 0.1 M. A decahydrate sodium "
+    "column to a vial's logged empty reading to get the reading to aim for. The barium chloride needn't be 0.3123 g "
+    "(0.28 to 0.33 g is fine): log it, and the stock's real concentration in mol/kg is the salt × 4.802 ÷ the water, "
+    "both in grams from the log (0.3051 g with 14.87 g of water is 0.0985). Or add 48.0 g of water per gram of salt "
+    "to keep it at 0.1 M. A decahydrate sodium "
     "sulfate bottle needs 483.3 mg and 14.73 g of water. Log every reading the balance shows, not just the amounts: "
     "<a href=\"{vials}\">why, and the details</a>."
 )
