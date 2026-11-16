@@ -271,7 +271,7 @@ map in [`cad/`](cad/README.md#on-the-ot-2) and `check_deck.py`; the plate A prot
 - **On each label:** the name written out, the concentration, the date and your initials, and **TOXIC** on the four
   barium vials. BYU's [chemical safety program](https://chem.byu.edu/documents/1767/byu_chemical_hygiene_plan.pdf)
   asks for the chemical's name and a hazard warning on containers of hazardous chemicals (p. 19), and for a key
-  posted in the room if codes are used instead of names (p. 34). Adding the pocket (say, 4-A2) helps each barium vial
+  kept in the room if codes are used instead of names (p. 34). Adding the pocket (say, 4-A2) helps each barium vial
   go back in the same pocket after its trip to the balance.
 - **Label first, then weigh.** A strip of tape or a paper label weighs roughly 0.1 g (my estimate). Put on after a
   vial's empty weighing, it gets logged as water. On the 0.1 M barium chloride vial, which gets only 0.31 g of salt, a
