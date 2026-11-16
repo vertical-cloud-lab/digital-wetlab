@@ -32,6 +32,16 @@ day Tim measured the height, **55 mm**, and the holder's labware definition now 
 deck. One holder is sliced for the lab's A1 mini in [`cad/print-a1mini/`](cad/print-a1mini/README.md), not yet
 printed.
 
+**Updated 2026-11-16** (asked by @timothy-commins on [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84)):
+the videos now use the amounts for what the lab has.
+- **The barium chloride is anhydrous,** so 2.5-2.11 weigh about 312 mg, not the dihydrate's 366 mg
+  ([below](#the-barium-chloride-anhydrous-or-dihydrate)).
+- **The 100-1000 µL hand pipette takes a new tip for each dilution vial,** and each 1.5 mL is two 750 µL draws with
+  that tip: three tips in the hood (2.12) and three at the bench (2.16).
+- **Parts 2a and 2b, their step clips, their GIFs and the full video are re-rendered** with these numbers and with
+  the 27 × 55 mm vials. The other parts still have 28 × 57 mm vials, which look the same at that size. No other
+  amount changed.
+
 The procedure is the one already written down:
 - [`docs/baso4-extended-monitoring.md`](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md)
   (11-02): plate A, the stocks, the seal, the stills schedule, and the run record;
@@ -46,7 +56,7 @@ It is built the way the lab's other animations are (byu-vcl's `viz3d`, used for 
 the vertical lift module): CadQuery and vendor STEP models, rendered off-screen in PyVista, text drawn with PIL, and
 written as MP4 and GIF.
 
-Chapters 2 and 3 are in two parts each, so every GIF stays under the ~5 MB GitHub shows inline. Parts 2a's and 2b's GIFs run at 6 fps for the same reason; every MP4 has all its frames.
+Chapters 2 and 3 are in two parts each, so every GIF stays under the ~5 MB GitHub shows inline. Parts 2a's and 2b's GIFs run at 4 fps for the same reason; every MP4 has all its frames.
 
 | Part | GIF (800 × 450, 10 fps) | MP4 (1280 × 720, 15 fps) |
 | --- | --- | --- |
@@ -69,7 +79,7 @@ Asked on [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/
 2026-11-05, so each step can be paused and replayed on its own. [`out/steps/`](out/steps) has one MP4 per numbered
 step, 42 in all, cut from the six part MP4s above by [`split_steps.py`](split_steps.py). Nothing is re-rendered. Each
 clip is its step's frames, then its last frame held so the caption stays up long enough to read: at least 15
-characters a second, and 2 s past the motion. They come to 10.3 min in all, against 4 min 10 s for the full video.
+characters a second, and 2 s past the motion. They come to 10.4 min in all, against 4 min 10 s for the full video.
 
 **To watch them, open the [player page](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html).** It has every step in order, each in its own video player
 (pause, drag back, replay), with the step's text written under it. The ▶ links below open it at that step.
@@ -103,9 +113,9 @@ characters a second, and 2 s past the motion. They come to 10.3 min in all, agai
 | 2.4 | Tare the capped vial | EB B125, next to the hood | 18 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.4) | [`2-04_tare-the-vial.mp4`](out/steps/2-04_tare-the-vial.mp4) |
 | 2.5 | Carry the vial into the hood | next to, then inside the hood | 9 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.5) | [`2-05_vial-into-hood.mp4`](out/steps/2-05_vial-into-hood.mp4) |
 | 2.6 | Uncap the barium chloride and the vial | EB B125, inside the hood | 9 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.6) | [`2-06_uncap-bottle-and-vial.mp4`](out/steps/2-06_uncap-bottle-and-vial.mp4) |
-| 2.7 | Spatula about 312 mg of barium chloride (the clip still says 366 mg, for the dihydrate: [why](#the-barium-chloride-anhydrous-or-dihydrate)) | EB B125, inside the hood | 13 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.7) | [`2-07_spatula-barium-chloride.mp4`](out/steps/2-07_spatula-barium-chloride.mp4) |
+| 2.7 | Spatula about 312 mg of barium chloride | EB B125, inside the hood | 13 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.7) | [`2-07_spatula-barium-chloride.mp4`](out/steps/2-07_spatula-barium-chloride.mp4) |
 | 2.8 | Cap both, wipe the vial | EB B125, inside the hood | 10 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.8) | [`2-08_cap-and-wipe.mp4`](out/steps/2-08_cap-and-wipe.mp4) |
-| 2.9 | Weigh the capped vial and log it | EB B125, next to the hood | 18 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.9) | [`2-09_weigh-the-vial.mp4`](out/steps/2-09_weigh-the-vial.mp4) |
+| 2.9 | Weigh the capped vial and log it | EB B125, next to the hood | 19 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.9) | [`2-09_weigh-the-vial.mp4`](out/steps/2-09_weigh-the-vial.mp4) |
 
 **2b. Dilutions, then the bench**
 
@@ -113,11 +123,11 @@ characters a second, and 2 s past the motion. They come to 10.3 min in all, agai
 | --- | --- | --- | --- | --- | --- |
 | 2.10 | Dissolve it in the vial | EB B125, inside the hood | 14 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.10) | [`2-10_dissolve-barium-chloride.mp4`](out/steps/2-10_dissolve-barium-chloride.mp4) |
 | 2.11 | Weigh it, then into the barium holder | inside, next to, then inside the hood | 15 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.11) | [`2-11_weigh-barium-0.1M.mp4`](out/steps/2-11_weigh-barium-0.1M.mp4) |
-| 2.12 | Dilute to 10, 1 and 0.1 mM barium chloride | EB B125, inside the hood | 15 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.12) | [`2-12_barium-dilutions.mp4`](out/steps/2-12_barium-dilutions.mp4) |
+| 2.12 | Dilute to 10, 1 and 0.1 mM barium chloride | EB B125, inside the hood | 17 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.12) | [`2-12_barium-dilutions.mp4`](out/steps/2-12_barium-dilutions.mp4) |
 | 2.13 | Cap and label the barium vials | EB B125, inside the hood | 12 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.13) | [`2-13_cap-and-label-barium.mp4`](out/steps/2-13_cap-and-label-barium.mp4) |
 | 2.14 | Weigh about 213 mg of sodium sulfate | EB B125, next to the hood | 17 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.14) | [`2-14_weigh-sodium-sulfate.mp4`](out/steps/2-14_weigh-sodium-sulfate.mp4) |
 | 2.15 | Make up the 0.1 M sodium sulfate | EB B125, next to the hood | 14 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.15) | [`2-15_make-up-sodium-sulfate.mp4`](out/steps/2-15_make-up-sodium-sulfate.mp4) |
-| 2.16 | Sulfate dilutions, 5 M NaCl and DI water | EB B125, next to the hood | 16 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.16) | [`2-16_sulfate-nacl-water.mp4`](out/steps/2-16_sulfate-nacl-water.mp4) |
+| 2.16 | Sulfate dilutions, 5 M NaCl and DI water | EB B125, next to the hood | 20 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.16) | [`2-16_sulfate-nacl-water.mp4`](out/steps/2-16_sulfate-nacl-water.mp4) |
 | 2.17 | Pack the tub and clean up the hood | EB B125, hood then bench | 18 s | [▶ play](https://htmlpreview.github.io/?https://github.com/vertical-cloud-lab/digital-wetlab/blob/3173f7d/docs/baso4-sop-3d/out/steps/player.html#s2.17) | [`2-17_pack-and-clean-up.mp4`](out/steps/2-17_pack-and-clean-up.mp4) |
 
 **3a. Loading the OT-2 in CB 154**
@@ -220,8 +230,8 @@ The SOP was first written for the dihydrate.
   - Close the bottle as soon as the spatula is out (2.8), and keep the cap tight.
 - **The hazards are the same:** toxic if swallowed (H301) and harmful if inhaled (H332). Print the SDS for the lab's
   own bottle, from its maker, for the binder (2.1).
-- **The clips for 2.3-2.11 still show the dihydrate and 366 mg,** and so do part 2a's GIF and MP4 and the full video.
-  The table above is right. [`animate.py`](animate.py) now has the anhydrous numbers, for the next render.
+- **The clips show the anhydrous salt and 312 mg,** since parts 2a and 2b were re-rendered on 11-16, and so do their
+  GIFs and MP4s and the full video.
 
 ## Does the OT-2 need to be in the hood?
 
@@ -378,4 +388,6 @@ meshes are cached until `models.py`, `vial_holder.py` or `lab_models/` changes. 
 
 On the 11-06 runner, `animate.py sop2a` failed to open its X display (VTK: "bad X server connection") every time, and
 only for that part. So part 2a is the first nine steps of a full `animate.py sop2` render, cut frame for frame, with
-its 8 fps GIF made from that cut.
+its 8 fps GIF made from that cut. On 11-16 both parts rendered directly, each on its own display
+(`SOP_GIF_FPS=4 xvfb-run --server-num=N python3 animate.py sop2a`, and the same for `sop2b`); at 6 fps their GIFs came
+out at 5.7 and 6.0 MB, so they are 4 fps now.

@@ -8,6 +8,7 @@ for at least `len(caption) / READ_CPS + 1` seconds (a subtitle reading speed) an
 Nothing is re-rendered, so it needs only ffmpeg (on the PATH, or from `pip install imageio-ffmpeg`) and Pillow.
 
     python3 split_steps.py           # writes out/steps/*.mp4, out/steps/index.json and out/steps/contact_sheet.jpg
+        [--parts sop2a_hood,sop2b_bench]   # re-cut only these parts' clips; the others stay as they are
     python3 split_steps.py --page-only --sha <commit with the clips>   # writes out/steps/player.html
         [--readme-sha <commit>]   # the README the page's hood note links to (default: the clips' commit)
 """
@@ -136,11 +137,15 @@ def cut(ff, row):
            "-movflags", "+faststart", "-metadata", f"title=BaSO4 plate run SOP, step {row['label']}: {row['title']}",
            str(dst)]
     subprocess.run(cmd, check=True)
-    # The last frame of the motion, for the contact sheet.
-    thumb = THUMBS / f"{file_stem(row['label'])}.png"
-    subprocess.run([ff, "-v", "error", "-y", "-i", str(src), "-vf", f"select=eq(n\\,{row['end_frame']})",
-                    "-vframes", "1", str(thumb)], check=True)
+    thumb(ff, row)
     return dst
+
+
+def thumb(ff, row):
+    """The last frame of the step's motion, for the contact sheet."""
+    src = OUT / "mp4" / f"{row['part']}.mp4"
+    subprocess.run([ff, "-v", "error", "-y", "-i", str(src), "-vf", f"select=eq(n\\,{row['end_frame']})",
+                    "-vframes", "1", str(THUMBS / f"{file_stem(row['label'])}.png")], check=True)
 
 
 def contact_sheet(rows):
@@ -194,6 +199,19 @@ HOOD_NOTE = (
     "<a href=\"" + BYU_LCSP + "\">Laboratory &amp; Chemical Safety Program</a>) and the hood checklist: "
     "<a href=\"{readme}\">the README</a>."
 )
+# Asked on PR 84 (Tim, 2026-11-16): update the page wherever an amount differs from what the lab is using. The lab's
+# barium chloride is anhydrous, and the hand pipette is a 100-1000 uL one. {salt} is the README's section on the two
+# forms.
+AMOUNTS_NOTE = (
+    "<b>Updated 11-16 for what the lab has.</b> The barium chloride is <b>anhydrous</b>, so spatula about "
+    "<b>312 mg</b>, not the dihydrate’s 366 mg (2.7). The balance then reads about 0.3123 g (2.9), and 15.31 g "
+    "once the water is in (2.11). The 100–1000 µL hand pipette takes <b>a new tip for each dilution "
+    "vial</b>, and each 1.5 mL is two 750 µL draws with that tip: three tips in the hood (2.12) and three at "
+    "the bench (2.16). Parts 2a and 2b are re-rendered with these numbers and with the 27 × 55 mm vials. The "
+    "other amounts were already right: 213 mg of sodium sulfate, 4.383 g of NaCl with 13.4 g of water, 13.50 g of "
+    "water in each dilution vial, and the volumes the OT-2 pipettes. A dihydrate bottle would need 366 mg: "
+    "<a href=\"{salt}\">why</a>."
+)
 PART_NOTES = {
     "sop3a_load": "At the OT-2: nitrile gloves, a lab coat and safety glasses on before the tub is opened, and on "
                   "until the vials are recapped (3.13). Beside the OT-2: a labelled barium waste bottle, damp wipes and "
@@ -214,8 +232,12 @@ def player_page(rows, sha, readme_sha=None):
     """
     from html import escape
 
-    readme = (f"https://github.com/{REPO}/blob/{readme_sha or sha}/docs/baso4-sop-3d/README.md"
-              "#does-the-ot-2-need-to-be-in-the-hood")
+    readme_url = f"https://github.com/{REPO}/blob/{readme_sha or sha}/docs/baso4-sop-3d/README.md"
+    readme = readme_url + "#does-the-ot-2-need-to-be-in-the-hood"
+    salt = readme_url + "#the-barium-chloride-anhydrous-or-dihydrate"
+    # the full video is the six parts joined, so its length is theirs
+    frames = [json.loads((OUT / f"{p}.json").read_text()) for p in PARTS]
+    full_s = round(sum(m["n_frames"] / m["fps"] for m in frames))
 
     def sources(rel):
         return (f'<source src="https://raw.githubusercontent.com/{REPO}/{sha}/{REPO_PATH}/{rel}" type="video/mp4">'
@@ -242,7 +264,7 @@ def player_page(rows, sha, readme_sha=None):
         f'<a href="#w{p}">{escape(PART_TITLES[p])}</a>' for p in PARTS)
     body.append(f'<h2 id="whole">The six parts, and all of it</h2><p>{whole}</p>')
     for p in PARTS + ["baso4_sop_full"]:
-        title = PART_TITLES.get(p, "All of it, one part after another (4 min 8 s)")
+        title = PART_TITLES.get(p, f"All of it, one part after another ({full_s // 60} min {full_s % 60} s)")
         body.append(f'<section id="w{p}"><h3>{escape(title)}</h3><video controls playsinline preload="none" '
                     f'width="1280" height="720">{sources("mp4/" + p + ".mp4")}</video></section>')
     page = f"""<!doctype html>
@@ -261,6 +283,7 @@ nav li {{ margin: .2em 0; }}
 Every clip ends by holding its last frame, so the text stays up long enough to read.</p>
 <p class="note">From <a href="https://github.com/{REPO}/tree/{sha}/docs/baso4-sop-3d">docs/baso4-sop-3d</a>
 (issue 80). The time-lapse in step 4.3 is illustrative, not a prediction; the README lists the other assumptions.</p>
+<p class="safety">{AMOUNTS_NOTE.format(salt=salt)}</p>
 <p class="safety">{HOOD_NOTE.format(readme=readme)}</p>
 <nav><ul>{"".join(toc)}<li><a href="#whole">The six parts, and all of it</a></li></ul></nav>
 {chr(10).join(body)}
@@ -287,11 +310,22 @@ def main():
     STEPS.mkdir(parents=True, exist_ok=True)
     THUMBS.mkdir(parents=True, exist_ok=True)
     rows = plan()
+    # --parts: re-cut only the parts that were re-rendered, so the other clips keep their committed bytes
+    redo = set(sys.argv[sys.argv.index("--parts") + 1].split(",")) if "--parts" in sys.argv else set(PARTS)
+    unknown = redo - set(PARTS)
+    if unknown:
+        sys.exit(f"unknown part(s): {', '.join(sorted(unknown))}; the parts are {', '.join(PARTS)}")
+    names = {r["file"] for r in rows}
     for old in STEPS.glob("*.mp4"):
-        old.unlink()
+        if old.name not in names or any(r["file"] == old.name and r["part"] in redo for r in rows):
+            old.unlink()
     with ThreadPoolExecutor(max_workers=4) as pool:
-        for dst in pool.map(lambda r: cut(ff, r), rows):
+        for dst in pool.map(lambda r: cut(ff, r), [r for r in rows if r["part"] in redo]):
             print("wrote", dst.relative_to(HERE))
+        list(pool.map(lambda r: thumb(ff, r), [r for r in rows if r["part"] not in redo]))
+    missing = [r["file"] for r in rows if not (STEPS / r["file"]).exists()]
+    if missing:
+        sys.exit(f"no clip for {', '.join(missing)}: re-cut their parts with --parts")
     index = {"source": "out/<part>.json and out/mp4/<part>.mp4", "read_cps": READ_CPS, "min_tail_s": MIN_TAIL,
              "steps": rows}
     (STEPS / "index.json").write_text(json.dumps(index, indent=1, ensure_ascii=False) + "\n")

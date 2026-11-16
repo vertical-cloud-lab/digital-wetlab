@@ -185,7 +185,7 @@
   },
   {
    "label": "2.7",
-   "title": "Spatula about 366 mg of barium chloride",
+   "title": "Spatula about 312 mg of barium chloride",
    "where": "EB B125, inside the hood",
    "part": "sop2a_hood",
    "part_title": "2a. Barium chloride, inside the hood",
@@ -196,7 +196,7 @@
    "motion_s": 6.53,
    "hold_s": 6.67,
    "seconds": 13.2,
-   "caption": "Spatula about 366 mg of barium chloride dihydrate into the vial, low in the hood and slowly, so no dust lifts. It doesn't have to be exact: the balance reading sets the concentration."
+   "caption": "Spatula about 312 mg of anhydrous barium chloride into the vial, low in the hood and slowly, so no dust lifts. It doesn't have to be exact: the balance reading sets the concentration."
   },
   {
    "label": "2.8",
@@ -224,9 +224,9 @@
    "end_frame": 688,
    "fps": 15,
    "motion_s": 5.6,
-   "hold_s": 12.2,
-   "seconds": 17.8,
-   "caption": "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's lot. 0.3664 g is 1.500 mmol (244.26 g/mol): with 15.00 g of water, 0.1000 mol/kg. For another mass, work out its concentration and use that in the plate map."
+   "hold_s": 13.53,
+   "seconds": 19.1,
+   "caption": "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's form and lot. 0.3123 g is 1.500 mmol (anhydrous, 208.23 g/mol): with 15.00 g of water, 0.1000 mol/kg. For another mass, work out its concentration and use that in the plate map."
   },
   {
    "label": "2.10",
@@ -256,7 +256,7 @@
    "motion_s": 5.6,
    "hold_s": 9.67,
    "seconds": 15.3,
-   "caption": "Wipe it, weigh it capped at the balance and log the reading: the water's mass sets the concentration (0.3664 g with 15.00 g of water is 0.1000 mol/kg). Then it goes back into the hood, into A1 of the barium holder."
+   "caption": "Wipe it, weigh it capped at the balance and log the reading: the water's mass sets the concentration (0.3123 g with 15.00 g of water is 0.1000 mol/kg). Then it goes back into the hood, into A1 of the barium holder."
   },
   {
    "label": "2.12",
@@ -269,9 +269,9 @@
    "end_frame": 311,
    "fps": 15,
    "motion_s": 7.6,
-   "hold_s": 7.6,
-   "seconds": 15.2,
-   "caption": "Still in the hood: uncap the 0.1 M vial and the three water vials, then move 1.5 mL down the series with a new pipette tip each time: 10, 1 and 0.1 mM barium chloride. Cap and invert each before the next transfer."
+   "hold_s": 9.4,
+   "seconds": 17.0,
+   "caption": "Still in the hood: uncap the 0.1 M vial and the three water vials, then move 1.5 mL down the series: 10, 1 and 0.1 mM barium chloride. Use a new tip for each vial, and draw 750 uL twice with it. Cap and invert each before the next transfer."
   },
   {
    "label": "2.13",
@@ -284,9 +284,9 @@
    "end_frame": 356,
    "fps": 15,
    "motion_s": 3.0,
-   "hold_s": 8.53,
-   "seconds": 11.5,
-   "caption": "Cap all four barium vials. Label each one: name, concentration, date, initials. Pipette tips and wipes that touched barium go in the barium waste in the hood."
+   "hold_s": 9.47,
+   "seconds": 12.5,
+   "caption": "Cap all four barium vials. Label each one: name, concentration, date, initials. The three pipette tips and the wipes that touched barium go in the barium waste in the hood."
   },
   {
    "label": "2.14",
@@ -329,9 +329,9 @@
    "end_frame": 647,
    "fps": 15,
    "motion_s": 6.2,
-   "hold_s": 10.27,
-   "seconds": 16.5,
-   "caption": "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials. Then 4.383 g of sodium chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each labelled and logged."
+   "hold_s": 13.53,
+   "seconds": 19.7,
+   "caption": "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials, with a new tip for each vial (two 750 uL draws). Then 4.383 g of sodium chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each labelled and logged."
   },
   {
    "label": "2.17",

@@ -15,19 +15,19 @@
   },
   {
    "label": "2.11",
-   "caption": "Wipe it, weigh it capped at the balance and log the reading: the water's mass sets the concentration (0.3664 g with 15.00 g of water is 0.1000 mol/kg). Then it goes back into the hood, into A1 of the barium holder.",
+   "caption": "Wipe it, weigh it capped at the balance and log the reading: the water's mass sets the concentration (0.3123 g with 15.00 g of water is 0.1000 mol/kg). Then it goes back into the hood, into A1 of the barium holder.",
    "start_frame": 114,
    "end_frame": 197
   },
   {
    "label": "2.12",
-   "caption": "Still in the hood: uncap the 0.1 M vial and the three water vials, then move 1.5 mL down the series with a new pipette tip each time: 10, 1 and 0.1 mM barium chloride. Cap and invert each before the next transfer.",
+   "caption": "Still in the hood: uncap the 0.1 M vial and the three water vials, then move 1.5 mL down the series: 10, 1 and 0.1 mM barium chloride. Use a new tip for each vial, and draw 750 uL twice with it. Cap and invert each before the next transfer.",
    "start_frame": 198,
    "end_frame": 311
   },
   {
    "label": "2.13",
-   "caption": "Cap all four barium vials. Label each one: name, concentration, date, initials. Pipette tips and wipes that touched barium go in the barium waste in the hood.",
+   "caption": "Cap all four barium vials. Label each one: name, concentration, date, initials. The three pipette tips and the wipes that touched barium go in the barium waste in the hood.",
    "start_frame": 312,
    "end_frame": 356
   },
@@ -45,7 +45,7 @@
   },
   {
    "label": "2.16",
-   "caption": "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials. Then 4.383 g of sodium chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each labelled and logged.",
+   "caption": "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials, with a new tip for each vial (two 750 uL draws). Then 4.383 g of sodium chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each labelled and logged.",
    "start_frame": 555,
    "end_frame": 647
   },

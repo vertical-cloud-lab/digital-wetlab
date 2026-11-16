@@ -628,18 +628,19 @@ def sop2(part=None):
             W.set_world("pipette_h", carry(W.S.world("pipette_h"), pip0, 1.0, 0))
     S.gauges = gauges("EB B125", "INSIDE the hood", "barium vials", [("series", "0.1 M -> 10 -> 1 -> 0.1 mM")])
     S.step("2.12", "Still in the hood: uncap the 0.1 M vial and the three water vials, then move 1.5 mL down the "
-                   "series with a new pipette tip each time: 10, 1 and 0.1 mM barium chloride. Cap and invert each "
-                   "before the next transfer.",
+                   "series: 10, 1 and 0.1 mM barium chloride. Use a new tip for each vial, and draw 750 uL twice "
+                   "with it. Cap and invert each before the next transfer.",
            7.0, update=dilute, hold=0.6,
-           labels=[("100-1000 uL pipette\n(new tip per transfer)", (380, 380, WS + 280), (0.86, 0.22))])
+           labels=[("100-1000 uL pipette\n(new tip per vial, 2 x 750 uL)", (380, 380, WS + 280), (0.86, 0.22))])
 
     def recap(u):
         for k in ("ba0", "ba1", "ba2", "ba3"):
             tcap(W, k, False)(window(u, 0.0, 0.6))
         W.set_world("pipette_h", carry(W.S.world("pipette_h"), pip0, window(u, 0, 0.3), 30) if u < 0.3 else pip0)
     S.gauges = gauges("EB B125", "INSIDE the hood", "closing the vials")
-    S.step("2.13", "Cap all four barium vials. Label each one: name, concentration, date, initials. Pipette tips "
-                   "and wipes that touched barium go in the barium waste in the hood.", 2.4, update=recap, hold=0.6)
+    S.step("2.13", "Cap all four barium vials. Label each one: name, concentration, date, initials. The three "
+                   "pipette tips and the wipes that touched barium go in the barium waste in the hood.",
+           2.4, update=recap, hold=0.6)
     # ---- sodium sulfate and sodium chloride, at the balance
     boat0 = W.S.world("boat")
     boat_pan = pan
@@ -724,9 +725,9 @@ def sop2(part=None):
             tcap(W, k, False)(window(u, 0.9, 1.0))
         S.gauges = gauges("EB B125", "next to the hood", "sulfate vials" if u < 0.6 else "sodium chloride bottle",
                           [("balance", "4.3830 g NaCl" if u > 0.75 else "-")])
-    S.step("2.16", "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials. Then "
-                   "4.383 g of sodium chloride with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: "
-                   "ten vials in all, each labelled and logged.",
+    S.step("2.16", "The same tenfold series for sodium sulfate: 1.5 mL into each of its three water vials, with a "
+                   "new tip for each vial (two 750 uL draws). Then 4.383 g of sodium chloride with 13.4 g of DI water "
+                   "(15 mL of 5 M), and a vial of fresh DI water: ten vials in all, each labelled and logged.",
            5.0, update=rest, hold=1.2,
            labels=[("5 M NaCl and DI water", tuple(W.world_of("rack_bench", (20, -20, 80))), (0.82, 0.22))])
     # clean up and pack

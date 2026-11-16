@@ -45,7 +45,7 @@
   },
   {
    "label": "2.7",
-   "caption": "Spatula about 366 mg of barium chloride dihydrate into the vial, low in the hood and slowly, so no dust lifts. It doesn't have to be exact: the balance reading sets the concentration.",
+   "caption": "Spatula about 312 mg of anhydrous barium chloride into the vial, low in the hood and slowly, so no dust lifts. It doesn't have to be exact: the balance reading sets the concentration.",
    "start_frame": 456,
    "end_frame": 553
   },
@@ -57,7 +57,7 @@
   },
   {
    "label": "2.9",
-   "caption": "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's lot. 0.3664 g is 1.500 mmol (244.26 g/mol): with 15.00 g of water, 0.1000 mol/kg. For another mass, work out its concentration and use that in the plate map.",
+   "caption": "Back at the balance: weigh the capped vial and write the reading in the log, with the bottle's form and lot. 0.3123 g is 1.500 mmol (anhydrous, 208.23 g/mol): with 15.00 g of water, 0.1000 mol/kg. For another mass, work out its concentration and use that in the plate map.",
    "start_frame": 605,
    "end_frame": 688
   }
