@@ -49,7 +49,7 @@ need little else.
 
 | Item | One run uses | From |
 | --- | --- | --- |
-| **Barium waste:** a labelled liquid-waste bottle, and a bag or pail for solids (tips, wipes, gloves, the plate, the barium vials) | Leftover stocks, the plate's wells, rinses | BYU Risk Management. Ask well before the run. They collect it afterwards |
+| **Barium waste:** a labelled liquid-waste bottle, and a bag or pail for solids (tips, wipes, gloves, the plate, the barium vials) | Leftover stocks, the plate's wells, rinses | BYU Risk Management, on its [pickup-request form](https://riskapps.byu.edu/apps/pickuprequest/). **Requested** on 11-16 (Tim). They collect it afterwards, through the same form |
 | **DI water** | About 0.5 L, fetched that day | The Chem Stores breakroom, as before. Not the March jug ([why](https://github.com/vertical-cloud-lab/digital-wetlab/blob/cb98aa9/docs/di-water-storage.md#what-to-do)) |
 | **The barium chloride SDS,** printed for the binder | 1 | The website of the maker on the lab's bottle (anhydrous, Tim, 11-16), for that product. It was missing from the binder in October |
 
@@ -61,7 +61,7 @@ need little else.
 | **Sodium sulfate, anhydrous**, ACS | 0.21 g | 500 g ([byu-vcl 15](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3991816640)) | Sigma-Aldrich [239313-500G](https://www.sigmaaldrich.com/US/en/product/sigald/239313), about $67-96 depending on seller |
 | **Sodium chloride**, ACS | 4.4 g | 500 g ([byu-vcl 15](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3991816640)) | Sigma-Aldrich [S9888-500G](https://www.sigmaaldrich.com/US/en/product/sigald/s9888), $83.30 |
 | **Opentrons 300 µL tips** | One full rack, about 78 tips: 72 for the sulfate (a new tip per well) and one for each other stock. The protocol isn't written yet | Ordered on 07-31 ([byu-vcl 168](https://github.com/vertical-cloud-lab/byu-vcl/issues/168#issuecomment-5138098529)); count the full racks left | [Opentrons](https://opentrons.com/products/opentrons-300ul-tips-1000-refills): $850 for 100 racks (999-00009) or $530 for 100 refills. In July eBay had boxes of 10 racks for about $49 |
-| **100-1000 µL tips** for the hand pipette | 6, one per dilution (2.12, 2.16) | Not on record, and neither is a hand pipette (the 10-23 list) | The pipette's own brand. Without a pipette, dilute by weight with disposable transfer pipettes, which are on record |
+| **100-1000 µL tips** for the hand pipette | 6, one per dilution (2.12, 2.16). Each 1.5 mL transfer is two 750 µL draws with the same tip. Have about 10 at hand, for spares | Not on record, and neither is a hand pipette (the 10-23 list) | Tips that fit the pipette: Rainin LTS pipettes take only LTS tips, and most other brands take universal-fit 1000 µL tips. A rack of 96 covers about nine runs. Without a pipette, dilute by weight with disposable transfer pipettes, which are on record |
 | **Nitrile gloves** | About 10 pairs: two pairs at a time for barium | Yes | A box of 100 in each wearer's size |
 | **Weigh boats, two spatulas, a small funnel, labels, a marker, Kimwipes, wash bottles** | 2 weigh boats, 10 labels | Yes (byu-vcl 15: [weigh boats, spatulas](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3987730523); [the rest](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3999005476)) | |
 | **PETG or PLA filament** for the two holders | About 70 g per holder at 15 % infill, about 140 g for both (my estimate from the STL) | The printers' spools | |

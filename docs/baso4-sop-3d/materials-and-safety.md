@@ -31,15 +31,15 @@ stills. Neither is in this repo or byu-vcl.
 | --- | --- |
 | 2.1 PPE | Nitrile gloves, two pairs; lab coat; safety glasses; long pants and closed-toe shoes (Sterling's list, 11-06). Splash goggles are better for the barium solutions (**get**: only safety glasses are on record). The SDS for the lab's barium chloride, from the maker on its label, printed (**get**) |
 | 2.2 Balance | HR-100A (**check** where it is; if it was moved, plug it in 1 h before weighing); check weight; six capped 20 mL vials, each weighed in with 13.50 g of DI water, for the dilutions |
-| 2.3 Load the hood | Absorbent liner and tray (**get**); barium waste, a labelled bottle for liquids and a bag for solids (**get**, from Risk Management); wash bottle of fresh DI water; barium chloride, anhydrous, the lab's bottle (Tim, 11-16): 312.3 mg (**check** that it's loose, not caked; a dihydrate bottle needs 366.4 mg: [why](README.md#the-barium-chloride-anhydrous-or-dihydrate)); the barium vial holder (**print** it: [`cad/`](cad/README.md)) with three of the water vials, labelled 10, 1 and 0.1 mM; spatula; damp wipes |
+| 2.3 Load the hood | Absorbent liner and tray (**get**); barium waste, a labelled bottle for liquids and a bag for solids (**requested** from Risk Management, Tim, 11-16); wash bottle of fresh DI water; barium chloride, anhydrous, the lab's bottle (Tim, 11-16): 312.3 mg (**check** that it's loose, not caked; a dihydrate bottle needs 366.4 mg: [why](README.md#the-barium-chloride-anhydrous-or-dihydrate)); the barium vial holder (**print** it: [`cad/`](cad/README.md)) with three of the water vials, labelled 10, 1 and 0.1 mM; spatula; damp wipes |
 | 2.4 Tare | An empty 20 mL VOA vial with its cap, labelled 0.1 M barium chloride |
 | 2.5-2.8 Barium chloride into the vial | What's already in the hood |
 | 2.9 Weigh and log | Log sheet, pen |
 | 2.10-2.11 0.1 M barium chloride | About 15 g of DI water from the wash bottle, into the same vial; the balance again |
-| 2.12 Barium dilutions | 100-1000 µL pipette and tips (**get** or borrow; none on record. Without one, move 1.50 g by weight: vials capped on the pan); the three water vials |
+| 2.12 Barium dilutions | 100-1000 µL pipette and 3 tips, a new one for each vial (**get** or borrow; none on record. Without one, move 1.50 g by weight: vials capped on the pan); the three water vials |
 | 2.13 Cap and label | Labels, marker |
 | 2.14-2.15 0.1 M sodium sulfate | Sodium sulfate, anhydrous (213.1 mg); weigh boat; a second spatula; small funnel; a vial |
-| 2.16 Sulfate dilutions, NaCl, water | Pipette and tips; the other three water vials; sodium chloride (4.383 g) and 13.4 g of DI water, weigh boat, funnel, a vial; a vial of DI water |
+| 2.16 Sulfate dilutions, NaCl, water | Pipette and 3 more tips; the other three water vials; sodium chloride (4.383 g) and 13.4 g of DI water, weigh boat, funnel, a vial; a vial of DI water |
 | 2.17 Pack and clean up | The second vial holder (**print**); lidded tub (**get**); damp wipes |
 
 For the whole day: about 0.5 L of DI water, fetched that day rather than from the March jug
