@@ -4,7 +4,7 @@
  "request_text": "print from the h2d, the a1 mini is currently unplugged",
  "requested_by": "timothy-commins",
  "prep_run": "https://github.com/vertical-cloud-lab/digital-wetlab/actions/runs/43100722121",
- "status": "printing: both holders on one plate, sent to the H2D at 2026-11-16T17:30:53Z by print run 43914383551 (left 0.4 mm nozzle, white PLA). See run-2026-11-16/README.md",
+ "status": "printed: both holders on one plate, sent to the H2D at 2026-11-16T17:30:53Z by print run 43914383551 (left 0.4 mm nozzle, white PLA), finished about 20:52:20Z and taken off the plate by someone at the printer about a minute later. The vial fit hasn't been checked. See run-2026-11-16/README.md",
  "before_this": "the A1 mini slice in ../print-a1mini was sent to the A1 mini at 21:04:38 UTC by print run 43085653316; at 21:09:58 UTC the requester reported the A1 mini unplugged",
  "printer": "the lab's Bambu Lab H2D (two nozzles)",
  "nozzles": {
@@ -217,7 +217,20 @@
     "prime_tower_or_wipe": "none"
    },
    "timeline": "run-2026-11-16/README.md",
-   "outcome": "printing"
+   "outcome": "printed: both holders complete; finished about 20:52:20Z, 3 h 21 min after Send (estimate 3 h 14 min 49 s plus about 9 min of start routine); no HMS error or dialog; nozzle 220 C and bed 55 C throughout; both holders taken off the plate whole at about 20:52:56-20:53:19Z by someone at the printer",
+   "timeline_key_points": {
+    "layer_1": "2026-11-16T17:40:05Z (about 9 min after Send); layer 2 at 17:51:39Z",
+    "layer_115": "2026-11-16T20:47:15Z",
+    "finished": "about 2026-11-16T20:52:20Z (bed lowering in the recording); Studio 100 % at 20:53:32Z",
+    "parts_removed": "2026-11-16T20:52:56Z-20:53:19Z, by a person, seen in the raw recording",
+    "hms_after": "two maintenance reminders: clean and lubricate the X rail, YZ rods and extruder lift rail (from before); 'Threaded rods need lubrication now' (new). No error",
+    "signed_out": "2026-11-16T20:59:34Z; Studio closed without saving; its config, WebKit cache and storage, and temporary slices deleted"
+   },
+   "recording": "run-2026-11-16/send_to_finish_1715-2052Z.mp4: 4 min 42 s, 960x540, cut by wall-clock time from 17:15:40 (after the login) to 20:52:52 (before the parts were taken off), with the chamber window blurred; the raw recording, which shows the login, was deleted",
+   "still_to_check": [
+    "the vials' fit in all 12 pockets",
+    "the six vials bought 2026-11-16 are ChemStores 0011486 5-dram vials with a neck and a snap cap, not the 20 mL screw-cap vials the holder was built for: caliper one and update VIAL in vial_holder.py and the labware definition if it differs"
+   ]
   }
  ]
 }

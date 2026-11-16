@@ -1,7 +1,8 @@
 # The vial holder on the H2D
 
-**2026-11-16: both holders sent to the H2D on one plate**, by the print run in [`run-2026-11-16/`](run-2026-11-16/README.md).
-It printed them with the **left 0.4 mm nozzle**, in white PLA. The right nozzle was still the 0.6 mm TPU high-flow one,
+**2026-11-16: both holders printed on the H2D, on one plate**, by the print run in [`run-2026-11-16/`](run-2026-11-16/README.md).
+It printed them with the **left 0.4 mm nozzle**, in white PLA, in 3 h 21 min. The vials' fit in the pockets hasn't been
+checked yet. The right nozzle was still the 0.6 mm TPU high-flow one,
 which the print doesn't use. The repo's nozzle rule changed on 2026-11-13: only the nozzles a print uses have to be 0.2
 or 0.4 mm (CLAUDE.md). The rest of this page is the single-holder slice from 2026-11-11, and what blocked it then.
 
