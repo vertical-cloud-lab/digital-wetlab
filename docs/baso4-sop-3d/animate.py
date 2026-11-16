@@ -456,8 +456,7 @@ def sop2(part=None):
     else:
         S = SopScene("sop2_stocks", TITLE + " · 2 Stocks in EB B125")
     W = World(S)
-    for k in ("ba1", "ba2", "ba3", "so1", "so2", "so3"):      # the dilution vials: 13.50 g of DI water each, weighed in
-        W.tube_fill(k, 13.5)
+    dilution = ("ba1", "ba2", "ba3", "so1", "so2", "so3")    # empty until 2.2 adds about 13.5 g of DI water to each
     W.tube_show("ba0", 0.0)                                   # the 0.1 M barium vial is the weighing vial until 2.11
     for k in ("so0", "so1", "so2", "so3", "nacl", "water"):
         W.tube_show(k)
@@ -474,12 +473,18 @@ def sop2(part=None):
                   "rule for the room: keep every container closed and labelled.",
            2.6, update=walk(W, (1040, -1500, 0), (1040, -220, 0)), hold=2.0)
     S.gauges = gauges("EB B125", "next to the hood", "-", [("balance", "warm-up >= 1 h")])
-    S.step("2.2", "The HR-100A sits on the bench beside the hood. If it was carried over, plug it in an hour before "
+
+    def water_in(w):                                          # only the six dilution vials get water at 2.2
+        for k in dilution:
+            W.tube_fill(k, 13.5 * w)
+    S.step("2.2", "The HR-100A sits on the bench beside the hood. If it was moved, plug it in an hour before "
                   "weighing: it drifts for about an hour after a move (powder-doser 157). Level it and check it with "
                   "a check weight. Label all ten vials. Log eight capped and empty: the six dilution vials, the 0.1 M "
-                  "sulfate and the 5 M NaCl; then the six with about 13.5 g of DI water. Every reading: RE-ZERO with "
-                  "the pan empty, then the vial on.",
-           2.4, cam_to=CAM_BAL, hold=3.6, update=during(0, 1, lambda w: person_at(W, 1040, -220, 0, 1 - w)),
+                  "sulfate and the 5 M NaCl. Then add about 13.5 g of DI water to the six dilution vials only (10, 1 "
+                  "and 0.1 mM of each salt) and log them again. Every reading: RE-ZERO with the pan empty, then the "
+                  "vial on.",
+           2.4, cam_to=CAM_BAL, hold=3.6,
+           update=seq(during(0, 1, lambda w: person_at(W, 1040, -220, 0, 1 - w)), during(0.5, 1.0, water_in)),
            labels=[("bubble level", tuple(W.world_of("balance", (-80, -112, 66))), (0.18, 0.62)),
                    ("breeze-break lid\n(lift it to load)", tuple(W.world_of("balance", (0, 37.5, 176))), (0.70, 0.18))])
     # set up the hood: sash up, things in, sash down
