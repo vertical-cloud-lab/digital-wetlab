@@ -11,11 +11,15 @@ lab's permanent tools (balance, pipettes, spatulas, the OT-2, the lid camera, th
 - The repo's root [`SHOPPING_LIST.md`](../../SHOPPING_LIST.md) is the grant's list for the whole sulfide project
   (about 400 plates), not this run.
 
+**Updated 2026-11-16:** the stock vials are now the 5-dram (20 mL) vials Tim bought at BYU Chem Stores, $0.59 each.
+Until then this list had a case of VOA vials, which are listed at 28 mm across and would stick in the holders'
+28.2 mm pockets. One run fills ten vials. Tim has six, so six more makes twelve: ten and two spares.
+
 ## 1. Order these
 
 | Item | What it's for (SOP step) | One run uses | Order | Where, catalogue no. | Price on 11-11 |
 | --- | --- | --- | --- | --- | --- |
-| **20 mL clear VOA vials**, 28 × 57 mm, 24-414 caps with bonded PTFE/silicone septa, unprocessed | The ten stocks, made up by weight in the vials, then in the two printed holders on the deck (2.2-2.16, 3.5) | 10 | 1 case of 72 | Thermo Scientific [339-20C](https://www.thermofisher.com/order/catalog/product/339-20C). Fisher sells the same vial as [12-100-112](https://www.fishersci.com/shop/products/clear-voa-glass-vials-0-125in-septa/12100112), the one in byu-vcl's capper BOM | $138.00, or $120.52 online, at Thermo. Fisher's pages showed $180-260 |
+| **20 mL (5-dram) glass vials with a neck, with caps**, about 27 × 55 mm | The ten stocks, made up by weight in the vials, then in the two printed holders on the deck (2.2-2.16, 3.5). New ones every run | 10: four barium chloride, four sodium sulfate, the NaCl and the water | 12, so two are spares. **Tim bought 6 on 11-16: get 6 more** | BYU Chem Stores, item 0011486, "vial, w/neck 5 dram w/cap", sold singly. Fisher's 5-dram Kimble vial with a tooled neck, [03-339-10E](https://www.govsci.com/product-detail/Fisher--Scientific/0333910E/CS/), is listed at 27 × 55 mm and 20 mL, the size the holders are built for | $0.59 each at Chem Stores (11-16): about $6 a run |
 | **Clear adhesive plate seals**, not the breathable kind | Plate A at the pause (3.12), and the dry-run plate | 1 per plate | 1 case of 100 | Thermo Scientific Nunc sealing tape 232701, clear polypropylene: Fisher [12-565-492](https://www.fishersci.com/shop/products/nunc-sealing-tapes/12565492), or Sigma-Aldrich [T9571](https://www.sigmaaldrich.com/product/sigma/t9571), the same tape | $171.65 (Fisher), $159.00 (Sigma) |
 | **Matte black card or paper** | Cut to the adapter and laid under the plate, so the white barium sulfate shows (3.3) | 1 sheet | 1 pack | Any office or craft store | A few dollars |
 | **Temperature and humidity logger** | Next to the plate for the 72 h, a reading every 5 min (4.1-4.4) | 1 | 1 | Elitech RC-4HC (USB, 16,000 readings), or any logger that records both and exports a CSV | About $25 |
@@ -25,25 +29,25 @@ lab's permanent tools (balance, pipettes, spatulas, the OT-2, the lid camera, th
 | **Lidded plastic tub**, at least 18 × 13 cm inside and 7 cm deep | Carries both holders, vials capped, between the rooms (2.17, 1.4) | 1 | 1 | Any store: a 6-quart shoebox tub fits both holders | A few dollars |
 | **Food colouring** | The dry run's few dye wells | A few drops | 1 small set | Any grocery store | A few dollars |
 
-**About $350-410 for everything except the liner and the tray, and $460-560 with them.** The vials and the seals
-alone come to $280-310. One case of vials covers seven runs and a case of seals covers many more, so the next plates
-need little else.
+**About $235-280 for everything except the liner and the tray, and $350-430 with them** (11-16, with the Chem Stores
+vials). The seals are most of it, $159-172, and a case of them covers many plates. Each later plate needs ten new
+vials, about $6.
 
-### Before you order the vials
+### The vials
 
-- **Order the same vial.** Thermo lists it as 28 mm across. Tim calipered the lab's current vials at 27 mm (11-11), and
-  the holder is now built for 27 mm, with 28.2 mm pockets ([`cad/`](cad/README.md)). A vial of another make may be
-  wider or taller, and then it won't fit.
-- **Caliper a new vial before printing the holders.** Measure its outside diameter and its height without the cap, set
-  `VIAL` at the top of [`vial_holder.py`](vial_holder.py) to those numbers, and rebuild. Printed holes come out a few
-  tenths of a millimetre small, so a 28 mm vial would stick in a 28.2 mm pocket. Print one holder, try several vials
-  in it, then print the second.
+- **Buy the same Chem Stores vial.** The holders are built for 27 × 55 mm, Tim's caliper readings of the lab's vials
+  (11-11), with 28.2 mm pockets ([`cad/`](cad/README.md)). The VOA vials on this list until 11-16 (Thermo
+  [339-20C](https://www.thermofisher.com/order/catalog/product/339-20C), the same as Fisher 12-100-112, the vial in
+  byu-vcl's capper BOM) are listed at 28 × 57 mm. Printed holes come out a few tenths of a millimetre small, so a
+  28 mm vial would stick, and 20 mL scintillation vials (61 mm tall) would need a new labware definition.
+- **Try a new vial in each printed holder** before the run (both were printing on the H2D on 11-16). It should drop
+  in and lift out freely. If it's tight, set `VIAL` at the top of [`vial_holder.py`](vial_holder.py) to its calipered
+  diameter and height, and rebuild.
 - **Use new vials for every run.** A reused vial can carry barium sulfate seeds into a fresh stock, as the March sulfate
   tube may have. The emptied barium vials go in the barium solid waste, unless Risk Management says otherwise.
-- **Spare caps are 24-414,** which is what Thermo and Fisher list. The SOP said 24-400 until 11-11. The caps
-  come on the vials, so this only matters if you buy caps separately.
-- **A cheaper vial would mean a new holder.** 20 mL scintillation vials cost less but are 61 mm tall. The holder's
-  labware definition would need rebuilding for them, and the capper and the CubXL use the VOA vials.
+- **The dry run** needs vials only if the OT-2 fills its plate from them: one for each liquid, say one of water and one
+  of dyed water. Don't use the dyed one for a stock afterwards.
+- **The stocks need no septa.** The vials are uncapped on the deck (3.6), so the caps that come with them will do.
 
 ## 2. Free, but someone has to ask for them
 
