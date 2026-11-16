@@ -224,12 +224,12 @@ How much powder, water and stock goes in each of the ten vials: [What goes in ea
 | --- | --- | --- | --- |
 | 2.1 | EB B125 | Nitrile gloves (two pairs for barium), a lab coat and safety glasses, with long pants and closed-toe shoes. Read the barium chloride SDS; a printed copy goes in the room's SDS binder ([what that is](#the-sds-binder)). Keep every container closed and labelled (Dillon's rule) | - |
 | 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight. Label all ten 20 mL vials before any of them is weighed ([the names](#the-vial-labels)). Weigh eight of them empty and capped, pressing RE-ZERO with the pan empty before each one, and log each: the six dilution vials (10, 1 and 0.1 mM of each salt), the 0.1 M sodium sulfate and the 5 M NaCl. Add about 13.5 g of DI water to each dilution vial (a water-only transfer pipette for the last drops), cap it and log the reading again. Only these six get water now: the 0.1 M barium chloride, the 0.1 M sodium sulfate, the 5 M NaCl and the DI water vial stay empty until 2.4-2.11, 2.14-2.15 and 2.16. Never press RE-ZERO with a vial on the pan ([the balance's keys](#the-balance-re-zero-and-what-tare-means)) | - |
-| 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, three new transfer pipettes, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
+| 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, three new transfer pipettes and two spares, damp and dry wipes, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
 | 2.4 | next to the hood | Weigh the empty capped vial for the 0.1 M barium chloride the same way, and log it ("empty"). It isn't tared ([why](#the-balance-re-zero-and-what-tare-means)) | balance lid |
-| 2.5-2.8 | inside the hood | Open the barium chloride and the vial, and spatula about 312 mg into the vial. The lab's bottle is anhydrous; a dihydrate bottle would need 366 mg ([below](#the-barium-chloride-anhydrous-or-dihydrate)). Close both, and wipe the vial | barium chloride bottle, vial |
+| 2.5-2.8 | inside the hood | Open the barium chloride and the vial, and spatula about 312 mg into the vial. The lab's bottle is anhydrous; a dihydrate bottle would need 366 mg ([below](#the-barium-chloride-anhydrous-or-dihydrate)). Close both, wipe the vial with a damp wipe, then dry it with a dry one: a damp film would be weighed as salt at 2.9 | barium chloride bottle, vial |
 | 2.9 | next to the hood | RE-ZERO with the pan empty, weigh the capped vial and log it ("with salt"), with the form, maker and lot from the bottle's label. The salt is this reading minus the 2.4 one. 0.3123 g of anhydrous BaCl₂ (208.23 g/mol) is 1.500 mmol, as is 0.3664 g of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol). It needn't be exact: 0.28-0.33 g of the anhydrous salt is fine, and the stock's real concentration is worked out from the log, as salt × 4.802 ÷ water in mol/kg, both in grams ([how](#what-goes-in-each-vial)) | balance lid |
 | 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it, RE-ZERO with the pan empty, weigh it capped and log it ("with water"). The water is this reading minus the 2.9 one: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, a reading 15.31 g above the 2.4 one from either form. If the salt isn't 0.3123 g, log it and its real concentration is worked out from the readings, or add 48.0 g of water per gram of anhydrous salt to keep it at 0.1000 mol/kg ([both](#what-goes-in-each-vial)). It goes into A1 of the barium holder | vial |
-| 2.12-2.13 | inside the hood, and the balance after each transfer | 1.5 mL down the series, one water vial at a time: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM (about 1.53 g of the 0.1 M, then 1.50 g each: [why](#what-goes-in-each-vial)). A new transfer pipette for each vial, drawn to its 1.5 mL mark. Cap the vial, invert it ten times and wipe it. Then carry it to the balance, RE-ZERO with the pan empty, weigh it and log it, and bring it back before anything is drawn from it. The three pipettes go in the barium solid waste | barium vials |
+| 2.12-2.13 | inside the hood, and the balance after each transfer | 1.5 mL down the series, one water vial at a time: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM (about 1.53 g of the 0.1 M, then 1.50 g each: [why](#what-goes-in-each-vial)). A new transfer pipette for each vial, drawn to its 1.5 mL mark. Cap the vial, invert it ten times, wipe it damp and then dry. Then carry it to the balance, RE-ZERO with the pan empty, weigh it and log it, and bring it back before anything is drawn from it. The three pipettes go in the barium solid waste. Step by step, and what to do if a transfer is off: [2.12, one transfer at a time](#step-212-one-transfer-at-a-time) | barium vials |
 | 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat, tared: the empty boat on the pan, then RE-ZERO, so the display shows only the salt. 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg; a decahydrate bottle needs 483.3 mg and 14.73 g of water ([why](#what-goes-in-each-vial)). Through a funnel into its vial, rinse in to about 15 mL, cap, RE-ZERO with the pan empty, weigh and log it. Its water is that reading minus the vial's empty weight (2.2) and the salt | sodium sulfate bottle, vial |
 | 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate (about 1.52 g of the 0.1 M, then 1.50 g each), with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. 4.383 g NaCl, in a tared boat like the sulfate, with 13.4 g of DI water (15 mL of 5 M), its water worked out from its empty weight like the sulfate's. A vial of fresh DI water, filled to about 15 mL (plate A's water pass takes about 10 mL, by my count from the plan's layout); it isn't weighed. Ten vials in all | sodium chloride bottle, vials |
 | 2.17 | hood, then bench | Wipe the barium vials and their holder, then put both holders in the tub, lid on. Outer gloves off in the hood; liner and wipes into the barium waste. Sash fully down | tub lid |
@@ -510,9 +510,10 @@ has to get close to 1.5 mL.
    pipette for the last drops. Cap it and log the reading ("with water").
    - **Practise once while you're there.** Draw DI water to a pipette's 1.5 mL mark, squeeze it into a spare vial on
      the pan, and read. Two or three tries show you where 1.5 g is on the pipette.
-2. **Each transfer** (2.12 in the hood, 2.16 at the bench). Uncap the stronger stock and the next water vial. Draw to
-   the 1.5 mL mark with a new pipette and empty it into the water vial, tip against the inside wall. Cap both. Invert
-   the new vial ten times and wipe it.
+2. **Each transfer** (2.12 in the hood, 2.16 at the bench; step by step:
+   [below](#step-212-one-transfer-at-a-time)). Uncap the stronger stock and the next water vial. Draw to the 1.5 mL
+   mark with a new pipette and empty it into the water vial, tip against the inside wall. Cap both. Invert the new vial
+   ten times, wipe it with a damp wipe and dry it with a dry one.
 3. **Weigh it straight away,** before anything is drawn from it. RE-ZERO with the pan empty, weigh the capped vial and log it
    ("with stock"). A vial weighed after it has been drawn from gives the wrong number.
    - **For barium,** that's a round trip: the capped, wiped vial goes out to the balance and back into the hood, as
@@ -522,8 +523,10 @@ has to get close to 1.5 mL.
 **How close to 1.5 g is close enough:**
 - 1.45-1.55 g each time keeps the 0.1 mM vials within about 10 % of 0.1 mM.
 - 1.4-1.6 g keeps them within about 20 %, which is still fine, because the log has the real number.
-- Further out than that, or if anything spills, redo that vial with a spare one, weighed empty and with water as in
-  2.2. Every vial after it in the series has to be redone too.
+- Under 1.4 g, add a few more drops of the same stock with a new pipette and weigh it again
+  ([how](#step-212-one-transfer-at-a-time)).
+- Over 1.6 g, or if anything spills, redo that vial with a spare one, weighed empty and with water as in 2.2. Any vial
+  already made from it has to be redone too; weighing each vial before the next is drawn from it catches this first.
 
 **The arithmetic,** afterwards or on a calculator at the bench:
 - water w = "with water" − "empty", and stock s = "with stock" − "with water";
@@ -541,6 +544,79 @@ salt's molar mass, in kg/mol: 0.20823 for BaCl₂, 0.14204 for Na₂SO₄):
 For example, 1.530 g of the 0.1000 mol/kg barium chloride into 13.50 g of water: s′ = 1.530 ÷ 1.0208 = 1.4988 g, and
 0.1000 × 1.4988 ÷ (13.50 + 1.4988) = 0.00999 mol/kg, or 9.99 mM. Exactly 1.500 g would have made it 9.82 mM, because
 2 % of the 0.1 M stock's mass is the salt itself. Like the stocks, these concentrations are per kilogram of water.
+
+### Step 2.12, one transfer at a time
+
+Asked by @timothy-commins on [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6931962586)
+on 2026-11-16: "please elaborate on this", about 2.12's caption. 2.12 makes the 10, 1 and 0.1 mM barium chloride from
+the 0.1 M. Each is a tenth as strong as the one before it and is made from it: that's "down the series". All three
+transfers are done in the hood. After each one, the vial just added to goes out to the balance and back before anything
+is drawn from it. **2.16 is the same three transfers for sodium sulfate,** at the bench next to the balance, so with no
+trips in and out of the hood: about 1.52 g from the 0.1 M, then 1.50 g and 1.50 g.
+
+**Before the first transfer,** each of the three water vials needs its "with water" reading from 2.2 in the log: the
+capped vial on the balance after its water went in. The stock that goes in is worked out from it, so weigh any vial
+that hasn't got one before you start.
+
+| Transfer | Draw from | Into | Aim for |
+| --- | --- | --- | --- |
+| 1st | 0.1 M (pocket A1) | 10 mM (A2) | 1.53 g |
+| 2nd | 10 mM (A2) | 1 mM (A3) | 1.50 g |
+| 3rd | 1 mM (A3) | 0.1 mM (B1) | 1.50 g |
+
+**Each transfer:**
+1. **Read both labels.** Watch M and mM: the 0.1 M and 0.1 mM vials sit one behind the other, in A1 and B1.
+2. **Uncap both.** Each cap goes upside down on the liner beside its own vial. Every reading includes the cap, so each
+   cap goes back on its own vial.
+3. **Draw with a new transfer pipette.** Squeeze the bulb first, then put the tip in the stronger stock and let go
+   slowly until the liquid is a little past the 1.5 mL mark. Lift the tip out of the liquid, still inside the vial's
+   mouth, and squeeze gently until the liquid is down to the mark; the extra drips back into the same vial.
+4. **Empty it into the weaker vial,** with the tip just inside its neck, against the glass above the water. Squeeze the
+   bulb all the way and keep it squeezed while you lift the pipette out, or it sucks liquid back up. A drop left in the
+   tip is fine.
+5. **The pipette goes in the barium solid waste,** never into a second vial.
+6. **Cap both.**
+7. **Mix:** turn the vial you just added to upside down and back, ten times. If its cap pushes on rather than screwing
+   on, hold it on with a thumb.
+8. **Wipe it with a damp wipe, then dry it with a dry one.** Both wipes go in the barium solid waste. Water left on the
+   outside would be weighed as stock.
+9. **Weigh it.** Carry it out to the balance. With the pan empty and the lid closed, press RE-ZERO and wait for
+   0.0000 g. Put the vial on, close the lid, wait for the stability mark, and log every digit ("with stock").
+10. **Check it:** "with stock" − "with water" is the stock that went in. It should be about 1.5 g (below if it isn't).
+11. **Put it back in its pocket in the hood.** Only now is it drawn from, for the next transfer.
+
+After the third transfer, the three used pipettes are in the barium solid waste and the four barium vials are capped in
+the holder. Then 2.13.
+
+**If the stock isn't about 1.5 g:**
+- **1.40-1.60 g:** carry on, and log it. The log gives the vial's real concentration
+  ([the arithmetic](#the-dilutions-by-weight-with-transfer-pipettes)).
+- **Under 1.40 g:** with a new pipette, add a few more drops of the same stock, then cap the vial, mix it, dry it and
+  weigh it again. The stock is then the new reading minus "with water". Two spare pipettes go into the hood at 2.3 for
+  this.
+- **Over 1.60 g, or a spill:** make that vial again with a spare vial, labelled, weighed empty and with about 13.5 g of
+  water at the balance as in 2.2, then brought into the hood. The overshot vial is poured into the barium liquid waste.
+
+**Why it's done this way:**
+- **A series,** because going straight from 0.1 M to 0.1 mM would take 0.015 mL in 15 mL, less than a drop. Each
+  tenfold step moves 1.5 mL, enough to draw and weigh.
+- **One vial at a time,** because each transfer draws from the vial made just before it. That vial has to be mixed
+  first, or the pipette draws from a layer stronger or weaker than the rest. And it has to be weighed first: its "with
+  stock" reading is the only record of how much went in, and drawing from it loses that number.
+- **A new pipette each time,** because a used one keeps a drop or two of the stronger stock inside. One drop of the
+  0.1 M carried into the 1 mM vial would make it about a fifth too strong (a drop of about 0.03 mL, my estimate).
+- **Ten inversions,** because the stock that goes in sits in a layer until it's mixed.
+- **"The pipette only has to get close,"** because the balance measures what went in. 1.5 mL of these stocks weighs
+  about 1.5 g (about 1.52 g for the 0.1 M), so drawing to the mark lands near the target.
+- **Dry before weighing,** because a damp film is weighed with the vial. On a 1.5 g transfer it's a small error; on the
+  0.31 g of salt at 2.9 it matters more, so the 0.1 M vial is dried too (2.8).
+
+**Two cautions:**
+- **Keep phones out of the barium work.** Log the 2.12 readings on paper by the balance, or have a partner type them,
+  and copy them into a phone once the gloves are off. A phone touched with barium gloves carries it to hands and mouth
+  later ([the hazards](materials-and-safety.md)).
+- **Stock on a glove:** change the outer glove in the hood, the old one into the barium solid waste, before carrying
+  the vial out, so nothing gets on the balance.
 
 ## Does the OT-2 need to be in the hood?
 

@@ -254,6 +254,43 @@ PART_NOTES = {
 }
 
 
+# Under a step's caption on the player page: the step written out in full. Asked on PR 84 (Tim, 2026-11-16) about
+# 2.12's caption: "please elaborate on this". The README's "Step 2.12, one transfer at a time" has the same steps and
+# the reasons; {how} is filled in with its URL. Raw HTML, so no braces other than {how}.
+STEP_NOTES = {
+    "2.12": (
+        '<div class="how"><b>Step by step</b> (added 11-16). Three transfers, in this order: <b>0.1 M (A1) into '
+        '10 mM (A2)</b>, about 1.53 g; <b>10 mM (A2) into 1 mM (A3)</b>, 1.50 g; <b>1 mM (A3) into 0.1 mM (B1)</b>, '
+        '1.50 g. Before the first, each water vial needs its &ldquo;with water&rdquo; reading from 2.2 in the log. '
+        'For each transfer:<ol>'
+        '<li>Read both labels: M or mM?</li>'
+        '<li>Uncap both. Each cap goes upside down beside its own vial: every reading includes the cap.</li>'
+        '<li>A new transfer pipette. Squeeze the bulb, put the tip in the stronger stock and let go slowly, to a '
+        'little past the 1.5&nbsp;mL mark. Lift the tip out of the liquid, still in the vial&rsquo;s mouth, and '
+        'squeeze gently down to the mark.</li>'
+        '<li>Tip just inside the weaker vial&rsquo;s neck, against the glass. Squeeze all the way, and keep it '
+        'squeezed as you lift it out.</li>'
+        '<li>The pipette goes in the barium solid waste, never into a second vial.</li>'
+        '<li>Cap both. Turn the new vial upside down and back, ten times.</li>'
+        '<li>Wipe it with a damp wipe, then dry it with a dry one.</li>'
+        '<li>Out to the balance: RE-ZERO with the pan empty, then the vial on, lid closed. Log every digit as '
+        '&ldquo;with stock&rdquo;.</li>'
+        '<li>&ldquo;With stock&rdquo; minus &ldquo;with water&rdquo; should be about 1.5&nbsp;g. From 1.40 to '
+        '1.60&nbsp;g, carry on. Under 1.40&nbsp;g, add a few drops more with a new pipette and weigh it again. Over '
+        '1.60&nbsp;g, or a spill: make that vial again with a spare.</li>'
+        '<li>Back into its pocket in the hood. Only now is it drawn from, for the next transfer.</li></ol>'
+        'Log on paper while your gloves have touched barium, not on a phone. If stock gets on a glove, change the '
+        'outer glove in the hood before you carry the vial out. <a href="{how}">Why each step, and the '
+        'details</a>.</div>'
+    ),
+    "2.16": (
+        '<div class="how"><b>Step by step:</b> the same as <a href="#s2.12">2.12</a>, at the bench, so with no '
+        'trips in and out of the hood: 0.1 M into 10 mM (about 1.52&nbsp;g), then 10 into 1 and 1 into 0.1 mM '
+        '(1.50&nbsp;g each). Weigh each vial before anything is drawn from it. <a href="{how}">The details</a>.</div>'
+    ),
+}
+
+
 def player_page(rows, sha, readme_sha=None):
     """out/steps/player.html: every step on one page, each in its own player, with its caption written out.
 
@@ -271,6 +308,7 @@ def player_page(rows, sha, readme_sha=None):
     dil = readme_url + "#the-dilutions-by-weight-with-transfer-pipettes"
     bal = readme_url + "#the-balance-re-zero-and-what-tare-means"
     vials = readme_url + "#what-goes-in-each-vial"
+    how = readme_url + "#step-212-one-transfer-at-a-time"
     # the full video is the six parts joined, so its length is theirs
     frames = [json.loads((OUT / f"{p}.json").read_text()) for p in PARTS]
     full_s = round(sum(m["n_frames"] / m["fps"] for m in frames))
@@ -295,6 +333,7 @@ def player_page(rows, sha, readme_sha=None):
                 f'<p class="where">Where: {escape(r["where"])} &middot; {r["seconds"]:.0f} s</p>'
                 f'<video controls playsinline preload="metadata" width="1280" height="720">{sources("steps/" + r["file"])}'
                 f'</video><p>{escape(r["caption"])}</p>'
+                f'{STEP_NOTES.get(r["label"], "").format(how=how)}'
                 f'<p class="dl"><a href="{raw}">download {escape(r["file"])}</a></p></section>')
     def cell(text):  # a no-break space keeps each number on the same line as its unit on a phone
         return re.sub(r"(\d) (mg|g|mL|mM|M)\b", "\\1\u00a0\\2", escape(text))
@@ -323,6 +362,8 @@ nav li {{ margin: .2em 0; }}
 .scroll {{ overflow-x: auto; }} .vials {{ border-collapse: collapse; font-size: .85em; }}
 .vials th, .vials td {{ border: 1px solid #ccc; padding: .25em .35em; text-align: left; vertical-align: top; }}
 .vials th {{ background: #eef1fb; }}
+.how {{ background: #eef4ff; border-left: 4px solid #2a3d8f; padding: .6em .9em; border-radius: 4px; }}
+.how ol {{ margin: .4em 0 .4em 1.3em; padding: 0; }} .how li {{ margin: .2em 0; }}
 </style></head><body>
 <h1>Barium sulfate plate run: the 3-D SOP, one video per step</h1>
 <p>Each step has its own player: pause, drag the bar back, or replay it. The step's text is written under each video too.
