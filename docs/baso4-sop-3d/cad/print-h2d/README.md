@@ -1,4 +1,11 @@
-# One vial holder on the H2D: sliced, not yet printed (2026-11-11)
+# The vial holder on the H2D
+
+**2026-11-16: both holders sent to the H2D on one plate**, by the print run in [`run-2026-11-16/`](run-2026-11-16/README.md).
+It printed them with the **left 0.4 mm nozzle**, in white PLA. The right nozzle was still the 0.6 mm TPU high-flow one,
+which the print doesn't use. The repo's nozzle rule changed on 2026-11-13: only the nozzles a print uses have to be 0.2
+or 0.4 mm (CLAUDE.md). The rest of this page is the single-holder slice from 2026-11-11, and what blocked it then.
+
+## 2026-11-11: one holder, sliced but not sent
 
 The holder was first sliced for the lab's A1 mini ([`../print-a1mini/`](../print-a1mini/README.md)), and a print run sent
 it there at 21:04:38 UTC. Five minutes later @timothy-commins reported that the A1 mini is unplugged and asked for the
@@ -23,9 +30,10 @@ The print run that was still logged in read the H2D ("BYU VCL H2D - Théoden") i
 | Plate | Textured, with no parts on it, but with faint light outlines of rectangles in the middle |
 | HMS | A maintenance reminder (clean and lubricate the rails), not an error |
 
-**So the PLA file here matches the left side as it is:** 0.4 mm standard nozzle, PLA in the left AMS. **What blocks it is
-the right nozzle.** This repo's rule is 0.2 or 0.4 mm in both nozzles, and the right one is 0.6 mm (tensegrity-optimization
-prints with 0.6 mm). Someone has to swap it before this holder can be sent.
+**So the PLA file here matches the left side as it is:** 0.4 mm standard nozzle, PLA in the left AMS. **What blocked it on
+2026-11-11 was the right nozzle.** The repo's rule then was 0.2 or 0.4 mm in both nozzles, and the right one is 0.6 mm
+(tensegrity-optimization prints with 0.6 mm). Since 2026-11-13 the right nozzle no longer matters for a print that uses
+only the left one. On 2026-11-16, Studio named the sides: left 0.4 mm, right 0.6 mm.
 
 ![Top view of the sliced plate](plate_layout.png)
 
@@ -45,7 +53,7 @@ prints with 0.6 mm). Someone has to swap it before this holder can be sent.
 | Slicer | Bambu Studio 02.08.02.61 (AppImage, SHA-256 checked), its own profiles, run from the command line |
 | Printer | Bambu Lab H2D 0.4 nozzle (both nozzles 0.4 mm, standard flow), Textured PEI plate, Studio's default for the H2D |
 | Nozzle that prints | **Left.** With one filament, Studio's default grouping puts it on the left nozzle (`filament_map = 1`, and the start G-code heats `T1`) |
-| Process | Bambu's `0.20mm Standard @BBL H2D` with the A1 mini's three changes: **3 walls** (from 2), **0.15 mm elephant-foot compensation** (from 0) and **no brim** (from auto). The last two keep the bottom edge square, so it drops into the OT-2 slot's corner clips without trimming. The third wall stiffens the pockets |
+| Process | Bambu's `0.20mm Standard @BBL H2D` with the A1 mini's three changes: **3 walls** (from 2), **0.15 mm elephant-foot compensation** (the A1 mini's preset has 0; the H2D's already has 0.15) and **no brim** (from auto). The last two keep the bottom edge square, so it drops into the OT-2 slot's corner clips without trimming. The third wall stiffens the pockets |
 | Left as Bambu has them | 0.2 mm layers, 15 % grid infill, no supports; PETG at 250 °C (245 °C for the first layer) with the bed at 70 °C, PLA at 220 °C and 55 °C |
 | Start and end G-code | Bambu's own H2D sequences (start dated 2026-06-05, end 2026-07-29). `slice_h2d.py` resolves the machine profile's `include` templates. `slice_a1mini.py` drops them, so the CLI falls back to a generic start sequence; the print run found that in the A1 mini files. Checked here: no `G0 Z20`, `G29` or `M970 Q1` before layer 1 |
 | Part | The STL at `3a82993` (MD5 `90bbb63e…`, the same file the A1 mini slice used), upright as exported, centred on the 350 × 320 mm bed |
@@ -70,11 +78,13 @@ prints with 0.6 mm). Someone has to swap it before this holder can be sent.
 - **Both nozzles.** This run couldn't read them off the printer: it had no Bambu login, and this repo has no LAN access
   code for the H2D. The print run read them at 21:13 UTC (above): **0.4 mm on the left, 0.6 mm on the right.** Read
   both again before printing (Studio's Device page, or the printer's screen):
-  - **Both 0.4 mm:** print one of these files.
-  - **0.2 mm:** re-slice with `--nozzle 0.2`. That takes about 14 h 52 min for this part (230 layers, 60 g of PETG), so
-    swapping to 0.4 mm may be better.
-  - **Either one 0.6 mm or anything else:** don't print. This repo's rule is 0.2 or 0.4 mm in both nozzles, even
-    though only one prints. Swap first.
+  - **Left nozzle 0.4 mm:** print one of these files. They use only the left nozzle, so since 2026-11-13 the right one
+    can be any size. If the right one isn't 0.4 mm, Studio slices in "single-head printing" mode: choose *Left nozzle*
+    in its *Switch diameter* dialog (see [`run-2026-11-16/`](run-2026-11-16/README.md)).
+  - **Left nozzle 0.2 mm:** re-slice with `--nozzle 0.2`. That takes about 14 h 52 min for this part (230 layers, 60 g
+    of PETG), so swapping to 0.4 mm may be better.
+  - **Left nozzle anything else:** don't print. Swap it first, or slice for the right nozzle in Studio if that one is
+    0.2 or 0.4 mm.
   - **High-flow nozzles:** these files are for standard flow. Re-slice in Studio with the nozzle's flow type set.
 - **Which side has the filament.** These files print with the left nozzle, so they need the PETG (or PLA) on the left
   side: an AMS attached to the left nozzle, or the left spool holder. At 21:12 UTC the left AMS had PLA and no PETG.

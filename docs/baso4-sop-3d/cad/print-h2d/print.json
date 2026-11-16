@@ -4,7 +4,7 @@
  "request_text": "print from the h2d, the a1 mini is currently unplugged",
  "requested_by": "timothy-commins",
  "prep_run": "https://github.com/vertical-cloud-lab/digital-wetlab/actions/runs/43100722121",
- "status": "sliced, not sent. The prep run had no Bambu login (claude.yml does not get it), so nothing went to the printer",
+ "status": "printing: both holders on one plate, sent to the H2D at 2026-11-16T17:30:53Z by print run 43914383551 (left 0.4 mm nozzle, white PLA). See run-2026-11-16/README.md",
  "before_this": "the A1 mini slice in ../print-a1mini was sent to the A1 mini at 21:04:38 UTC by print run 43085653316; at 21:09:58 UTC the requester reported the A1 mini unplugged",
  "printer": "the lab's Bambu Lab H2D (two nozzles)",
  "nozzles": {
@@ -26,10 +26,20 @@
    "sides": "inferred: Studio's H2D profiles offer TPU high flow only on the right extruder, so the 0.6 mm is right and the 0.4 mm left",
    "verdict": "blocked: this repo needs 0.2 or 0.4 mm in both nozzles; the right (0.6 mm, tensegrity-optimization's) has to be swapped first"
   },
-  "rule": "this repo prints only with 0.2 or 0.4 mm, in both nozzles (CLAUDE.md)",
+  "rule": "since 2026-11-13 (sgbaird, CLAUDE.md): every nozzle the print uses must be 0.2 or 0.4 mm, and the slice must be for that diameter; a nozzle the print doesn't use can be any size. Before that, both H2D nozzles had to be 0.2 or 0.4 mm, which is why the 2026-11-11 reading below blocked this file",
   "if_0.2": "re-slice: slice_h2d.py --nozzle 0.2 (about 14 h 52 min, 230 layers, 59.7 g PETG; not committed)",
   "if_other": "do not print; wait for a person to swap both nozzles",
-  "if_filament_only_on_right": "slice the project in Studio's GUI with the filament grouped on the right nozzle; the command line stops with 'No valid nozzle found' when a project sets a manual map"
+  "if_filament_only_on_right": "slice the project in Studio's GUI with the filament grouped on the right nozzle; the command line stops with 'No valid nozzle found' when a project sets a manual map",
+  "reading_2026-11-16": {
+   "when": "2026-11-16T17:18:03Z",
+   "by": "print run 43914383551, Studio's Printer Parts dialog (run-2026-11-16/h2d_nozzles_1718Z.png)",
+   "nozzles": [
+    "left: 0.4 mm hardened steel, standard flow",
+    "right: 0.6 mm hardened steel, TPU high flow"
+   ],
+   "sides": "named by Studio's Switch diameter dialog: 'Left nozzle: 0.4mm', 'Right nozzle: 0.6mm'",
+   "verdict": "allowed under the 2026-11-13 rule for a print on the left nozzle only"
+  }
  },
  "source": {
   "stl": "docs/baso4-sop-3d/cad/vial_holder_20ml_x6.stl",
@@ -125,5 +135,89 @@
   "plate": "textured, no parts, faint light outlines of rectangles in the middle",
   "hms": "maintenance reminder only (clean and lubricate the rails)",
   "matching_file": "vial_holder_20ml_x6_H2D_PLA_0.4.gcode.3mf (left nozzle, 0.4 mm standard flow, PLA)"
- }
+ },
+ "print_runs": [
+  {
+   "run": "https://github.com/vertical-cloud-lab/digital-wetlab/actions/runs/43914383551",
+   "request": "https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6923281825",
+   "request_text": "please print out the 2 vial holders on the h2d",
+   "requested_by": "timothy-commins",
+   "approved_by": "timothy-commins (the requester)",
+   "printer": "BYU VCL H2D - Théoden",
+   "what": "two holders on one plate, one behind the other on the left half of the bed",
+   "nozzle_used": "left, 0.4 mm hardened steel, standard flow; the right (0.6 mm TPU high flow) not used",
+   "state_before": "idle; last job doser_baseplate_auger_H2D_PLA Finished (1250 layers); heaters at room temperature; HMS: maintenance reminder only (clean and lubricate the X rail, YZ rods and extruder lift rail)",
+   "ams": "left AMS: A1 empty, A2 black PLA, A3 white PLA, A4 blue PLA; right AMS HT empty",
+   "go": {
+    "frame": "run-2026-11-16/h2d_camera_1717Z.png (2026-11-16T17:17:10Z), posted at the top of https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6923485503 at 17:19:45Z",
+    "own_read": "could not tell: the bed was lowered after the last job, so only the back strip of the plate was in view (empty); a person was asked to check",
+    "replies": [
+     "'plate clear', timothy-commins, 2026-11-16T17:21:04Z",
+     "'@claude the plate is clear', timothy-commins, 2026-11-16T17:26:35Z (also started a separate @claude run, which only replied)"
+    ],
+    "wait_ended": "2026-11-16T17:21:04Z, with the go from the requester (write access), 79 s after the frame was posted",
+    "second_frame": "run-2026-11-16/h2d_camera_presend_1729Z.png (17:29:49Z): the same as the first",
+    "after_send": "run-2026-11-16/h2d_camera_bed_up_1732Z.png (17:32:39Z): bed up, whole plate in view and empty"
+   },
+   "slicer": {
+    "app": "Bambu Studio 02.08.02.61 GUI on the runner (byu-vcl bambu/studio/setup_runner.sh at 703f941)",
+    "source": "../vial_holder_20ml_x6.stl (MD5 90bbb63e4d7f4a5f3ed601ebabacad02), imported, then Clone x1 and Arrange all objects",
+    "printer_preset": "Bambu Lab H2D 0.4 nozzle, after Sync info and Switch diameter -> Left nozzle 0.4mm (single-head printing)",
+    "process_preset": "0.20mm Standard @BBL H2D",
+    "filament_preset": "Bambu PLA Basic @BBL H2D",
+    "plate": "Textured PEI Plate",
+    "changed_in_gui": {
+     "wall_loops": "2 -> 3",
+     "brim_type": "auto -> no_brim"
+    },
+    "already_preset": {
+     "elefant_foot_compensation": "0.15 (fdm_process_dual_0.20_nozzle_0.4)"
+    },
+    "changed_by_studio": {
+     "enable_arc_fitting": "-> 0 ('Curve planning enhancement support detected on your printer')"
+    },
+    "gcode_records": {
+     "nozzle_diameter": "0.4,0.4",
+     "nozzle_type": "hardened_steel,hardened_steel",
+     "nozzle_volume_type": "Standard,TPU High Flow",
+     "filament_map": "1 (left)"
+    }
+   },
+   "sent": "2026-11-16T17:30:53Z",
+   "sent_file": "run-2026-11-16/vial_holder_20ml_x6_x2_H2D_PLA_0.4_sent.gcode.3mf (the 3MF Studio uploaded, DesignerUserId blanked; plate G-code MD5 982b5d22920d81c2571e709138dbb96f, identical to Studio's slice)",
+   "send_options": "job vial_holder_20ml_x6; PLA from A3 (white) on the left nozzle; Textured PEI; timelapse off; auto bed levelling on; flow dynamics calibration on; nozzle offset calibration off",
+   "estimate": {
+    "time": "3h 14m 49s",
+    "filament_g": 160.18,
+    "filament_m": 52.85,
+    "layers": 115,
+    "max_z_mm": 23.0,
+    "first_layer_s": 629.7
+   },
+   "gcode_checks": {
+    "how": "check_slice_x2.py on the sent file; output in run-2026-11-16/check_slice_x2_output.txt",
+    "footprints_mm": "both 127.76 x 85.48 at z 1, 10 and 21",
+    "pocket_diameters_mm": "all twelve 28.20 at z 6, 12 and 18",
+    "bboxes_on_bed_mm": [
+     [
+      51.33,
+      161.21,
+      178.67,
+      246.27
+     ],
+     [
+      51.33,
+      73.73,
+      178.67,
+      158.79
+     ]
+    ],
+    "inside_left_nozzle_reach": true,
+    "right_nozzle_T0_heated": false,
+    "prime_tower_or_wipe": "none"
+   },
+   "timeline": "run-2026-11-16/README.md",
+   "outcome": "printing"
+  }
+ ]
 }
