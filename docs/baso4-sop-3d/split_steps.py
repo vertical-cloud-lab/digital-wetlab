@@ -256,10 +256,17 @@ PART_NOTES = {
 
 # Under a step's caption on the player page: the step written out in full. Asked on PR 84 (Tim, 2026-11-16) about
 # 2.12's caption: "please elaborate on this". The README's "Step 2.12, one transfer at a time" has the same steps and
-# the reasons; {how} is filled in with its URL. Raw HTML, so no braces other than {how}.
+# the reasons; {how} is filled in with its URL. Later that night Tim asked whether the liquid for the other barium
+# vials all comes from one vial ("the 1m vial"): no, it's a chain, so 2.12's note starts with a diagram of it,
+# chain_diagram.py's PNG, and {chain} is filled in with its raw URL at the clips' commit. Raw HTML, so no braces
+# other than {how} and {chain}.
 STEP_NOTES = {
     "2.12": (
-        '<div class="how"><b>Step by step</b> (added 11-16). Three transfers, in this order: <b>0.1 M (A1) into '
+        '<div class="how"><b>A chain: each vial is made from the one before it.</b> The 0.1 M vial gives liquid '
+        'only to the 10 mM vial; there is no 1 M vial.'
+        '<img src="{chain}" alt="0.1 M into 10 mM (about 1.53 g), then 10 mM into 1 mM (1.50 g), then 1 mM into '
+        '0.1 mM (1.50 g)" style="display:block;width:100%;max-width:760px;margin:.5em 0">'
+        '<b>Step by step</b> (added 11-16). Three transfers, in this order: <b>0.1 M (A1) into '
         '10 mM (A2)</b>, about 1.53 g; <b>10 mM (A2) into 1 mM (A3)</b>, 1.50 g; <b>1 mM (A3) into 0.1 mM (B1)</b>, '
         '1.50 g. Before the first, each water vial needs its &ldquo;with water&rdquo; reading from 2.2 in the log. '
         'For each transfer:<ol>'
@@ -285,7 +292,7 @@ STEP_NOTES = {
     ),
     "2.16": (
         '<div class="how"><b>Step by step:</b> the same as <a href="#s2.12">2.12</a>, at the bench, so with no '
-        'trips in and out of the hood: 0.1 M into 10 mM (about 1.52&nbsp;g), then 10 into 1 and 1 into 0.1 mM '
+        'trips in and out of the hood: 0.1 M into 10 mM (about 1.52&nbsp;g), then 10 mM into 1 mM and 1 mM into 0.1 mM '
         '(1.50&nbsp;g each). Weigh each vial before anything is drawn from it. <a href="{how}">The details</a>.</div>'
     ),
 }
@@ -309,6 +316,7 @@ def player_page(rows, sha, readme_sha=None):
     bal = readme_url + "#the-balance-re-zero-and-what-tare-means"
     vials = readme_url + "#what-goes-in-each-vial"
     how = readme_url + "#step-212-one-transfer-at-a-time"
+    chain = f"https://raw.githubusercontent.com/{REPO}/{sha}/{REPO_PATH}/barium_dilution_chain.png"
     # the full video is the six parts joined, so its length is theirs
     frames = [json.loads((OUT / f"{p}.json").read_text()) for p in PARTS]
     full_s = round(sum(m["n_frames"] / m["fps"] for m in frames))
@@ -333,7 +341,7 @@ def player_page(rows, sha, readme_sha=None):
                 f'<p class="where">Where: {escape(r["where"])} &middot; {r["seconds"]:.0f} s</p>'
                 f'<video controls playsinline preload="metadata" width="1280" height="720">{sources("steps/" + r["file"])}'
                 f'</video><p>{escape(r["caption"])}</p>'
-                f'{STEP_NOTES.get(r["label"], "").format(how=how)}'
+                f'{STEP_NOTES.get(r["label"], "").format(how=how, chain=chain)}'
                 f'<p class="dl"><a href="{raw}">download {escape(r["file"])}</a></p></section>')
     def cell(text):  # a no-break space keeps each number on the same line as its unit on a phone
         return re.sub(r"(\d) (mg|g|mL|mM|M)\b", "\\1\u00a0\\2", escape(text))

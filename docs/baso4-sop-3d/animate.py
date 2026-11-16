@@ -709,7 +709,7 @@ def sop2(part=None):
         W.set("balance_lid", T((0, -40 * lift, 130 * lift)) @ lid0)
         if v < 0.46:
             S.gauges = gauges("EB B125", "INSIDE the hood", "barium vials",
-                              [("series", "0.1 M -> 10 -> 1 -> 0.1 mM"), ("now", f"{conc[s_]} into the {conc[d]} vial"),
+                              [("series", "0.1 M -> 10 mM -> 1 mM -> 0.1 mM"), ("now", f"{conc[s_]} into the {conc[d]} vial"),
                                ("pipette", "a new transfer pipette")])
         elif v < 0.72:
             S.gauges = gauges("EB B125", "inside -> next to the hood", "-",
@@ -719,11 +719,12 @@ def sop2(part=None):
                               [("balance", f"log the {conc[d]} vial, 'with stock'"), ("stock", "= with stock - with water")])
         else:
             S.gauges = gauges("EB B125", "next to -> inside the hood", "-", [("vial", f"{conc[d]}: back in its holder")])
-    S.gauges = gauges("EB B125", "INSIDE the hood", "barium vials", [("series", "0.1 M -> 10 -> 1 -> 0.1 mM")])
-    S.step("2.12", "One vial at a time, 1.5 mL down the series: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into "
-                   "0.1 mM. A new transfer pipette for each, drawn to its 1.5 mL mark. Cap the vial, invert it and wipe "
-                   "it, then weigh it at the balance and log the reading before anything is drawn from it. The balance "
-                   "measures each transfer, so the pipette only has to get close.",
+    S.gauges = gauges("EB B125", "INSIDE the hood", "barium vials", [("series", "0.1 M -> 10 mM -> 1 mM -> 0.1 mM")])
+    S.step("2.12", "Each vial is made from the one before it, one at a time: about 1.53 g of the 0.1 M into the 10 mM "
+                   "vial, then 1.50 g of the 10 mM into the 1 mM vial, then 1.50 g of the 1 mM into the 0.1 mM vial. "
+                   "That's about 1.5 mL each, with a new transfer pipette drawn to its 1.5 mL mark. Cap the vial, "
+                   "invert it, wipe it damp and then dry, then weigh it at the balance and log it before anything is "
+                   "drawn from it. The balance measures each transfer, so the pipette only has to get close.",
            13.5, update=dilute, hold=0.6,
            labels=[("transfer pipette\n(a new one for each vial)", (380, 380, WS + 20), (0.86, 0.22)),
                    ("weigh each vial capped,\nbefore it is drawn from", tuple(W.world_of("balance", (0, 37.5, 176))),
@@ -842,10 +843,11 @@ def sop2(part=None):
         else:
             S.gauges = gauges("EB B125", "next to the hood", "sodium chloride bottle",
                               [("balance", "4.3830 g NaCl" if t > 0.75 else "-")])
-    S.step("2.16", "The same tenfold series for sodium sulfate, beside the balance: a new transfer pipette for each "
-                   "vial, and each vial weighed capped and logged before it is drawn from. Then 4.383 g of sodium "
-                   "chloride in a tared boat, with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: "
-                   "ten vials in all, each logged.",
+    S.step("2.16", "The same chain for sodium sulfate, beside the balance: about 1.52 g of the 0.1 M into the 10 mM "
+                   "vial, then 1.50 g of the 10 mM into the 1 mM vial, then 1.50 g of the 1 mM into the 0.1 mM vial, "
+                   "each with a new transfer pipette, and each vial weighed capped and logged before it is drawn from. "
+                   "Then 4.383 g of sodium chloride in a tared boat, with 13.4 g of DI water (15 mL of 5 M), and a "
+                   "vial of fresh DI water: ten vials in all.",
            10.0, update=rest, hold=1.2,
            labels=[("5 M NaCl and DI water", tuple(W.world_of("rack_bench", (20, -20, 80))), (0.82, 0.22))])
     # clean up and pack
