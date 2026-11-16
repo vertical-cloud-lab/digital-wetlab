@@ -2,7 +2,7 @@
 
 Asked on [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84) by @timothy-commins on 2026-11-11: what
 to buy for the dry run and plate A, assuming new vials and consumables. The heater-shaker, the 96-well plates and the
-lab's permanent tools (balance, pipettes, spatulas, the OT-2, the lid camera, the printers) are on hand.
+lab's permanent tools (balance, spatulas, the OT-2, the lid camera, the printers) are on hand. There is no hand pipette (Tim, 11-16), so the dilutions are weighed instead ([how](README.md#the-dilutions-by-weight-with-transfer-pipettes)).
 
 - The items and amounts come from the SOP's [materials list](materials-and-safety.md), the
   [monitoring plan](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md)
@@ -14,6 +14,8 @@ lab's permanent tools (balance, pipettes, spatulas, the OT-2, the lid camera, th
 **Updated 2026-11-16:** the stock vials are now the 5-dram (20 mL) vials Tim bought at BYU Chem Stores, $0.59 each.
 Until then this list had a case of VOA vials, which are listed at 28 mm across and would stick in the holders'
 28.2 mm pockets. One run fills ten vials. Tim has six, so six more makes twelve: ten and two spares.
+
+**Updated later on 2026-11-16:** the lab has no 100-1000 µL hand pipette, and Chem Stores doesn't sell one. So the six 1.5 mL dilution transfers go in with disposable transfer pipettes and are weighed, and the 1000 µL tips are off the list ([how](README.md#the-dilutions-by-weight-with-transfer-pipettes)).
 
 ## 1. Order these
 
@@ -65,7 +67,7 @@ vials, about $6.
 | **Sodium sulfate, anhydrous**, ACS | 0.21 g | 500 g ([byu-vcl 15](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3991816640)) | Sigma-Aldrich [239313-500G](https://www.sigmaaldrich.com/US/en/product/sigald/239313), about $67-96 depending on seller |
 | **Sodium chloride**, ACS | 4.4 g | 500 g ([byu-vcl 15](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3991816640)) | Sigma-Aldrich [S9888-500G](https://www.sigmaaldrich.com/US/en/product/sigald/s9888), $83.30 |
 | **Opentrons 300 µL tips** | One full rack, about 78 tips: 72 for the sulfate (a new tip per well) and one for each other stock. The protocol isn't written yet | Ordered on 07-31 ([byu-vcl 168](https://github.com/vertical-cloud-lab/byu-vcl/issues/168#issuecomment-5138098529)); count the full racks left | [Opentrons](https://opentrons.com/products/opentrons-300ul-tips-1000-refills): $850 for 100 racks (999-00009) or $530 for 100 refills. In July eBay had boxes of 10 racks for about $49 |
-| **100-1000 µL tips** for the hand pipette | 6, one per dilution (2.12, 2.16). Each 1.5 mL transfer is two 750 µL draws with the same tip. Have about 10 at hand, for spares | Not on record, and neither is a hand pipette (the 10-23 list) | Tips that fit the pipette: Rainin LTS pipettes take only LTS tips, and most other brands take universal-fit 1000 µL tips. A rack of 96 covers about nine runs. Without a pipette, dilute by weight with disposable transfer pipettes, which are on record |
+| **Disposable transfer pipettes**, polyethylene, graduated to 3 mL in 0.5 mL steps | About 8: one for each of the six dilution vials (3 in the hood at 2.12, 3 at the bench at 2.16), and one or two for water only (2.2). Have about 12, for spares and a practice draw. They carry about 1.5 mL each, and the balance measures it ([how](README.md#the-dilutions-by-weight-with-transfer-pipettes)) | About 100 "disposable pipettes" from Chem Stores on 03-04 ([byu-vcl 15](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3999005476)); check what's left, and that they're plastic. No hand pipette (Tim, 11-16) | Chem Stores. A few cents each: e.g. Globe Scientific 135030 (7 mL bulb, graduated to 3 mL, 155 mm), 500 to a box, is about $290-360 for a case of 5,000 ([Transcat](https://www.transcat.com/globe-scientific-transfer-pipet-7ml-graduated-large-bulb-non-sterile)) |
 | **Nitrile gloves** | About 10 pairs: two pairs at a time for barium | Yes | A box of 100 in each wearer's size |
 | **Weigh boats, two spatulas, a small funnel, labels, a marker, Kimwipes, wash bottles** | 2 weigh boats, 10 labels | Yes (byu-vcl 15: [weigh boats, spatulas](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3987730523); [the rest](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3999005476)) | |
 | **PETG or PLA filament** for the two holders | About 70 g per holder at 15 % infill, about 140 g for both (my estimate from the STL) | The printers' spools | |

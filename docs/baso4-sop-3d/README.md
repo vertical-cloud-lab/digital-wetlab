@@ -36,8 +36,11 @@ printed.
 the videos now use the amounts for what the lab has.
 - **The barium chloride is anhydrous,** so 2.5-2.11 weigh about 312 mg, not the dihydrate's 366 mg
   ([below](#the-barium-chloride-anhydrous-or-dihydrate)).
-- **The 100-1000 µL hand pipette takes a new tip for each dilution vial,** and each 1.5 mL is two 750 µL draws with
-  that tip: three tips in the hood (2.12) and three at the bench (2.16).
+- **The dilutions are made by weight, with disposable transfer pipettes.** The lab has no 100-1000 µL hand pipette,
+  and Chem Stores doesn't sell one ([Tim, 11-16](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6927828161)).
+  Each 1.5 mL goes in with a new transfer pipette, and each vial is weighed before and after, so the balance measures
+  every transfer: three in the hood (2.12) and three at the bench (2.16)
+  ([below](#the-dilutions-by-weight-with-transfer-pipettes)). This replaces the hand-pipette steps added earlier that day.
 - **Parts 2a and 2b, their step clips, their GIFs and the full video are re-rendered** with these numbers and with
   the 27 × 55 mm vials. The other parts still have 28 × 57 mm vials, which look the same at that size. No other
   amount changed.
@@ -191,15 +194,15 @@ The six part MP4s and the full video are at the end of the page:
 | # | Where | What | Opened |
 | --- | --- | --- | --- |
 | 2.1 | EB B125 | Nitrile gloves (two pairs for barium), a lab coat and safety glasses, with long pants and closed-toe shoes. The barium chloride SDS goes in the binder. Keep every container closed and labelled (Dillon's rule) | - |
-| 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight. Weigh 13.50 g of DI water into each of six capped 20 mL vials, for the dilutions | - |
-| 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
+| 2.2 | next to the hood | The HR-100A on the bench beside the hood. If it was moved, plug it in at least an hour before weighing: it drifts for about an hour after a move ([powder-doser 157](https://github.com/vertical-cloud-lab/powder-doser/issues/157)). Level it, check it with a check weight. Label six 20 mL vials for the dilutions. For each: zero the empty pan, weigh the capped vial and log it, add about 13.5 g of DI water (a water-only transfer pipette for the last drops), cap it and log the reading again. Don't tare a vial for these: [why](#the-dilutions-by-weight-with-transfer-pipettes) | - |
+| 2.3 | inside the hood | Sash up to load: liner, tray, barium waste bottle, a wash bottle of fresh DI water, the barium chloride, the barium vial holder with three of the water vials, three new transfer pipettes, a spatula, all at least 15 cm (6 in) inside the sash. Sash down to its working-height sticker | - |
 | 2.4 | next to the hood | Put the empty capped vial for the 0.1 M barium chloride on the pan and tare it | balance lid |
 | 2.5-2.8 | inside the hood | Open the barium chloride and the vial, and spatula about 312 mg into the vial. The lab's bottle is anhydrous; a dihydrate bottle would need 366 mg ([below](#the-barium-chloride-anhydrous-or-dihydrate)). Close both, and wipe the vial | barium chloride bottle, vial |
 | 2.9 | next to the hood | Weigh the capped vial and log the reading, with the form, maker and lot from the bottle's label. 0.3123 g of anhydrous BaCl₂ (208.23 g/mol) is 1.500 mmol, as is 0.3664 g of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol); for another mass, work out its concentration | balance lid |
 | 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it and weigh it capped: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, which is a reading of 15.31 g from either form. It goes into A1 of the barium holder | vial |
-| 2.12-2.13 | inside the hood | 1.5 mL down the series into the three water vials, with a new tip for each vial: 10, 1 and 0.1 mM. On a 100-1000 µL pipette, that's two 750 µL draws with the same tip. Cap, invert and label | barium vials |
+| 2.12-2.13 | inside the hood, and the balance after each transfer | 1.5 mL down the series, one water vial at a time: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM. A new transfer pipette for each vial, drawn to its 1.5 mL mark. Cap the vial, invert it ten times and wipe it. Then carry it to the balance, zero the empty pan, weigh it and log it, and bring it back before anything is drawn from it. The three pipettes go in the barium solid waste | barium vials |
 | 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat: 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg. Through a funnel into its vial, rinse in to about 15 mL, cap, weigh | sodium sulfate bottle, vial |
-| 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate. 4.383 g NaCl with 13.4 g of DI water (15 mL of 5 M). A vial of fresh DI water. Ten vials in all | sodium chloride bottle, vials |
+| 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate, with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. 4.383 g NaCl with 13.4 g of DI water (15 mL of 5 M). A vial of fresh DI water. Ten vials in all | sodium chloride bottle, vials |
 | 2.17 | hood, then bench | Wipe the barium vials and their holder, then put both holders in the tub, lid on. Outer gloves off in the hood; liner and wipes into the barium waste. Sash fully down | tub lid |
 | 1.4 | between buildings | Carry the tub closed | nothing |
 | 3.1 | CB 154 | Before the day: OT-2 calibrated (deck, tip length, pipette offset, Labware Position Check), the heater-shaker in slot 7 with its 96 flat-bottom adapter, the lid camera refocused for the plate on it, Pi 5 on its 27 W supply, camera exposure and white balance locked, rail lights on with no timer, capture job tested. Beside the OT-2: a labelled barium waste bottle, damp wipes and a wash bottle of DI water | - |
@@ -233,6 +236,69 @@ The SOP was first written for the dihydrate.
   own bottle, from its maker, for the binder (2.1).
 - **The clips show the anhydrous salt and 312 mg,** since parts 2a and 2b were re-rendered on 11-16, and so do their
   GIFs and MP4s and the full video.
+
+### The dilutions: by weight, with transfer pipettes
+
+The lab has no 100-1000 µL hand pipette, and BYU Chem Stores doesn't sell one
+([Tim, 2026-11-16](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6927828161)). So each
+1.5 mL transfer (2.12, 2.16) goes in with a disposable transfer pipette, and the balance measures it. The pipette only
+has to get close to 1.5 mL.
+- **It's more accurate than a hand pipette.** The balance reads to 0.1 mg, so each 1.5 g transfer is known to about
+  0.01 %, and each tenfold step to better than 0.1 %. A calibrated hand pipette is good to about 1 % a transfer, and
+  those errors add up down the series.
+- **The stocks won't land exactly on 10, 1 and 0.1 mM, and they don't need to.** Each one's real concentration comes
+  from the log, and so does each well's. The robot's volumes stay as planned. Unlike a pipette's error, this one is
+  known, so each well's real saturation index is known too.
+- **Any pipette works,** since it isn't measuring. Plastic transfer pipettes are the easiest. Glass Pasteur pipettes
+  work too, but the barium ones would then be sharps in the barium waste.
+
+**What it takes:**
+- **Disposable polyethylene transfer pipettes,** graduated to 3 mL in 0.5 mL steps. One per dilution vial (three in
+  the hood, three at the bench), one for water only, and spares: about 10 a run. Sterling's 03-04 Chem Stores list
+  bought about 100 "disposable pipettes"
+  ([byu-vcl 15](https://github.com/vertical-cloud-lab/byu-vcl/issues/15#issuecomment-3999005476)), so check what's
+  left.
+- **The balance beside the hood,** reading to 0.1 mg, and the log sheet.
+
+**The weighings.** Log every reading as the balance shows it: zero it with the pan empty, then put the vial on. Don't
+tare a dilution vial. Zeroing the empty pan first also clears the tare left from the 0.1 M barium chloride vial
+(2.4-2.11).
+1. **2.2, before any salt is opened.** Label the six dilution vials. For each one: zero the empty pan, weigh the
+   capped vial and log it ("empty"). Add about 13.5 g of DI water: the wash bottle, then the water-only transfer
+   pipette for the last drops. Cap it and log the reading ("with water").
+   - **Practise once while you're there.** Draw DI water to a pipette's 1.5 mL mark, squeeze it into a spare vial on
+     the pan, and read. Two or three tries show you where 1.5 g is on the pipette.
+2. **Each transfer** (2.12 in the hood, 2.16 at the bench). Uncap the stronger stock and the next water vial. Draw to
+   the 1.5 mL mark with a new pipette and empty it into the water vial, tip against the inside wall. Cap both. Invert
+   the new vial ten times and wipe it.
+3. **Weigh it straight away,** before anything is drawn from it. Zero the empty pan, weigh the capped vial and log it
+   ("with stock"). A vial weighed after it has been drawn from gives the wrong number.
+   - **For barium,** that's a round trip: the capped, wiped vial goes out to the balance and back into the hood, as
+     the 0.1 M vial did in 2.9-2.11. Three trips in all.
+4. **Then the next vial:** 10 mM into 1 mM, then 1 mM into 0.1 mM, each weighed the same way.
+
+**How close to 1.5 g is close enough:**
+- 1.45-1.55 g each time keeps the 0.1 mM vials within about 10 % of 0.1 mM.
+- 1.4-1.6 g keeps them within about 20 %, which is still fine, because the log has the real number.
+- Further out than that, or if anything spills, redo that vial with a spare one, weighed empty and with water as in
+  2.2. Every vial after it in the series has to be redone too.
+
+**The arithmetic,** afterwards or on a calculator at the bench:
+- water w = "with water" − "empty", and stock s = "with stock" − "with water";
+- the new vial's concentration = the concentration it was drawn from × s′ ÷ (w + s′), with s′ = s ÷ f.
+
+f takes the salt's own mass out of the stock you added. It's 1 + (the concentration drawn from, in mol/kg) × (the
+salt's molar mass, in kg/mol: 0.20823 for BaCl₂, 0.14204 for Na₂SO₄):
+
+| Drawn from | f, barium chloride | f, sodium sulfate |
+| --- | --- | --- |
+| 0.1 M | 1.0208 | 1.0142 |
+| 10 mM | 1.0021 | 1.0014 |
+| 1 mM | 1.0002 | 1.0001 |
+
+For example, 1.530 g of the 0.1000 mol/kg barium chloride into 13.50 g of water: s′ = 1.530 ÷ 1.0208 = 1.4988 g, and
+0.1000 × 1.4988 ÷ (13.50 + 1.4988) = 0.00999 mol/kg, or 9.99 mM. Exactly 1.500 g would have made it 9.82 mM, because
+2 % of the 0.1 M stock's mass is the salt itself. Like the stocks, these concentrations are per kilogram of water.
 
 ## Does the OT-2 need to be in the hood?
 
@@ -345,8 +411,9 @@ clipping range every frame, which the lid camera's close view needs.
   5 M NaCl is 4.383 g with 13.4 g of water, which makes 15 mL at its density of about 1.19 g/mL.
 - **The plate won't fit in the breeze break either.** The run plan weighs the plate at the start and the end, so
   that weighing needs another balance, or the breeze break taken off.
-- **Hand pipettes.** The 10-23 list marks the 100-1000 µL pipette as "get". Without one, dilute by weight, as the
-  monitoring plan describes.
+- **No hand pipette.** The 10-23 list marked the 100-1000 µL pipette as "get"; on 11-16 Tim found the lab has none
+  and Chem Stores doesn't sell one. So the dilutions are by weight, as the monitoring plan allows
+  ([how](#the-dilutions-by-weight-with-transfer-pipettes)).
 - **Two holders, to print.** Nothing in the lab holds these vials on an OT-2 deck yet (the 9-vial holder is the
   CubXL's). Print two from [`cad/`](cad/README.md). They are built for Tim's 27 mm reading: print one first and check
   that several vials drop in and lift out freely.
