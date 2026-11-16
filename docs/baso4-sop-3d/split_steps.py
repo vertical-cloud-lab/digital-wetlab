@@ -217,7 +217,30 @@ AMOUNTS_NOTE = (
     "<a href=\"{dil}\">how, and the arithmetic</a>. Parts 2a and 2b are re-rendered with these steps and with the "
     "27 × 55 mm vials. The other amounts were already right: 213 mg of sodium sulfate, 4.383 g of NaCl with "
     "13.4 g of water, and the volumes the OT-2 pipettes. A dihydrate bottle would need 366 mg: "
-    "<a href=\"{salt}\">why</a>."
+    "<a href=\"{salt}\">why</a>. <b>How much goes in each vial:</b> <a href=\"#vials\">the table below</a>."
+)
+# Asked on PR 84 (Tim, 2026-11-16, with the six dilution vials holding 13.5 g of water each): how much of each powder
+# goes in each vial. Only vials 1, 5 and 9 get powder; the README's "What goes in each vial" has the reasons.
+VIAL_HEAD = ("Vial", "Powder", "DI water", "Then", "End reading, above empty")
+VIAL_ROWS = [
+    ("1. Barium chloride, 0.1 M", "312.3 mg, anhydrous, in the hood (2.5-2.8)", "15.00 g (2.10)", "-", "15.31 g"),
+    ("2. Barium chloride, 10 mM", "none", "13.50 g (2.2)", "1.53 g of vial 1 (2.12)", "15.03 g"),
+    ("3. Barium chloride, 1 mM", "none", "13.50 g (2.2)", "1.50 g of vial 2 (2.12)", "15.00 g"),
+    ("4. Barium chloride, 0.1 mM", "none", "13.50 g (2.2)", "1.50 g of vial 3 (2.12)", "15.00 g"),
+    ("5. Sodium sulfate, 0.1 M", "213.1 mg, anhydrous, in a tared boat (2.14)", "15.00 g, rinsing the boat in (2.15)",
+     "-", "15.21 g"),
+    ("6. Sodium sulfate, 10 mM", "none", "13.50 g (2.2)", "1.52 g of vial 5 (2.16)", "15.02 g"),
+    ("7. Sodium sulfate, 1 mM", "none", "13.50 g (2.2)", "1.50 g of vial 6 (2.16)", "15.00 g"),
+    ("8. Sodium sulfate, 0.1 mM", "none", "13.50 g (2.2)", "1.50 g of vial 7 (2.16)", "15.00 g"),
+    ("9. Sodium chloride, 5 M", "4.383 g, in a tared boat (2.16)", "13.40 g (2.16)", "-", "17.78 g"),
+    ("10. DI water", "none", "about 15 mL (2.16)", "-", "not weighed"),
+]
+VIAL_NOTE = (
+    "Only vials 1, 5 and 9 get powder; each dilution vial gets about 1.5 g of the vial before it. Add the last "
+    "column to a vial's logged empty reading to get the reading to aim for. If the barium chloride isn't 0.3123 g, "
+    "add 48.0 g of water per gram of it instead of 15.00 g, which keeps the stock at 0.1 M. A decahydrate sodium "
+    "sulfate bottle needs 483.3 mg and 14.73 g of water. Log every reading the balance shows, not just the amounts: "
+    "<a href=\"{vials}\">why, and the details</a>."
 )
 PART_NOTES = {
     "sop3a_load": "At the OT-2: nitrile gloves, a lab coat and safety glasses on before the tub is opened, and on "
@@ -237,6 +260,7 @@ def player_page(rows, sha, readme_sha=None):
     first, which browsers play inside a <video> tag, then jsDelivr, which serves it as video/mp4 but sometimes refuses
     this repo for being over its 50 MB limit. Both are pinned to `sha`, the commit that added the clips.
     """
+    import re
     from html import escape
 
     readme_url = f"https://github.com/{REPO}/blob/{readme_sha or sha}/docs/baso4-sop-3d/README.md"
@@ -244,6 +268,7 @@ def player_page(rows, sha, readme_sha=None):
     salt = readme_url + "#the-barium-chloride-anhydrous-or-dihydrate"
     dil = readme_url + "#the-dilutions-by-weight-with-transfer-pipettes"
     bal = readme_url + "#the-balance-re-zero-and-what-tare-means"
+    vials = readme_url + "#what-goes-in-each-vial"
     # the full video is the six parts joined, so its length is theirs
     frames = [json.loads((OUT / f"{p}.json").read_text()) for p in PARTS]
     full_s = round(sum(m["n_frames"] / m["fps"] for m in frames))
@@ -269,6 +294,13 @@ def player_page(rows, sha, readme_sha=None):
                 f'<video controls playsinline preload="metadata" width="1280" height="720">{sources("steps/" + r["file"])}'
                 f'</video><p>{escape(r["caption"])}</p>'
                 f'<p class="dl"><a href="{raw}">download {escape(r["file"])}</a></p></section>')
+    def cell(text):  # a no-break space keeps each number on the same line as its unit on a phone
+        return re.sub(r"(\d) (mg|g|mL|mM|M)\b", "\\1\u00a0\\2", escape(text))
+
+    vial_table = ('<section id="vials"><h2>What goes in each vial</h2><div class="scroll"><table class="vials"><tr>'
+                  + "".join(f"<th>{escape(h)}</th>" for h in VIAL_HEAD) + "</tr>"
+                  + "".join("<tr>" + "".join(f"<td>{cell(c)}</td>" for c in row) + "</tr>" for row in VIAL_ROWS)
+                  + f'</table></div><p class="note">{VIAL_NOTE.format(vials=vials)}</p></section>')
     whole = " &middot; ".join(
         f'<a href="#w{p}">{escape(PART_TITLES[p])}</a>' for p in PARTS)
     body.append(f'<h2 id="whole">The six parts, and all of it</h2><p>{whole}</p>')
@@ -286,6 +318,9 @@ h3 {{ margin: 1.4em 0 .2em; }} video {{ width: 100%; height: auto; background: #
 .where {{ margin: 0 0 .4em; color: #2a3d8f; font-weight: 600; }} .dl {{ font-size: .9em; }} .note {{ color: #555; }}
 .safety {{ background: #fff4dc; border-left: 4px solid #c97a00; padding: .6em .9em; border-radius: 4px; }}
 nav li {{ margin: .2em 0; }}
+.scroll {{ overflow-x: auto; }} .vials {{ border-collapse: collapse; font-size: .85em; }}
+.vials th, .vials td {{ border: 1px solid #ccc; padding: .25em .35em; text-align: left; vertical-align: top; }}
+.vials th {{ background: #eef1fb; }}
 </style></head><body>
 <h1>Barium sulfate plate run: the 3-D SOP, one video per step</h1>
 <p>Each step has its own player: pause, drag the bar back, or replay it. The step's text is written under each video too.
@@ -293,8 +328,9 @@ Every clip ends by holding its last frame, so the text stays up long enough to r
 <p class="note">From <a href="https://github.com/{REPO}/tree/{sha}/docs/baso4-sop-3d">docs/baso4-sop-3d</a>
 (issue 80). The time-lapse in step 4.3 is illustrative, not a prediction; the README lists the other assumptions.</p>
 <p class="safety">{AMOUNTS_NOTE.format(salt=salt, dil=dil, bal=bal)}</p>
+{vial_table}
 <p class="safety">{HOOD_NOTE.format(readme=readme)}</p>
-<nav><ul>{"".join(toc)}<li><a href="#whole">The six parts, and all of it</a></li></ul></nav>
+<nav><ul><li><a href="#vials">What goes in each vial</a></li>{"".join(toc)}<li><a href="#whole">The six parts, and all of it</a></li></ul></nav>
 {chr(10).join(body)}
 <script>
 // Open at the step named in the link (player.html#s2.7), also when the page is shown through htmlpreview.

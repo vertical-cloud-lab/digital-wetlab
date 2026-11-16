@@ -209,6 +209,8 @@ The six part MP4s and the full video are at the end of the page:
 - The OT-2 goes in a fume hood for this run (Sterling, 11-06). See
   [Does the OT-2 need to be in the hood?](#does-the-ot-2-need-to-be-in-the-hood)
 
+How much powder, water and stock goes in each of the ten vials: [What goes in each vial](#what-goes-in-each-vial).
+
 | # | Where | What | Opened |
 | --- | --- | --- | --- |
 | 2.1 | EB B125 | Nitrile gloves (two pairs for barium), a lab coat and safety glasses, with long pants and closed-toe shoes. Read the barium chloride SDS; a printed copy goes in the room's SDS binder ([what that is](#the-sds-binder)). Keep every container closed and labelled (Dillon's rule) | - |
@@ -217,10 +219,10 @@ The six part MP4s and the full video are at the end of the page:
 | 2.4 | next to the hood | Weigh the empty capped vial for the 0.1 M barium chloride the same way, and log it ("empty"). It isn't tared ([why](#the-balance-re-zero-and-what-tare-means)) | balance lid |
 | 2.5-2.8 | inside the hood | Open the barium chloride and the vial, and spatula about 312 mg into the vial. The lab's bottle is anhydrous; a dihydrate bottle would need 366 mg ([below](#the-barium-chloride-anhydrous-or-dihydrate)). Close both, and wipe the vial | barium chloride bottle, vial |
 | 2.9 | next to the hood | RE-ZERO with the pan empty, weigh the capped vial and log it ("with salt"), with the form, maker and lot from the bottle's label. The salt is this reading minus the 2.4 one. 0.3123 g of anhydrous BaCl₂ (208.23 g/mol) is 1.500 mmol, as is 0.3664 g of the dihydrate (BaCl₂·2H₂O, 244.26 g/mol); for another mass, work out its concentration | balance lid |
-| 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it, RE-ZERO with the pan empty, weigh it capped and log it ("with water"). The water is this reading minus the 2.9 one: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, a reading 15.31 g above the 2.4 one from either form. It goes into A1 of the barium holder | vial |
-| 2.12-2.13 | inside the hood, and the balance after each transfer | 1.5 mL down the series, one water vial at a time: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM. A new transfer pipette for each vial, drawn to its 1.5 mL mark. Cap the vial, invert it ten times and wipe it. Then carry it to the balance, RE-ZERO with the pan empty, weigh it and log it, and bring it back before anything is drawn from it. The three pipettes go in the barium solid waste | barium vials |
-| 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat, tared: the empty boat on the pan, then RE-ZERO, so the display shows only the salt. 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg. Through a funnel into its vial, rinse in to about 15 mL, cap, RE-ZERO with the pan empty, weigh and log it. Its water is that reading minus the vial's empty weight (2.2) and the salt | sodium sulfate bottle, vial |
-| 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate, with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. 4.383 g NaCl, in a tared boat like the sulfate, with 13.4 g of DI water (15 mL of 5 M), its water worked out from its empty weight like the sulfate's. A vial of fresh DI water, filled to about 15 mL (plate A's water pass takes about 10 mL, by my count from the plan's layout); it isn't weighed. Ten vials in all | sodium chloride bottle, vials |
+| 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it, RE-ZERO with the pan empty, weigh it capped and log it ("with water"). The water is this reading minus the 2.9 one: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, a reading 15.31 g above the 2.4 one from either form. For another mass of anhydrous salt, 48.0 g of water per gram keeps it at 0.1000 mol/kg ([each vial](#what-goes-in-each-vial)). It goes into A1 of the barium holder | vial |
+| 2.12-2.13 | inside the hood, and the balance after each transfer | 1.5 mL down the series, one water vial at a time: 0.1 M into the 10 mM vial, then 10 into 1, then 1 into 0.1 mM (about 1.53 g of the 0.1 M, then 1.50 g each: [why](#what-goes-in-each-vial)). A new transfer pipette for each vial, drawn to its 1.5 mL mark. Cap the vial, invert it ten times and wipe it. Then carry it to the balance, RE-ZERO with the pan empty, weigh it and log it, and bring it back before anything is drawn from it. The three pipettes go in the barium solid waste | barium vials |
+| 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat, tared: the empty boat on the pan, then RE-ZERO, so the display shows only the salt. 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg; a decahydrate bottle needs 483.3 mg and 14.73 g of water ([why](#what-goes-in-each-vial)). Through a funnel into its vial, rinse in to about 15 mL, cap, RE-ZERO with the pan empty, weigh and log it. Its water is that reading minus the vial's empty weight (2.2) and the salt | sodium sulfate bottle, vial |
+| 2.16 | next to the hood | The same series for 10, 1 and 0.1 mM sulfate (about 1.52 g of the 0.1 M, then 1.50 g each), with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. 4.383 g NaCl, in a tared boat like the sulfate, with 13.4 g of DI water (15 mL of 5 M), its water worked out from its empty weight like the sulfate's. A vial of fresh DI water, filled to about 15 mL (plate A's water pass takes about 10 mL, by my count from the plan's layout); it isn't weighed. Ten vials in all | sodium chloride bottle, vials |
 | 2.17 | hood, then bench | Wipe the barium vials and their holder, then put both holders in the tub, lid on. Outer gloves off in the hood; liner and wipes into the barium waste. Sash fully down | tub lid |
 | 1.4 | between buildings | Carry the tub closed | nothing |
 | 3.1 | CB 154 | Before the day: OT-2 calibrated (deck, tip length, pipette offset, Labware Position Check), the heater-shaker in slot 7 with its 96 flat-bottom adapter, the lid camera refocused for the plate on it, Pi 5 on its 27 W supply, camera exposure and white balance locked, rail lights on with no timer, capture job tested. Beside the OT-2: a labelled barium waste bottle, damp wipes and a wash bottle of DI water | - |
@@ -338,6 +340,58 @@ map in [`cad/`](cad/README.md#on-the-ot-2) and `check_deck.py`; the plate A prot
   top face keeps the marking away from the slot's corner clips.
 - By 2.13 the labels are already on, so only check them. The 2.2 and 2.13 clips say so since the 11-16 re-render;
   2.13's file is still named `cap-and-label-barium`.
+
+### What goes in each vial
+
+Asked by @timothy-commins on [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6931322727)
+on 2026-11-16, with the six dilution vials already holding 13.5 g of DI water each.
+
+**Only three vials get powder:** the two 0.1 M stocks and the 5 M NaCl. The six dilution vials get no powder. Each gets
+about 1.5 g of the vial before it in its series. The DI water vial gets only water.
+
+| Vial | Powder | DI water | Then | At the end, above its empty reading |
+| --- | --- | --- | --- | --- |
+| 1. Barium chloride, 0.1 M | 312.3 mg of anhydrous barium chloride, in the hood (2.5-2.8): 0.31 g above empty at 2.9 | 15.00 g (2.10) | - | 15.31 g |
+| 2. Barium chloride, 10 mM | none | 13.50 g (2.2) | 1.53 g of vial 1 (2.12) | 15.03 g |
+| 3. Barium chloride, 1 mM | none | 13.50 g (2.2) | 1.50 g of vial 2 (2.12) | 15.00 g |
+| 4. Barium chloride, 0.1 mM | none | 13.50 g (2.2) | 1.50 g of vial 3 (2.12) | 15.00 g |
+| 5. Sodium sulfate, 0.1 M | 213.1 mg of anhydrous sodium sulfate, in a tared boat (2.14) | 15.00 g, rinsing the boat and funnel in (2.15) | - | 15.21 g |
+| 6. Sodium sulfate, 10 mM | none | 13.50 g (2.2) | 1.52 g of vial 5 (2.16) | 15.02 g |
+| 7. Sodium sulfate, 1 mM | none | 13.50 g (2.2) | 1.50 g of vial 6 (2.16) | 15.00 g |
+| 8. Sodium sulfate, 0.1 mM | none | 13.50 g (2.2) | 1.50 g of vial 7 (2.16) | 15.00 g |
+| 9. Sodium chloride, 5 M | 4.383 g of sodium chloride, in a tared boat (2.16) | 13.40 g (2.16) | - | 17.78 g |
+| 10. DI water | none | about 15 mL (2.16) | - | not weighed |
+
+The last column is the capped vial's final reading minus its empty one. Add it to a vial's logged empty reading to get
+the reading to aim for.
+
+- **Why the dilution vials get no powder.** Made straight from powder, with 13.5 g of water each, they would need
+  28.1, 2.81 and 0.281 mg of barium chloride, and 19.2, 1.92 and 0.192 mg of sodium sulfate. The balance reads to
+  0.1 mg, so on 0.28 mg one step of the display is a third of the amount, and a spatula can't measure out that little
+  anyway. A tenfold dilution by weight is known to better than 0.1 % ([how](#the-dilutions-by-weight-with-transfer-pipettes)).
+- **Why 1.53 and 1.52 g.** About 2 % of the 0.1 M barium chloride's weight is the salt itself, and 1.4 % of the
+  sodium sulfate's. These amounts make up for it, so the 10 mM vials land on 10.0 mM; a flat 1.50 g makes them 9.82
+  and 9.87 mM, which is fine too. In the 10 and 1 mM vials the salt is 0.2 % of the weight or less, so 1.50 g is
+  right. Anything from 1.45 to 1.55 g works, as long as each reading is logged
+  ([the arithmetic](#the-dilutions-by-weight-with-transfer-pipettes)).
+- **If the barium chloride isn't 0.3123 g.** It goes in inside the hood, where the balance can't be seen, so it seldom
+  lands exactly. To keep the stock at 0.1000 mol/kg anyway, add **48.0 g of water per gram of the salt** instead of a
+  flat 15.00 g:
+  - 0.2800 g of salt takes 13.45 g of water, 0.3000 g takes 14.41 g, 0.3123 g takes 15.00 g, and 0.3300 g takes
+    15.85 g.
+  - The 2.11 reading to aim for is then the 2.9 reading plus that water.
+  - Keep the salt between 0.28 and 0.33 g, so the water fits in the vial. Outside that, add a little more in the hood,
+    or take some out into the barium solid waste, and weigh it again.
+  - A flat 15.00 g works too. The stock is then not quite 0.1 M, and the log gives its real concentration.
+  - The same rule for the sodium sulfate is 70.4 g of water per gram, but in its tared boat it can be weighed to
+    0.2131 g directly.
+- **Check the sodium sulfate's label.** 213.1 mg is for the anhydrous salt, Na₂SO₄. If the label says decahydrate
+  (Na₂SO₄·10H₂O, 322.19 g/mol), weigh 483.3 mg and add 14.73 g of water, because the crystals bring 0.27 g of water of
+  their own. The vial still ends 15.21 g above its empty reading.
+- **Log readings, not amounts.** The arithmetic subtracts one reading of a vial from another, so after each addition,
+  log the number the balance shows for the capped vial. "13.5 g of water added" isn't enough on its own. Log all the
+  decimals the display shows: the 0.1 M barium chloride's salt is its 2.9 reading minus its 2.4 one, so an empty
+  reading rounded to 0.01 g can put the salt off by up to 5 mg, 1.6 % of 312 mg.
 
 ### The balance: RE-ZERO, and what "tare" means
 

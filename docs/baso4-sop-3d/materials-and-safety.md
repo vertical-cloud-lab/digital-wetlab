@@ -12,6 +12,9 @@ Asked on [issue 80](https://github.com/vertical-cloud-lab/digital-wetlab/issues/
 **To order** the "get" items and new vials, see the [shopping list](shopping-list.md) (2026-11-11): catalogue numbers,
 pack sizes and prices.
 
+**How much goes in each of the ten vials** (powder, water and stock, and the reading to aim for): the SOP's
+[per-vial table](README.md#what-goes-in-each-vial) (2026-11-16). Only the two 0.1 M stocks and the 5 M NaCl get powder.
+
 **Updated 2026-11-06** for [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84): the stocks are in
 20 mL vials in two printed holders, the plate sits on the heater-shaker, the OT-2 goes in a fume hood, and the PPE is
 Sterling's list.
@@ -35,11 +38,11 @@ stills. Neither is in this repo or byu-vcl.
 | 2.4 Weigh the empty vial | The 0.1 M barium chloride vial, labelled at 2.2, empty and capped; the balance (RE-ZERO with the pan empty first, never with the vial on it: [why](README.md#the-balance-re-zero-and-what-tare-means)) and the log sheet |
 | 2.5-2.8 Barium chloride into the vial | What's already in the hood |
 | 2.9 Weigh and log | Log sheet, pen |
-| 2.10-2.11 0.1 M barium chloride | About 15 g of DI water from the wash bottle, into the same vial; the balance again |
-| 2.12 Barium dilutions | 3 disposable transfer pipettes, a new one for each vial, drawn to the 1.5 mL mark (**check** what's left of the 03-04 Chem Stores bag; the lab has no hand pipette, Tim, 11-16); the three water vials; the balance, to weigh each vial capped after its transfer and before anything is drawn from it ([how](README.md#the-dilutions-by-weight-with-transfer-pipettes)); the log sheet |
+| 2.10-2.11 0.1 M barium chloride | 15.00 g of DI water from the wash bottle, into the same vial, or 48.0 g per gram of salt if the salt isn't 0.3123 g ([each vial](README.md#what-goes-in-each-vial)); the balance again |
+| 2.12 Barium dilutions | 3 disposable transfer pipettes, a new one for each vial, drawn to the 1.5 mL mark: about 1.53 g from the 0.1 M, then 1.50 g (**check** what's left of the 03-04 Chem Stores bag; the lab has no hand pipette, Tim, 11-16); the three water vials; the balance, to weigh each vial capped after its transfer and before anything is drawn from it ([how](README.md#the-dilutions-by-weight-with-transfer-pipettes)); the log sheet |
 | 2.13 Cap and label | Nothing new: the labels went on at 2.2. Check that each barium vial is in its own pocket ([map](README.md#the-vial-labels)) |
-| 2.14-2.15 0.1 M sodium sulfate | Sodium sulfate, anhydrous (213.1 mg); weigh boat, tared on the pan with RE-ZERO; a second spatula; small funnel; its vial, weighed empty at 2.2 |
-| 2.16 Sulfate dilutions, NaCl, water | 3 more transfer pipettes, and a weighing after each transfer; the other three water vials; sodium chloride (4.383 g) and 13.4 g of DI water, weigh boat (tared with RE-ZERO), funnel, its vial, weighed empty at 2.2; a vial of DI water, filled to about 15 mL and not weighed |
+| 2.14-2.15 0.1 M sodium sulfate | Sodium sulfate, anhydrous (213.1 mg; **check** the label: a decahydrate bottle needs 483.3 mg and 14.73 g of water, [why](README.md#what-goes-in-each-vial)); weigh boat, tared on the pan with RE-ZERO; a second spatula; small funnel; its vial, weighed empty at 2.2 |
+| 2.16 Sulfate dilutions, NaCl, water | 3 more transfer pipettes (about 1.52 g from the 0.1 M, then 1.50 g), and a weighing after each transfer; the other three water vials; sodium chloride (4.383 g) and 13.4 g of DI water, weigh boat (tared with RE-ZERO), funnel, its vial, weighed empty at 2.2; a vial of DI water, filled to about 15 mL and not weighed |
 | 2.17 Pack and clean up | The second vial holder (**print**); lidded tub (**get**); damp wipes |
 
 For the whole day: about 0.5 L of DI water, fetched that day rather than from the March jug
