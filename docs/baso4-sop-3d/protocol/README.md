@@ -4,6 +4,9 @@ Asked on [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84) b
 stocks are made, everything is on the deck, a phone replaces the lid camera and goes in once the liquids are in, and
 the robot should now fill the plate.
 
+**No robot?** [`fill-by-hand.md`](fill-by-hand.md) fills the same plate by hand, counting drops from a transfer
+pipette (1 drop for each 20 µL, 10 drops a well), with printable 1:1 sheets of every well's drops.
+
 **A person starts this run from the Opentrons OT-2 App.** An `@claude` run can't: the robot answers only on its own
 Ethernet cable, and the 11-17 run couldn't reach the lab network at all. Nothing in this folder has run on the robot.
 It has only been simulated.
@@ -13,6 +16,7 @@ It has only been simulated.
 | [`baso4_plate_a.py`](baso4_plate_a.py) | **The protocol.** Import this one file in the App. The vial holder's labware definition is inside it, so nothing else needs importing |
 | [`plate_map.csv`](plate_map.csv) | Every well: its role, barium, sulfate and NaCl, the volume of each liquid, and which vial it comes from |
 | [`check_protocol.py`](check_protocol.py), [`check_output.txt`](check_output.txt) | The checks, run in opentrons 8.8.1 (the robot's own version), and what they printed |
+| [`fill-by-hand.md`](fill-by-hand.md), [`hand_fill.py`](hand_fill.py), [`hand_fill_sheets.pdf`](hand_fill_sheets.pdf), [`hand_fill_drops.csv`](hand_fill_drops.csv), [`hand_fill_overview.png`](hand_fill_overview.png) | The same plate by hand, in drops, with a printable sheet for each pass (11-17) |
 | [`check_independent.py`](check_independent.py), [`check_independent_output.txt`](check_independent_output.txt) | A second check, written separately by the 11-17 00:43 run: the plate's composition, every vial draw and every planned gantry move, including the moves over slot 10 |
 
 ## What the robot does
