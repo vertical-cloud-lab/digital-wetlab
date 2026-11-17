@@ -79,6 +79,7 @@ def check_run(runlog, P, mix):
     tip_touched_well = False
     t = 0.0                                                  # a rough clock, seconds
     sulfate_t = []
+    passes = {}
     last_lw = None
     for e, depth in walk(runlog):
         p = e["payload"]
@@ -89,6 +90,9 @@ def check_run(runlog, P, mix):
             lw = loc.labware.as_well() if loc.labware.is_well else None
         if text.startswith("SULFATE"):
             sulfate_t.append(t)
+        for tag in ("DI water into", "5 M NaCl", "barium chloride into", "sodium sulfate into"):
+            if text.startswith(tag):
+                passes[tag.split()[0] if tag != "5 M NaCl" else "NaCl"] = t / 60.0
         if text.startswith("Picking up tip"):
             tips += 1
             tip_touched_well = False
@@ -141,7 +145,7 @@ def check_run(runlog, P, mix):
     if tips > 96:
         fails.append(f"{tips} tips")
     return dict(fails=fails, tips=tips, per_vial=per_vial, deepest=deepest, lowest_in_well=lowest_in_well,
-                minutes=t / 60.0, first_sulfate=sulfate_t[0] / 60.0, sulfate_span=(sulfate_t[-1] - sulfate_t[0]) / 60.0)
+                minutes=t / 60.0, passes=passes, first_sulfate=sulfate_t[0] / 60.0, sulfate_span=(sulfate_t[-1] - sulfate_t[0]) / 60.0)
 
 
 def main():
@@ -183,7 +187,8 @@ def main():
             f"{len(runlog)} commands, {r['tips']} tips, "
             f"deepest {r['deepest']:.2f} mm below a vial rim, lowest {r['lowest_in_well']:.2f} mm above a well "
             f"floor, about {r['minutes']:.0f} min in all; the first sulfate at about {r['first_sulfate']:.0f} min "
-            f"and the last {r['sulfate_span']:.0f} min after it (rough estimates)")
+            f"and the last {r['sulfate_span']:.0f} min after it (rough estimates); each pass starts at "
+            + ", ".join(f"{k} {v:.0f} min" for k, v in r["passes"].items()))
         fails += r["fails"]
 
     say("4. drawn from each vial (uL), and what the protocol assumes is left at the end:")

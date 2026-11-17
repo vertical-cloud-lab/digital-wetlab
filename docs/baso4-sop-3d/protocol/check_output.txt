@@ -1,9 +1,9 @@
 opentrons 8.8.1, Python 3.11.18
 1. holder definition in the protocol matches cad/byuvcl_6_vialholder_20ml/1.json: True
 2. plate map matches animate.plate_a(): True | 84 wells | {'pair, NaCl': 48, 'pair, no NaCl': 16, 'sulfate only': 4, 'NaCl blank': 4, 'barium only': 4, 'water blank': 4, 'positive control': 4}
-3. simulated with the mix on, plate on the Heater-Shaker: 2200 commands, 78 tips, deepest 46.50 mm below a vial rim, lowest 1.00 mm above a well floor, about 67 min in all; the first sulfate at about 33 min and the last 34 min after it (rough estimates)
-3. simulated with the mix off, plate on the Heater-Shaker: 1696 commands, 78 tips, deepest 46.50 mm below a vial rim, lowest 2.09 mm above a well floor, about 55 min in all; the first sulfate at about 33 min and the last 22 min after it (rough estimates)
-3. simulated with the mix on, plate on the deck: 2199 commands, 78 tips, deepest 46.50 mm below a vial rim, lowest 1.00 mm above a well floor, about 67 min in all; the first sulfate at about 33 min and the last 34 min after it (rough estimates)
+3. simulated with the mix on, plate on the Heater-Shaker: 2200 commands, 78 tips, deepest 46.50 mm below a vial rim, lowest 1.00 mm above a well floor, about 67 min in all; the first sulfate at about 33 min and the last 34 min after it (rough estimates); each pass starts at DI 0 min, NaCl 15 min, barium 23 min, sodium 33 min
+3. simulated with the mix off, plate on the Heater-Shaker: 1696 commands, 78 tips, deepest 46.50 mm below a vial rim, lowest 2.09 mm above a well floor, about 55 min in all; the first sulfate at about 33 min and the last 22 min after it (rough estimates); each pass starts at DI 0 min, NaCl 15 min, barium 23 min, sodium 33 min
+3. simulated with the mix on, plate on the deck: 2199 commands, 78 tips, deepest 46.50 mm below a vial rim, lowest 1.00 mm above a well floor, about 67 min in all; the first sulfate at about 33 min and the last 34 min after it (rough estimates); each pass starts at DI 0 min, NaCl 15 min, barium 23 min, sodium 33 min
 4. drawn from each vial (uL), and what the protocol assumes is left at the end:
    slot 4 A1  ba 0.1 M            80   left  12.4 mL of the 12.5 assumed, surface 26.1 mm above the floor
    slot 4 A2  ba 10 mM          1360   left  11.1 mL of the 12.5 assumed, surface 23.4 mm above the floor

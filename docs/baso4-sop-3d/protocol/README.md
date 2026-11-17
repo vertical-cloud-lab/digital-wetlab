@@ -20,9 +20,9 @@ It has only been simulated.
 | --- | --- | --- | --- |
 | 1 | **Pauses** with a checklist on the App's screen. Nothing moves until you press Resume | | 0 |
 | 2 | Rail lights on; closes the Heater-Shaker's latch. It doesn't heat or shake | | |
-| 3 | DI water into 84 wells, 40-180 µL each, from slot 5 B3 | 1 | 0-12 min |
-| 4 | 5 M NaCl, 40 µL into each of 64 wells, from slot 5 B2 | 1 | 12-21 min |
-| 5 | Barium chloride into 72 wells, 20 or 60 µL, from slot 4 | 4, one per vial | 21-33 min |
+| 3 | DI water into 84 wells, 40-180 µL each, from slot 5 B3 | 1 | 0-15 min |
+| 4 | 5 M NaCl, 40 µL into each of 64 wells, from slot 5 B2 | 1 | 15-23 min |
+| 5 | Barium chloride into 72 wells, 20 or 60 µL, from slot 4 | 4, one per vial | 23-33 min |
 | 6 | **Sodium sulfate, last,** into 72 wells, 20 or 60 µL, from slot 5. A new tip for every well, then (by default) three gentle 80 µL mixes with that tip. The run log gets "SULFATE &lt;well&gt;" just before each one: that's the well's start | 72 | 33-67 min |
 | 7 | The run says **Completed**. The pipette parks at the back right and stays there | | about 67 min |
 
