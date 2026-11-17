@@ -1,0 +1,85 @@
+well,role,ba_mM,so4_mM,nacl_M,water_uL,nacl_uL,ba_uL,ba_stock,so4_uL,so4_stock,si_pitzer_25C
+A1,pair; NaCl; rep 1,3,0.1,1,80,40,60,10 mM,20,1 mM,1.5
+B1,pair; no NaCl,0.1,0.01,0,160,0,20,1 mM,20,0.1 mM,
+C1,sulfate only,0,0.1,1,140,40,0,,20,1 mM,
+E1,pair; NaCl; rep 1,3,3,1,40,40,60,10 mM,60,10 mM,2.9
+F1,NaCl blank,0,0,1,160,40,0,,0,,
+G1,pair; NaCl; rep 1,0.01,0.1,1,120,40,20,0.1 mM,20,1 mM,-1.0
+H1,pair; NaCl; rep 1,0.01,0.01,1,120,40,20,0.1 mM,20,0.1 mM,-2.0
+A2,pair; NaCl; rep 1,3,0.01,1,80,40,60,10 mM,20,0.1 mM,0.5
+B2,pair; NaCl; rep 1,1,0.01,1,120,40,20,10 mM,20,0.1 mM,0.0
+C2,pair; NaCl; rep 1,1,1,1,120,40,20,10 mM,20,10 mM,2.0
+E2,barium only,3,0,1,100,40,60,10 mM,0,,
+F2,pair; NaCl; rep 2,0.01,0.01,1,120,40,20,0.1 mM,20,0.1 mM,-2.0
+G2,pair; NaCl; rep 1,3,1,1,80,40,60,10 mM,20,10 mM,2.5
+H2,water blank,0,0,0,200,0,0,,0,,
+A3,pair; no NaCl,1,0.1,0,160,0,20,10 mM,20,1 mM,
+B3,pair; NaCl; rep 1,0.1,1,1,120,40,20,1 mM,20,10 mM,1.0
+D3,NaCl blank,0,0,1,160,40,0,,0,,
+E3,pair; no NaCl,0.1,1,0,160,0,20,1 mM,20,10 mM,
+G3,pair; NaCl; rep 1,0.1,0.01,1,120,40,20,1 mM,20,0.1 mM,-1.0
+H3,pair; NaCl; rep 2,3,0.1,1,80,40,60,10 mM,20,1 mM,1.5
+A4,pair; NaCl; rep 2,0.01,0.1,1,120,40,20,0.1 mM,20,1 mM,-1.0
+B4,pair; no NaCl,0.01,0.1,0,160,0,20,0.1 mM,20,1 mM,
+C4,pair; NaCl; rep 2,1,1,1,120,40,20,10 mM,20,10 mM,2.0
+E4,pair; NaCl; rep 1,1,3,1,80,40,20,10 mM,60,10 mM,2.5
+F4,pair; NaCl; rep 2,3,3,1,40,40,60,10 mM,60,10 mM,2.9
+G4,pair; NaCl; rep 2,1,0.01,1,120,40,20,10 mM,20,0.1 mM,0.0
+H4,pair; NaCl; rep 1,0.01,1,1,120,40,20,0.1 mM,20,10 mM,0.0
+A5,sulfate only,0,0.01,1,140,40,0,,20,0.1 mM,
+B5,pair; NaCl; rep 2,3,1,1,80,40,60,10 mM,20,10 mM,2.5
+C5,pair; NaCl; rep 2,3,0.01,1,80,40,60,10 mM,20,0.1 mM,0.5
+D5,positive control,10,10,1,120,40,20,0.1 M,20,0.1 M,
+E5,pair; no NaCl,1,1,0,160,0,20,10 mM,20,10 mM,
+F5,pair; NaCl; rep 1,0.01,3,1,80,40,20,0.1 mM,60,10 mM,0.5
+G5,pair; NaCl; rep 3,3,3,1,40,40,60,10 mM,60,10 mM,2.9
+H5,pair; no NaCl,1,0.01,0,160,0,20,10 mM,20,0.1 mM,
+A6,pair; no NaCl,3,3,0,80,0,60,10 mM,60,10 mM,
+B6,pair; no NaCl,3,0.1,0,120,0,60,10 mM,20,1 mM,
+C6,water blank,0,0,0,200,0,0,,0,,
+D6,pair; NaCl; rep 2,1,3,1,80,40,20,10 mM,60,10 mM,2.5
+E6,pair; NaCl; rep 2,0.01,3,1,80,40,20,0.1 mM,60,10 mM,0.5
+F6,pair; NaCl; rep 3,1,0.01,1,120,40,20,10 mM,20,0.1 mM,0.0
+G6,pair; NaCl; rep 2,0.01,1,1,120,40,20,0.1 mM,20,10 mM,0.0
+H6,pair; no NaCl,3,0.01,0,120,0,60,10 mM,20,0.1 mM,
+A7,pair; NaCl; rep 1,0.1,3,1,80,40,20,1 mM,60,10 mM,1.5
+B7,pair; NaCl; rep 1,0.1,0.1,1,120,40,20,1 mM,20,1 mM,0.0
+C7,positive control,10,10,1,120,40,20,0.1 M,20,0.1 M,
+D7,pair; NaCl; rep 3,0.01,0.01,1,120,40,20,0.1 mM,20,0.1 mM,-2.0
+E7,pair; NaCl; rep 2,0.1,0.1,1,120,40,20,1 mM,20,1 mM,0.0
+F7,barium only,0.01,0,1,140,40,20,0.1 mM,0,,
+H7,water blank,0,0,0,200,0,0,,0,,
+B8,pair; NaCl; rep 2,0.1,3,1,80,40,20,1 mM,60,10 mM,1.5
+C8,pair; NaCl; rep 3,0.1,3,1,80,40,20,1 mM,60,10 mM,1.5
+D8,pair; no NaCl,0.01,1,0,160,0,20,0.1 mM,20,10 mM,
+E8,sulfate only,0,3,1,100,40,0,,60,10 mM,
+F8,pair; NaCl; rep 1,1,0.1,1,120,40,20,10 mM,20,1 mM,1.0
+G8,positive control,10,10,1,120,40,20,0.1 M,20,0.1 M,
+H8,pair; NaCl; rep 3,0.1,0.1,1,120,40,20,1 mM,20,1 mM,0.0
+A9,positive control,10,10,1,120,40,20,0.1 M,20,0.1 M,
+B9,pair; no NaCl,0.01,3,0,120,0,20,0.1 mM,60,10 mM,
+C9,pair; NaCl; rep 3,0.01,1,1,120,40,20,0.1 mM,20,10 mM,0.0
+D9,NaCl blank,0,0,1,160,40,0,,0,,
+E9,pair; NaCl; rep 2,0.1,0.01,1,120,40,20,1 mM,20,0.1 mM,-1.0
+F9,barium only,1,0,1,140,40,20,10 mM,0,,
+G9,water blank,0,0,0,200,0,0,,0,,
+H9,pair; NaCl; rep 2,1,0.1,1,120,40,20,10 mM,20,1 mM,1.0
+B10,pair; NaCl; rep 3,1,3,1,80,40,20,10 mM,60,10 mM,2.5
+C10,pair; NaCl; rep 3,0.01,0.1,1,120,40,20,0.1 mM,20,1 mM,-1.0
+D10,pair; NaCl; rep 3,3,0.1,1,80,40,60,10 mM,20,1 mM,1.5
+E10,pair; NaCl; rep 2,0.1,1,1,120,40,20,1 mM,20,10 mM,1.0
+F10,pair; NaCl; rep 3,0.01,3,1,80,40,20,0.1 mM,60,10 mM,0.5
+G10,NaCl blank,0,0,1,160,40,0,,0,,
+H10,sulfate only,0,1,1,140,40,0,,20,10 mM,
+A11,pair; NaCl; rep 3,0.1,0.01,1,120,40,20,1 mM,20,0.1 mM,-1.0
+B11,pair; no NaCl,0.1,0.1,0,160,0,20,1 mM,20,1 mM,
+D11,pair; NaCl; rep 3,3,1,1,80,40,60,10 mM,20,10 mM,2.5
+E11,pair; NaCl; rep 3,1,0.1,1,120,40,20,10 mM,20,1 mM,1.0
+F11,pair; no NaCl,0.1,3,0,120,0,20,1 mM,60,10 mM,
+G11,pair; NaCl; rep 3,3,0.01,1,80,40,60,10 mM,20,0.1 mM,0.5
+H11,barium only,0.1,0,1,140,40,20,1 mM,0,,
+B12,pair; no NaCl,1,3,0,120,0,20,10 mM,60,10 mM,
+C12,pair; no NaCl,0.01,0.01,0,160,0,20,0.1 mM,20,0.1 mM,
+D12,pair; no NaCl,3,1,0,120,0,60,10 mM,20,10 mM,
+F12,pair; NaCl; rep 3,1,1,1,120,40,20,10 mM,20,10 mM,2.0
+H12,pair; NaCl; rep 3,0.1,1,1,120,40,20,1 mM,20,10 mM,1.0

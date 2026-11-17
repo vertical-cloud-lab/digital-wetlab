@@ -1,0 +1,19 @@
+opentrons 8.8.1, Python 3.11.18
+1. holder definition in the protocol matches cad/byuvcl_6_vialholder_20ml/1.json: True
+2. plate map matches animate.plate_a(): True | 84 wells | {'pair, NaCl': 48, 'pair, no NaCl': 16, 'sulfate only': 4, 'NaCl blank': 4, 'barium only': 4, 'water blank': 4, 'positive control': 4}
+3. simulated with the mix on, plate on the Heater-Shaker: 2200 commands, 78 tips, deepest 46.50 mm below a vial rim, lowest 1.00 mm above a well floor, about 67 min in all; the first sulfate at about 33 min and the last 34 min after it (rough estimates)
+3. simulated with the mix off, plate on the Heater-Shaker: 1696 commands, 78 tips, deepest 46.50 mm below a vial rim, lowest 2.09 mm above a well floor, about 55 min in all; the first sulfate at about 33 min and the last 22 min after it (rough estimates)
+3. simulated with the mix on, plate on the deck: 2199 commands, 78 tips, deepest 46.50 mm below a vial rim, lowest 1.00 mm above a well floor, about 67 min in all; the first sulfate at about 33 min and the last 34 min after it (rough estimates)
+4. drawn from each vial (uL), and what the protocol assumes is left at the end:
+   slot 4 A1  ba 0.1 M            80   left  12.4 mL of the 12.5 assumed, surface 26.1 mm above the floor
+   slot 4 A2  ba 10 mM          1360   left  11.1 mL of the 12.5 assumed, surface 23.4 mm above the floor
+   slot 4 A3  ba 1 mM            340   left  12.2 mL of the 12.5 assumed, surface 25.6 mm above the floor
+   slot 4 B1  ba 0.1 mM          340   left  13.7 mL of the 14.0 assumed, surface 28.7 mm above the floor
+   slot 5 A1  so 0.1 M            80   left  12.4 mL of the 12.5 assumed, surface 26.1 mm above the floor
+   slot 5 A2  so 10 mM          1360   left  11.1 mL of the 12.5 assumed, surface 23.4 mm above the floor
+   slot 5 A3  so 1 mM            340   left  12.2 mL of the 12.5 assumed, surface 25.6 mm above the floor
+   slot 5 B1  so 0.1 mM          340   left  13.7 mL of the 14.0 assumed, surface 28.7 mm above the floor
+   slot 5 B2  nacl 5 M          2560   left  11.4 mL of the 14.0 assumed, surface 24.1 mm above the floor
+   slot 5 B3  water            10000   left   4.0 mL of the 14.0 assumed, surface 8.4 mm above the floor
+5. wrote plate_map.csv: 84 wells (si_pitzer_25C only for the NaCl pairs, from the 10-30 table)
+RESULT: PASS
