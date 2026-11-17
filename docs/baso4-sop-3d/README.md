@@ -65,6 +65,19 @@ the videos now use the amounts for what the lab has.
   that name both vials of each transfer and its grams, and [a diagram of the chain](#step-212-one-transfer-at-a-time)
   is in this README and on the player page.
 
+**Updated 2026-11-17** (asked by @timothy-commins on
+[PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6933584876)): the 5 M NaCl and the
+DI water vials are written out step by step, with the readings to aim for
+([Step 2.16: the 5 M NaCl and the DI water vials](#step-216-the-5-m-nacl-and-the-di-water-vials)), and on the player
+page under 2.16. Until then they had one line at the end of 2.16 and a row each in the per-vial table.
+- **Vial 9:** 4.383 g of NaCl, weighed in the vial ("with salt"), then 13.40 g of DI water, 17.78 g above the empty
+  reading in all, shaken until clear.
+- **Vial 10:** now weighed empty and filled to about 15 g of DI water, from a bottle that has only held DI water.
+- **Both are made in fresh gloves,** with a spatula, boat and funnel that haven't touched the sodium sulfate.
+- **The NaCl's grade and lot go in the log.** ACS NaCl may carry enough sulfate to matter on plate A
+  ([the NaCl's own sulfate](#the-nacls-own-sulfate)).
+- The clips aren't re-rendered. 2.16's caption still has the short version, which is right as far as it goes.
+
 The procedure is the one already written down:
 - [`docs/baso4-extended-monitoring.md`](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md)
   (11-02): plate A, the stocks, the seal, the stills schedule, and the run record;
@@ -247,7 +260,7 @@ How much powder, water and stock goes in each of the ten vials: [What goes in ea
 | 2.10-2.11 | inside the hood, then next to it | About 15 mL of DI water into the same vial; cap and swirl until clear. Wipe it, RE-ZERO with the pan empty, weigh it capped and log it ("with water"). The water is this reading minus the 2.9 one: 1.500 mmol with 15.00 g of water is 0.1000 mol/kg, a reading 15.31 g above the 2.4 one from either form. If the salt isn't 0.3123 g, log it and its real concentration is worked out from the readings, or add 48.0 g of water per gram of anhydrous salt to keep it at 0.1000 mol/kg ([both](#what-goes-in-each-vial)). It goes into A1 of the barium holder | vial |
 | 2.12-2.13 | inside the hood, and the balance after each transfer | 1.5 mL down the series, one water vial at a time, each made from the one before it: about 1.53 g of the 0.1 M into the 10 mM vial, then 1.50 g of the 10 mM into the 1 mM vial, then 1.50 g of the 1 mM into the 0.1 mM vial ([why 1.53 g](#what-goes-in-each-vial); [a diagram](#step-212-one-transfer-at-a-time)). A new transfer pipette for each vial, drawn to its 1.5 mL mark. Cap the vial, invert it ten times, wipe it damp and then dry. Then carry it to the balance, RE-ZERO with the pan empty, weigh it and log it, and bring it back before anything is drawn from it. The three pipettes go in the barium solid waste. Step by step, and what to do if a transfer is off: [2.12, one transfer at a time](#step-212-one-transfer-at-a-time) | barium vials |
 | 2.14-2.15 | next to the hood | Sodium sulfate in an open weigh boat, tared: the empty boat on the pan, then RE-ZERO, so the display shows only the salt. 213.1 mg (anhydrous, 142.04 g/mol) with 15.00 g of water is 0.1 mol/kg; a decahydrate bottle needs 483.3 mg and 14.73 g of water ([why](#what-goes-in-each-vial)). Through a funnel into its vial, rinse in to about 15 mL, cap, RE-ZERO with the pan empty, weigh and log it. Its water is that reading minus the vial's empty weight (2.2) and the salt | sodium sulfate bottle, vial |
-| 2.16 | next to the hood | The same chain for sulfate: about 1.52 g of the 0.1 M into the 10 mM vial, then 1.50 g of the 10 mM into the 1 mM vial, then 1.50 g of the 1 mM into the 0.1 mM vial, with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. 4.383 g NaCl, in a tared boat like the sulfate, with 13.4 g of DI water (15 mL of 5 M), its water worked out from its empty weight like the sulfate's. A vial of fresh DI water, filled to about 15 mL (plate A's water pass takes about 10 mL, by my count from the plan's layout); it isn't weighed. Ten vials in all | sodium chloride bottle, vials |
+| 2.16 | next to the hood | The same chain for sulfate: about 1.52 g of the 0.1 M into the 10 mM vial, then 1.50 g of the 10 mM into the 1 mM vial, then 1.50 g of the 1 mM into the 0.1 mM vial, with three new transfer pipettes, each vial weighed and logged before the next is drawn from it. Then fresh gloves, and a clean spatula, a new weigh boat and a clean funnel, for the last two vials. The 5 M NaCl: 4.383 g of NaCl in a tared boat, funnelled into its vial and weighed ("with salt"), then 13.40 g of DI water added with the vial and its cap on the pan, and weighed again ("with water"); shake it until no crystals are left. The DI water vial: weighed empty, then filled with about 15 g of fresh DI water (plate A takes 10.0 mL of it). Step by step: [the NaCl and the DI water](#step-216-the-5-m-nacl-and-the-di-water-vials). Ten vials in all | sodium chloride bottle, vials |
 | 2.17 | hood, then bench | Wipe the barium vials and their holder, then put both holders in the tub, lid on. Outer gloves off in the hood; liner and wipes into the barium waste. Sash fully down | tub lid |
 | 1.4 | between buildings | Carry the tub closed | nothing |
 | 3.1 | CB 154 | Before the day: OT-2 calibrated (deck, tip length, pipette offset, Labware Position Check), the heater-shaker in slot 7 with its 96 flat-bottom adapter, the lid camera refocused for the plate on it, Pi 5 on its 27 W supply, camera exposure and white balance locked, rail lights on with no timer, capture job tested. Beside the OT-2: a labelled barium waste bottle, damp wipes and a wash bottle of DI water | - |
@@ -384,11 +397,12 @@ about 1.5 g of the vial before it in its series. The DI water vial gets only wat
 | 6. Sodium sulfate, 10 mM | none | 13.50 g (2.2) | 1.52 g of vial 5 (2.16) | 15.02 g |
 | 7. Sodium sulfate, 1 mM | none | 13.50 g (2.2) | 1.50 g of vial 6 (2.16) | 15.00 g |
 | 8. Sodium sulfate, 0.1 mM | none | 13.50 g (2.2) | 1.50 g of vial 7 (2.16) | 15.00 g |
-| 9. Sodium chloride, 5 M | 4.383 g of sodium chloride, in a tared boat (2.16) | 13.40 g (2.16) | - | 17.78 g |
-| 10. DI water | none | about 15 mL (2.16) | - | not weighed |
+| 9. Sodium chloride, 5 M | 4.383 g of sodium chloride, in a tared boat, funnelled in and weighed (2.16): 4.38 g above empty | 13.40 g, added on the pan (2.16) | shake until no crystals are left | 17.78 g |
+| 10. DI water | none | about 15 g (15 mL) of fresh DI water, from a bottle that has only held DI water (2.16) | - | about 15 g (14-16 g is fine) |
 
 The last column is the capped vial's final reading minus its empty one. Add it to a vial's logged empty reading to get
-the reading to aim for.
+the reading to aim for. The NaCl and the DI water vials, step by step:
+[Step 2.16](#step-216-the-5-m-nacl-and-the-di-water-vials).
 
 - **Why the dilution vials get no powder.** Made straight from powder, with 13.5 g of water each, they would need
   28.1, 2.81 and 0.281 mg of barium chloride, and 19.2, 1.92 and 0.192 mg of sodium sulfate. The balance reads to
@@ -644,6 +658,86 @@ the holder. Then 2.13.
   later ([the hazards](materials-and-safety.md)).
 - **Stock on a glove:** change the outer glove in the hood, the old one into the barium solid waste, before carrying
   the vial out, so nothing gets on the balance.
+
+### Step 2.16: the 5 M NaCl and the DI water vials
+
+Asked by @timothy-commins on [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6933584876)
+on 2026-11-17: "you never go over what to do with the di water vial or the sodium chloride vials. actually, you never
+say how many grams to put in the sodium chloride vial". Until then these two vials got one line at the end of 2.16 and
+a row each in [What goes in each vial](#what-goes-in-each-vial). Both are made at the bench next to the balance, and
+neither needs the hood.
+
+**Keep them clean.** The robot puts the water into all 84 wells and the NaCl into 64. That includes the blanks and the
+wells that get barium and no sulfate, or sulfate and no barium. A crystal of sodium sulfate, or a drop of a barium
+stock, in either vial would end up in those wells.
+- **Put on fresh gloves first.** Gloves that have handled the barium or the sulfate vials carry them.
+- **Use a clean spatula, a new weigh boat and a clean funnel,** not the ones from the sodium sulfate (2.14-2.15): a
+  second funnel, or that one washed in DI water and dried.
+- **Or make these two before the sodium sulfate** (2.14), when nothing on the bench has touched sulfate yet. The video
+  shows them last.
+
+**Vial 9, sodium chloride, 5 M: 4.383 g of NaCl, then 13.40 g of DI water.** Every reading is the capped vial (or the
+vial with its cap beside it on the pan), with RE-ZERO pressed on the empty pan first
+([the balance](#the-balance-re-zero-and-what-tare-means)).
+
+| Reading | Above the empty reading | For a vial that weighed 15.39 g empty (Tim's, 11-16) |
+| --- | --- | --- |
+| empty (2.2) | - | 15.39 g |
+| with salt | 4.38 g | about 19.77 g |
+| with water | 17.78 g | about 33.17 g |
+
+1. **Weigh the salt.** With the pan empty and the lid closed, press RE-ZERO. Put a new weigh boat on the pan, close the
+   lid and press RE-ZERO again: that tares the boat. Spatula NaCl into the boat until the display reads 4.383 g, then
+   close the bottle. Anything from 4.36 to 4.41 g is fine. Log the reading, and the bottle's maker, product number,
+   grade and lot from its label ([why](#the-nacls-own-sulfate)).
+2. **Into the vial.** Uncap vial 9 and set its cap upside down beside it. Put the funnel in the vial's neck, tip the
+   salt in, and tap the boat and the funnel until the crystals have gone in. Take the funnel out.
+3. **Weigh it, "with salt".** Cap it, put it on the pan, close the lid, wait for the stability mark and log it. It
+   should be about 4.38 g above the empty reading.
+4. **Add the water on the pan, to a reading.** Uncap the vial and put the vial and its cap side by side on the pan, so
+   the display reads what the capped vial would. Add DI water until it reads the "with salt" reading plus 13.40 g: the
+   wash bottle, aimed at the inside of the vial, for most of it, then the water-only transfer pipette a few drops at a
+   time (1 mL is about 1 g). Put the cap on, close the lid and log the reading ("with water").
+5. **Shake it until it's clear.** Cap it tightly and shake hard. 5 M NaCl is about 90 % of the most salt water can
+   hold, so the last crystals dissolve slowly: give it a few minutes, then hold it up to the light and look at the
+   bottom. The vial gets a little cold as the salt dissolves; that's normal. Don't warm it.
+6. **Into the bench holder,** pocket B2.
+
+- **13.40 g of water whatever the salt reading,** from 4.36 to 4.41 g. That keeps it within 0.6 % of 5 M, which is
+  plenty for the NaCl, and the log gives the real number: salt × 17.11 ÷ water is the concentration in mol/kg, both in
+  grams (4.383 g with 13.40 g of water is 5.60 mol/kg, which is 5.00 M). 17.11 is 1000 ÷ 58.44, the molar mass of NaCl.
+- **Where the numbers come from.** 15 mL of 5 M NaCl holds 75 mmol, which is 4.383 g. The solution weighs about
+  1.186 g/mL (interpolated from the CRC Handbook's table for NaCl), so 15 mL weighs 17.78 g, and 13.40 g of that is
+  water. It's made up by weight because the vial has no 15 mL mark.
+- **The robot takes 2.6 mL of it:** 40 µL into each of 64 wells, which makes them 1 M NaCl.
+
+**Vial 10, DI water: about 15 g.** It isn't a stock, so it doesn't need to be exact.
+1. **Use DI water from a bottle that has only ever held DI water:** the bench wash bottle, filled from the day's fresh
+   DI water. Not the wash bottle that went into the hood at 2.3, and never tap water.
+2. **Weigh it empty.** RE-ZERO with the pan empty, put the capped vial on, and log it. It wasn't weighed at 2.2.
+3. **Fill it on the pan.** Uncap it, put the vial and its cap side by side on the pan, and add DI water until the
+   display reads about 15 g more than the empty reading. 14 to 16 g is fine.
+4. **Cap it straight away** and log the reading. It goes in the bench holder, pocket B3.
+
+- **Why 15 g:** the robot takes 10.0 mL from it, 200 µL less the other liquids, into each of the 84 wells (from plate
+  A's layout). 15 mL leaves 5 mL over, so the tip never runs short.
+- **Nothing is worked out from its readings.** They record that it was filled, and with how much.
+
+When both are done, the bench holder (slot 5) has the 0.1 M, 10, 1 and 0.1 mM sodium sulfate in A1, A2, A3 and B1, the
+5 M NaCl in B2 and the DI water in B3 ([the labels](#the-vial-labels)).
+
+#### The NaCl's own sulfate
+
+For Sterling, before the run. Reagent NaCl carries a little sulfate: ACS reagent grade allows up to 0.004 %, for
+example Sigma-Aldrich's [S9888](https://www.sigmaaldrich.com/US/en/product/sigald/s9888).
+- **At that limit,** 4.383 g carries 1.8 µmol of sulfate: 0.12 mM in the 5 M stock, and 0.024 mM in each well that
+  gets 40 µL of it. That's more than plate A's lowest sulfate level, 0.01 mM.
+- **What it would do.** Scaling the 10-30 PHREEQC table (my estimate, not a new run), the 3 mM barium wells with no
+  sulfate added would sit at a saturation index of about +0.9 and the 1 mM ones at about +0.4: both above 0, where
+  barium sulfate can form. The 0.01 mM sulfate wells with NaCl would go up by as much as +0.5.
+- **The limit is a ceiling, not what a bottle has.** Each lot's certificate of analysis gives its measured sulfate. So
+  log the bottle's maker, product number, grade and lot (step 1 above), and look up the certificate before the run.
+- The barium-only wells with NaCl would show it if it's high. The wells without NaCl aren't affected.
 
 ## Does the OT-2 need to be in the hood?
 

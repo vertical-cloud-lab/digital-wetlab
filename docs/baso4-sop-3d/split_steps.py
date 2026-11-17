@@ -232,8 +232,10 @@ VIAL_ROWS = [
     ("6. Sodium sulfate, 10 mM", "none", "13.50 g (2.2)", "1.52 g of vial 5 (2.16)", "15.02 g"),
     ("7. Sodium sulfate, 1 mM", "none", "13.50 g (2.2)", "1.50 g of vial 6 (2.16)", "15.00 g"),
     ("8. Sodium sulfate, 0.1 mM", "none", "13.50 g (2.2)", "1.50 g of vial 7 (2.16)", "15.00 g"),
-    ("9. Sodium chloride, 5 M", "4.383 g, in a tared boat (2.16)", "13.40 g (2.16)", "-", "17.78 g"),
-    ("10. DI water", "none", "about 15 mL (2.16)", "-", "not weighed"),
+    ("9. Sodium chloride, 5 M", "4.383 g, in a tared boat, then into the vial and weighed (2.16)",
+     "13.40 g, added on the pan (2.16)", "shake until clear", "17.78 g"),
+    ("10. DI water", "none", "about 15 g (15 mL), from a bottle that has only held DI water (2.16)", "-",
+     "about 15 g"),
 ]
 VIAL_NOTE = (
     "Only vials 1, 5 and 9 get powder; each dilution vial gets about 1.5 g of the vial before it. Add the last "
@@ -242,7 +244,8 @@ VIAL_NOTE = (
     "both in grams from the log (0.3051 g with 14.87 g of water is 0.0985). Or add 48.0 g of water per gram of salt "
     "to keep it at 0.1 M. A decahydrate sodium "
     "sulfate bottle needs 483.3 mg and 14.73 g of water. Log every reading the balance shows, not just the amounts: "
-    "<a href=\"{vials}\">why, and the details</a>."
+    "<a href=\"{vials}\">why, and the details</a>. The NaCl and the DI water vials, step by step: "
+    "<a href=\"#s2.16\">under 2.16</a>."
 )
 PART_NOTES = {
     "sop3a_load": "At the OT-2: nitrile gloves, a lab coat and safety glasses on before the tub is opened, and on "
@@ -290,10 +293,38 @@ STEP_NOTES = {
         'outer glove in the hood before you carry the vial out. <a href="{how}">Why each step, and the '
         'details</a>.</div>'
     ),
+    # Asked on PR 84 (Tim, 2026-11-17): "you never go over what to do with the di water vial or the sodium chloride
+    # vials ... you never say how many grams to put in the sodium chloride vial". {nacl} is the README's "Step 2.16:
+    # the 5 M NaCl and the DI water vials".
     "2.16": (
-        '<div class="how"><b>Step by step:</b> the same as <a href="#s2.12">2.12</a>, at the bench, so with no '
-        'trips in and out of the hood: 0.1 M into 10 mM (about 1.52&nbsp;g), then 10 mM into 1 mM and 1 mM into 0.1 mM '
-        '(1.50&nbsp;g each). Weigh each vial before anything is drawn from it. <a href="{how}">The details</a>.</div>'
+        '<div class="how"><b>The sulfate chain, step by step:</b> the same as <a href="#s2.12">2.12</a>, at the '
+        'bench, so with no trips in and out of the hood: 0.1 M into 10 mM (about 1.52&nbsp;g), then 10 mM into 1 mM '
+        'and 1 mM into 0.1 mM (1.50&nbsp;g each). Weigh each vial before anything is drawn from it. '
+        '<a href="{how}">The details</a>.'
+        '<p><b>Then the last two vials</b> (added 11-17). Put on fresh gloves, and use a clean spatula, a new weigh '
+        'boat and a clean funnel, not the ones from the sodium sulfate. The robot puts the water into all 84 wells '
+        'and the NaCl into 64, so a speck of sulfate or barium in either ends up in wells meant to have none.</p>'
+        '<b>Vial 9, sodium chloride, 5&nbsp;M: 4.383&nbsp;g of NaCl, then 13.40&nbsp;g of DI water</b>, '
+        '17.78&nbsp;g above its empty reading (2.2) in all:<ol>'
+        '<li>Empty pan, lid closed, RE-ZERO. A new weigh boat on the pan, lid closed, RE-ZERO again (this tares '
+        'it). Spatula NaCl into the boat to 4.383&nbsp;g (4.36 to 4.41&nbsp;g is fine), and close the bottle. Log the '
+        'reading, and the bottle&rsquo;s maker, product number, grade and lot.</li>'
+        '<li>Uncap vial 9. Funnel in its neck, tip the salt in, tap the boat and the funnel. Funnel out.</li>'
+        '<li>Cap it, weigh it (RE-ZERO with the pan empty first) and log &ldquo;with salt&rdquo;: about 4.38&nbsp;g '
+        'above empty.</li>'
+        '<li>Uncap it, and put the vial and its cap side by side on the pan. Add DI water until the display reads '
+        '&ldquo;with salt&rdquo; plus 13.40&nbsp;g: the wash bottle for most of it, the water-only transfer pipette '
+        'for the last drops. Cap it and log &ldquo;with water&rdquo;.</li>'
+        '<li>Shake hard until no crystals are left at the bottom. It&rsquo;s nearly saturated, so that takes a few '
+        'minutes. It gets a little cold; that&rsquo;s normal.</li>'
+        '<li>Into the bench holder, pocket B2.</li></ol>'
+        '<b>Vial 10, DI water: about 15&nbsp;g.</b> The robot takes 10&nbsp;mL of it.<ol>'
+        '<li>Fresh DI water, from a bottle that has only held DI water: not the wash bottle that went into the hood.</li>'
+        '<li>RE-ZERO with the pan empty, weigh the capped vial empty, and log it.</li>'
+        '<li>Uncap it, put the vial and its cap side by side on the pan, and add DI water to about 15&nbsp;g above '
+        'the empty reading (14 to 16&nbsp;g is fine).</li>'
+        '<li>Cap it straight away, log the reading, and put it in pocket B3.</li></ol>'
+        '<a href="{nacl}">Why, and the details</a>.</div>'
     ),
 }
 
@@ -316,6 +347,7 @@ def player_page(rows, sha, readme_sha=None):
     bal = readme_url + "#the-balance-re-zero-and-what-tare-means"
     vials = readme_url + "#what-goes-in-each-vial"
     how = readme_url + "#step-212-one-transfer-at-a-time"
+    nacl = readme_url + "#step-216-the-5-m-nacl-and-the-di-water-vials"
     chain = f"https://raw.githubusercontent.com/{REPO}/{sha}/{REPO_PATH}/barium_dilution_chain.png"
     # the full video is the six parts joined, so its length is theirs
     frames = [json.loads((OUT / f"{p}.json").read_text()) for p in PARTS]
@@ -341,7 +373,7 @@ def player_page(rows, sha, readme_sha=None):
                 f'<p class="where">Where: {escape(r["where"])} &middot; {r["seconds"]:.0f} s</p>'
                 f'<video controls playsinline preload="metadata" width="1280" height="720">{sources("steps/" + r["file"])}'
                 f'</video><p>{escape(r["caption"])}</p>'
-                f'{STEP_NOTES.get(r["label"], "").format(how=how, chain=chain)}'
+                f'{STEP_NOTES.get(r["label"], "").format(how=how, chain=chain, nacl=nacl)}'
                 f'<p class="dl"><a href="{raw}">download {escape(r["file"])}</a></p></section>')
     def cell(text):  # a no-break space keeps each number on the same line as its unit on a phone
         return re.sub(r"(\d) (mg|g|mL|mM|M)\b", "\\1\u00a0\\2", escape(text))
