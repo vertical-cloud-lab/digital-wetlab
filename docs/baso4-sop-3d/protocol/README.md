@@ -13,6 +13,7 @@ It has only been simulated.
 | [`baso4_plate_a.py`](baso4_plate_a.py) | **The protocol.** Import this one file in the App. The vial holder's labware definition is inside it, so nothing else needs importing |
 | [`plate_map.csv`](plate_map.csv) | Every well: its role, barium, sulfate and NaCl, the volume of each liquid, and which vial it comes from |
 | [`check_protocol.py`](check_protocol.py), [`check_output.txt`](check_output.txt) | The checks, run in opentrons 8.8.1 (the robot's own version), and what they printed |
+| [`check_independent.py`](check_independent.py), [`check_independent_output.txt`](check_independent_output.txt) | A second check, written separately by the 11-17 00:43 run: the plate's composition, every vial draw and every planned gantry move, including the moves over slot 10 |
 
 ## What the robot does
 
@@ -152,6 +153,21 @@ mixing. The 11-02 plan left the choice open ("decision 4") and asked only that e
 - the tip never goes more than 46.5 mm below a vial's rim, nor closer than 1 mm to a well's floor;
 - how much is drawn from each vial: 10.0 mL of water, 2.6 mL of NaCl, and 1.36 mL from each 10 mM vial, the most from
   any stock.
+
+`python check_independent.py baso4_plate_a.py` (same environment; [output](check_independent_output.txt)) was written
+separately, by a run that didn't write the protocol. It records every pipette action and every gantry move the
+simulator plans, and checks:
+- each well's barium, sulfate and NaCl against plate A's design, worked out from the volumes actually dispensed, and
+  sulfate last in every well;
+- that no tip goes from a well into a stock of the other salt. The water, NaCl and barium tips do go back into their
+  own vials after touching the wells, but the wells then hold only water, NaCl and that same barium;
+- in the vials, with the SOP's own fill volumes and inside diameters from 23 to 25.6 mm: the tip end stays 1.6-9 mm
+  under the liquid on every draw (1.6 mm only at the end of the water, with 14 g in that vial), and the top of the
+  tip stays at least 5 mm above the rim;
+- **the moves over slot 10.** 15 straight moves, from the plate's left columns to the trash, cut across the front
+  right corner of slot 10 with the tip's end 93.8 mm above the deck (82 mm with the plate straight on the deck). The
+  colour sensor's charging station is 97 mm tall there (the Acceleration Consortium's CAD), and 10 of those moves pass
+  over its footprint. So slot 10 must be empty.
 
 **Not checked:**
 - **Nothing has run on the robot,** and the printed holders have never been on it. Labware Position Check is the
