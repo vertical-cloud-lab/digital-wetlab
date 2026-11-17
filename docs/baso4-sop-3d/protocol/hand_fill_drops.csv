@@ -1,85 +1,85 @@
-well,role,ba_mM,so4_mM,nacl_M,water_drops,nacl_drops,ba_drops,ba_vial,so4_drops,so4_vial,total_drops
-A1,pair; NaCl; rep 1,3,0.1,1,4,2,3,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",10
-B1,pair; no NaCl,0.1,0.01,0,8,0,1,"1 mM (slot 4, A3)",1,"0.1 mM (slot 5, B1)",10
-C1,sulfate only,0,0.1,1,7,2,0,,1,"1 mM (slot 5, A3)",10
-E1,pair; NaCl; rep 1,3,3,1,2,2,3,"10 mM (slot 4, A2)",3,"10 mM (slot 5, A2)",10
-F1,NaCl blank,0,0,1,8,2,0,,0,,10
-G1,pair; NaCl; rep 1,0.01,0.1,1,6,2,1,"0.1 mM (slot 4, B1)",1,"1 mM (slot 5, A3)",10
-H1,pair; NaCl; rep 1,0.01,0.01,1,6,2,1,"0.1 mM (slot 4, B1)",1,"0.1 mM (slot 5, B1)",10
-A2,pair; NaCl; rep 1,3,0.01,1,4,2,3,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",10
-B2,pair; NaCl; rep 1,1,0.01,1,6,2,1,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",10
-C2,pair; NaCl; rep 1,1,1,1,6,2,1,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",10
-E2,barium only,3,0,1,5,2,3,"10 mM (slot 4, A2)",0,,10
-F2,pair; NaCl; rep 2,0.01,0.01,1,6,2,1,"0.1 mM (slot 4, B1)",1,"0.1 mM (slot 5, B1)",10
-G2,pair; NaCl; rep 1,3,1,1,4,2,3,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",10
-H2,water blank,0,0,0,10,0,0,,0,,10
-A3,pair; no NaCl,1,0.1,0,8,0,1,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",10
-B3,pair; NaCl; rep 1,0.1,1,1,6,2,1,"1 mM (slot 4, A3)",1,"10 mM (slot 5, A2)",10
-D3,NaCl blank,0,0,1,8,2,0,,0,,10
-E3,pair; no NaCl,0.1,1,0,8,0,1,"1 mM (slot 4, A3)",1,"10 mM (slot 5, A2)",10
-G3,pair; NaCl; rep 1,0.1,0.01,1,6,2,1,"1 mM (slot 4, A3)",1,"0.1 mM (slot 5, B1)",10
-H3,pair; NaCl; rep 2,3,0.1,1,4,2,3,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",10
-A4,pair; NaCl; rep 2,0.01,0.1,1,6,2,1,"0.1 mM (slot 4, B1)",1,"1 mM (slot 5, A3)",10
-B4,pair; no NaCl,0.01,0.1,0,8,0,1,"0.1 mM (slot 4, B1)",1,"1 mM (slot 5, A3)",10
-C4,pair; NaCl; rep 2,1,1,1,6,2,1,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",10
-E4,pair; NaCl; rep 1,1,3,1,4,2,1,"10 mM (slot 4, A2)",3,"10 mM (slot 5, A2)",10
-F4,pair; NaCl; rep 2,3,3,1,2,2,3,"10 mM (slot 4, A2)",3,"10 mM (slot 5, A2)",10
-G4,pair; NaCl; rep 2,1,0.01,1,6,2,1,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",10
-H4,pair; NaCl; rep 1,0.01,1,1,6,2,1,"0.1 mM (slot 4, B1)",1,"10 mM (slot 5, A2)",10
-A5,sulfate only,0,0.01,1,7,2,0,,1,"0.1 mM (slot 5, B1)",10
-B5,pair; NaCl; rep 2,3,1,1,4,2,3,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",10
-C5,pair; NaCl; rep 2,3,0.01,1,4,2,3,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",10
-D5,positive control,10,10,1,6,2,1,"0.1 M (slot 4, A1)",1,"0.1 M (slot 5, A1)",10
-E5,pair; no NaCl,1,1,0,8,0,1,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",10
-F5,pair; NaCl; rep 1,0.01,3,1,4,2,1,"0.1 mM (slot 4, B1)",3,"10 mM (slot 5, A2)",10
-G5,pair; NaCl; rep 3,3,3,1,2,2,3,"10 mM (slot 4, A2)",3,"10 mM (slot 5, A2)",10
-H5,pair; no NaCl,1,0.01,0,8,0,1,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",10
-A6,pair; no NaCl,3,3,0,4,0,3,"10 mM (slot 4, A2)",3,"10 mM (slot 5, A2)",10
-B6,pair; no NaCl,3,0.1,0,6,0,3,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",10
-C6,water blank,0,0,0,10,0,0,,0,,10
-D6,pair; NaCl; rep 2,1,3,1,4,2,1,"10 mM (slot 4, A2)",3,"10 mM (slot 5, A2)",10
-E6,pair; NaCl; rep 2,0.01,3,1,4,2,1,"0.1 mM (slot 4, B1)",3,"10 mM (slot 5, A2)",10
-F6,pair; NaCl; rep 3,1,0.01,1,6,2,1,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",10
-G6,pair; NaCl; rep 2,0.01,1,1,6,2,1,"0.1 mM (slot 4, B1)",1,"10 mM (slot 5, A2)",10
-H6,pair; no NaCl,3,0.01,0,6,0,3,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",10
-A7,pair; NaCl; rep 1,0.1,3,1,4,2,1,"1 mM (slot 4, A3)",3,"10 mM (slot 5, A2)",10
-B7,pair; NaCl; rep 1,0.1,0.1,1,6,2,1,"1 mM (slot 4, A3)",1,"1 mM (slot 5, A3)",10
-C7,positive control,10,10,1,6,2,1,"0.1 M (slot 4, A1)",1,"0.1 M (slot 5, A1)",10
-D7,pair; NaCl; rep 3,0.01,0.01,1,6,2,1,"0.1 mM (slot 4, B1)",1,"0.1 mM (slot 5, B1)",10
-E7,pair; NaCl; rep 2,0.1,0.1,1,6,2,1,"1 mM (slot 4, A3)",1,"1 mM (slot 5, A3)",10
-F7,barium only,0.01,0,1,7,2,1,"0.1 mM (slot 4, B1)",0,,10
-H7,water blank,0,0,0,10,0,0,,0,,10
-B8,pair; NaCl; rep 2,0.1,3,1,4,2,1,"1 mM (slot 4, A3)",3,"10 mM (slot 5, A2)",10
-C8,pair; NaCl; rep 3,0.1,3,1,4,2,1,"1 mM (slot 4, A3)",3,"10 mM (slot 5, A2)",10
-D8,pair; no NaCl,0.01,1,0,8,0,1,"0.1 mM (slot 4, B1)",1,"10 mM (slot 5, A2)",10
-E8,sulfate only,0,3,1,5,2,0,,3,"10 mM (slot 5, A2)",10
-F8,pair; NaCl; rep 1,1,0.1,1,6,2,1,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",10
-G8,positive control,10,10,1,6,2,1,"0.1 M (slot 4, A1)",1,"0.1 M (slot 5, A1)",10
-H8,pair; NaCl; rep 3,0.1,0.1,1,6,2,1,"1 mM (slot 4, A3)",1,"1 mM (slot 5, A3)",10
-A9,positive control,10,10,1,6,2,1,"0.1 M (slot 4, A1)",1,"0.1 M (slot 5, A1)",10
-B9,pair; no NaCl,0.01,3,0,6,0,1,"0.1 mM (slot 4, B1)",3,"10 mM (slot 5, A2)",10
-C9,pair; NaCl; rep 3,0.01,1,1,6,2,1,"0.1 mM (slot 4, B1)",1,"10 mM (slot 5, A2)",10
-D9,NaCl blank,0,0,1,8,2,0,,0,,10
-E9,pair; NaCl; rep 2,0.1,0.01,1,6,2,1,"1 mM (slot 4, A3)",1,"0.1 mM (slot 5, B1)",10
-F9,barium only,1,0,1,7,2,1,"10 mM (slot 4, A2)",0,,10
-G9,water blank,0,0,0,10,0,0,,0,,10
-H9,pair; NaCl; rep 2,1,0.1,1,6,2,1,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",10
-B10,pair; NaCl; rep 3,1,3,1,4,2,1,"10 mM (slot 4, A2)",3,"10 mM (slot 5, A2)",10
-C10,pair; NaCl; rep 3,0.01,0.1,1,6,2,1,"0.1 mM (slot 4, B1)",1,"1 mM (slot 5, A3)",10
-D10,pair; NaCl; rep 3,3,0.1,1,4,2,3,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",10
-E10,pair; NaCl; rep 2,0.1,1,1,6,2,1,"1 mM (slot 4, A3)",1,"10 mM (slot 5, A2)",10
-F10,pair; NaCl; rep 3,0.01,3,1,4,2,1,"0.1 mM (slot 4, B1)",3,"10 mM (slot 5, A2)",10
-G10,NaCl blank,0,0,1,8,2,0,,0,,10
-H10,sulfate only,0,1,1,7,2,0,,1,"10 mM (slot 5, A2)",10
-A11,pair; NaCl; rep 3,0.1,0.01,1,6,2,1,"1 mM (slot 4, A3)",1,"0.1 mM (slot 5, B1)",10
-B11,pair; no NaCl,0.1,0.1,0,8,0,1,"1 mM (slot 4, A3)",1,"1 mM (slot 5, A3)",10
-D11,pair; NaCl; rep 3,3,1,1,4,2,3,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",10
-E11,pair; NaCl; rep 3,1,0.1,1,6,2,1,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",10
-F11,pair; no NaCl,0.1,3,0,6,0,1,"1 mM (slot 4, A3)",3,"10 mM (slot 5, A2)",10
-G11,pair; NaCl; rep 3,3,0.01,1,4,2,3,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",10
-H11,barium only,0.1,0,1,7,2,1,"1 mM (slot 4, A3)",0,,10
-B12,pair; no NaCl,1,3,0,6,0,1,"10 mM (slot 4, A2)",3,"10 mM (slot 5, A2)",10
-C12,pair; no NaCl,0.01,0.01,0,8,0,1,"0.1 mM (slot 4, B1)",1,"0.1 mM (slot 5, B1)",10
-D12,pair; no NaCl,3,1,0,6,0,3,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",10
-F12,pair; NaCl; rep 3,1,1,1,6,2,1,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",10
-H12,pair; NaCl; rep 3,0.1,1,1,6,2,1,"1 mM (slot 4, A3)",1,"10 mM (slot 5, A2)",10
+well,role,ba_mM,so4_mM,nacl_M,si_barite_pitzer_25C,water_drops,nacl_drops,ba_drops,ba_vial,so4_drops,so4_vial,total_drops,robot_ba_mM,robot_so4_mM
+A1,pair; NaCl; rep 1,4,0.2,1,1.88,1,1,2,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",5,3,0.1
+B1,pair; no NaCl,0.2,0.02,0,1.36,3,0,1,"1 mM (slot 4, A3)",1,"0.1 mM (slot 5, B1)",5,0.1,0.01
+C1,sulfate only,0,0.2,1,,3,1,0,,1,"1 mM (slot 5, A3)",5,0,0.1
+E1,pair; NaCl; rep 1,4,4,1,3.17,0,1,2,"10 mM (slot 4, A2)",2,"10 mM (slot 5, A2)",5,3,3
+F1,NaCl blank,0,0,1,,4,1,0,,0,,5,0,0
+G1,pair; NaCl; rep 1,0.02,0.2,1,-0.42,2,1,1,"0.1 mM (slot 4, B1)",1,"1 mM (slot 5, A3)",5,0.01,0.1
+H1,pair; NaCl; rep 1,0.02,0.02,1,-1.41,2,1,1,"0.1 mM (slot 4, B1)",1,"0.1 mM (slot 5, B1)",5,0.01,0.01
+A2,pair; NaCl; rep 1,4,0.02,1,0.88,1,1,2,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",5,3,0.01
+B2,pair; NaCl; rep 1,2,0.02,1,0.58,2,1,1,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",5,1,0.01
+C2,pair; NaCl; rep 1,2,2,1,2.58,2,1,1,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",5,1,1
+E2,barium only,4,0,1,,2,1,2,"10 mM (slot 4, A2)",0,,5,3,0
+F2,pair; NaCl; rep 2,0.02,0.02,1,-1.41,2,1,1,"0.1 mM (slot 4, B1)",1,"0.1 mM (slot 5, B1)",5,0.01,0.01
+G2,pair; NaCl; rep 1,4,2,1,2.88,1,1,2,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",5,3,1
+H2,water blank,0,0,0,,5,0,0,,0,,5,0,0
+A3,pair; no NaCl,2,0.2,0,3.19,3,0,1,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",5,1,0.1
+B3,pair; NaCl; rep 1,0.2,2,1,1.58,2,1,1,"1 mM (slot 4, A3)",1,"10 mM (slot 5, A2)",5,0.1,1
+D3,NaCl blank,0,0,1,,4,1,0,,0,,5,0,0
+E3,pair; no NaCl,0.2,2,0,3.19,3,0,1,"1 mM (slot 4, A3)",1,"10 mM (slot 5, A2)",5,0.1,1
+G3,pair; NaCl; rep 1,0.2,0.02,1,-0.42,2,1,1,"1 mM (slot 4, A3)",1,"0.1 mM (slot 5, B1)",5,0.1,0.01
+H3,pair; NaCl; rep 2,4,0.2,1,1.88,1,1,2,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",5,3,0.1
+A4,pair; NaCl; rep 2,0.02,0.2,1,-0.42,2,1,1,"0.1 mM (slot 4, B1)",1,"1 mM (slot 5, A3)",5,0.01,0.1
+B4,pair; no NaCl,0.02,0.2,0,1.36,3,0,1,"0.1 mM (slot 4, B1)",1,"1 mM (slot 5, A3)",5,0.01,0.1
+C4,pair; NaCl; rep 2,2,2,1,2.58,2,1,1,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",5,1,1
+E4,pair; NaCl; rep 1,2,4,1,2.88,1,1,1,"10 mM (slot 4, A2)",2,"10 mM (slot 5, A2)",5,1,3
+F4,pair; NaCl; rep 2,4,4,1,3.17,0,1,2,"10 mM (slot 4, A2)",2,"10 mM (slot 5, A2)",5,3,3
+G4,pair; NaCl; rep 2,2,0.02,1,0.58,2,1,1,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",5,1,0.01
+H4,pair; NaCl; rep 1,0.02,2,1,0.58,2,1,1,"0.1 mM (slot 4, B1)",1,"10 mM (slot 5, A2)",5,0.01,1
+A5,sulfate only,0,0.02,1,,3,1,0,,1,"0.1 mM (slot 5, B1)",5,0,0.01
+B5,pair; NaCl; rep 2,4,2,1,2.88,1,1,2,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",5,3,1
+C5,pair; NaCl; rep 2,4,0.02,1,0.88,1,1,2,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",5,3,0.01
+D5,positive control,20,20,1,4.52,2,1,1,"0.1 M (slot 4, A1)",1,"0.1 M (slot 5, A1)",5,10,10
+E5,pair; no NaCl,2,2,0,4.10,3,0,1,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",5,1,1
+F5,pair; NaCl; rep 1,0.02,4,1,0.88,1,1,1,"0.1 mM (slot 4, B1)",2,"10 mM (slot 5, A2)",5,0.01,3
+G5,pair; NaCl; rep 3,4,4,1,3.17,0,1,2,"10 mM (slot 4, A2)",2,"10 mM (slot 5, A2)",5,3,3
+H5,pair; no NaCl,2,0.02,0,2.20,3,0,1,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",5,1,0.01
+A6,pair; no NaCl,4,4,0,4.58,1,0,2,"10 mM (slot 4, A2)",2,"10 mM (slot 5, A2)",5,3,3
+B6,pair; no NaCl,4,0.2,0,3.40,2,0,2,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",5,3,0.1
+C6,water blank,0,0,0,,5,0,0,,0,,5,0,0
+D6,pair; NaCl; rep 2,2,4,1,2.88,1,1,1,"10 mM (slot 4, A2)",2,"10 mM (slot 5, A2)",5,1,3
+E6,pair; NaCl; rep 2,0.02,4,1,0.88,1,1,1,"0.1 mM (slot 4, B1)",2,"10 mM (slot 5, A2)",5,0.01,3
+F6,pair; NaCl; rep 3,2,0.02,1,0.58,2,1,1,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",5,1,0.01
+G6,pair; NaCl; rep 2,0.02,2,1,0.58,2,1,1,"0.1 mM (slot 4, B1)",1,"10 mM (slot 5, A2)",5,0.01,1
+H6,pair; no NaCl,4,0.02,0,2.41,2,0,2,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",5,3,0.01
+A7,pair; NaCl; rep 1,0.2,4,1,1.88,1,1,1,"1 mM (slot 4, A3)",2,"10 mM (slot 5, A2)",5,0.1,3
+B7,pair; NaCl; rep 1,0.2,0.2,1,0.58,2,1,1,"1 mM (slot 4, A3)",1,"1 mM (slot 5, A3)",5,0.1,0.1
+C7,positive control,20,20,1,4.52,2,1,1,"0.1 M (slot 4, A1)",1,"0.1 M (slot 5, A1)",5,10,10
+D7,pair; NaCl; rep 3,0.02,0.02,1,-1.41,2,1,1,"0.1 mM (slot 4, B1)",1,"0.1 mM (slot 5, B1)",5,0.01,0.01
+E7,pair; NaCl; rep 2,0.2,0.2,1,0.58,2,1,1,"1 mM (slot 4, A3)",1,"1 mM (slot 5, A3)",5,0.1,0.1
+F7,barium only,0.02,0,1,,3,1,1,"0.1 mM (slot 4, B1)",0,,5,0.01,0
+H7,water blank,0,0,0,,5,0,0,,0,,5,0,0
+B8,pair; NaCl; rep 2,0.2,4,1,1.88,1,1,1,"1 mM (slot 4, A3)",2,"10 mM (slot 5, A2)",5,0.1,3
+C8,pair; NaCl; rep 3,0.2,4,1,1.88,1,1,1,"1 mM (slot 4, A3)",2,"10 mM (slot 5, A2)",5,0.1,3
+D8,pair; no NaCl,0.02,2,0,2.20,3,0,1,"0.1 mM (slot 4, B1)",1,"10 mM (slot 5, A2)",5,0.01,1
+E8,sulfate only,0,4,1,,2,1,0,,2,"10 mM (slot 5, A2)",5,0,3
+F8,pair; NaCl; rep 1,2,0.2,1,1.58,2,1,1,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",5,1,0.1
+G8,positive control,20,20,1,4.52,2,1,1,"0.1 M (slot 4, A1)",1,"0.1 M (slot 5, A1)",5,10,10
+H8,pair; NaCl; rep 3,0.2,0.2,1,0.58,2,1,1,"1 mM (slot 4, A3)",1,"1 mM (slot 5, A3)",5,0.1,0.1
+A9,positive control,20,20,1,4.52,2,1,1,"0.1 M (slot 4, A1)",1,"0.1 M (slot 5, A1)",5,10,10
+B9,pair; no NaCl,0.02,4,0,2.41,2,0,1,"0.1 mM (slot 4, B1)",2,"10 mM (slot 5, A2)",5,0.01,3
+C9,pair; NaCl; rep 3,0.02,2,1,0.58,2,1,1,"0.1 mM (slot 4, B1)",1,"10 mM (slot 5, A2)",5,0.01,1
+D9,NaCl blank,0,0,1,,4,1,0,,0,,5,0,0
+E9,pair; NaCl; rep 2,0.2,0.02,1,-0.42,2,1,1,"1 mM (slot 4, A3)",1,"0.1 mM (slot 5, B1)",5,0.1,0.01
+F9,barium only,2,0,1,,3,1,1,"10 mM (slot 4, A2)",0,,5,1,0
+G9,water blank,0,0,0,,5,0,0,,0,,5,0,0
+H9,pair; NaCl; rep 2,2,0.2,1,1.58,2,1,1,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",5,1,0.1
+B10,pair; NaCl; rep 3,2,4,1,2.88,1,1,1,"10 mM (slot 4, A2)",2,"10 mM (slot 5, A2)",5,1,3
+C10,pair; NaCl; rep 3,0.02,0.2,1,-0.42,2,1,1,"0.1 mM (slot 4, B1)",1,"1 mM (slot 5, A3)",5,0.01,0.1
+D10,pair; NaCl; rep 3,4,0.2,1,1.88,1,1,2,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",5,3,0.1
+E10,pair; NaCl; rep 2,0.2,2,1,1.58,2,1,1,"1 mM (slot 4, A3)",1,"10 mM (slot 5, A2)",5,0.1,1
+F10,pair; NaCl; rep 3,0.02,4,1,0.88,1,1,1,"0.1 mM (slot 4, B1)",2,"10 mM (slot 5, A2)",5,0.01,3
+G10,NaCl blank,0,0,1,,4,1,0,,0,,5,0,0
+H10,sulfate only,0,2,1,,3,1,0,,1,"10 mM (slot 5, A2)",5,0,1
+A11,pair; NaCl; rep 3,0.2,0.02,1,-0.42,2,1,1,"1 mM (slot 4, A3)",1,"0.1 mM (slot 5, B1)",5,0.1,0.01
+B11,pair; no NaCl,0.2,0.2,0,2.33,3,0,1,"1 mM (slot 4, A3)",1,"1 mM (slot 5, A3)",5,0.1,0.1
+D11,pair; NaCl; rep 3,4,2,1,2.88,1,1,2,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",5,3,1
+E11,pair; NaCl; rep 3,2,0.2,1,1.58,2,1,1,"10 mM (slot 4, A2)",1,"1 mM (slot 5, A3)",5,1,0.1
+F11,pair; no NaCl,0.2,4,0,3.40,2,0,1,"1 mM (slot 4, A3)",2,"10 mM (slot 5, A2)",5,0.1,3
+G11,pair; NaCl; rep 3,4,0.02,1,0.88,1,1,2,"10 mM (slot 4, A2)",1,"0.1 mM (slot 5, B1)",5,3,0.01
+H11,barium only,0.2,0,1,,3,1,1,"1 mM (slot 4, A3)",0,,5,0.1,0
+B12,pair; no NaCl,2,4,0,4.34,2,0,1,"10 mM (slot 4, A2)",2,"10 mM (slot 5, A2)",5,1,3
+C12,pair; no NaCl,0.02,0.02,0,0.41,3,0,1,"0.1 mM (slot 4, B1)",1,"0.1 mM (slot 5, B1)",5,0.01,0.01
+D12,pair; no NaCl,4,2,0,4.34,2,0,2,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",5,3,1
+F12,pair; NaCl; rep 3,2,2,1,2.58,2,1,1,"10 mM (slot 4, A2)",1,"10 mM (slot 5, A2)",5,1,1
+H12,pair; NaCl; rep 3,0.2,2,1,1.58,2,1,1,"1 mM (slot 4, A3)",1,"10 mM (slot 5, A2)",5,0.1,1
