@@ -15,6 +15,12 @@ pack sizes and prices.
 **How much goes in each of the ten vials** (powder, water and stock, and the reading to aim for): the SOP's
 [per-vial table](README.md#what-goes-in-each-vial) (2026-11-16). Only the two 0.1 M stocks and the 5 M NaCl get powder.
 
+**Plate A on the robot, 2026-11-17:** the OT-2 protocol and the steps to run it from the Opentrons OT-2 App are in
+[`protocol/`](protocol/README.md). A **phone on a tripod** replaces the lid camera for this plate; it goes in after the
+run is completed and the plate is sealed, so the rows below that mention the lid camera or a capture job apply to the
+phone instead. The run also needs **slot 10 empty** (the colour sensor and its charging base off the deck) and the DI
+water vial topped up to **about 18 mL**.
+
 **Updated 2026-11-06** for [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84): the stocks are in
 20 mL vials in two printed holders, the plate sits on the heater-shaker, the OT-2 goes in a fume hood, and the PPE is
 Sterling's list.

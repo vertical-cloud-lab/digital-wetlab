@@ -78,6 +78,26 @@ page under 2.16. Until then they had one line at the end of 2.16 and a row each 
   ([the NaCl's own sulfate](#the-nacls-own-sulfate)).
 - The clips aren't re-rendered. 2.16's caption still has the short version, which is right as far as it goes.
 
+**Updated 2026-11-17, later** (asked by @timothy-commins on
+[PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6933876656)): plate A is ready to
+run, and a phone replaces the lid camera.
+- **The protocol is written.** [`protocol/`](protocol/README.md) has `baso4_plate_a.py` for the Opentrons OT-2 App,
+  the plate map, the checks, and the steps to run it. A person starts it at the robot: an `@claude` run can't reach
+  the robot. It has been simulated in opentrons 8.8.1, the robot's version, and hasn't run on the robot.
+- **A phone on a tripod takes the photos instead of the lid camera.** It goes in after the App says the run is
+  completed and the plate is sealed. So:
+  - 3.1's camera checks become the phone's (every 2 minutes; settings in [`protocol/`](protocol/README.md#the-phone-and-what-it-misses));
+  - 3.7 starts no capture job, just the protocol;
+  - the protocol has no pause for the seal, so the seal (3.12) goes on after the run, before the phone;
+  - chapter 4's stills are the phone's photos.
+
+  The videos still show the lid camera.
+- **The protocol mixes each well after its sulfate,** three gentle 80 µL mixes with that well's own tip. The videos
+  drop the sulfate in from above with no mixing. The App has a switch for it;
+  [why it's on](protocol/README.md#the-mixing).
+- **Two deck changes:** slot 10 empty (take the colour sensor and its charging base off), and the DI water vial topped
+  up to about 18 mL.
+
 The procedure is the one already written down:
 - [`docs/baso4-extended-monitoring.md`](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md)
   (11-02): plate A, the stocks, the seal, the stills schedule, and the run record;

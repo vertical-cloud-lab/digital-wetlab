@@ -9,7 +9,8 @@ Deck (as in docs/baso4-sop-3d/README.md):
   5   vial holder: sodium sulfate A1 0.1 M, A2 10 mM, A3 1 mM, B1 0.1 mM; B2 5 M NaCl; B3 DI water
   6   Opentrons 96 tip rack, 300 uL, FULL (78 tips are used)
   12  trash
-  P300 single GEN2 on the left mount. All ten vials UNCAPPED. Nothing in slot 8.
+  P300 single GEN2 on the left mount. All ten vials UNCAPPED. Nothing in slot 8 or slot 10 (the path from the plate
+  to the trash passes the corner of slot 10, and the robot doesn't know about anything not listed here).
 
 What the robot does:
   1. pauses so you can check the deck, until you press Resume;
@@ -261,7 +262,7 @@ def run(protocol: protocol_api.ProtocolContext):
     # ---- 1. check, then start
     where = "on the Heater-Shaker in slot 7" if hs else "in slot 7"
     protocol.pause(f"Check before Resume: all 10 vials uncapped; a FULL 300 uL tip rack in slot 6; the plate {where} "
-                   "with A1 at the back left; nothing in slot 8; hands out." + (" Resume closes the latch." if hs else ""))
+                   "with A1 at the back left; nothing in slots 8 and 10; hands out." + (" Resume closes the latch." if hs else ""))
     protocol.set_rail_lights(True)
     if hs:
         hs.close_labware_latch()                         # no heating, no shaking: it only holds the plate
