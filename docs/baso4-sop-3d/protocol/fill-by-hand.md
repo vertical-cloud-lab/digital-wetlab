@@ -186,7 +186,9 @@ log says how it was done.
 
 1. **Seal the plate:** lay the clear seal on and press it down well by well.
 2. **Carry it level to the OT-2.** The wells are about three-quarters full, so walk slowly. The black paper goes on
-   the Heater-Shaker's adapter, and the plate on top, A1 at the back left.
+   the Heater-Shaker's adapter, and the plate on top, A1 at the back left. **Don't switch the Heater-Shaker on once
+   the plate is on it:** whenever it's switched on, it closes its latch and spins for a few seconds (see
+   [The Heater-Shaker](#the-heater-shaker)).
 3. **Turn the rail lights on and leave them on** (in the OT-2 App: the robot's ⋮ menu → Lights). The photos need the
    same light day and night. If the App isn't connected, say so on PR 84.
 4. **Set up the phone** on its tripod: every 2 minutes, as on 11-16. Write down the time of the first photo.
@@ -194,6 +196,43 @@ log says how it was done.
 6. **The log:** "by hand, 5 drops a well"; your three drop weighings and the pipette's make; when each pass started
    and ended; any slip (which well, what happened); "stirred by hand, 5 circles with a 300 µL tip"; and the sulfate
    page with every well's time. Post a photo of the pages on PR 84.
+
+## The Heater-Shaker
+
+Plate A isn't heated or shaken. The Heater-Shaker is only the stand under it, so that later plates that are heated or
+shaken get photographed the same way.
+
+**Its light** ([Opentrons' manual](https://insights.opentrons.com/hubfs/Products/Modules/Heater-Shaker%20Manual.pdf),
+p. 12):
+
+| Light | Means |
+| --- | --- |
+| Off | Switched off |
+| **Solid white** | **On and idle, and not hot.** That's all plate A needs |
+| Pulsing red | Heating |
+| Solid red | Hot to the touch (over 49 °C), or holding a set temperature |
+| Amber | An error. Post a photo on PR 84 |
+| Amber and red in turn | An error, and hot: don't touch it |
+
+**On its own it does nothing, except when it's switched on.** Its power button is on the end with the cables, above
+the USB port (manual, p. 7). In slot 7 that end faces the robot's left wall. Every time it's switched on, its
+firmware closes the labware latch, then spins the platform for a few seconds at about 300 rpm, on its 2 mm circle,
+until a catch stops it at its home position. Then it sits idle ([start-up](https://github.com/Opentrons/opentrons-modules/blob/9b5b9ea/stm32-modules/heater-shaker/firmware/motor_task/freertos_motor_task.cpp#L84-L85),
+[homing](https://github.com/Opentrons/opentrons-modules/blob/9b5b9ea/stm32-modules/include/heater-shaker/heater-shaker/motor_task.hpp#L594-L598);
+every firmware release since v1.0.0 in 2022 does this). When the robot finds it, the robot only reads its
+temperature, speed and latch, once a second
+([opentrons 8.8.1](https://github.com/Opentrons/opentrons/blob/v8.8.1/api/src/opentrons/hardware_control/modules/heater_shaker.py#L78-L106)).
+
+- **Switch it on before the plate goes on, or leave it off for the whole run.** If it's on, its latch will be
+  closed: open it from the App (the Heater-Shaker's card, ⋮ → open the latch), put the plate on, and close it again.
+  While it's on, the same card shows its temperature. With the heater off, that should stay close to the room's.
+- **Once the plate is on, don't press its button until the run is over.** Switching it on again would shake the
+  plate.
+- **What else would make it heat or shake:** its controls in the App's ⋮ menu, starting a protocol, a power cut (if it
+  comes back on afterwards, it goes through the same start-up), or a firmware update from the App. Put these on the sign on the robot.
+- **On 11-17 it was switched on during plate A's run** (PR 84). If plate A was already on it, then by its firmware it
+  closed the latch on the plate and shook it for a few seconds. Every well got the same shake, but each at a
+  different time after its sulfate, so plate A's log should say roughly when.
 
 ## How accurate it is
 

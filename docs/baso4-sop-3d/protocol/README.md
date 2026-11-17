@@ -62,7 +62,9 @@ plate it dispenses 1 mm above the liquid it's making, and blows out above the li
    calibration is from January, but Labware Position Check corrects every piece of labware, so I wouldn't redo it now.
 4. **Check the deck against this list:**
    - **Slot 7:** the Heater-Shaker, powered and plugged into the robot, with the plate on its 96 Flat Bottom Adapter,
-     A1 at the back left. If the plate is straight on the deck instead, set the parameter below to off.
+     A1 at the back left. If the plate is straight on the deck instead, set the parameter below to off. Switch the
+     Heater-Shaker on before the plate goes on: whenever it's switched on, it closes its latch and spins for a few
+     seconds ([The Heater-Shaker](fill-by-hand.md#the-heater-shaker)).
    - **Slot 4:** barium chloride. A1 0.1 M, A2 10 mM, A3 1 mM, B1 0.1 mM. B2 and B3 empty.
    - **Slot 5:** sodium sulfate A1 0.1 M, A2 10 mM, A3 1 mM, B1 0.1 mM; **B2 the 5 M NaCl; B3 the DI water.**
    - **Slot 6:** a **full** rack of Opentrons 300 µL tips. The robot can't tell if a tip is missing, and it would
