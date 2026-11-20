@@ -1,0 +1,135 @@
+$ python check_slice.py vial_holder_20ml_x6_A1mini_PETG_0.4.gcode.3mf plate_layout.png
+{
+ "file": "vial_holder_20ml_x6_A1mini_PETG_0.4.gcode.3mf",
+ "layers": 115,
+ "top_layer_z": 23.0,
+ "centre_on_bed_mm": [
+  90.0,
+  90.0
+ ],
+ "footprint_mm": {
+  "1.0": [
+   127.76,
+   85.48
+  ],
+  "10.0": [
+   127.76,
+   85.48
+  ],
+  "21.0": [
+   127.76,
+   85.48
+  ]
+ },
+ "pocket_diameter_mm": {
+  "6.0": [
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2
+  ],
+  "12.0": [
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2
+  ],
+  "18.0": [
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2
+  ]
+ },
+ "settings": {
+  "printer_settings_id": "Bambu Lab A1 mini 0.4 nozzle",
+  "nozzle_diameter": "0.4",
+  "print_settings_id": "0.20mm Standard @BBL A1M",
+  "filament_settings_id": "\"Bambu PETG Basic @BBL A1M 0.4 nozzle\"",
+  "curr_bed_type": "Textured PEI Plate",
+  "layer_height": "0.2",
+  "wall_loops": "3",
+  "sparse_infill_density": "15%",
+  "elefant_foot_compensation": "0.15",
+  "brim_type": "no_brim",
+  "enable_support": "0",
+  "nozzle_temperature": "245",
+  "textured_plate_temp": "70"
+ },
+ "estimate": "2h 8m 10s",
+ "filament_g": 76.27
+}
+
+$ python check_slice.py vial_holder_20ml_x6_A1mini_PLA_0.4.gcode.3mf /tmp/plate_layout_pla.png
+{
+ "file": "vial_holder_20ml_x6_A1mini_PLA_0.4.gcode.3mf",
+ "layers": 115,
+ "top_layer_z": 23.0,
+ "centre_on_bed_mm": [
+  90.0,
+  90.0
+ ],
+ "footprint_mm": {
+  "1.0": [
+   127.76,
+   85.48
+  ],
+  "10.0": [
+   127.76,
+   85.48
+  ],
+  "21.0": [
+   127.76,
+   85.48
+  ]
+ },
+ "pocket_diameter_mm": {
+  "6.0": [
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2
+  ],
+  "12.0": [
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2
+  ],
+  "18.0": [
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2,
+   28.2
+  ]
+ },
+ "settings": {
+  "printer_settings_id": "Bambu Lab A1 mini 0.4 nozzle",
+  "nozzle_diameter": "0.4",
+  "print_settings_id": "0.20mm Standard @BBL A1M",
+  "filament_settings_id": "\"Bambu PLA Basic @BBL A1M\"",
+  "curr_bed_type": "Textured PEI Plate",
+  "layer_height": "0.2",
+  "wall_loops": "3",
+  "sparse_infill_density": "15%",
+  "elefant_foot_compensation": "0.15",
+  "brim_type": "no_brim",
+  "enable_support": "0",
+  "nozzle_temperature": "220",
+  "textured_plate_temp": "65"
+ },
+ "estimate": "1h 48m 50s",
+ "filament_g": 80.14
+}

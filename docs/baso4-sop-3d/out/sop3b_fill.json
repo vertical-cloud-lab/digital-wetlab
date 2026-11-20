@@ -1,0 +1,47 @@
+{
+ "name": "sop3b_fill",
+ "fps": 15,
+ "n_frames": 651,
+ "size": [
+  1280,
+  720
+ ],
+ "substeps": [
+  {
+   "label": "3.8",
+   "caption": "84 wells: DI water first, one tip for the pass, dispensing from above.",
+   "start_frame": 0,
+   "end_frame": 143
+  },
+  {
+   "label": "3.9",
+   "caption": "64 wells: 40 uL of 5 M NaCl (1 molal in 200 uL). Barium chloride and sodium sulfate come from the 0.1 M, 10, 1 and 0.1 mM vials: 20 uL gives 1/10 of the stock, 60 uL of 10 mM gives 3 mM.",
+   "start_frame": 144,
+   "end_frame": 242
+  },
+  {
+   "label": "3.10",
+   "caption": "72 wells: barium chloride, from the vial each well needs (shown: 1 mM). A dose under 20 uL, the P300's minimum, stops the protocol instead of becoming zero.",
+   "start_frame": 243,
+   "end_frame": 341
+  },
+  {
+   "label": "3.11",
+   "caption": "72 wells: sodium sulfate last, a new tip for every well, dispensed from above the liquid, so no tip that touched barium goes back into a stock. Each well's start time comes from the run log.",
+   "start_frame": 342,
+   "end_frame": 470
+  },
+  {
+   "label": "3.12",
+   "caption": "At the pause: open the door, lay a clear adhesive seal over the plate and press it down well by well, then close the door and resume. Log the time. Over days an open well would lose water and concentrate both salts.",
+   "start_frame": 471,
+   "end_frame": 560
+  },
+  {
+   "label": "3.13",
+   "caption": "When the protocol ends: recap each vial from its place on the wipe (leftover stocks go to the barium waste at the end of the run), close the door, and leave the rail lights on. The head parks away from slot 7 so the camera has a clear view.",
+   "start_frame": 561,
+   "end_frame": 650
+  }
+ ]
+}

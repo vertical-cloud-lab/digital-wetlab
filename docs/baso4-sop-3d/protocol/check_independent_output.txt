@@ -1,0 +1,211 @@
+# python check_independent.py baso4_plate_a.py [variant], opentrons 8.8.1, 2026-11-17T01:03Z
+
+### variant: defaults (mix on, plate on the Heater-Shaker, vial ID 24.4 mm, SOP fill)
+== baso4_plate_a.py | mix=default hs=default | vial ID 24.4 mm | 5572 recorded events
+tips: 78; smallest volume 20.0 uL; wells filled 84
+plate design: matches plate A exactly (84 wells: 48 + 16 + 8 + 8 + 4)
+sulfate wells: 72; tips used for more than one sulfate well: 0
+tips that went back into a stock after touching a well (harmless pairs only): 6 tip/stock pairs, e.g. [(1, 'DI water', ('DI water',)), (2, 'NaCl 5 M', ('DI water', 'NaCl 5 M')), (3, 'BaCl2 0.1 mM', ('BaCl2 0.1 mM', 'DI water', 'NaCl 5 M'))]
+
+in the vials (start volumes from the SOP; inner diameter 24.4 mm):
+  BaCl2 0.1 M      4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  5.7- 5.7 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13700 uL
+  BaCl2 0.1 mM    17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  BaCl2 1 mM      17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  BaCl2 10 mM     34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12170 uL
+  DI water        84 draws,  10000 uL; tip end   7.0- 26.8 mm above the floor; under the surface by  3.7- 5.1 mm after each draw; tip top  5.3 mm above the rim at the deepest; left   5000 uL
+  Na2SO4 0.1 M     4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  5.3- 5.3 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13520 uL
+  Na2SO4 0.1 mM   17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  Na2SO4 1 mM     17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  Na2SO4 10 mM    34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12160 uL
+  NaCl 5 M        64 draws,   2560 uL; tip end  21.6- 26.9 mm above the floor; under the surface by  5.0- 5.1 mm after each draw; tip top 19.9 mm above the rim at the deepest; left  12430 uL
+
+in the wells: tip end above the liquid it makes, per kind of dispense (mm):
+  DI       84 dispenses: 0.99 to 1.00
+  NaCl     64 dispenses: 0.99 to 1.00
+  BaCl2    72 dispenses: 0.99 to 1.00
+  Na2SO4   72 dispenses: 0.99 to 0.99
+
+gantry moves: 3522; travel heights used: [93.8]
+straight moves that pass over slot 10: 15; heights (critical point) {93.8: 15}; closest approach to the parked sensor's post 37 mm
+  e.g. from (14.16, 256.3) to (363.9, 351.5) at z 93.78 (CriticalPoint.INSTRUMENT_XY_CENTER)
+  10 of them pass over the charging station's footprint with the tip end below its 97 mm top: slot 10 must be EMPTY (the robot doesn't know about anything the protocol doesn't load)
+
+pause and lights: [(1, 'pause', 'Check before Resume: all 10 vials uncapped; a FULL 300 uL tip rack in slot 6; the plate on'), (2, 'set_rail_lights', 'True')]
+first aspirate at event 8
+
+no problems found by these checks
+
+### variant: --mix=off
+== baso4_plate_a.py | mix=off hs=default | vial ID 24.4 mm | 4636 recorded events
+tips: 78; smallest volume 20.0 uL; wells filled 84
+plate design: matches plate A exactly (84 wells: 48 + 16 + 8 + 8 + 4)
+sulfate wells: 72; tips used for more than one sulfate well: 0
+tips that went back into a stock after touching a well (harmless pairs only): 6 tip/stock pairs, e.g. [(1, 'DI water', ('DI water',)), (2, 'NaCl 5 M', ('DI water', 'NaCl 5 M')), (3, 'BaCl2 0.1 mM', ('BaCl2 0.1 mM', 'DI water', 'NaCl 5 M'))]
+
+in the vials (start volumes from the SOP; inner diameter 24.4 mm):
+  BaCl2 0.1 M      4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  5.7- 5.7 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13700 uL
+  BaCl2 0.1 mM    17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  BaCl2 1 mM      17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  BaCl2 10 mM     34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12170 uL
+  DI water        84 draws,  10000 uL; tip end   7.0- 26.8 mm above the floor; under the surface by  3.7- 5.1 mm after each draw; tip top  5.3 mm above the rim at the deepest; left   5000 uL
+  Na2SO4 0.1 M     4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  5.3- 5.3 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13520 uL
+  Na2SO4 0.1 mM   17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  Na2SO4 1 mM     17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  Na2SO4 10 mM    34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12160 uL
+  NaCl 5 M        64 draws,   2560 uL; tip end  21.6- 26.9 mm above the floor; under the surface by  5.0- 5.1 mm after each draw; tip top 19.9 mm above the rim at the deepest; left  12430 uL
+
+in the wells: tip end above the liquid it makes, per kind of dispense (mm):
+  DI       84 dispenses: 0.99 to 1.00
+  NaCl     64 dispenses: 0.99 to 1.00
+  BaCl2    72 dispenses: 0.99 to 1.00
+  Na2SO4   72 dispenses: 0.99 to 0.99
+
+gantry moves: 3018; travel heights used: [93.8]
+straight moves that pass over slot 10: 15; heights (critical point) {93.8: 15}; closest approach to the parked sensor's post 37 mm
+  e.g. from (14.16, 256.3) to (363.9, 351.5) at z 93.78 (CriticalPoint.INSTRUMENT_XY_CENTER)
+  10 of them pass over the charging station's footprint with the tip end below its 97 mm top: slot 10 must be EMPTY (the robot doesn't know about anything the protocol doesn't load)
+
+pause and lights: [(1, 'pause', 'Check before Resume: all 10 vials uncapped; a FULL 300 uL tip rack in slot 6; the plate on'), (2, 'set_rail_lights', 'True')]
+first aspirate at event 8
+
+no problems found by these checks
+
+### variant: --hs=off
+== baso4_plate_a.py | mix=default hs=off | vial ID 24.4 mm | 5417 recorded events
+tips: 78; smallest volume 20.0 uL; wells filled 84
+plate design: matches plate A exactly (84 wells: 48 + 16 + 8 + 8 + 4)
+sulfate wells: 72; tips used for more than one sulfate well: 0
+tips that went back into a stock after touching a well (harmless pairs only): 6 tip/stock pairs, e.g. [(1, 'DI water', ('DI water',)), (2, 'NaCl 5 M', ('DI water', 'NaCl 5 M')), (3, 'BaCl2 0.1 mM', ('BaCl2 0.1 mM', 'DI water', 'NaCl 5 M'))]
+
+in the vials (start volumes from the SOP; inner diameter 24.4 mm):
+  BaCl2 0.1 M      4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  5.7- 5.7 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13700 uL
+  BaCl2 0.1 mM    17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  BaCl2 1 mM      17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  BaCl2 10 mM     34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12170 uL
+  DI water        84 draws,  10000 uL; tip end   7.0- 26.8 mm above the floor; under the surface by  3.7- 5.1 mm after each draw; tip top  5.3 mm above the rim at the deepest; left   5000 uL
+  Na2SO4 0.1 M     4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  5.3- 5.3 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13520 uL
+  Na2SO4 0.1 mM   17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  Na2SO4 1 mM     17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  Na2SO4 10 mM    34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12160 uL
+  NaCl 5 M        64 draws,   2560 uL; tip end  21.6- 26.9 mm above the floor; under the surface by  5.0- 5.1 mm after each draw; tip top 19.9 mm above the rim at the deepest; left  12430 uL
+
+in the wells: tip end above the liquid it makes, per kind of dispense (mm):
+  DI       84 dispenses: 1.00 to 1.00
+  NaCl     64 dispenses: 1.00 to 1.00
+  BaCl2    72 dispenses: 1.00 to 1.00
+  Na2SO4   72 dispenses: 1.00 to 1.00
+
+gantry moves: 3367; travel heights used: [74.5, 82.0]
+straight moves that pass over slot 10: 14; heights (critical point) {82.0: 14}; closest approach to the parked sensor's post 38 mm
+  e.g. from (14.28, 255.18) to (363.9, 351.5) at z 82.0 (CriticalPoint.INSTRUMENT_XY_CENTER)
+  10 of them pass over the charging station's footprint with the tip end below its 97 mm top: slot 10 must be EMPTY (the robot doesn't know about anything the protocol doesn't load)
+
+pause and lights: [(1, 'pause', 'Check before Resume: all 10 vials uncapped; a FULL 300 uL tip rack in slot 6; the plate in'), (2, 'set_rail_lights', 'True')]
+first aspirate at event 8
+
+no problems found by these checks
+
+### variant: --vial-id=23.0
+== baso4_plate_a.py | mix=default hs=default | vial ID 23.0 mm | 5572 recorded events
+tips: 78; smallest volume 20.0 uL; wells filled 84
+plate design: matches plate A exactly (84 wells: 48 + 16 + 8 + 8 + 4)
+sulfate wells: 72; tips used for more than one sulfate well: 0
+tips that went back into a stock after touching a well (harmless pairs only): 6 tip/stock pairs, e.g. [(1, 'DI water', ('DI water',)), (2, 'NaCl 5 M', ('DI water', 'NaCl 5 M')), (3, 'BaCl2 0.1 mM', ('BaCl2 0.1 mM', 'DI water', 'NaCl 5 M'))]
+
+in the vials (start volumes from the SOP; inner diameter 23.0 mm):
+  BaCl2 0.1 M      4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  9.3- 9.4 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13700 uL
+  BaCl2 0.1 mM    17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  9.0- 9.1 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  BaCl2 1 mM      17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  8.6- 8.7 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  BaCl2 10 mM     34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  8.4- 8.8 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12170 uL
+  DI water        84 draws,  10000 uL; tip end   7.0- 26.8 mm above the floor; under the surface by  5.0- 9.1 mm after each draw; tip top  5.3 mm above the rim at the deepest; left   5000 uL
+  Na2SO4 0.1 M     4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  8.9- 8.9 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13520 uL
+  Na2SO4 0.1 mM   17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  9.0- 9.1 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  Na2SO4 1 mM     17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  8.6- 8.7 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  Na2SO4 10 mM    34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  8.3- 8.7 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12160 uL
+  NaCl 5 M        64 draws,   2560 uL; tip end  21.6- 26.9 mm above the floor; under the surface by  8.3- 9.1 mm after each draw; tip top 19.9 mm above the rim at the deepest; left  12430 uL
+
+in the wells: tip end above the liquid it makes, per kind of dispense (mm):
+  DI       84 dispenses: 0.99 to 1.00
+  NaCl     64 dispenses: 0.99 to 1.00
+  BaCl2    72 dispenses: 0.99 to 1.00
+  Na2SO4   72 dispenses: 0.99 to 0.99
+
+gantry moves: 3522; travel heights used: [93.8]
+straight moves that pass over slot 10: 15; heights (critical point) {93.8: 15}; closest approach to the parked sensor's post 37 mm
+  e.g. from (14.16, 256.3) to (363.9, 351.5) at z 93.78 (CriticalPoint.INSTRUMENT_XY_CENTER)
+  10 of them pass over the charging station's footprint with the tip end below its 97 mm top: slot 10 must be EMPTY (the robot doesn't know about anything the protocol doesn't load)
+
+pause and lights: [(1, 'pause', 'Check before Resume: all 10 vials uncapped; a FULL 300 uL tip rack in slot 6; the plate on'), (2, 'set_rail_lights', 'True')]
+first aspirate at event 8
+
+no problems found by these checks
+
+### variant: --vial-id=25.6
+== baso4_plate_a.py | mix=default hs=default | vial ID 25.6 mm | 5572 recorded events
+tips: 78; smallest volume 20.0 uL; wells filled 84
+plate design: matches plate A exactly (84 wells: 48 + 16 + 8 + 8 + 4)
+sulfate wells: 72; tips used for more than one sulfate well: 0
+tips that went back into a stock after touching a well (harmless pairs only): 6 tip/stock pairs, e.g. [(1, 'DI water', ('DI water',)), (2, 'NaCl 5 M', ('DI water', 'NaCl 5 M')), (3, 'BaCl2 0.1 mM', ('BaCl2 0.1 mM', 'DI water', 'NaCl 5 M'))]
+
+in the vials (start volumes from the SOP; inner diameter 25.6 mm):
+  BaCl2 0.1 M      4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  3.0- 3.0 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13700 uL
+  BaCl2 0.1 mM    17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  2.2- 2.2 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  BaCl2 1 mM      17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  2.4- 2.5 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  BaCl2 10 mM     34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  2.5- 2.7 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12170 uL
+  DI water        84 draws,  10000 uL; tip end   7.0- 26.8 mm above the floor; under the surface by  2.2- 3.7 mm after each draw; tip top  5.3 mm above the rim at the deepest; left   5000 uL
+  Na2SO4 0.1 M     4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  2.6- 2.6 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13520 uL
+  Na2SO4 0.1 mM   17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  2.2- 2.2 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  Na2SO4 1 mM     17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  2.4- 2.5 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  Na2SO4 10 mM    34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  2.5- 2.7 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12160 uL
+  NaCl 5 M        64 draws,   2560 uL; tip end  21.6- 26.9 mm above the floor; under the surface by  2.2- 2.6 mm after each draw; tip top 19.9 mm above the rim at the deepest; left  12430 uL
+
+in the wells: tip end above the liquid it makes, per kind of dispense (mm):
+  DI       84 dispenses: 0.99 to 1.00
+  NaCl     64 dispenses: 0.99 to 1.00
+  BaCl2    72 dispenses: 0.99 to 1.00
+  Na2SO4   72 dispenses: 0.99 to 0.99
+
+gantry moves: 3522; travel heights used: [93.8]
+straight moves that pass over slot 10: 15; heights (critical point) {93.8: 15}; closest approach to the parked sensor's post 37 mm
+  e.g. from (14.16, 256.3) to (363.9, 351.5) at z 93.78 (CriticalPoint.INSTRUMENT_XY_CENTER)
+  10 of them pass over the charging station's footprint with the tip end below its 97 mm top: slot 10 must be EMPTY (the robot doesn't know about anything the protocol doesn't load)
+
+pause and lights: [(1, 'pause', 'Check before Resume: all 10 vials uncapped; a FULL 300 uL tip rack in slot 6; the plate on'), (2, 'set_rail_lights', 'True')]
+first aspirate at event 8
+
+no problems found by these checks
+
+### variant: --start=low
+== baso4_plate_a.py | mix=default hs=default | vial ID 24.4 mm | 5572 recorded events
+tips: 78; smallest volume 20.0 uL; wells filled 84
+plate design: matches plate A exactly (84 wells: 48 + 16 + 8 + 8 + 4)
+sulfate wells: 72; tips used for more than one sulfate well: 0
+tips that went back into a stock after touching a well (harmless pairs only): 6 tip/stock pairs, e.g. [(1, 'DI water', ('DI water',)), (2, 'NaCl 5 M', ('DI water', 'NaCl 5 M')), (3, 'BaCl2 0.1 mM', ('BaCl2 0.1 mM', 'DI water', 'NaCl 5 M'))]
+
+in the vials (start volumes from the SOP; inner diameter 24.4 mm):
+  BaCl2 0.1 M      4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  5.7- 5.7 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13700 uL
+  BaCl2 0.1 mM    17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  BaCl2 1 mM      17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  BaCl2 10 mM     34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12170 uL
+  DI water        84 draws,  10000 uL; tip end   7.0- 26.8 mm above the floor; under the surface by  1.6- 3.0 mm after each draw; tip top  5.3 mm above the rim at the deepest; left   4000 uL
+  Na2SO4 0.1 M     4 draws,     80 uL; tip end  23.6- 23.8 mm above the floor; under the surface by  5.3- 5.3 mm after each draw; tip top 22.0 mm above the rim at the deepest; left  13520 uL
+  Na2SO4 0.1 mM   17 draws,    340 uL; tip end  26.2- 26.9 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 24.6 mm above the rim at the deepest; left  14660 uL
+  Na2SO4 1 mM     17 draws,    340 uL; tip end  23.1- 23.8 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 21.4 mm above the rim at the deepest; left  13160 uL
+  Na2SO4 10 mM    34 draws,   1360 uL; tip end  20.9- 23.7 mm above the floor; under the surface by  5.1- 5.1 mm after each draw; tip top 19.3 mm above the rim at the deepest; left  12160 uL
+  NaCl 5 M        64 draws,   2560 uL; tip end  21.6- 26.9 mm above the floor; under the surface by  5.0- 5.1 mm after each draw; tip top 19.9 mm above the rim at the deepest; left  12430 uL
+
+in the wells: tip end above the liquid it makes, per kind of dispense (mm):
+  DI       84 dispenses: 0.99 to 1.00
+  NaCl     64 dispenses: 0.99 to 1.00
+  BaCl2    72 dispenses: 0.99 to 1.00
+  Na2SO4   72 dispenses: 0.99 to 0.99
+
+gantry moves: 3522; travel heights used: [93.8]
+straight moves that pass over slot 10: 15; heights (critical point) {93.8: 15}; closest approach to the parked sensor's post 37 mm
+  e.g. from (14.16, 256.3) to (363.9, 351.5) at z 93.78 (CriticalPoint.INSTRUMENT_XY_CENTER)
+  10 of them pass over the charging station's footprint with the tip end below its 97 mm top: slot 10 must be EMPTY (the robot doesn't know about anything the protocol doesn't load)
+
+pause and lights: [(1, 'pause', 'Check before Resume: all 10 vials uncapped; a FULL 300 uL tip rack in slot 6; the plate on'), (2, 'set_rail_lights', 'True')]
+first aspirate at event 8
+
+no problems found by these checks

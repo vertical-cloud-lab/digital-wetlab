@@ -1,0 +1,44 @@
+# Plate A's photos, checked again on 2026-11-20 (UTC), before Tim deletes his Google Drive copy
+# 22:44-22:45 the draft release plate-a-photos was downloaded again with gh release download.
+# 22:47 the Drive file still opened without a sign-in; 22:48 it was downloaded again (5,148,954,747 bytes).
+
+$ sha256sum <Drive zip>
+56abc2b80a42aca7b104286ffd5d7e5739185edb1a1541dfcd55f05ac2811a7d  ot-2 experiment pics.zip
+(the release notes and README record 56abc2b80a42aca7b104286ffd5d7e5739185edb1a1541dfcd55f05ac2811a7d)
+
+$ python3 -I tools/recheck_release.py SHA256SUMS.txt photos.csv <release download>
+lists in git: 4 zips, 1382 photos; photos.csv rows: 1382
+release SHA256SUMS.txt the same as git's: True
+release photos.csv the same as git's: True
+zips downloaded: 4; names as listed: True
+plate-a-photos_part1of4_20261116-214509_to_20261118-114331.zip: sha256 OK
+  CRC test: OK
+  photos in it: 346
+plate-a-photos_part2of4_20261118-114531_to_20261118-231531.zip: sha256 OK
+  CRC test: OK
+  photos in it: 346
+plate-a-photos_part3of4_20261118-231731_to_20261119-104731.zip: sha256 OK
+  CRC test: OK
+  photos in it: 346
+plate-a-photos_part4of4_20261119-104931_to_20261120-135140.zip: sha256 OK
+  CRC test: OK
+  photos in it: 344
+photos: 1382 found, 0 missing, 0 extra
+sha256 mismatches: 0; size mismatches: 0; in the wrong part: 0
+photo bytes: 5,162,460,701
+ALL OK
+exit 0
+
+$ python -I tools/decode_all.py <release download>/*.zip    (Pillow 13.0.0)
+photos decoded: 1382; formats: {'JPEG': 1382}; pixel sizes: {(4608, 3456): 1382}; with the Samsung trailer: 1382
+photos that failed: 0
+exit 0
+
+$ python3 -I tools/compare_drive.py <Drive zip> <release download>/*.zip
+Drive zip: 1382 files {'jpg': 1382}, folders ['ot-2 experiment pics/']; release parts: 1382 files
+in Drive but not in the release: 0 []
+in the release but not in Drive: 0 []
+different bytes: 0; different date in the zip: 0
+bytes in the Drive zip's files: 5,162,460,701
+EVERY FILE IN THE DRIVE ZIP IS IN THE RELEASE, BYTE FOR BYTE
+exit 0
