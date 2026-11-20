@@ -97,7 +97,9 @@ already on the PR:
   plots, a table of times, and a few crops of the plate. The originals stay in the draft release.
 - **Where the originals are kept for good** is still Sterling's call: decision 5 of the monitoring plan suggests AWS,
   Box or Drive. Until then, keep a second copy outside GitHub, on the phone or a computer, and never delete the
-  draft release.
+  draft release. If nobody can keep a copy on their own devices, the second copy goes in one of the lab's
+  accounts. Zenodo or Hugging Face would do, once this repo's runs are given the key
+  ([how](plate-a-photos/README.md#a-second-copy-outside-github-not-made-yet)).
 
 **For the `@claude` run that fetches them:** download into a new folder under `/tmp`, never into the checkout:
 `gh release download plate-a-photos -R vertical-cloud-lab/digital-wetlab -D /tmp/plate-a-photos/zips`. Unzip each

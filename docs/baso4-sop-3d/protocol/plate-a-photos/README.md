@@ -28,19 +28,16 @@ This folder has only the list of the photos and a few small previews, with no me
 ## Where the photos are kept
 
 - **Once Tim deletes the Google Drive copy (Tim asked on 11-20), this draft release is the only copy on record.**
-  Before that, a Claude run checked everything again at 22:44–22:49 UTC on 11-20
-  ([output](recheck_2026-11-20.txt)):
+  Tim can't keep a copy on a personal device or a personal Drive, so the second copy has to go in one of the lab's
+  accounts ([below](#a-second-copy-outside-github-not-made-yet)). Before the Drive copy goes, a Claude run checked
+  everything again at 22:44–22:49 UTC on 11-20 ([output](recheck_2026-11-20.txt)):
   - **The release:** downloaded again, all four zips and all 1,382 photos match `SHA256SUMS.txt` and `photos.csv`,
     and every photo opens as a complete 4608 × 3456 JPEG.
   - **The Drive zip:** downloaded again, it was still the same 5,148,954,747 bytes, with the same sha256. Every one
     of its 1,382 files is in the release, byte for byte, with the same file date.
 - **A draft release doesn't expire, but anyone with write access to this repo can delete it,** and GitHub's docs
-  give no way to restore a deleted release. So:
-  - **don't delete the release, or any file in it,** without asking Sterling;
-  - keep a second copy outside GitHub (the phone's own photos, or a computer or drive) until Sterling decides where
-    the photos are kept for good. Decision 5 of the
-    [monitoring plan](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md#decisions-before-the-first-run)
-    suggests AWS, Box or Drive.
+  give no way to restore a deleted release. So **don't delete the release, or any file in it,** without asking
+  Sterling. At 23:03 UTC on 11-20 it still had all six files, 5,163,071,280 bytes in all.
 - **Only what was in Tim's zip is here.** If the phone saved any photos during the two gaps below, they aren't in
   the release.
 - **To check the release again:** download it as above, then run `tools/recheck_release.py` (standard library only)
@@ -48,6 +45,36 @@ This folder has only the list of the photos and a few small previews, with no me
 - **To edit the draft through the API, pass `tag_name=plate-a-photos` as well.** On 11-20 an edit of only its
   description reset the tag name to an `untagged-…` placeholder, and `gh release download plate-a-photos` stopped
   finding it until the name was set back.
+
+### A second copy outside GitHub: not made yet
+
+Where the photos are kept for good is Sterling's call (decision 5 of the
+[monitoring plan](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md#decisions-before-the-first-run),
+which suggests AWS, Box or Drive). On 11-20 a Claude run looked for lab storage it could copy them to, and found
+none that this repo's runs can reach. Their only keys are for GitHub, Edison, Onshape and the stream-camera Pi.
+
+| Where | Can a run in this repo write to it? | Notes |
+| --- | --- | --- |
+| **Zenodo**, the lab's account | No. `ZENODO_API_TOKEN` (deposit:write and deposit:actions) is only given to byu-vcl's runs | Made for keeping research data. A published record is kept for the lifetime of the repository, which is tied to CERN's (at least 20 years), and can be withdrawn but not deleted ([policies](https://about.zenodo.org/policies)). Its files can be restricted, but its title, description and authors are always public ([help](https://help.zenodo.org/docs/deposit/about-records)). A draft is seen only by its owner and whoever it's shared with ([sharing](https://help.zenodo.org/docs/share/link-sharing/)). A record takes up to 50 GB and 100 files, so the release's six files fit in one |
+| **Hugging Face**, the `byu-vcl` account | No. `HF_TOKEN` is only given to byu-vcl's runs | A private dataset shows nothing publicly. A free account has 100 GB of private storage ([limits](https://huggingface.co/docs/hub/storage-limits)). Anyone with the token can delete it, so it's a second copy, not an archive |
+| Sterling's OneDrive | No | Where byu-vcl archived the lid-camera Pi's files on 11-10 |
+| Box | No | byu-vcl lists "a Box share link for image backup" as not yet set up |
+| AWS | No | Seth had "software/AWS stuff" ready for the lid camera in June ([byu-vcl 34](https://github.com/vertical-cloud-lab/byu-vcl/issues/34#issuecomment-4791750994)). Neither repo's workflow has an AWS key |
+| MongoDB Atlas, database `digital-wetlab` | No | Meant for one record per still or reading, not for photos. The cluster is Atlas's free M0 tier |
+
+**For a run here to make the copy:**
+
+1. Sterling adds `ZENODO_API_TOKEN` (or `HF_TOKEN`) as a secret of this repo, with the value byu-vcl uses, and adds
+   the line `ZENODO_API_TOKEN: ${{ secrets.ZENODO_API_TOKEN }}` (or the `HF_TOKEN` one) to the job `env:` in
+   `.github/workflows/claude.yml` on `main`, next to `GH_READ_PAT_STAGING`. A Claude run can't edit workflow files.
+2. Then a `@claude` comment here asks for the copy. That run should:
+   - download the release's six files into a new folder under `/tmp` and check them with `tools/recheck_release.py`;
+   - upload the six files unchanged, either to a Zenodo draft or to a private Hugging Face dataset in the
+     `byu-vcl` account. Publish a Zenodo record only if Sterling says so, with the files restricted, since
+     publishing makes the title and description public for good;
+   - download them back from there into a fresh folder and check every sha256 again;
+   - record here where the copy is (the Zenodo record ID or the dataset name) and when it was checked. Don't post
+     a share link.
 
 ## When there are photos
 
