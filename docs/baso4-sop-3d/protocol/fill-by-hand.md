@@ -196,6 +196,8 @@ log says how it was done.
 6. **The log:** "by hand, 5 drops a well"; your three drop weighings and the pipette's make; when each pass started
    and ended; any slip (which well, what happened); "stirred by hand, 5 circles with a 300 µL tip"; and the sulfate
    page with every well's time. Post a photo of the pages on PR 84.
+7. **After the 72 h, the phone's photos** go to Claude as zips in a draft release of this repo, not in a comment:
+   [`photos-to-claude.md`](photos-to-claude.md).
 
 ## 6. When the run is over
 

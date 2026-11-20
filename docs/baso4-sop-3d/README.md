@@ -89,7 +89,8 @@ run, and a phone replaces the lid camera.
   - 3.1's camera checks become the phone's (every 2 minutes; settings in [`protocol/`](protocol/README.md#the-phone-and-what-it-misses));
   - 3.7 starts no capture job, just the protocol;
   - the protocol has no pause for the seal, so the seal (3.12) goes on after the run, before the phone;
-  - chapter 4's stills are the phone's photos.
+  - chapter 4's stills are the phone's photos. After the 72 h they go to Claude as zips in a draft release of this
+    repo ([how](protocol/photos-to-claude.md), added 2026-11-20).
 
   The videos still show the lid camera.
 - **The protocol mixes each well after its sulfate,** three gentle 80 µL mixes with that well's own tip. The videos

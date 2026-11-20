@@ -148,6 +148,8 @@ mixing. The 11-02 plan left the choice open ("decision 4") and asked only that e
   [phone settings](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-6923980181)).
 - **Line up the clocks.** You'll have noted the phone's time when you pressed Resume and at the first photo. The run
   log gives the robot's time of each SULFATE line. Together they put every photo on each well's own clock.
+- **After the 72 h,** the photos go to Claude as zips in a draft release of this repo, not in a comment:
+  [`photos-to-claude.md`](photos-to-claude.md).
 
 ## Checked, and not checked
 
