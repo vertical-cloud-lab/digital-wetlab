@@ -74,12 +74,14 @@ then deleted the draft; no tag was left.
 
 ## 5. Tell Claude
 
-Comment on the PR: `@claude the photos are in the draft release plate-a-photos`. In the same comment, attach or say:
-- **a photo of the sulfate page,** with each well's time, and **whose clock** you read those times from: the phone
-  that took the photos, another phone, or a watch;
-- **the app** that took the photos, and its interval;
-- **anything that happened in the 72 h,** with rough times: the Heater-Shaker switched on, the plastic wrap, the phone
-  or the plate bumped, the lights off, the phone stopping.
+Comment on the PR: `@claude the photos are in the draft release plate-a-photos`. In the same comment, unless it's
+already on the PR:
+- **what [When the run is over](fill-by-hand.md#6-when-the-run-is-over) asks you to post** (its steps 15-17): the
+  pass pages with every well's sulfate time, the stock log, the bottle labels, and anything that happened during the
+  run;
+- **whose clock the sulfate times came from:** the phone that took the photos, or another clock. If another, add the
+  photo of that clock from step 2 of the same section;
+- **the app** that took the photos, and its interval.
 
 ## What Claude does with them
 

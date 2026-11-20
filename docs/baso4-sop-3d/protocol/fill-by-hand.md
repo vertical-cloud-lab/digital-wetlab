@@ -196,8 +196,6 @@ log says how it was done.
 6. **The log:** "by hand, 5 drops a well"; your three drop weighings and the pipette's make; when each pass started
    and ended; any slip (which well, what happened); "stirred by hand, 5 circles with a 300 µL tip"; and the sulfate
    page with every well's time. Post a photo of the pages on PR 84.
-7. **After the 72 h, the phone's photos** go to Claude as zips in a draft release of this repo, not in a comment:
-   [`photos-to-claude.md`](photos-to-claude.md).
 
 ## 6. When the run is over
 
@@ -293,7 +291,8 @@ plate. **Steps 1-4 need the plate and the phone where they are, so do them first
 17. Anything that happened during the run: when the first photo was taken, when the Heater-Shaker was switched on
     (about 05:00 UTC on 11-17), whether anyone opened the robot or touched the phone, whether the rail lights
     stayed on, and which plastic wrap went on the plate.
-18. The photos themselves. How to send them is in the 11-20 reply on PR 84.
+18. The photos themselves, as zips in a draft release of this repo, not in a comment:
+    [`photos-to-claude.md`](photos-to-claude.md).
 
 ## The Heater-Shaker
 
