@@ -25,6 +25,30 @@ This folder has only the list of the photos and a few small previews, with no me
 - **The camera:** a Samsung Galaxy A12 (SM-A125U) on a tripod, 4608 × 3456 px, EXIF rotation 6 (portrait). The
   times are the phone's clock, with its UTC offset (−07:00) stored in each photo. **No photo has a GPS location.**
 
+## Where the photos are kept
+
+- **Once Tim deletes the Google Drive copy (Tim asked on 11-20), this draft release is the only copy on record.**
+  Before that, a Claude run checked everything again at 22:44–22:49 UTC on 11-20
+  ([output](recheck_2026-11-20.txt)):
+  - **The release:** downloaded again, all four zips and all 1,382 photos match `SHA256SUMS.txt` and `photos.csv`,
+    and every photo opens as a complete 4608 × 3456 JPEG.
+  - **The Drive zip:** downloaded again, it was still the same 5,148,954,747 bytes, with the same sha256. Every one
+    of its 1,382 files is in the release, byte for byte, with the same file date.
+- **A draft release doesn't expire, but anyone with write access to this repo can delete it,** and GitHub's docs
+  give no way to restore a deleted release. So:
+  - **don't delete the release, or any file in it,** without asking Sterling;
+  - keep a second copy outside GitHub (the phone's own photos, or a computer or drive) until Sterling decides where
+    the photos are kept for good. Decision 5 of the
+    [monitoring plan](https://github.com/vertical-cloud-lab/digital-wetlab/blob/ad0b513/docs/baso4-extended-monitoring.md#decisions-before-the-first-run)
+    suggests AWS, Box or Drive.
+- **Only what was in Tim's zip is here.** If the phone saved any photos during the two gaps below, they aren't in
+  the release.
+- **To check the release again:** download it as above, then run `tools/recheck_release.py` (standard library only)
+  and `tools/decode_all.py` (needs Pillow).
+- **To edit the draft through the API, pass `tag_name=plate-a-photos` as well.** On 11-20 an edit of only its
+  description reset the tag name to an `untagged-…` placeholder, and `gh release download plate-a-photos` stopped
+  finding it until the name was set back.
+
 ## When there are photos
 
 Every 2 minutes, but only for 46 of the 72.4 hours. The app took no photos during two long gaps:
@@ -112,3 +136,6 @@ The scripts are in [`tools/`](tools/). Run them with `python3 -E -P`; they need 
 - `manifest.py` writes `photos.csv` and `SHA256SUMS.txt`.
 - `previews.py` makes the three pictures, with no EXIF.
 - `labelled_zooms.py` makes the two labelled close-ups of the 11-20 photo. The well positions in it were read by eye.
+- `recheck_release.py` checks a fresh download of the release against `SHA256SUMS.txt` and `photos.csv`.
+- `decode_all.py` decodes every photo in full, to catch one that's cut short (needs Pillow).
+- `compare_drive.py` compares every file in the Drive zip with the release, byte for byte.

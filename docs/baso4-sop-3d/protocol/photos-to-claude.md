@@ -5,7 +5,8 @@ after plate A's 72 h: about 2,160 photos, one every 2 minutes. How do they get t
 
 **Done for plate A on 2026-11-20:** Tim put one zip on Google Drive, a Claude run copied the photos into the draft
 release `plate-a-photos` and checked every one. What's there, and the gaps in the series, are in
-[`plate-a-photos/`](plate-a-photos/README.md).
+[`plate-a-photos/`](plate-a-photos/README.md). When Tim asked to delete the Drive copy, another run checked the release
+and the Drive zip again: [where the photos are kept](plate-a-photos/README.md#where-the-photos-are-kept).
 
 **Zip them on a computer and attach the zips to a draft release of this repo.**
 - **A PR comment is the wrong tool.** It takes files one at a time, at most 10 MB a photo and 25 MB for anything else,
@@ -95,7 +96,8 @@ already on the PR:
 - **Only results go in the repo,** under `experiments/004-baso4-monitoring/<run-id>/` as the monitoring plan says:
   plots, a table of times, and a few crops of the plate. The originals stay in the draft release.
 - **Where the originals are kept for good** is still Sterling's call: decision 5 of the monitoring plan suggests AWS,
-  Box or Drive. Until then, keep a copy on the computer as well.
+  Box or Drive. Until then, keep a second copy outside GitHub, on the phone or a computer, and never delete the
+  draft release.
 
 **For the `@claude` run that fetches them:** download into a new folder under `/tmp`, never into the checkout:
 `gh release download plate-a-photos -R vertical-cloud-lab/digital-wetlab -D /tmp/plate-a-photos/zips`. Unzip each
