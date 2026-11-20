@@ -68,6 +68,29 @@ local time.*
   light, isn't checked.
 - **Exposure:** every photo of the series from 21:55 on is 1/120 s at ISO 50. White balance is automatic.
 
+## A first look, by eye, at the 11-20 photo
+
+On 11-20 Tim saw white only in the four 20 mM controls (A9, C7, D5, G8). The plan expected the 16 wells with at
+least 2 mM of both barium and sulfate to precipitate too
+([PR comment](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84#issuecomment-7051678819)). Here are
+those wells (orange labels) in close-ups of the 11-20 photo, which was taken without the wrap. The labels were
+placed by eye using the plate's moulded row and column labels. The empty wells D1, D2, C3, D4 and F3 look empty
+in the photo, as the plate map says, which confirms the grid.
+
+![Rows D-H, columns 3-6 of the 11-20 photo, labelled](final_zoom_D-H_3-6.jpg)
+
+![Rows A-F, columns 1-6 of the 11-20 photo, labelled](final_zoom_A-F_1-6.jpg)
+
+- **E4, F4, G5, E5 and D6 have a grey haze in them,** not the white of the D5 control. Wells with 0.02 mM of either
+  ion look dark, among them F5, G4, H4, H5, F6 and G6. Each of those can make only about 1 µg of barium sulfate.
+- **E1 has a grey, grainy patch on its floor.**
+- **A6 looks paler than its neighbours,** but it's at the edge of the plate, where the plate's side reflects light.
+- **Can't tell from this photo:** B5, C4 and C2 (glare), G2, and B10, D11, D12, B12 and F12. The phone looks
+  into columns 10–12 at a slant, so it sees their walls, not their floors.
+
+This is one look at one photo, by eye. Measuring every well in every photo against its own start, and against
+the blanks, is the analysis still to do.
+
 ## For the analysis
 
 - **Register the plate again after every jump** above. The phone's position isn't the same in runs 1, 2 and 3.
@@ -87,3 +110,4 @@ The scripts are in [`tools/`](tools/). Run them with `python3 -E -P`; they need 
 - `frame_diffs.py` finds the jumps.
 - `manifest.py` writes `photos.csv` and `SHA256SUMS.txt`.
 - `previews.py` makes the three pictures, with no EXIF.
+- `labelled_zooms.py` makes the two labelled close-ups of the 11-20 photo. The well positions in it were read by eye.
