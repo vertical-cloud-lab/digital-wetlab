@@ -3,6 +3,10 @@
 Asked on [PR 84](https://github.com/vertical-cloud-lab/digital-wetlab/pull/84) by @timothy-commins on 2026-11-20,
 after plate A's 72 h: about 2,160 photos, one every 2 minutes. How do they get to an `@claude` run?
 
+**Done for plate A on 2026-11-20:** Tim put one zip on Google Drive, a Claude run copied the photos into the draft
+release `plate-a-photos` and checked every one. What's there, and the gaps in the series, are in
+[`plate-a-photos/`](plate-a-photos/README.md).
+
 **Zip them on a computer and attach the zips to a draft release of this repo.**
 - **A PR comment is the wrong tool.** It takes files one at a time, at most 10 MB a photo and 25 MB for anything else,
   zips included ([GitHub](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)).

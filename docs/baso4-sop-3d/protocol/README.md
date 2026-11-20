@@ -149,7 +149,8 @@ mixing. The 11-02 plan left the choice open ("decision 4") and asked only that e
 - **Line up the clocks.** You'll have noted the phone's time when you pressed Resume and at the first photo. The run
   log gives the robot's time of each SULFATE line. Together they put every photo on each well's own clock.
 - **After the 72 h,** the photos go to Claude as zips in a draft release of this repo, not in a comment:
-  [`photos-to-claude.md`](photos-to-claude.md).
+  [`photos-to-claude.md`](photos-to-claude.md). Plate A's photos are in the draft release `plate-a-photos`;
+  the list and the gaps are in [`plate-a-photos/`](plate-a-photos/README.md).
 
 ## Checked, and not checked
 
