@@ -93,7 +93,8 @@ the blanks, is the analysis still to do.
 
 ## For the analysis
 
-- **Register the plate again after every jump** above. The phone's position isn't the same in runs 1, 2 and 3.
+- **Register the plate again after every jump** above. Runs 2 and 3 each start with one, so don't assume the
+  plate sits on the same pixels in all three runs.
 - **Condensation and glare change the brightness of a well** without any barium sulfate. Compare each well with
   itself and with the blank wells near it, not with a fixed threshold, and check a well that seems to turn
   against the 11-20 photo.
