@@ -197,6 +197,102 @@ log says how it was done.
    and ended; any slip (which well, what happened); "stirred by hand, 5 circles with a 300 µL tip"; and the sulfate
    page with every well's time. Post a photo of the pages on PR 84.
 
+## 6. When the run is over
+
+Added on 2026-11-20, when Timothy asked on PR 84 what to do before taking the plate and the tripod down. The SOP's
+own last steps (4.5-4.6) were written for the lid camera; this is the same end for the phone and the hand-filled
+plate. **Steps 1-4 need the plate and the phone where they are, so do them first.** They take about 20 minutes.
+
+**With everything still in place:**
+1. **Stop the phone's app, and check its photos on the phone without taking it off the tripod.** Note the times of
+   the first and last photos, and roughly how many there are: one every 2 minutes is 30 an hour, or 2,160 in 72 h.
+   Zoom in on the last one: the wells should be sharp. If the app stopped early, take a few more photos from the
+   same spot now. They still show how the plate ended up, at a known time. **Don't delete anything from the phone**
+   until the photos have been copied off it and counted.
+2. **If you wrote the sulfate times off a different clock** (a wall clock, a watch or another phone), photograph
+   that clock with the camera phone, with its seconds showing if it has them. Do this before you change anything on
+   the camera phone, such as turning off airplane mode; it's fine to take it off the tripod for this. The photo's
+   own time stamp, next to the clock's face, gives the difference between the two clocks. If the times came from the
+   camera phone itself, skip this.
+3. **Lift the tripod out, straight up, with gloves on.** Its right leg lies across the front of the plate, so don't
+   drag it over the wrap.
+4. **Look at the plate before anything else moves, and write down what you see:**
+   - **Every well with any white in it,** and whether it's faint or clear-cut. Any well you don't list counts as
+     clear. Shine a flashlight (a phone's is fine) across the plate from the side, low down, and look straight down:
+     solid in a well catches the light against the black paper, and a clear well stays dark. Dim the room lights if
+     you can.
+   - **Look hardest at the 18 wells closest to the line.** The nine at SI +0.6 (B2, G4, H4, F6, G6, B7, E7, H8, C9)
+     may or may not have turned. The nine below 0 (H1, F2, D7, G1, G3, A4, E9, C10, A11) should be clear, and so
+     should the blanks and the sulfate-only wells. Of the barium-only wells, E2 (4 mM) and F9 (2 mM) might not be:
+     the NaCl carries a trace of sulfate of its own ([why](../README.md#the-nacls-own-sulfate)).
+   - **Any well whose liquid looks lower than its neighbours.** The plastic wrap isn't a seal, and the edge rows and
+     columns lose water first. A well that lost water is more concentrated, so it may have turned late for that
+     reason alone.
+   - **The wrap:** droplets on its underside, a sag touching the liquid, or a tear.
+   - Then take a few photos of the plate by hand, from closer than the tripod was: straight down, and at a slight
+     angle.
+
+**Taking the plate off** (gloves, lab coat and glasses):
+
+5. **Open the Heater-Shaker's latch from the OT-2 App:** Devices → the robot → the Heater-Shaker's card → ⋮ →
+   *Open labware latch*. The module closed its latch when it was switched on on 11-17
+   ([The Heater-Shaker](#the-heater-shaker)); if the card says it's already open, go on to step 6. Keep your fingers
+   clear while the arms move: the manual calls the latch a pinch point (p. 6).
+   - Don't pull the plate out from under a closed latch.
+   - Don't switch the module off and on to free it. Switching it on closes the latch again and shakes the plate.
+   - If the App can't reach the robot, stop and say so on PR 84.
+6. **Lift the plate straight up and level,** wrap still on, and put it in the lidded tub. Photograph it on the black
+   paper, straight down, filling the frame.
+7. **Keep the plate in the closed tub,** labelled "barium chloride, toxic", until the photos are off the phone and
+   checked: a day or two. If the photos turn out to be missing or blurred, the plate is the only record of how it
+   ended up.
+   - The SOP also says to weigh the plate at the end. That only gives the water lost if it was also weighed right
+     after the fill, which these steps didn't ask for, so skip it unless you did. The plate doesn't fit under the
+     HR-100A's lid anyway.
+
+**Putting the OT-2 back:**
+
+8. Switch the Heater-Shaker off with its button. Then wipe its top and the adapter with a wipe damp with DI water,
+   then a dry one. Use water or 70 % alcohol, never acetone (manual, p. 23). The wipes go in the barium solid
+   waste.
+9. Turn the rail lights off in the App, and take down the sign on the robot. Put back anything you took off the deck
+   (the colour sensor and its charging base go in slot 10). If you unplugged the robot's Ethernet cable from the Pi,
+   plug it back in.
+10. Wipe the tripod's legs and the phone clamp with a damp wipe, which goes in the barium solid waste, and let them
+    dry. If a leg looks wet or has white marks on it, say so on PR 84 before the tripod goes back. Then take your
+    gloves off and wash your hands.
+
+**The waste, once the photos are safe** (in the hood, over the tray, gloves on):
+
+11. **The plate:** peel the wrap back, and draw out every well with one transfer pipette into the barium liquid
+    waste, through a funnel. The 84 wells hold about 20 mL in all. The empty plate, its wrap and the pipette go in
+    the barium solid waste.
+12. **The ten vials:** first look at each one against the black paper and note any that's cloudy; every stock
+    should be clear. Then pour what's left in each into the same bottle, about 120 mL in all, since the plate used
+    only a few drops of each. The waste turns white where the barium meets the sulfate: that's barium sulfate, and
+    it's expected. The empty vials go in the barium solid waste with their caps on, unless Risk Management said
+    otherwise.
+13. Wipe the barium holder (slot 4) damp, then dry, and keep both holders. Keep the black paper if it's clean and
+    dry; otherwise it goes in the barium solid waste.
+14. Cap the waste bottle. Its label should say "Unwanted Laboratory Materials" and name barium chloride, sodium
+    sulfate, sodium chloride, water and barium sulfate. Ask for a pickup on the same form
+    ([riskapps.byu.edu/apps/pickuprequest](https://riskapps.byu.edu/apps/pickuprequest/)) when it's 80 % full or
+    the lab is done with barium. If the waste containers haven't arrived yet, keep everything capped in the closed
+    tub in the hood until they do. Nothing goes down the drain.
+
+**Post on PR 84** (photos of the pages are fine):
+
+15. The four pass pages, with the ticks and every well's sulfate time; the stock log (every balance reading from
+    11-16); the three 5-drop weighings and the pipette's make; and your notes from step 4.
+16. Photos of the labels on the barium chloride, sodium sulfate and sodium chloride bottles: maker, product number,
+    grade, lot, and the form ("anhydrous", "dihydrate" or "decahydrate"). The sodium sulfate matters most. Its
+    213 mg was for the anhydrous salt; a decahydrate bottle would have made every sulfate level less than half the
+    plan's.
+17. Anything that happened during the run: when the first photo was taken, when the Heater-Shaker was switched on
+    (about 05:00 UTC on 11-17), whether anyone opened the robot or touched the phone, whether the rail lights
+    stayed on, and which plastic wrap went on the plate.
+18. The photos themselves. How to send them is in the 11-20 reply on PR 84.
+
 ## The Heater-Shaker
 
 Plate A isn't heated or shaken. The Heater-Shaker is only the stand under it, so that later plates that are heated or
