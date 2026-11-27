@@ -1,0 +1,69 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{bes-whitepaper}
+
+\begin{document}
+
+\wptitle{Equilibrium solid solution or kinetic trap? Why some multi-metal\\hydroxides co-precipitate as one phase}
+  {Materials Chemistry}{Christopher Chervin}
+
+\hd{Research question.} Hydroxides with four to six metals (``high-entropy'' hydroxides), made by
+room-temperature co-precipitation for catalysts and battery precursors, are often reported as a
+single phase. Why do some cation sets form one phase while others segregate?
+
+\hd{Knowledge gap.} For oxides made at high temperature, entropy stabilization has a clear test: the
+single phase forms reversibly on heating and separates on cooling [1]. At room temperature, the
+configurational entropy of five equimolar cations is worth only $TR\ln 5 \approx 4$ kJ per mole of
+cations, about a quarter of its value where the first entropy-stabilized oxide forms, and small
+enough for a modest mixing enthalpy to outweigh. A room-temperature single phase is therefore either
+an equilibrium solid solution with near-ideal mixing or a product trapped by fast, simultaneous
+precipitation. Oxide libraries made on liquid handlers [2,3] map which compositions give one phase,
+but not why.
+
+\hd{Hypotheses.} \emph{H1, equilibrium:} the single phase is the stable state. Predictions: a
+physical mixture of separately precipitated end members, aged in its mother liquor, converges by
+dissolution and reprecipitation to the same single phase, and the single-phase region does not
+depend on how fast base is added. \emph{H2, kinetic trapping:} the single phase exists because all
+cations precipitated together. Predictions: co-precipitates unmix on aging, faster when warmer;
+mixtures stay mixed; and the single-phase region shrinks when base is added slowly, so that cations
+precipitate in order of solubility.
+
+\hd{Approach.} Cation sets are chosen so that mismatches in size, solubility and preferred
+structure vary independently. Ni$^{2+}$ and Mg$^{2+}$, for example, have radii within 5\% but
+hydroxide solubility products at least $10^4$ apart; Cu$^{2+}$ and Zn$^{2+}$, whose hydroxides are not
+brucite-type, add a structural mismatch (aged at room temperature only, since hot base turns them
+to oxides). The sets build up to (Mg,Co,Ni,Cu,Zn), the cations of the
+first entropy-stabilized oxide [1]. An Opentrons OT-2 dispenses metal-salt solutions and base at set
+addition rates into vials, prepares the matching end-member mixtures, and ages both in sealed,
+N$_2$-purged vials up to 95\,$^\circ$C on its heater-shaker, sampling the supernatant for ICP-OES to
+follow each metal's uptake and exchange over time. Powder XRD gives the number of phases and
+lattice parameters for Vegard's-law checks; STEM-EDS on selected samples catches nanoscale
+segregation. Because XRD limits throughput, Bayesian active learning
+places samples near the single-phase boundary, where H1 and H2 predict different outcomes.
+
+\wpflow
+  {\textbf{Design}\\ next compositions and rates near the one-phase boundary}
+  {\textbf{OT-2}\\ co-precipitate at set base rate, or mix end members; age}
+  {\textbf{ICP-OES + XRD}\\ metal uptake over time; phase count, lattice}
+  {\textbf{Compare}\\ both-sides aging and rate effects vs.\ H1, H2}
+  {\textbf{Outcome}\\ when co-precipitation gives a true solid solution}
+  {update the probability of H1 and H2 and the boundary, then choose the next batch}
+
+\hd{Expected outcomes.} (1) Single-phase boundaries approached from both sides, as a function of
+composition, base-addition rate and aging temperature; (2) how far and how fast each cation
+redistributes on aging; (3) a causal rule for when co-precipitation gives a solid solution. That
+says whether a reported ``high-entropy'' hydroxide is stable, which governs how it transforms in an
+electrode or electrolyte.
+
+\hd{Fit and resources.} The project asks a ``why'' question about the \emph{mechanistic detail of
+chemical synthesis and transformations} and about how such materials change in operating
+environments, with \emph{data-driven} sample selection. It
+does not tune properties, optimize a synthesis or study catalytic mechanisms. The PI works on
+self-driving labs and Bayesian experimental design; campus ICP-OES, XRD and STEM are available.
+
+\begin{wprefs}
+[1] C.\,M. Rost \emph{et al.}, \emph{Nat.\ Commun.} 6, 8485 (2015), doi:10.1038/ncomms9485.
+[2] L. Velasco \emph{et al.}, \emph{Adv.\ Mater.} 33, 2102301 (2021), doi:10.1002/adma.202102301.
+[3] Zeinali Galabi \emph{et al.}, \emph{Adv.\ Mater.} 38 (2026), doi:10.1002/adma.202519790.
+\end{wprefs}
+
+\end{document}
