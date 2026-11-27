@@ -1,0 +1,161 @@
+{
+ "file": "vial_holder_20ml_x6_x2_H2D_PLA_0.4_sent.gcode.3mf",
+ "layers": 115,
+ "top_layer_z": 23.0,
+ "objects": {
+  "94": {
+   "centre_on_bed_mm": [
+    115.0,
+    203.74
+   ],
+   "bbox_on_bed_mm": [
+    51.33,
+    161.21,
+    178.67,
+    246.27
+   ],
+   "footprint_mm": {
+    "1.0": [
+     127.76,
+     85.48
+    ],
+    "10.0": [
+     127.76,
+     85.48
+    ],
+    "21.0": [
+     127.76,
+     85.48
+    ]
+   },
+   "pocket_diameter_mm": {
+    "6.0": [
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2
+    ],
+    "12.0": [
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2
+    ],
+    "18.0": [
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2
+    ]
+   },
+   "inside_left_and_right_nozzle_reach": [
+    true,
+    true
+   ]
+  },
+  "129": {
+   "centre_on_bed_mm": [
+    115.0,
+    116.26
+   ],
+   "bbox_on_bed_mm": [
+    51.33,
+    73.73,
+    178.67,
+    158.79
+   ],
+   "footprint_mm": {
+    "1.0": [
+     127.76,
+     85.48
+    ],
+    "10.0": [
+     127.76,
+     85.48
+    ],
+    "21.0": [
+     127.76,
+     85.48
+    ]
+   },
+   "pocket_diameter_mm": {
+    "6.0": [
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2
+    ],
+    "12.0": [
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2
+    ],
+    "18.0": [
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2,
+     28.2
+    ]
+   },
+   "inside_left_and_right_nozzle_reach": [
+    true,
+    true
+   ]
+  }
+ },
+ "extrusion_outside_objects": 0,
+ "settings": {
+  "printer_settings_id": "Bambu Lab H2D 0.4 nozzle",
+  "nozzle_diameter": "0.4,0.4",
+  "nozzle_type": "hardened_steel,hardened_steel",
+  "nozzle_volume_type": "Standard,TPU High Flow",
+  "print_settings_id": "0.20mm Standard @BBL H2D",
+  "filament_settings_id": "\"Bambu PLA Basic @BBL H2D\"",
+  "curr_bed_type": "Textured PEI Plate",
+  "layer_height": "0.2",
+  "wall_loops": "3",
+  "sparse_infill_density": "15%",
+  "elefant_foot_compensation": "0.15",
+  "brim_type": "no_brim",
+  "enable_support": "0",
+  "enable_prime_tower": "0",
+  "enable_arc_fitting": "0",
+  "nozzle_temperature": "220",
+  "textured_plate_temp": "55",
+  "filament_map": "1",
+  "filament_map_mode": "Auto For Flush",
+  "extruder_printable_area": "0x0,325x0,325x320,0x320#25x0,350x0,350x320,25x320"
+ },
+ "nozzle_that_prints": {
+  "filament_map": "1",
+  "side": "left"
+ },
+ "hotend_temperature_commands": [
+  "M104 S220 T1",
+  "M104 S220",
+  "M109 S140 A",
+  "M104 S220 A",
+  "M104 S220",
+  "M104 S0 T0",
+  "M104 S0 T1"
+ ],
+ "right_nozzle_T0_heated": false,
+ "prime_tower_or_wipe_features": 0,
+ "start_gcode": ";===== machine: H2D ========================= | ;===== date: 20260605",
+ "estimate": "3h 14m 49s",
+ "filament_g": 160.18
+}
+wrote plate_layout_x2.png

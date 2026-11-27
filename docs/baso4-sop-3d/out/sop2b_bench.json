@@ -1,0 +1,59 @@
+{
+ "name": "sop2b_bench",
+ "fps": 15,
+ "n_frames": 943,
+ "size": [
+  1280,
+  720
+ ],
+ "substeps": [
+  {
+   "label": "2.10",
+   "caption": "In the hood: about 15 mL of DI water into the vial from the wash bottle. Cap it and swirl until the solid is gone. The powder never leaves this vial: it is the 0.1 M barium chloride stock.",
+   "start_frame": 0,
+   "end_frame": 113
+  },
+  {
+   "label": "2.11",
+   "caption": "Wipe it. At the balance, RE-ZERO with the pan empty, weigh it capped and log it as 'with water'. The water is 'with water' minus 'with salt': 0.3123 g with 15.00 g of water is 0.1000 mol/kg. Then it goes back into the hood, into A1 of the barium holder.",
+   "start_frame": 114,
+   "end_frame": 197
+  },
+  {
+   "label": "2.12",
+   "caption": "Each vial is made from the one before it, one at a time: about 1.53 g of the 0.1 M into the 10 mM vial, then 1.50 g of the 10 mM into the 1 mM vial, then 1.50 g of the 1 mM into the 0.1 mM vial. That's about 1.5 mL each, with a new transfer pipette drawn to its 1.5 mL mark. Cap the vial, invert it, wipe it damp and then dry, then weigh it at the balance and log it before anything is drawn from it. The balance measures each transfer, so the pipette only has to get close.",
+   "start_frame": 198,
+   "end_frame": 408
+  },
+  {
+   "label": "2.13",
+   "caption": "All four barium vials are capped. Wipe their outsides: the wipes go in the barium waste in the hood, with the three used pipettes. Check each label, put on in 2.2: name, concentration, date, initials, TOXIC.",
+   "start_frame": 409,
+   "end_frame": 456
+  },
+  {
+   "label": "2.14",
+   "caption": "Sodium sulfate is weighed on the bench, in an open weigh boat. Put the empty boat on the pan and press RE-ZERO (this tares it), so the display shows only the salt. Open the bottle, spatula about 213 mg into the boat, close the bottle. 0.2131 g of anhydrous sodium sulfate (142.04 g/mol) with 15.00 g of water is 0.1000 mol/kg.",
+   "start_frame": 457,
+   "end_frame": 576
+  },
+  {
+   "label": "2.15",
+   "caption": "Tip the boat through a funnel into the 0.1 M sodium sulfate vial and rinse the boat and funnel in with DI water, to about 15 mL. Cap and invert it, RE-ZERO with the pan empty, then weigh it capped and log it. Its water is that minus its empty reading (2.2) and the salt.",
+   "start_frame": 577,
+   "end_frame": 654
+  },
+  {
+   "label": "2.16",
+   "caption": "The same chain for sodium sulfate, beside the balance: about 1.52 g of the 0.1 M into the 10 mM vial, then 1.50 g of the 10 mM into the 1 mM vial, then 1.50 g of the 1 mM into the 0.1 mM vial, each with a new transfer pipette, and each vial weighed capped and logged before it is drawn from. Then 4.383 g of sodium chloride in a tared boat, with 13.4 g of DI water (15 mL of 5 M), and a vial of fresh DI water: ten vials in all.",
+   "start_frame": 655,
+   "end_frame": 822
+  },
+  {
+   "label": "2.17",
+   "caption": "Wipe the outside of the barium vials and their holder in the hood, then carry the holder straight to the tub; the bench holder joins it. Lid on. Outer gloves off in the hood, liner and wipes into the barium waste, sash fully down. Leave the hood as you found it.",
+   "start_frame": 823,
+   "end_frame": 942
+  }
+ ]
+}
