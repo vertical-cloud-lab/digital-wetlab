@@ -1,0 +1,65 @@
+# P4f (point 4)
+
+**Claim (paraphrased):** The Rice University group's Pb parameters share the same trace-ion problem.
+
+**Query** (Edison `job-futurehouse-paperqa3`, task `5a6452f2-fc24-4913-b2f7-48d1a12f8c02`, status `success`):
+
+> What Pitzer parameters for Pb2+, Zn2+ or Fe2+ interactions with HS-, Cl- and other ions have been published by the Rice University Brine Chemistry Consortium (Tomson, Kan, Zhang and coworkers) for sulfide scale prediction, and how were they determined?
+
+---
+
+Question: What Pitzer parameters for Pb2+, Zn2+ or Fe2+ interactions with HS-, Cl- and other ions have been published by the Rice University Brine Chemistry Consortium (Tomson, Kan, Zhang and coworkers) for sulfide scale prediction, and how were they determined?
+
+## Finding
+
+**I could not verify a published numerical set of Rice Brine Chemistry Consortium Pitzer parameters for Pb²⁺, Zn²⁺, or Fe²⁺ interacting with HS⁻, Cl⁻, or other ions.** The accessible evidence establishes that the consortium’s ScaleSoftPitzer software predicts **FeS and ZnS**, but software capability does not disclose which interaction coefficients it uses, their values, or how each was determined. PbS is **not in the eleven-mineral list** given by an accessible description of the software; that is not proof that no later PbS implementation exists. (yong2015influenceofnatural pages 3-7)
+
+The following inventory separates what can be checked from the numerical parameters requested:
+
+| Metal / interactions sought | What accessible Rice-related evidence supports | Accessible published numerical Pitzer values | Primary-publication pointer / limitation |
+|---|---|---|---|
+| **Fe²⁺–HS⁻, Fe²⁺–Cl⁻, and Fe²⁺ with other brine ions** | Rice-developed ScaleSoftPitzer is explicitly described as predicting **iron sulfide (FeS)** using Pitzer electrolyte theory. The accessible description does not reproduce Fe-specific binary or mixing coefficients. (yong2015influenceofnatural pages 3-7) | **Not verified** in the accessible texts | Xin Wang et al., *Iron Sulfide Solubility Measurement and Modeling Over Wide Ranges of Temperatures, Ionic Strength, and pH* (2022), DOI **10.2118/208616-PA**. The primary text and any parameter tables were unobtainable here, so its exact coefficients and fitting details cannot be reported as verified values. |
+| **Zn²⁺–HS⁻, Zn²⁺–Cl⁻, and Zn²⁺ with other brine ions** | The same accessible software description explicitly lists **sphalerite (ZnS)** among its predicted scales, but gives no Zn-specific numerical coefficients. (yong2015influenceofnatural pages 3-7) | **Not verified** in the accessible texts | Xin Wang et al., *Zinc Sulfide Solubility Modeling in Aqueous Solution at High Temperature, Pressure, and Ionic Strength* (2022), DOI **10.5006/C2022-17763**. The primary text and parameter tables were unobtainable here; treat the citation as a pointer, not evidence of particular numerical values. |
+| **Pb²⁺–HS⁻, Pb²⁺–Cl⁻, and Pb²⁺ with other brine ions** | **PbS is absent from the enumerated ScaleSoftPitzer mineral list** in the accessible source, although a later independent review identifies PbS as an important sulfide scale. This does not prove that Rice never modeled PbS; it means no Rice lead-interaction coefficients were verified in the accessible record. (yong2015influenceofnatural pages 3-7, askar2025developmentofmachine pages 1-2) | **Not verified** in the accessible texts | No Rice/Tomson/Kan/Zhang primary publication containing Pb²⁺–HS⁻ or Pb²⁺–Cl⁻ numerical Pitzer parameters was verified. Lead-hydrolysis parameters from unrelated authors should not be attributed to the Rice consortium. |
+| **Parameter classes and temperature dependence relevant to all three metals** | Standard Pitzer parameterization requires cation–anion **β⁽⁰⁾, β⁽¹⁾, β⁽²⁾, and Cφ**, unlike-like-charge **θ**, ternary **ψ**, and, where neutral species occur, **λ** and **ζ**; these parameters may depend on temperature and pressure. This establishes what coefficients should be sought but supplies no Rice Fe/Zn/Pb–HS⁻ or –Cl⁻ numbers. (møller1998computermodelingfor pages 7-10) | **Not verified** for the requested Rice metal–sulfide systems | Numerical values must be taken from the original FeS/ZnS papers, supplementary tables, or a documented ScaleSoftPitzer parameter database—not inferred from software capability or general Pitzer equations. |
+
+
+*Table: Conservative inventory of what the accessible record verifies for Rice-consortium Fe, Zn, and Pb sulfide modeling. It distinguishes documented software capability and primary-paper pointers from numerical interaction parameters that could not be verified.*
+
+### Which parameters would be needed?
+
+In the Pitzer formalism, a specified cation–anion pair such as Fe²⁺–HS⁻ or Zn²⁺–Cl⁻ can have binary interaction parameters β⁽⁰⁾, β⁽¹⁾, potentially β⁽²⁾, and Cφ. Mixed-brine calculations can additionally require θ for unlike ions of the **same charge sign**, ψ for three-ion combinations, and λ or ζ if neutral aqueous species are included. These are *classes of parameters*, not evidence that Rice published a fitted value for every possible metal–ion combination. Their applicable temperature and pressure dependence must also be specified before numerical values can be transferred between models. (møller1998computermodelingfor pages 7-10)
+
+### How were they determined?
+
+**The sulfide-specific fitting procedure cannot be established from the accessible primary texts.** Thermodynamically, a sulfide-scale calculation combines aqueous activities—calculated using an interaction model—with acid–base speciation and a solubility equilibrium; measuring a mineral’s solubility under different conditions can constrain the resulting model. A solubility measurement alone, however, does **not** uniquely identify each β, Cφ, θ, or ψ: independent electrolyte and mixed-solution data, specified species and equilibrium constants, and an explicit fitting strategy are needed to distinguish those contributions. The available Pitzer account discusses parameterization and the importance of mixing terms at high ionic strength, but reports no Rice metal–HS⁻ or metal–Cl⁻ fit. (møller1998computermodelingfor pages 7-10)
+
+As a documented example of the consortium’s *general* experimental practice, Djamali, Lu, Kan, and Tomson measured **barite and halite**, using a temperature-controlled flow-through mineral column, measuring dissolved Ba by ICP-MS, Na by ICP-OES, and chloride by titration, then comparing solubility with thermodynamic calculations incorporating a Pitzer activity treatment. **Those experiments were not measurements of FeS, ZnS, PbS, or their requested Pitzer interactions**, and their apparatus and fitting details should not be presented as the sulfide studies’ methods. (djamali2012effectsofhydrate pages 2-4)
+
+**Where to check the missing primary data:** The searches identified Rice-group reports specifically on *Iron Sulfide Solubility Measurement and Modeling Over Wide Ranges of Temperatures, Ionic Strength, and pH* (Wang and coworkers, 2022; DOI **10.2118/208616-PA**) and *Zinc Sulfide Solubility Modeling in Aqueous Solution at High Temperature, Pressure, and Ionic Strength* (Wang and coworkers, 2022; DOI **10.5006/C2022-17763**). Their full texts and parameter tables were not retrievable in this investigation. Thus neither a numerical Fe²⁺–HS⁻/Zn²⁺–HS⁻/metal–Cl⁻ table nor an account of *which individual coefficients those authors fitted, adopted, or assumed* can responsibly be supplied. The accessible literature also warns that sulfide-scale predictions have had limited experimental validation under more extreme conditions. (askar2025developmentofmachine pages 1-2)
+
+**Important attribution distinction:** Numerical lead Pitzer parameters do appear in an accessible study by **Xiong and colleagues**, but that study fits *PbO hydrolysis* in chloride, perchlorate, and sulfate media—not Rice-consortium PbS prediction or Pb²⁺–HS⁻ interactions. Its coefficients must not be relabeled as Tomson–Kan–Zhang sulfide parameters. (xiong2017apitzermodel pages 1-13)
+
+References
+
+1. (yong2015influenceofnatural pages 3-7): A. Yong and E.O. Obanijesu. Influence of natural gas production chemicals on scale production in meg regeneration systems. Chemical Engineering Science, 130:172-182, Jul 2015. URL: https://doi.org/10.1016/j.ces.2015.03.037, doi:10.1016/j.ces.2015.03.037. This article has 39 citations and is from a highest quality peer-reviewed journal.
+
+2. (askar2025developmentofmachine pages 1-2): Mohamed Mostafa Askar, Mahmoud Abu El Ela, Ahmed H. El-Banbi, and Mohamed H. M. Sayyouh. Development of machine learning models for predicting the deposition of sulfide scales in oil production wells. Journal of King Saud University – Engineering Sciences, Oct 2025. URL: https://doi.org/10.1007/s44444-025-00045-3, doi:10.1007/s44444-025-00045-3. This article has 3 citations.
+
+3. (møller1998computermodelingfor pages 7-10): Nancy MØller, Jerry P. Greenberg, and John H. Weare. Computer modeling for geothermal systems: predicting carbonate and silica scale formation, co2 breakout and h2s exchange. Transport in Porous Media, 33:173-204, Nov 1998. URL: https://doi.org/10.1023/a:1006501927827, doi:10.1023/a:1006501927827. This article has 60 citations and is from a peer-reviewed journal.
+
+4. (djamali2012effectsofhydrate pages 2-4): Essmaiil Djamali, Haiping Lu, Amy T. Kan, and Mason B. Tomson. Effects of hydrate inhibitors on the solubility of barite and halite in produced water. ArXiv, May 2012. URL: https://doi.org/10.2118/155042-ms, doi:10.2118/155042-ms. This article has 16 citations.
+
+5. (xiong2017apitzermodel pages 1-13): Y Xiong, LD Kirkes, J Knox, C Marrs, and HL Burton. A pitzer model for hydrolysis of lead to high ionic strength: applications to low temperature geochemical processes. ArXiv, Jan 2017. URL: https://doi.org/10.1130/abs/2017am-296210, doi:10.1130/abs/2017am-296210. This article has 0 citations.
+
+### artifact-00
+
+| Metal / interactions sought | What accessible Rice-related evidence supports | Accessible published numerical Pitzer values | Primary-publication pointer / limitation |
+|---|---|---|---|
+| **Fe²⁺–HS⁻, Fe²⁺–Cl⁻, and Fe²⁺ with other brine ions** | Rice-developed ScaleSoftPitzer is explicitly described as predicting **iron sulfide (FeS)** using Pitzer electrolyte theory. The accessible description does not reproduce Fe-specific binary or mixing coefficients. (pqac-00000006) | **Not verified** in the accessible texts | Xin Wang et al., *Iron Sulfide Solubility Measurement and Modeling Over Wide Ranges of Temperatures, Ionic Strength, and pH* (2022), DOI **10.2118/208616-PA**. The primary text and any parameter tables were unobtainable here, so its exact coefficients and fitting details cannot be reported as verified values. |
+| **Zn²⁺–HS⁻, Zn²⁺–Cl⁻, and Zn²⁺ with other brine ions** | The same accessible software description explicitly lists **sphalerite (ZnS)** among its predicted scales, but gives no Zn-specific numerical coefficients. (pqac-00000006) | **Not verified** in the accessible texts | Xin Wang et al., *Zinc Sulfide Solubility Modeling in Aqueous Solution at High Temperature, Pressure, and Ionic Strength* (2022), DOI **10.5006/C2022-17763**. The primary text and parameter tables were unobtainable here; treat the citation as a pointer, not evidence of particular numerical values. |
+| **Pb²⁺–HS⁻, Pb²⁺–Cl⁻, and Pb²⁺ with other brine ions** | **PbS is absent from the enumerated ScaleSoftPitzer mineral list** in the accessible source, although a later independent review identifies PbS as an important sulfide scale. This does not prove that Rice never modeled PbS; it means no Rice lead-interaction coefficients were verified in the accessible record. (pqac-00000006, pqac-00000010) | **Not verified** in the accessible texts | No Rice/Tomson/Kan/Zhang primary publication containing Pb²⁺–HS⁻ or Pb²⁺–Cl⁻ numerical Pitzer parameters was verified. Lead-hydrolysis parameters from unrelated authors should not be attributed to the Rice consortium. |
+| **Parameter classes and temperature dependence relevant to all three metals** | Standard Pitzer parameterization requires cation–anion **β⁽⁰⁾, β⁽¹⁾, β⁽²⁾, and Cφ**, unlike-like-charge **θ**, ternary **ψ**, and, where neutral species occur, **λ** and **ζ**; these parameters may depend on temperature and pressure. This establishes what coefficients should be sought but supplies no Rice Fe/Zn/Pb–HS⁻ or –Cl⁻ numbers. (pqac-00000003) | **Not verified** for the requested Rice metal–sulfide systems | Numerical values must be taken from the original FeS/ZnS papers, supplementary tables, or a documented ScaleSoftPitzer parameter database—not inferred from software capability or general Pitzer equations. |
+
+
+*Table: Conservative inventory of what the accessible record verifies for Rice-consortium Fe, Zn, and Pb sulfide modeling. It distinguishes documented software capability and primary-paper pointers from numerical interaction parameters that could not be verified.*
