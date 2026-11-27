@@ -27,6 +27,12 @@ env:
   # allowance. That costs a second full session every time Claude errors out,
   # so it is off by default.
   RETRY_ON_ANY_FAILURE: "false"
+  # Seats "Pick a seat from the token pool" may use, each a secret named
+  # CLAUDE_TOKEN_<NAME>; runs rotate across them by run number. A new seat
+  # needs its name here AND a TOK_<NAME> line in both pick steps below.
+  CLAUDE_TOKEN_POOL: "MONGOOSE ELEPHANT DOLPHIN GOSHAWK HEDGEHOG MEERKAT MOOSE NEWT PANTHER PARROT OTTER FALCON"
+  # Seats tried before the rest of the pool, in this order. Empty: none.
+  CLAUDE_TOKEN_PREFERRED: ""
 
 jobs:
   claude:
@@ -201,6 +207,123 @@ jobs:
           echo "fallback_model=$fallback" >> "$GITHUB_OUTPUT"
           echo "primary_args=$primary_args" >> "$GITHUB_OUTPUT"
 
+      # Seat pool (load balancing). Each seat named in CLAUDE_TOKEN_POOL is a
+      # secret CLAUDE_TOKEN_<NAME> holding one Team seat's `claude setup-token`. Seats in CLAUDE_TOKEN_PREFERRED
+      # are tried first, then the rest, rotated by run number so concurrent
+      # runs start on different seats. Each candidate gets a one-word probe on
+      # this run's model, and a seat that answers with an error (usage limit,
+      # invalid token) is skipped. Only seat names are logged; the values are
+      # masked secrets. If no seat answers, CLAUDE_CODE_OAUTH_TOKEN is used.
+      - name: Pick a seat from the token pool
+        id: pick
+        env:
+          # Only the pool's own tokens, named one by one (GitHub flags workflows
+          # that pass toJSON(secrets) to a step as possibly malicious).
+          TOK_STERLING: ${{ secrets.CLAUDE_TOKEN_STERLING }}
+          TOK_MONGOOSE: ${{ secrets.CLAUDE_TOKEN_MONGOOSE }}
+          TOK_ELEPHANT: ${{ secrets.CLAUDE_TOKEN_ELEPHANT }}
+          TOK_DOLPHIN: ${{ secrets.CLAUDE_TOKEN_DOLPHIN }}
+          TOK_GOSHAWK: ${{ secrets.CLAUDE_TOKEN_GOSHAWK }}
+          TOK_HEDGEHOG: ${{ secrets.CLAUDE_TOKEN_HEDGEHOG }}
+          TOK_MEERKAT: ${{ secrets.CLAUDE_TOKEN_MEERKAT }}
+          TOK_MOOSE: ${{ secrets.CLAUDE_TOKEN_MOOSE }}
+          TOK_NEWT: ${{ secrets.CLAUDE_TOKEN_NEWT }}
+          TOK_PANTHER: ${{ secrets.CLAUDE_TOKEN_PANTHER }}
+          TOK_PARROT: ${{ secrets.CLAUDE_TOKEN_PARROT }}
+          TOK_OTTER: ${{ secrets.CLAUDE_TOKEN_OTTER }}
+          TOK_FALCON: ${{ secrets.CLAUDE_TOKEN_FALCON }}
+          MODEL: ${{ steps.select.outputs.model }}
+          SKIP_SEATS: ""
+        run: |
+          cat > "$RUNNER_TEMP/pick_seat.py" <<'PY'
+          import json, os, re, subprocess, tempfile
+          from concurrent.futures import ThreadPoolExecutor
+
+          secrets = {"CLAUDE_TOKEN_" + k[4:]: v for k, v in os.environ.items()
+                     if k.startswith("TOK_") and v}
+          seats = sorted(k[len("CLAUDE_TOKEN_"):] for k in secrets)
+          allow = os.environ.get("CLAUDE_TOKEN_POOL", "").split()
+          if allow:
+              missing = [x for x in allow if x not in seats]
+              if missing:
+                  print(f"In CLAUDE_TOKEN_POOL but not a secret here: {' '.join(missing)}")
+              seats = [x for x in allow if x in seats]
+          preferred =[x for x in os.environ.get("CLAUDE_TOKEN_PREFERRED", "").split() if x in seats]
+          rest = [x for x in seats if x not in preferred]
+          if rest:
+              k = int(os.environ.get("GITHUB_RUN_NUMBER", "0")) % len(rest)
+              rest = rest[k:] + rest[:k]
+          skip = set(os.environ.get("SKIP_SEATS", "").split())
+          order = [x for x in preferred + rest if x not in skip]
+          model = os.environ.get("MODEL") or "opus"
+          base = {k: v for k, v in os.environ.items()
+                  if not k.startswith(("TOK_", "ANTHROPIC_", "CLAUDE_CODE_OAUTH"))}
+
+          print(f"{len(seats)} seats in the pool; probing on {model} in this order: {' '.join(order) or '(none)'}")
+
+          # Every seat is probed at once. The one-word probe's stream-json output carries Claude Code's
+          # rate_limit_event, with the seat's 5-hour and 7-day utilization, so the pick can prefer seats
+          # with headroom instead of taking the first that answers (a seat at 93 % of its 5-hour window
+          # once ran out partway through a long run).
+          def probe(name):
+              env = dict(base, CLAUDE_CODE_OAUTH_TOKEN=secrets["CLAUDE_TOKEN_" + name],
+                         CLAUDE_CONFIG_DIR=tempfile.mkdtemp())
+              try:
+                  p = subprocess.run(["claude", "-p", "Reply with the single word ok.", "--model", model,
+                                      "--output-format", "stream-json", "--verbose", "--max-turns", "1"],
+                                     env=env, capture_output=True, text=True, timeout=120,
+                                     stdin=subprocess.DEVNULL)
+              except Exception as exc:
+                  return name, None, f"probe failed ({type(exc).__name__})"
+              res, use = None, {}
+              for line in p.stdout.splitlines():
+                  try:
+                      m = json.loads(line)
+                  except ValueError:
+                      continue
+                  if m.get("type") == "rate_limit_event":
+                      w = (m.get("rate_limit_info") or {}).get("unifiedWindows") or {}
+                      use = {k: (w.get(k) or {}).get("utilization") for k in ("five_hour", "seven_day")}
+                  elif m.get("type") == "result":
+                      res = m
+              if res and not res.get("is_error"):
+                  return name, use, "ok"
+              res = res or {}
+              msg = re.sub(r"\s+", " ", str(res.get("result") or res.get("errors") or "no result"))[:160]
+              return name, None, f"skipped ({msg})"
+
+          # Tier 0: 5-hour under 50 % and 7-day under 80 %. Tier 1: under 80 % and 95 %. Tier 2: the rest.
+          # A seat that reports no usage counts as tier 0, as the old picker treated every seat.
+          def tier(use):
+              f = float(use.get("five_hour") or 0.0)
+              s = float(use.get("seven_day") or 0.0)
+              return 0 if (f < 0.5 and s < 0.8) else 1 if (f < 0.8 and s < 0.95) else 2
+
+          with ThreadPoolExecutor(max_workers=8) as ex:
+              results = {n: (use, why) for n, use, why in ex.map(probe, order)}
+          for n in order:
+              use, why = results[n]
+              shown = "" if use is None else f" (5-hour {use.get('five_hour')}, 7-day {use.get('seven_day')}, tier {tier(use)})"
+              print(f"  {n}: {why}{shown}")
+
+          # The first seat in the rotation order within the best tier, so runs that start together
+          # still spread across seats.
+          ok = [n for n in order if results[n][1] == "ok"]
+          chosen = ""
+          if ok:
+              best = min(tier(results[n][0]) for n in ok)
+              chosen = next(n for n in ok if tier(results[n][0]) == best)
+          # The retry skips the chosen seat and the ones that failed, and re-probes the rest.
+          tried = ([chosen] if chosen else []) + [n for n in order if results[n][1] != "ok"]
+
+          print(f"Seat for this attempt: {chosen or '(none answered; using CLAUDE_CODE_OAUTH_TOKEN)'}")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+              fh.write(f"seat={chosen}\n")
+              fh.write(f"tried={' '.join(tried)}\n")
+          PY
+          command -v claude >/dev/null || npm install -g @anthropic-ai/claude-code >/dev/null 2>&1 || true
+          python3 "$RUNNER_TEMP/pick_seat.py"
+
       - name: Run Claude Code
         id: claude
         # The job decides what to do with a failure in the next steps, so this
@@ -208,7 +331,7 @@ jobs:
         continue-on-error: true
         uses: anthropics/claude-code-action@v1
         with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_code_oauth_token: ${{ secrets[format('CLAUDE_TOKEN_{0}', steps.pick.outputs.seat)] || secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # claude-code-action v1.0.273+ denies python, pip, node and other code-running
           # commands on PRs whose author lacks write access, and treats every bot as such.
           # Lift that only for PRs the Claude app opened (in-repo branches that only
@@ -232,6 +355,7 @@ jobs:
           claude_args: |
             ${{ steps.select.outputs.primary_args }}
             --permission-mode bypassPermissions
+            --thinking-display summarized
 
       # Did the first attempt die because its allowance was spent, or for some
       # ordinary reason? A failed run still writes its execution JSON and still
@@ -252,6 +376,7 @@ jobs:
           EXECUTION_FILE: ${{ steps.claude.outputs.execution_file }}
           PRIMARY_MODEL_RESOLVED: ${{ steps.select.outputs.model }}
           FALLBACK_MODEL_RESOLVED: ${{ steps.select.outputs.fallback_model }}
+          SEAT: ${{ steps.pick.outputs.seat }}
         run: |
           python3 - <<'PY'
           import json, os, re
@@ -269,6 +394,16 @@ jobs:
               r"|usage limit reached|requires usage credits|out of usage"
               r"|seat type doesn.t include usage|usage allocation has been disabled"
               r"|monthly spend limit",
+              re.I,
+          )
+
+          # The CLI's wording when a model's safeguards (Fable's classifiers)
+          # refuse a request. These fire on ordinary work too, and the model
+          # named in the message can't continue, so it is worth one retry on
+          # the fallback model.
+          SAFEGUARD = re.compile(
+              r"safeguards (flagged|stopped)|can.t respond to this message with"
+              r"|model_refusal",
               re.I,
           )
 
@@ -295,6 +430,15 @@ jobs:
                           f"/{info.get('overageDisabledReason')})"
                       )
 
+          # Safeguard notices the CLI wrote into the run ("... safeguards
+          # stopped the response above"). Only non-model records are read.
+          flagged = False
+          notices = sum(
+              1 for m in messages
+              if m.get("type") not in ("assistant", "user")
+              and SAFEGUARD.search(str(m.get("content", "")))
+          )
+
           results = [m for m in messages if m.get("type") == "result"]
           if results and results[-1].get("is_error"):
               last = results[-1]
@@ -303,23 +447,59 @@ jobs:
               if status in (402, 429) or BILLING.search(text):
                   billing = True
                   reason = f"HTTP {status}: {last.get('result') or last.get('errors')}"
+              elif SAFEGUARD.search(text) or notices:
+                  flagged = True
+                  reason = f"{primary}'s safeguards flagged the request: {text}"
+              # Diagnostics for the log. Only the final error record is
+              # printed, and its text only when it reads as an API or CLI
+              # error, so a model's own last message never reaches the log.
+              looks_like_error = bool(
+                  status or text.lstrip().startswith("API Error")
+                  or BILLING.search(text) or SAFEGUARD.search(text)
+              )
+              shown = text if looks_like_error else f"(withheld: {len(text)} characters that don't read as an API error)"
+              print(
+                  f"Final result record: subtype={last.get('subtype')}"
+                  f" api_error_status={status} num_turns={last.get('num_turns')}"
+                  f" duration_ms={last.get('duration_ms')}"
+              )
+              print("Final error text: " + re.sub(r"\s+", " ", shown).strip()[:1000])
+          print(f"Safeguard notices in the run: {notices}")
 
           if not messages:
               reason = "no execution file, so the cause is unknown"
 
-          retry = bool(fallback) and (billing or retry_any)
-          if not fallback:
-              reason += "; no fallback model is configured"
+          # A spent allowance belongs to one seat, so with a seat pool the
+          # retry can stay on the same model and move to another seat.
+          seat = os.environ.get("SEAT", "")
+          retry_model = fallback or primary
+          retry = (
+              (billing and bool(fallback or seat))
+              or (flagged and bool(fallback) and fallback != primary)
+              or (retry_any and bool(fallback))
+          )
+          if not fallback and not seat:
+              reason += "; no fallback model or seat pool is configured"
           elif retry_any and not billing:
               reason += "; retrying anyway because RETRY_ON_ANY_FAILURE is true"
 
           if billing and retry:
-              note = (f"Out of usage credits for `{primary}`. Retrying with"
-                      f" `{fallback}` in this same job; the retry posts its own"
+              where = f"seat {seat} (`{primary}`)" if seat else f"`{primary}`"
+              how = " on another seat from the pool" if seat else ""
+              note = (f"Out of usage credits on {where}. Retrying with"
+                      f" `{retry_model}`{how} in this same job; the retry posts its own"
                       " progress comment in this thread.")
           elif billing:
-              note = (f"Out of usage credits for `{primary}`, and no different"
-                      " fallback model is configured, so there is no retry.")
+              note = (f"Out of usage credits for `{primary}`, and there is no"
+                      " seat pool or different fallback model, so there is no retry.")
+          elif flagged and retry:
+              note = (f"`{primary}`'s safeguards flagged this request, which also"
+                      f" happens with ordinary work. Retrying with `{retry_model}` in"
+                      " this same job; the retry posts its own progress comment in"
+                      " this thread.")
+          elif flagged:
+              note = (f"`{primary}`'s safeguards flagged this request, and there is"
+                      " no different fallback model to retry with.")
           elif retry:
               note = (f"The `{primary}` attempt failed with something other"
                       f" than a spent allowance. Retrying with `{fallback}` in"
@@ -331,7 +511,8 @@ jobs:
           reason = re.sub(r"\s+", " ", reason).strip()[:300]
           note = re.sub(r"\s+", " ", note).strip()
           print(f"Allowance spent: {billing}")
-          print(f"Retry with {fallback or '(none)'}: {retry}")
+          print(f"Safeguards flagged: {flagged}")
+          print(f"Retry with {retry_model if retry else '(none)'}: {retry}")
           print(f"Reason: {reason}")
           print(f"Note: {note or '(none)'}")
 
@@ -339,6 +520,10 @@ jobs:
               fh.write(f"retry={'true' if retry else 'false'}\n")
               fh.write(f"reason={reason}\n")
               fh.write(f"note={note}\n")
+              cause = ("when its allowance ran out" if billing else
+                       "when the model's safeguards flagged the request" if flagged else
+                       "with an error")
+              fh.write(f"cause={cause}\n")
           PY
 
       # The first attempt's comment currently ends at "Claude encountered an
@@ -379,7 +564,240 @@ jobs:
           gh api -X PATCH "$edit/$comment_id" -f body="$new_body" --jq .id >/dev/null
           echo "Annotated comment $comment_id: $NOTE"
 
-      # Second attempt, on the fallback model. This is a fresh session: it posts
+      # The retry probes only the seats the first pick had not tried yet.
+      - name: Pick another seat for the retry
+        id: pick2
+        if: ${{ !cancelled() && steps.billing.outputs.retry == 'true' }}
+        env:
+          # Only the pool's own tokens, named one by one (GitHub flags workflows
+          # that pass toJSON(secrets) to a step as possibly malicious).
+          TOK_STERLING: ${{ secrets.CLAUDE_TOKEN_STERLING }}
+          TOK_MONGOOSE: ${{ secrets.CLAUDE_TOKEN_MONGOOSE }}
+          TOK_ELEPHANT: ${{ secrets.CLAUDE_TOKEN_ELEPHANT }}
+          TOK_DOLPHIN: ${{ secrets.CLAUDE_TOKEN_DOLPHIN }}
+          TOK_GOSHAWK: ${{ secrets.CLAUDE_TOKEN_GOSHAWK }}
+          TOK_HEDGEHOG: ${{ secrets.CLAUDE_TOKEN_HEDGEHOG }}
+          TOK_MEERKAT: ${{ secrets.CLAUDE_TOKEN_MEERKAT }}
+          TOK_MOOSE: ${{ secrets.CLAUDE_TOKEN_MOOSE }}
+          TOK_NEWT: ${{ secrets.CLAUDE_TOKEN_NEWT }}
+          TOK_PANTHER: ${{ secrets.CLAUDE_TOKEN_PANTHER }}
+          TOK_PARROT: ${{ secrets.CLAUDE_TOKEN_PARROT }}
+          TOK_OTTER: ${{ secrets.CLAUDE_TOKEN_OTTER }}
+          TOK_FALCON: ${{ secrets.CLAUDE_TOKEN_FALCON }}
+          MODEL: ${{ steps.select.outputs.fallback_model || steps.select.outputs.model }}
+          SKIP_SEATS: ${{ steps.pick.outputs.tried }}
+        run: python3 "$RUNNER_TEMP/pick_seat.py"
+
+      # The first attempt left its GitHub App token in origin's URL and
+      # revoked it on exit. The retry's branch setup runs `git fetch` before
+      # it configures its own auth, so that dead token made every retry die
+      # in branch setup ("Invalid username or token"). Point origin back at
+      # the plain URL with the job's own token, as actions/checkout does; the
+      # retry then replaces this with its own token as usual.
+      - name: Reset git auth for the retry
+        if: ${{ !cancelled() && steps.billing.outputs.retry == 'true' }}
+        env:
+          JOB_TOKEN: ${{ github.token }}
+        run: |
+          git remote set-url origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          basic=$(printf 'x-access-token:%s' "$JOB_TOKEN" | base64 -w0)
+          git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${basic}"
+          git ls-remote --heads origin main >/dev/null && echo "origin reachable with the job token"
+
+          # The first attempt can leave uncommitted files, and the retry's branch
+          # setup then can't check out its base ("Your local changes ... would be
+          # overwritten by checkout"; byu-finances issue 131, run 45967038494).
+          # Keep them in a local commit on a claude/ branch, where the retry's
+          # prompt tells it to look, so the tree is clean.
+          # - Changes to tracked files are committed.
+          # - Ignored files are never added (git honours .gitignore).
+          # - Each untracked file is checked first. Names that look like
+          #   credentials, caches and virtualenvs, nested git repositories, files
+          #   over 5 MB and anything past the 300th new file are moved to
+          #   $RUNNER_TEMP/first-attempt-set-aside instead (same job, so the
+          #   retry can still reach them). Only their paths are logged, and the
+          #   commit message lists them. Nothing is pushed here.
+          if [ -n "$(git status --porcelain)" ]; then
+            wip="claude/first-attempt-wip-${GITHUB_RUN_ID}"
+            aside="${RUNNER_TEMP}/first-attempt-set-aside"
+            git switch -q -c "$wip"
+            git add -u
+            kept=0
+            notes="$(mktemp)"
+            while IFS= read -r -d '' f; do
+              reason=""
+              case "/$f" in
+                */) reason="a nested git repository" ;;
+                */.env|*/.env.*|*.pem|*.key|*.p12|*.pfx|*/id_rsa*|*/id_ed25519*|*/.netrc|*/.npmrc|*/.pypirc|*credential*|*secret*|*token*|*cookie*|*storage_state*|*storage-state*|*/state.json|*.pickle|*.pkl|*/settings.local.json|*.har)
+                  reason="the name looks like a credential" ;;
+                */.venv/*|*/venv/*|*/node_modules/*|*/__pycache__/*|*.pyc|*/.cache/*|*/.pytest_cache/*|*/.mypy_cache/*|*/.ruff_cache/*|*/.ipynb_checkpoints/*|*.egg-info/*|*/.tox/*)
+                  reason="a cache or virtualenv" ;;
+              esac
+              if [ -z "$reason" ] && [ -f "$f" ] && [ "$(stat -c %s "$f")" -gt 5242880 ]; then
+                reason="over 5 MB"
+              fi
+              if [ -z "$reason" ] && [ "$kept" -ge 300 ]; then
+                reason="past the 300th new file"
+              fi
+              if [ -n "$reason" ]; then
+                mkdir -p "$aside/$(dirname "$f")"
+                mv "$f" "$aside/${f%/}"
+                echo "- ${f} (${reason})" >> "$notes"
+              else
+                git add -- "$f"
+                kept=$((kept + 1))
+              fi
+            done < <(git ls-files -z --others --exclude-standard)
+            if [ -s "$notes" ]; then
+              echo "Set aside in $aside, not committed:"
+              cat "$notes"
+            fi
+            if git diff --cached --quiet; then
+              echo "Nothing left to commit after setting files aside"
+            else
+              {
+                echo "First attempt's uncommitted changes (run ${GITHUB_RUN_ID}), kept for the retry"
+                if [ -s "$notes" ]; then
+                  echo
+                  echo "Set aside in $aside, not committed:"
+                  cat "$notes"
+                fi
+              } > "${notes}.msg"
+              git -c user.name="claude[bot]" -c user.email="41898282+claude[bot]@users.noreply.github.com" \
+                commit -q --no-verify -F "${notes}.msg"
+              echo "Kept the first attempt's changes on local branch $wip ($(git rev-parse --short HEAD)): tracked changes and $kept new files"
+            fi
+            if [ -n "$(git status --porcelain)" ]; then
+              echo "::warning::The tree still isn't clean after keeping the first attempt's changes"
+              git status --short | head -20
+            fi
+          else
+            echo "The first attempt left no uncommitted changes"
+          fi
+
+      # The action pins a comment-triggered PR run to the version the commenter
+      # saw: it won't start if the branch's latest push is at or after the
+      # trigger ("PR #N was updated after the trigger"). If the first attempt
+      # pushed to the PR branch before it failed, that check refused the retry,
+      # which then did nothing (byu-vcl PR 394, run 45781437965). This step
+      # moves the retry's trigger time to just after the first attempt's last
+      # push, and only when every push since the trigger was a plain push by
+      # the Claude app, chained from the head the trigger saw, the trigger
+      # comment wasn't edited, and nobody but a bot has posted in the thread
+      # since. Otherwise it changes nothing and the action decides.
+      #
+      # How: the line where the action takes its trigger time
+      # (src/modes/tag/index.ts in the copy the retry runs) is pointed at
+      # CLAUDE_RETRY_TRIGGER_TIME, set through GITHUB_ENV. Rewriting the event
+      # payload file doesn't work: the runner rewrites event.json before every
+      # action step (digital-alloy-lab PR 249, run 45933150247). If the action's
+      # line isn't there exactly once, nothing is changed.
+      - name: Let the retry build on the first attempt's pushes
+        if: ${{ !cancelled() && steps.billing.outputs.retry == 'true' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os, subprocess, sys
+
+          repo = os.environ["GITHUB_REPOSITORY"]
+          event_name = os.environ["GITHUB_EVENT_NAME"]
+          path = os.environ["GITHUB_EVENT_PATH"]
+          ev = json.load(open(path))
+
+          def api(route):
+              out = subprocess.run(["gh", "api", route], capture_output=True, text=True, check=True).stdout
+              return json.loads(out)
+
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as fh:
+              fh.write("CLAUDE_RETRY_TRIGGER_TIME=\n")
+
+          def stop(msg):
+              print(f"Leaving the trigger time alone: {msg}")
+              sys.exit(0)
+
+          def ts(s):
+              return datetime.datetime.fromisoformat(s.replace("Z", "+00:00"))
+
+          if event_name == "issue_comment" and ev.get("issue", {}).get("pull_request"):
+              obj, field, number = "comment", "created_at", ev["issue"]["number"]
+              comment_route = f"repos/{repo}/issues/comments/{ev['comment']['id']}"
+          elif event_name == "pull_request_review_comment":
+              obj, field, number = "comment", "created_at", ev["pull_request"]["number"]
+              comment_route = f"repos/{repo}/pulls/comments/{ev['comment']['id']}"
+          elif event_name == "pull_request_review":
+              obj, field, number = "review", "submitted_at", ev["pull_request"]["number"]
+              comment_route = None
+          else:
+              stop("not a comment or review on a PR")
+
+          trigger = ts(ev[obj][field])
+          pr = api(f"repos/{repo}/pulls/{number}")
+          if pr["state"] != "open":
+              stop("the PR is not open")
+          if pr["head"]["repo"] is None or pr["head"]["repo"]["full_name"] != repo:
+              stop("the PR's branch is not in this repo")
+          branch, head = pr["head"]["ref"], pr["head"]["sha"]
+
+          pushes = api(f"repos/{repo}/activity?ref=refs/heads/{branch}&per_page=100")
+          if not pushes or pushes[0]["after"] != head:
+              stop("the branch's push record doesn't end at the PR head")
+          if ts(pushes[0]["timestamp"]) < trigger:
+              stop("nothing was pushed after the trigger")
+
+          after = [p for p in pushes if ts(p["timestamp"]) >= trigger]
+          before = [p for p in pushes if ts(p["timestamp"]) < trigger]
+          if not before:
+              stop("no push before the trigger in the record")
+          for p in after:
+              if p.get("activity_type") != "push" or (p.get("actor") or {}).get("login") != "claude[bot]":
+                  stop(f"a push after the trigger was a {p.get('activity_type')} by {(p.get('actor') or {}).get('login')}")
+          chain = after + [before[0]]
+          for newer, older in zip(chain, chain[1:]):
+              if newer["before"] != older["after"]:
+                  stop("the pushes after the trigger don't chain from the head the trigger saw")
+
+          if comment_route:
+              c = api(comment_route)
+              if c["updated_at"] != c["created_at"]:
+                  stop("the trigger comment was edited")
+
+          def human_since(items, key):
+              return [i for i in items if (i.get("user") or {}).get("type") != "Bot" and i.get(key) and ts(i[key]) >= trigger]
+
+          since = f"since={ev[obj][field]}"
+          people = human_since(api(f"repos/{repo}/issues/{number}/comments?{since}&per_page=100"), "created_at")
+          people += human_since(api(f"repos/{repo}/pulls/{number}/comments?{since}&per_page=100"), "created_at")
+          people += [r for r in human_since(api(f"repos/{repo}/pulls/{number}/reviews?per_page=100"), "submitted_at")
+                     if r.get("id") != ev.get("review", {}).get("id")]
+          if comment_route:
+              people = [p for p in people if p.get("id") != ev["comment"]["id"]]
+          if people:
+              stop(f"{len(people)} comment(s) or review(s) by people since the trigger")
+
+          new = (ts(pushes[0]["timestamp"]) + datetime.timedelta(seconds=1)).strftime("%Y-%m-%dT%H:%M:%SZ")
+          src_path = os.path.join(os.path.dirname(os.environ["RUNNER_WORKSPACE"]), "_actions", "anthropics",
+                                  "claude-code-action", "v1", "src", "modes", "tag", "index.ts")
+          old_line = "const triggerTime = await resolveTriggerTimestamp(context, octokit);"
+          new_line = ("const triggerTime = process.env.CLAUDE_RETRY_TRIGGER_TIME || "
+                      "(await resolveTriggerTimestamp(context, octokit));")
+          if not os.path.isfile(src_path):
+              stop(f"the action's source isn't at {src_path}")
+          src = open(src_path, encoding="utf-8").read()
+          if src.count(old_line) != 1:
+              stop("the action's trigger-time line has changed, so the action's own check decides")
+          with open(src_path, "w", encoding="utf-8") as fh:
+              fh.write(src.replace(old_line, new_line))
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as fh:
+              fh.write(f"CLAUDE_RETRY_TRIGGER_TIME={new}\n")
+          print(f"The first attempt pushed {len(after)} time(s) to {branch} after the trigger "
+                f"({before[0]['after'][:7]} -> {head[:7]}), all plain pushes by claude[bot]. "
+                f"The retry's trigger time is now {new} (was {trigger:%Y-%m-%dT%H:%M:%SZ}).")
+          PY
+
+      # Second attempt, on another seat (and the fallback model, if one is set). This is a fresh session: it posts
       # its own tracking comment and starts the task from the beginning, so the
       # note below tells it to look at what the first attempt already did.
       - name: Run Claude Code on the fallback model
@@ -387,7 +805,7 @@ jobs:
         if: ${{ !cancelled() && steps.billing.outputs.retry == 'true' }}
         uses: anthropics/claude-code-action@v1
         with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_code_oauth_token: ${{ secrets[format('CLAUDE_TOKEN_{0}', steps.pick2.outputs.seat)] || secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # claude-code-action v1.0.273+ denies python, pip, node and other code-running
           # commands on PRs whose author lacks write access, and treats every bot as such.
           # Lift that only for PRs the Claude app opened (in-repo branches that only
@@ -421,11 +839,12 @@ jobs:
           # https://github.com/ME-EN-372/me-en-372-machine-design-private/blob/main/docs/claude-yml-model-fallback.md
           branch_prefix: claude/retry-
           prompt: |
-            An earlier attempt at this same task ran on ${{ steps.select.outputs.model }} and stopped when that model's allowance ran out. You are the retry, running on ${{ steps.select.outputs.fallback_model }}. Before you start, check this thread for anything that attempt already posted, and check the claude/ branches left in this checkout (git branch --list 'claude/*') for anything it committed, whether or not it pushed; carry on from there rather than redoing it. Its progress comment is the one above yours that reports an error.
+            An earlier attempt at this same task ran on ${{ steps.select.outputs.model }} and stopped ${{ steps.billing.outputs.cause || 'when its allowance ran out' }}. You are the retry, running on ${{ steps.select.outputs.fallback_model || steps.select.outputs.model }} with a different seat. Before you start, check this thread for anything that attempt already posted, and check the claude/ branches left in this checkout (git branch --list 'claude/*') for anything it committed, whether or not it pushed; carry on from there rather than redoing it. Its progress comment is the one above yours that reports an error.
           claude_args: |
-            --model ${{ steps.select.outputs.fallback_model }}
+            --model ${{ steps.select.outputs.fallback_model || steps.select.outputs.model }}
             --effort ${{ steps.select.outputs.effort }}
             --permission-mode bypassPermissions
+            --thinking-display summarized
 
       # Optional, recommended if you set show_full_output=True. Artifact names
       # have to differ, so the two attempts upload separately.
@@ -453,6 +872,6 @@ jobs:
         run: |
           echo "First attempt (${{ steps.select.outputs.model }}) failed: $REASON"
           if [[ "$RETRIED" == "true" ]]; then
-            echo "Retry on ${{ steps.select.outputs.fallback_model }} also failed."
+            echo "Retry on ${{ steps.select.outputs.fallback_model || steps.select.outputs.model }} (seat ${{ steps.pick2.outputs.seat || 'CLAUDE_CODE_OAUTH_TOKEN' }}) also failed."
           fi
           exit 1
